@@ -2,7 +2,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const SRC_FILE = '/Users/Ragnarock/Desktop/MauroGOOC_Power/Portafolio/index.html';
+const SRC_FILE = path.join(__dirname, '../public/original/index.html');
 const DEST_FILE = path.join(__dirname, '../public/original/index_clean.html');
 const DNA_FILE = path.join(__dirname, '../src/data/evidence-dna.json');
 
