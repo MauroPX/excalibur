@@ -2,20 +2,20 @@
 import React from 'react';
 
 /**
- *  MIDNIGHT LIQUID GLASS ENGINE (iOS 26) - v78.0 ROBOTO FLEX
+ *  MIDNIGHT LIQUID GLASS ENGINE (iOS 26) - v94.0 MD3 INTEGRATION
  */
 export const LiquidGlassStyles: React.CSSProperties = {
-  background: 'rgba(10, 10, 10, 0.9)', 
+  background: 'var(--md-sys-color-surface)', 
   backdropFilter: 'blur(60px) saturate(210%)',
   WebkitBackdropFilter: 'blur(60px) saturate(210%)',
-  border: '1px solid rgba(255, 255, 255, 0.18)',
+  border: '1px solid var(--md-sys-color-outline)',
   boxShadow: `
     0 30px 100px rgba(0, 0, 0, 0.8),
     inset 0 0 0 1px rgba(255, 255, 255, 0.05),
     inset 0 1px 1px rgba(255, 255, 255, 0.1)
   `,
   borderRadius: '24px',
-  color: '#f8fafc',
+  color: 'var(--md-sys-color-on-surface)',
   fontFamily: "'Roboto Flex', sans-serif",
   position: 'relative',
   overflow: 'hidden'
@@ -33,26 +33,26 @@ export const LiquidGlint = () => (
 );
 
 /**
- *  STAFF ATOM: LIQUID BUTTON (Roboto Flex)
+ *  STAFF ATOM: LIQUID BUTTON (MD3 Token Mapping)
  */
 export const StaffButton = ({ children, onClick, variant = 'primary', className = '', style = {} }: any) => {
   const [isHovered, setIsHovered] = React.useState(false);
   const base: React.CSSProperties = {
-    padding: variant === 'close' ? '0' : '10px 20px', 
+    padding: variant === 'close' ? '0' : '10px 24px', 
     borderRadius: variant === 'close' ? '50%' : '12px',
     cursor: 'pointer', fontWeight: '700', transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
     display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px',
-    border: '1px solid rgba(255,255,255,0.15)',
+    border: '1px solid var(--md-sys-color-outline)',
     transform: isHovered ? 'scale(1.04) translateY(-1px)' : 'scale(1)',
     fontSize: '12.5px',
     fontFamily: "'Roboto Flex', sans-serif",
     ...style
   };
   const variants: any = {
-    primary: { background: 'linear-gradient(180deg, #3B82F6 0%, #1E4ED8 100%)', color: 'white', border: 'none' },
-    secondary: { background: 'rgba(255,255,255,0.06)', color: 'white' },
-    ghost: { background: 'transparent', border: 'none', color: '#60a5fa', padding: '6px 0' },
-    close: { width: '32px', height: '32px', background: isHovered ? '#EF4444' : 'rgba(255,255,255,0.1)', color: 'white' }
+    primary: { background: 'linear-gradient(180deg, var(--md-sys-color-primary) 0%, #1E4ED8 100%)', color: 'var(--md-sys-color-on-primary)', border: 'none' },
+    secondary: { background: 'var(--md-sys-color-primary-container)', color: 'var(--md-sys-color-on-primary-container)' },
+    ghost: { background: 'transparent', border: 'none', color: 'var(--md-sys-color-secondary)', padding: '6px 0' },
+    close: { width: '32px', height: '32px', background: isHovered ? 'var(--md-sys-color-error)' : 'rgba(255,255,255,0.1)', color: 'white' }
   };
   return (
     <button onClick={onClick} style={{ ...base, ...variants[variant] }} onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)} className={className}>
@@ -63,10 +63,12 @@ export const StaffButton = ({ children, onClick, variant = 'primary', className 
 };
 
 /**
- *  STAFF ATOM: LIQUID FAB (Roboto Flex)
+ *  STAFF ATOM: LIQUID FAB (MD3 Token Mapping)
  */
-export const LiquidFAB = ({ children, onClick, activeColor = '#1E4ED8', isActive = false }: any) => {
+export const LiquidFAB = ({ children, onClick, isActive = false }: any) => {
   const [isHovered, setIsHovered] = React.useState(false);
+  const activeColor = 'var(--md-sys-color-primary)';
+  
   return (
     <button
       onClick={onClick}
@@ -78,8 +80,8 @@ export const LiquidFAB = ({ children, onClick, activeColor = '#1E4ED8', isActive
         display: 'flex', alignItems: 'center', justifyContent: 'center',
         cursor: 'pointer', transition: 'all 0.5s cubic-bezier(0.16, 1, 0.3, 1)',
         transform: isHovered ? 'scale(1.1) rotate(1deg)' : 'scale(1)',
-        boxShadow: isActive ? `0 0 40px ${activeColor}` : '0 20px 50px rgba(0,0,0,0.7)',
-        border: isActive ? `2.5px solid ${activeColor}` : '1px solid rgba(255,255,255,0.25)',
+        boxShadow: isActive ? `0 0 40px var(--md-sys-color-primary)` : '0 20px 50px rgba(0,0,0,0.7)',
+        border: isActive ? `2.5px solid var(--md-sys-color-primary)` : '1px solid var(--md-sys-color-outline)',
         zIndex: 2147483647
       }}
       onMouseEnter={() => setIsHovered(true)}
