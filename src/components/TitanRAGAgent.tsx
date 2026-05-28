@@ -71,7 +71,7 @@ export const TitanRAGAgent = ({ onClose }: { onClose: () => void }) => {
     if (project) {
       setShownIds(prev => [...prev, project.id]);
       return {
-        text: `Consultando evidencia de **${project.client}**:\n\n• ${project.achievements.join('\n• ')}\n\n**Stack:** ${project.stack.join(', ')}`,
+        text: `Consultando evidencia de **${project.client}**:\n\n**[P] Problema:** ${project.par.problem}\n**[A] Acción:** ${project.par.action}\n**[R] Resultado:** ${project.par.result}\n\n**Skills:** ${project.skills.join(', ')}\n**Methodologies:** ${project.methodologies.join(', ')}`,
         path: `DNA_MATCH > [${project.id}]`,
         routes: ["Ver Expediente SSOT", "Otro Proyecto", "Impacto ROI"]
       };

@@ -217,18 +217,6 @@
 
 /* Primitive tokens */
 :root {
-  /* MD3 Color Tokens (Light - Placeholder) */
-  --md-sys-color-primary: #1E4ED8;
-  --md-sys-color-on-primary: #FFFFFF;
-  --md-sys-color-primary-container: #DBEAFE;
-  --md-sys-color-on-primary-container: #1E3A8A;
-  --md-sys-color-secondary: #60A5FA;
-  --md-sys-color-on-secondary: #FFFFFF;
-  --md-sys-color-surface: #F8FAFC;
-  --md-sys-color-on-surface: #080C12;
-  --md-sys-color-outline: rgba(0, 0, 0, 0.12);
-  --md-sys-color-error: #B91C1C;
-
   /* Color primitives */
   --color-blue-900: #1E3A8A;
   --color-blue-700: #1D4ED8;
@@ -324,18 +312,6 @@
 
 /* Semantic tokens — dark theme */
 [data-theme="dark"] {
-  /* MD3 Color Tokens (Dark) */
-  --md-sys-color-primary: #1E4ED8;
-  --md-sys-color-on-primary: #FFFFFF;
-  --md-sys-color-primary-container: rgba(30, 78, 216, 0.2);
-  --md-sys-color-on-primary-container: #60A5FA;
-  --md-sys-color-secondary: #60A5FA;
-  --md-sys-color-on-secondary: #080C12;
-  --md-sys-color-surface: rgba(10, 10, 10, 0.9);
-  --md-sys-color-on-surface: #F8FAFC;
-  --md-sys-color-outline: rgba(255, 255, 255, 0.18);
-  --md-sys-color-error: #F87171;
-
   --color-bg:        var(--color-slate-950);
   --color-bg-2:      #0D1320;
   --color-bg-3:      #111927;
@@ -2240,18 +2216,6 @@ footer {
 
 /* Primitive tokens */
 :root {
-  /* MD3 Color Tokens (Light - Placeholder) */
-  --md-sys-color-primary: #1E4ED8;
-  --md-sys-color-on-primary: #FFFFFF;
-  --md-sys-color-primary-container: #DBEAFE;
-  --md-sys-color-on-primary-container: #1E3A8A;
-  --md-sys-color-secondary: #60A5FA;
-  --md-sys-color-on-secondary: #FFFFFF;
-  --md-sys-color-surface: #F8FAFC;
-  --md-sys-color-on-surface: #080C12;
-  --md-sys-color-outline: rgba(0, 0, 0, 0.12);
-  --md-sys-color-error: #B91C1C;
-
   /* Color primitives */
   --color-blue-900: #1E3A8A;
   --color-blue-700: #1D4ED8;
@@ -2347,18 +2311,6 @@ footer {
 
 /* Semantic tokens — dark theme */
 [data-theme="dark"] {
-  /* MD3 Color Tokens (Dark) */
-  --md-sys-color-primary: #1E4ED8;
-  --md-sys-color-on-primary: #FFFFFF;
-  --md-sys-color-primary-container: rgba(30, 78, 216, 0.2);
-  --md-sys-color-on-primary-container: #60A5FA;
-  --md-sys-color-secondary: #60A5FA;
-  --md-sys-color-on-secondary: #080C12;
-  --md-sys-color-surface: rgba(10, 10, 10, 0.9);
-  --md-sys-color-on-surface: #F8FAFC;
-  --md-sys-color-outline: rgba(255, 255, 255, 0.18);
-  --md-sys-color-error: #F87171;
-
   --color-bg:        var(--color-slate-950);
   --color-bg-2:      #0D1320;
   --color-bg-3:      #111927;
