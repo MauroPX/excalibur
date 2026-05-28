@@ -19,9 +19,15 @@ export const TitanRAGAgent = ({ onClose }: { onClose: () => void }) => {
   const scrollRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (scrollRef.current) {
-      scrollRef.current.scrollTo({ top: scrollRef.current.scrollHeight, behavior: 'smooth' });
-    }
+    const timer = setTimeout(() => {
+      if (scrollRef.current) {
+        scrollRef.current.scrollTo({
+          top: scrollRef.current.scrollHeight,
+          behavior: 'smooth'
+        });
+      }
+    }, 100);
+    return () => clearTimeout(timer);
   }, [chat, isThinking]);
 
   const roles = [
@@ -30,46 +36,20 @@ export const TitanRAGAgent = ({ onClose }: { onClose: () => void }) => {
     { name: 'DesignOps Architect', desc: 'Optimización de pipelines y automatización de entrega (Sistema MERKEN).' }
   ];
 
-  const handleSend = (override?: string) => {
-    const activeQ = override || query;
-    if (!activeQ.trim() || isThinking) return;
-
-    setChat(prev => [...prev, { role: 'user', text: activeQ }]);
-    setQuery('');
-    setIsThinking(true);
-
-    setTimeout(() => {
-      const response = processQuery(activeQ);
-      setChat(prev => [...prev, { 
-        role: 'agent', 
-        text: response.text, 
-        path: response.path, 
-        routes: response.routes 
-      }]);
-      setIsThinking(false);
-
-      if (response.viewId) {
-        const iframe = document.querySelector('iframe') as HTMLIFrameElement;
-        if (iframe?.contentWindow && (iframe.contentWindow as any).navigateTo) {
-          (iframe.contentWindow as any).navigateTo(response.viewId);
-        }
-      }
-    }, 800);
-  };
-
   const processQuery = (q: string) => {
     const qL = q.toLowerCase();
     
     // 1. PROJECT SEARCH
     const project = (evidenceData as any[]).find(p => 
-      !shownIds.includes(p.id) && (
-        qL.includes(p.client.toLowerCase()) || 
-        qL.includes(p.sector.toLowerCase())
-      )
+      qL.includes(p.client.toLowerCase()) || 
+      qL.includes(p.sector.toLowerCase()) ||
+      p.id.toLowerCase().includes(qL)
     );
 
     if (project) {
-      setShownIds(prev => [...prev, project.id]);
+      if (!shownIds.includes(project.id)) {
+        setShownIds(prev => [...prev, project.id]);
+      }
       return {
         text: `Consultando evidencia de **${project.client}**:\n\n**[P] Problema:** ${project.par.problem}\n**[A] Acción:** ${project.par.action}\n**[R] Resultado:** ${project.par.result}\n\n**Skills:** ${project.skills.join(', ')}\n**Methodologies:** ${project.methodologies.join(', ')}`,
         path: `DNA_MATCH > [${project.id}]`,
@@ -103,6 +83,33 @@ export const TitanRAGAgent = ({ onClose }: { onClose: () => void }) => {
       path: "GATE_READY > WAITING",
       routes: ["Expediente SSOT", "Ver Proyecto BBVA", "Impacto ROI"]
     };
+  };
+
+  const handleSend = (override?: string) => {
+    const activeQ = override || query;
+    if (!activeQ.trim() || isThinking) return;
+
+    setChat(prev => [...prev, { role: 'user', text: activeQ }]);
+    setQuery('');
+    setIsThinking(true);
+
+    setTimeout(() => {
+      const response = processQuery(activeQ);
+      setChat(prev => [...prev, { 
+        role: 'agent', 
+        text: response.text, 
+        path: response.path, 
+        routes: response.routes 
+      }]);
+      setIsThinking(false);
+
+      if (response.viewId) {
+        const iframe = document.querySelector('iframe') as HTMLIFrameElement;
+        if (iframe?.contentWindow && (iframe.contentWindow as any).navigateTo) {
+          (iframe.contentWindow as any).navigateTo(response.viewId);
+        }
+      }
+    }, 600);
   };
 
   return (
