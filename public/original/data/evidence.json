@@ -1,0 +1,434 @@
+[
+  {
+    "id": "eltiempo-2013",
+    "project": "El Tiempo",
+    "year": "2013",
+    "sector": "Medios",
+    "tech": ["Axure RP", "Photoshop"],
+    "methodology": "UCD; Eye-tracking",
+    "impact": "Rediseño flujos registro/suscripción",
+    "details": {
+      "context": "Primer hito de arquitectura de producto en el medio de comunicación más importante de Colombia.",
+      "achievements": [
+        "Optimización de la tasa de conversión en el flujo de registro mediante pruebas de eye-tracking.",
+        "Implementación de metodología de Diseño Centrado en el Usuario (UCD) para la suite digital.",
+        "Rediseño de la experiencia de usuario para el portal de suscripciones pagas."
+      ],
+      "metrics": "Aumento en la retención de usuarios en el embudo de registro."
+    }
+  },
+  {
+    "id": "sinergia-2015",
+    "project": "SINERGIA - DNP",
+    "year": "2015",
+    "sector": "Gobierno",
+    "tech": ["Spring Boot", "Angular", "Docker"],
+    "methodology": "DDD; Historias de Usuario",
+    "impact": "Seguimiento PND; Cumplimiento NTC 5854",
+    "details": {
+      "context": "Sistema centralizado de seguimiento a los Planes Nacionales de Desarrollo (PND) de Colombia.",
+      "achievements": [
+        "Arquitectura de software basada en Domain-Driven Design (DDD) para procesos gubernamentales complejos.",
+        "Aseguramiento del cumplimiento de la norma de accesibilidad NTC 5854 (Nivel A/AA).",
+        "Implementación de contenedores Docker para paridad de entornos en el Departamento Nacional de Planeación."
+      ],
+      "metrics": "Traceabilidad del 100% de los indicadores del PND."
+    }
+  },
+  {
+    "id": "colsanitas-2017",
+    "project": "Colsanitas",
+    "year": "2017",
+    "sector": "Salud",
+    "tech": ["Liferay DXP", "JBoss", "Oracle"],
+    "methodology": "Design Thinking; Sprints",
+    "impact": "Migración APP nativa y portal DXP",
+    "details": {
+      "context": "Transformación digital del ecosistema de salud de Colsanitas/Medisanitas.",
+      "achievements": [
+        "Modernización de la Historia Clínica Digital (Avicena) mediante una capa de interoperabilidad OSI.",
+        "Liderazgo de 10 sesiones de usabilidad con médicos adscritos para identificar fricciones operativas.",
+        "Migración masiva de servicios legados a la plataforma Liferay DXP."
+      ],
+      "metrics": "Reducción significativa en el tiempo de respuesta de la oficina virtual."
+    }
+  },
+  {
+    "id": "ecopetrol-2017",
+    "project": "Ecopetrol",
+    "year": "2017",
+    "sector": "Energía",
+    "tech": ["Sketch", "Axure", "SASS/LESS"],
+    "methodology": "Atomic Design; Material Design",
+    "impact": "Design System SSOT; WCAG 2.1 AA",
+    "details": {
+      "context": "Creación de la 'Single Source of Truth' (SSOT) visual para la empresa de energía más grande de Colombia.",
+      "achievements": [
+        "Diseño de un sistema de componentes atómicos con grillas de 12 columnas escalables.",
+        "Auditoría y aplicación de pautas WCAG 2.1 para garantizar accesibilidad en portales B2B.",
+        "Creación de librerías de UI para Web, Android e iOS bajo estándares corporativos."
+      ],
+      "metrics": "+6,000 puntos de control de accesibilidad validados."
+    }
+  },
+  {
+    "id": "oldmutual-2017",
+    "project": "OLDMutual",
+    "year": "2017",
+    "sector": "Seguros",
+    "tech": ["REST", "SOAP"],
+    "methodology": "UCD; Agile",
+    "impact": "Dinamización portal; Alertas FATCA",
+    "details": {
+      "context": "Modernización del portal transaccional de Old Mutual (hoy Skandia).",
+      "achievements": [
+        "Dinamización de pantallas de detalle de contratos mediante servicios REST/SOAP.",
+        "Implementación del sistema de alertas preventivas (OM.CustomerAlarms) para cumplimiento FATCA.",
+        "Estandarización de componentes de interfaz para visualización responsive."
+      ],
+      "metrics": "Aumento en la autogestión de usuarios en el portal de fondos de inversión."
+    }
+  },
+  {
+    "id": "procolombia-2017",
+    "project": "PROCOLOMBIA",
+    "year": "2017",
+    "sector": "Gobierno",
+    "tech": ["Drupal", "Moodle", "SSO"],
+    "methodology": "Design Sprint; DCU",
+    "impact": "Ecosistema autogestión empresarios turismo",
+    "details": {
+      "context": "Diseño de un ecosistema digital integral para empresarios de turismo nacionales e internacionales.",
+      "achievements": [
+        "Orquestación de Single Sign-On (SSO) para unificar el acceso a 6 módulos críticos.",
+        "Ejecución de Sprints de Diseño de 8 semanas para validar hipótesis de autogestión.",
+        "Integración de plataformas de E-learning (Moodle) y CRM (NEO) en un solo flujo de usuario."
+      ],
+      "metrics": "Optimización del 80% en los tiempos de registro de empresarios."
+    }
+  },
+  {
+    "id": "redeban-2017",
+    "project": "REDEBAN",
+    "year": "2017",
+    "sector": "Fintech",
+    "tech": ["Angular 9", "Spring Boot", "Docker"],
+    "methodology": "Modelo 4+1; DesignOps",
+    "impact": "Modernización Tesorería; WCAG 2.1 AAA",
+    "details": {
+      "context": "Modernización del Sistema de Atención a Comercios (SAC) de la red de pagos nacional.",
+      "achievements": [
+        "Gestión técnica de presupuesto por $48.9M COP para la migración de JSF a microservicios.",
+        "Aplicación del modelo 4+1 vistas de Kruchten para documentar decisiones de arquitectura.",
+        "Configuración de ambientes automatizados con Docker para garantizar paridad Dev/Prod."
+      ],
+      "metrics": "Migración 100% exitosa sin interrupción del servicio de compensación diaria."
+    }
+  },
+  {
+    "id": "tvs-2017",
+    "project": "TVS (Fundación Santa Fe)",
+    "year": "2017",
+    "sector": "Salud",
+    "tech": ["Axure RP", "Sketch"],
+    "methodology": "BPM; Atomic Design",
+    "impact": "Gestión citas; Facturación SOAT CIE10",
+    "details": {
+      "context": "Diseño del Terminal Virtual Sanitario Plus (TVS+) para CHIP CARD Salud en la FSFB.",
+      "achievements": [
+        "Modelado de procesos de negocio (BPM) para la gestión del ciclo de vida de la cita médica.",
+        "Diseño de flujos operativos para facturación SOAT en tiempo real con estándares CIE10.",
+        "Creación de una librería de 400+ componentes reutilizables para el entorno hospitalario."
+      ],
+      "metrics": "Digitalización completa del proceso de admisión de urgencias."
+    }
+  },
+  {
+    "id": "udea-2017",
+    "project": "UdeA",
+    "year": "2017",
+    "sector": "Educación",
+    "tech": ["Material Design", "Sketch"],
+    "methodology": "Mobile First; ATDD",
+    "impact": "Buscador egresados SNIES; Home Institucional",
+    "details": {
+      "context": "Transformación digital del portal institucional de la Universidad de Antioquia.",
+      "achievements": [
+        "Rediseño del Home Institucional bajo enfoque Mobile-First y estándares Material Design.",
+        "Desarrollo de taxonomías complejas para agrupar 26 unidades académicas y programas SNIES.",
+        "Implementación de Acceptance Test-Driven Development (ATDD) vinculado a historias de usuario."
+      ],
+      "metrics": "Validación de 16 casos funcionales críticos con resultados 100% correctos."
+    }
+  },
+  {
+    "id": "lasalle-2017",
+    "project": "Univ. LA SALLE",
+    "year": "2017",
+    "sector": "Educación",
+    "tech": ["WebSphere Portal", "Angular 8"],
+    "methodology": "WCAG 2.1 AA; PWA",
+    "impact": "Rediseño integral; >1000 páginas",
+    "details": {
+      "context": "Arquitectura del ecosistema digital 360 para la Universidad de La Salle.",
+      "achievements": [
+        "Rediseño de más de 200 vistas de diseño y ejecución de un Sitemap con 1,000+ páginas.",
+        "Implementación de zona privada (Intranet) con Angular 8 y capacidades PWA.",
+        "Pruebas de carga y estrés garantizando estabilidad para 1,000 usuarios concurrentes."
+      ],
+      "metrics": "Cumplimiento del 100% de la normativa MinTIC para educación superior."
+    }
+  },
+  {
+    "id": "cmc-2020",
+    "project": "Colegio Médico Colombiano",
+    "year": "2020",
+    "sector": "Salud",
+    "tech": ["Angular 9", "Spring Boot", "D3.js"],
+    "methodology": "BPMN; Scrum",
+    "impact": "Expedición Tarjeta Profesional Médica",
+    "details": {
+      "context": "Modernización de trámites estatales para la gestión gremial médica.",
+      "achievements": [
+        "Digitalización del flujo operativo para la expedición de la Tarjeta Profesional Médica y SSO.",
+        "Implementación de verificación biométrica facial y carga segura de documentos de alta densidad.",
+        "Visualización de estadísticas geográficas de médicos mediante librerías D3.js."
+      ],
+      "metrics": "Ahorro del 60% en el tiempo de procesamiento de trámites legales."
+    }
+  },
+  {
+    "id": "pqeb-2020",
+    "project": "PQEB",
+    "year": "2020",
+    "sector": "Salud",
+    "tech": ["CSS Grid", "SVG", "HTML5"],
+    "methodology": "QA; Atomic Design",
+    "impact": "Test Emocional; Validación Crossbrowsing",
+    "details": {
+      "context": "Diseño y QA de la plataforma de bienestar 'Porque Quiero Estar Bien'.",
+      "achievements": [
+        "Arquitectura de flujos para un Test Emocional interactivo con lógica de puntuación condicional.",
+        "Diseño de layouts responsivos basados en cuadrícula de 12 columnas (825px).",
+        "Validación exhaustiva de Crossbrowsing en dispositivos Apple (Mac OS/iOS) y Android."
+      ],
+      "metrics": "Identificación y mitigación de errores críticos de interfaz en el 2do Sprint."
+    }
+  },
+  {
+    "id": "adl-2021",
+    "project": "ADL Digital Labs",
+    "year": "2021",
+    "sector": "Educación",
+    "tech": ["MVP", "Prototipado rápido"],
+    "methodology": "Gamificación; Lean UX",
+    "impact": "Aumento aprendizaje validado en pilotos",
+    "details": {
+      "context": "Diseño de arquitectura para plataforma educativa de baja conectividad.",
+      "achievements": [
+        "Diseño de ecosistema Low-Bandwidth con principios de accesibilidad POUR.",
+        "Implementación de estrategias de Gamificación para aumentar la retención del estudiante.",
+        "Ciclos de Lean UX para validación rápida de Product-Market Fit en entornos corporativos."
+      ],
+      "metrics": "Aumento del compromiso del usuario en un 40% en pilotos de prueba."
+    }
+  },
+  {
+    "id": "ruedaz-2021",
+    "project": "Parking y Ruedaz",
+    "year": "2021",
+    "sector": "Movilidad",
+    "tech": ["Figma", "Zeplin", "Miro"],
+    "methodology": "PLG",
+    "impact": "90% incremento uso recurrente App",
+    "details": {
+      "context": "Diseño de experiencia SuperApp omnicanal para movilidad urbana.",
+      "achievements": [
+        "Aplicación de estrategias Product-Led Growth (PLG) para la activación de usuarios.",
+        "Integración de mapas interactivos en tiempo real y dashboards responsivos.",
+        "Optimización de métricas de Onboarding reduciendo el abandono inicial."
+      ],
+      "metrics": "90% de aumento en el uso recurrente de la aplicación."
+    }
+  },
+  {
+    "id": "correos-2023",
+    "project": "Correos Chile",
+    "year": "2023",
+    "sector": "Logística",
+    "tech": ["Excel", "Figma", "OTP"],
+    "methodology": "Manual Identidad; MVP",
+    "impact": "Estandarización 31 estados interacción",
+    "details": {
+      "context": "Modernización del Portal B2B de la empresa logística nacional de Chile.",
+      "achievements": [
+        "Reducción del tiempo de entrega de 12 a 6 meses mediante el framework 'Merken'.",
+        "Mapeo de lógicas logísticas masivas de 250 registros por archivo.",
+        "Creación de una librería de 400+ componentes reactivos en MUI React."
+      ],
+      "metrics": "Reducción del 50% en el Time-to-Market."
+    }
+  },
+  {
+    "id": "fdn-2023",
+    "project": "FDN (Accesibilidad)",
+    "year": "2023",
+    "sector": "Finanzas",
+    "tech": ["WCAG 2.1 AA", "TITAN v4.1"],
+    "methodology": "Auditoría WCAG",
+    "impact": "Certificación legal portal institucional",
+    "details": {
+      "context": "Auditoría técnica de cumplimiento normativo para la Financiera de Desarrollo Nacional.",
+      "achievements": [
+        "Evaluación punto a punto bajo el marco de la Resolución 1519 de MinTIC.",
+        "Generación de reportes técnicos de accesibilidad para entes de control.",
+        "Aplicación del framework TITAN v4.1 para la remediación de deuda técnica de diseño."
+      ],
+      "metrics": "Obtención de la Certificación Oficial de Accesibilidad 2024."
+    }
+  },
+  {
+    "id": "fid-2024",
+    "project": "FID Seguros Chile",
+    "year": "2024",
+    "sector": "Insurtech",
+    "tech": ["Excel", "Word"],
+    "methodology": "DDD; Scrum",
+    "impact": "Digitalización Consulta Riesgos Hipotecarios",
+    "details": {
+      "context": "Auditoría arquitectónica y desarrollo de producto para seguros de vehículos y riesgos hipotecarios.",
+      "achievements": [
+        "Construcción de un sistema operativo de diseño (BPM + Framework de 1,002 filas).",
+        "Gestión de 1109 inspecciones técnicas valoradas en $15.8M.",
+        "Migración de plataforma legacy OutSystems a React/MUI con Domain-Driven Design."
+      ],
+      "metrics": "+70% de eficiencia proyectada en la experiencia del cliente (CX)."
+    }
+  },
+  {
+    "id": "lasalle-2024",
+    "project": "Univ. La Salle (Nivelics)",
+    "year": "2024",
+    "sector": "Educación",
+    "tech": ["Next.js 14", "Strapi v5"],
+    "methodology": "Atomic Design; WCAG 2.2",
+    "impact": "Design System avanzado con tokens",
+    "details": {
+      "context": "Evolución tecnológica y normativa del ecosistema digital de la Universidad de La Salle.",
+      "achievements": [
+        "Alcance del nivel máximo de accesibilidad WCAG 2.2 AAA.",
+        "Implementación de una estrategia de accesibilidad progresiva en 3 capas (DOM, Menú A11y, RAG IA).",
+        "Configuración de Design System avanzado con variables y tokens en Figma."
+      ],
+      "metrics": "Riesgo legal cero (0) ante la obligación regulatoria MinTIC."
+    }
+  },
+  {
+    "id": "sured-2024",
+    "project": "SuRed - Baloto/Miloto",
+    "year": "2024",
+    "sector": "Fintech",
+    "tech": ["REST APIs", "JWT", "JasperReports"],
+    "methodology": "B2B Integration; Scrum",
+    "impact": "Activación transaccional segura",
+    "details": {
+      "context": "Integración tecnológica de productos de juegos de azar masivos en canales digitales SuRed.",
+      "achievements": [
+        "Activación de Baloto/Miloto mediante servicios REST con seguridad JWT (SHA-256).",
+        "Implementación de conciliación automática diaria con el Operador Nacional de Juegos.",
+        "Garantía de cumplimiento con estándares PCI-DSS y SIPLAFT."
+      ],
+      "metrics": "Operación 100% automatizada de conciliación de tiquetes digitales."
+    }
+  },
+  {
+    "id": "bbva-2025",
+    "project": "BBVA (Demos)",
+    "year": "2025",
+    "sector": "Banca",
+    "tech": ["IA (Gemini)", "Prompt Engineering"],
+    "methodology": "GEMAS; Walkthrough Inmersivo",
+    "impact": "200 usuarios impactados; 100% Pyme digital",
+    "details": {
+      "context": "Optimización operativa del departamento de Product Design para proyectos estratégicos de BBVA.",
+      "achievements": [
+        "Diseño del sistema GEMAS para orquestación de producción instruccional en 5 fases.",
+        "Automatización de guiones técnicos y DesignOps mediante Gemini Gems.",
+        "Arquitectura de flujos transaccionales USD para el Proyecto Brickell (Panamá)."
+      ],
+      "metrics": "-75% TTM / 200 usuarios Pyme gestionados remotamente."
+    }
+  },
+  {
+    "id": "fdn-2025",
+    "project": "FDN (Auditoría 2025)",
+    "year": "2025",
+    "sector": "Finanzas",
+    "tech": ["Lighthouse", "LCP"],
+    "methodology": "Gap Analysis WCAG 2.2",
+    "impact": "Identificación riesgo legal activo",
+    "details": {
+      "context": "Auditoría de brechas para la migración normativa a WCAG 2.2.",
+      "achievements": [
+        "Análisis transversal de 654 incidentes de accesibilidad en 7 secciones core.",
+        "Identificación de problemas críticos de Largest Contentful Paint (LCP) de 25s a <2.5s.",
+        "Mitigación de riesgos legales activos identificados en la sección de Transparencia."
+      ],
+      "metrics": "Reporte técnico aprobado para ejecución presupuestal CAPEX."
+    }
+  },
+  {
+    "id": "siclo-2025",
+    "project": "SI-CLO Convenios",
+    "year": "2025",
+    "sector": "Fintech",
+    "tech": ["SQL", "UI Flows"],
+    "methodology": "Wizard Design; Automatización",
+    "impact": "Originación crédito automatizada Ley 1527",
+    "details": {
+      "context": "Digitalización y automatización de la Gestión Integral de Convenios de Libranza.",
+      "achievements": [
+        "Automatización de la 'Matriz Comercial' mediante lógica programada para filtrar contratos.",
+        "Diseño de un Wizard de creación de convenios en 6 pasos con validación dinámica.",
+        "Cálculo automático de capacidad de crédito según metodología de Ley 1527."
+      ],
+      "metrics": "Validación de riesgo para montos de hasta $100M."
+    }
+  },
+  {
+    "id": "consolidado-2026",
+    "project": "Consolidado Histórico",
+    "year": "2026",
+    "sector": "Estratégico",
+    "tech": ["Multi-framework"],
+    "methodology": "SAFe; DesignOps",
+    "impact": "Portafolio liderazgo arquitectura producto",
+    "details": {
+      "context": "Consolidación de activos de carrera y piezas de evidencia técnica para nivel Staff.",
+      "achievements": [
+        "Intervención de 24 documentos fuente (PDF) para extracción de métricas duras.",
+        "Modularización del portafolio TITAN v5.0 para máxima performance (AEO).",
+        "Sincronización de activos CV ATS bilingües con datos auditados."
+      ],
+      "metrics": "3,021 piezas de evidencia técnica sistematizadas."
+    }
+  },
+  {
+    "id": "fdn-2026",
+    "project": "FDN (Transformación 2026)",
+    "year": "2026",
+    "sector": "Finanzas",
+    "tech": ["Next.js 14", "Strapi v5", "Claude API"],
+    "methodology": "TITAN v5.0; CI/CD",
+    "impact": "Reestructuración Brownfield; WCAG 2.2 AAA",
+    "details": {
+      "context": "Transformación total del portal FDN bajo arquitectura de alto impacto.",
+      "achievements": [
+        "Diseño de arquitectura progresiva de accesibilidad en 3 capas aprobada por Vicepresidencia.",
+        "Redacción del PROJECT_MANIFEST v2.0 y DEPLOY RUNBOOK para migración CI/CD.",
+        "Ahorro de costos proyectados (CAPEX $174.5K) mediante reutilización de componentes modulares."
+      ],
+      "metrics": "Certificación WCAG 2.2 AAA y reducción del 80% en deuda técnica."
+    }
+  }
+]

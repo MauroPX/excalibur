@@ -1,0 +1,118 @@
+
+const fs = require('fs');
+const path = require('path');
+
+const dnaPath = path.join(__dirname, 'src/data/evidence-dna.json');
+
+/**
+ *  MASTER DNA ARCHITECT v91.0
+ * Format: PAR Method (Problem, Action, Result) + Skills/Methodologies.
+ * Strict Staff-level synthesis.
+ */
+const structuredDna = [
+  {
+    "id": "BBVA_Master_Ecosystem",
+    "year": "2024-2026",
+    "client": "BBVA Colombia & Panamá",
+    "sector": "Banca & Fintech",
+    "context": "Orquestación de ecosistemas financieros transnacionales.",
+    "par": {
+      "problem": "Alta carga cognitiva y fragmentación en contratación Pyme y flujos GloMo/SENDA.",
+      "action": "Arquitectura de Diseño Estratégico, Proyecto Brickell y Sistema GEMAS.",
+      "result": "Escalabilidad regional asegurada y transición a walkthroughs inmersivos."
+    },
+    "skills": ["Design Systems Architect", "Product Strategy", "Figma Variables"],
+    "methodologies": ["Radical Customer Perspective", "Double Diamond", "SAFe"]
+  },
+  {
+    "id": "FDN_Titan_Stack",
+    "year": "2026",
+    "client": "Financiera de Desarrollo Nacional",
+    "sector": "Gobierno & Estrategia",
+    "context": "Soberanía tecnológica y cumplimiento legal NTC 5854.",
+    "par": {
+      "problem": "Deuda técnica en Drupal 7 y LCP crítico de 25s afectando accesibilidad.",
+      "action": "Migración integral a Stack TITAN (Next.js 14 + Strapi v5) con Cloudflare.",
+      "result": "LCP < 2.5s y obtención del Certificado de Accesibilidad 2024 AA/AAA."
+    },
+    "skills": ["Next.js 14", "Strapi v5", "Cloudflare WAF"],
+    "methodologies": ["Brownfield Strategy", "Dual-Track Agile", "CI/CD Governance"]
+  },
+  {
+    "id": "Correos_Chile_Merken",
+    "year": "2023",
+    "client": "Correos de Chile",
+    "sector": "Logística & Ops",
+    "context": "Automatización de diseño para operación postal masiva.",
+    "par": {
+      "problem": "Time-to-Market de 12 meses y falta de estandarización en flujos corporativos.",
+      "action": "Creación del Merken Design System con 400+ componentes y Figma API.",
+      "result": "Aceleración de entrega a 6 meses y normalización de estados logísticos."
+    },
+    "skills": ["DesignOps", "Design Tokens", "Figma API"],
+    "methodologies": ["Lean UX", "Atomic Design", "UCD"]
+  },
+  {
+    "id": "SuRed_Fintech",
+    "year": "2024",
+    "client": "SuRed",
+    "sector": "Banca & Fintech",
+    "context": "Integración de productos nacionales en canales App/Web.",
+    "par": {
+      "problem": "Integración de Baloto/Miloto con alta seguridad y validación biométrica.",
+      "action": "Implementación de JWT/SHA-256 y tiquete digital dinámico JasperReports.",
+      "result": "Conciliación operativa automatizada y despliegue transaccional seguro."
+    },
+    "skills": ["REST APIs", "JWT", "JasperReports"],
+    "methodologies": ["Epic User Stories (HUE)", "PCI-DSS Standards"]
+  },
+  {
+    "id": "TVS_Sanitario",
+    "year": "2017",
+    "client": "TVS+",
+    "sector": "Salud & Life Sciences",
+    "context": "Digitalización de flujos sanitarios y convenios médicos.",
+    "par": {
+      "problem": "Complejidad en reglas de negocio por perfiles médicos y facturación.",
+      "action": "Diseño del Terminal Virtual Sanitario Plus y flujos operativos E2E.",
+      "result": "Agendas de alta disponibilidad y dashboards de facturación certificados."
+    },
+    "skills": ["React", "Figma", "WCAG 2.1 AA"],
+    "methodologies": ["UCD", "Agile Product Design"]
+  },
+  {
+    "id": "ADL_Digital_Labs",
+    "year": "2021",
+    "client": "ADL Labs",
+    "sector": "Banca & Fintech",
+    "context": "Innovación gamificada para retención educativa.",
+    "par": {
+      "problem": "Baja retención de conocimientos en niveles educativos digitales básicos.",
+      "action": "Diseño de ruta gamificada y validación de campo con 46 estudiantes.",
+      "result": "Incremento en KPIs de retención y creación de arquetipos docentes."
+    },
+    "skills": ["User Insights", "Prototyping", "Data Analytics"],
+    "methodologies": ["Gamificación", "Lean UX", "Dual Track"]
+  },
+  {
+    "id": "Redeban_SAC",
+    "year": "2017-2020",
+    "client": "REDEBAN",
+    "sector": "Banca & Fintech",
+    "context": "Modernización de arquitectura financiera legacy.",
+    "par": {
+      "problem": "Dependencia de JSF 1.7 y falta de conciliación en tiempo real.",
+      "action": "Arquitectura de microservicios, integración FUSE ESB y Dashboard D3.js.",
+      "result": "Soberanía sobre ambientes Docker y conciliación diaria optimizada."
+    },
+    "skills": ["Angular v9", "Spring Boot", "Docker"],
+    "methodologies": ["DDD", "BPMN 2.0", "Kruchten 4+1"]
+  }
+];
+
+if (!fs.existsSync(path.dirname(dnaPath))) {
+    fs.mkdirSync(path.dirname(dnaPath), { recursive: true });
+}
+
+fs.writeFileSync(dnaPath, JSON.stringify(structuredDna, null, 2));
+console.log('--- DNA MASTER v91.0: PAR METHOD CONSOLIDATED ---');
