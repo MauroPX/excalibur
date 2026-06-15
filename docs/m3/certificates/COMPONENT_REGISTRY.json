@@ -1,0 +1,14 @@
+{
+  "_meta": {
+    "version": "0.0.0",
+    "product": "EXCALIBUR v2.0",
+    "titan": "v7.0",
+    "created": "2026-06-15",
+    "last_updated": "2026-06-15",
+    "total_components": 0,
+    "locked": 0,
+    "in_progress": 0,
+    "note": "Actualizar en cada LOCK por [OBSERVER]. Nunca editar manualmente sin VERSION_CERTIFICATE."
+  },
+  "components": {}
+}
