@@ -12,6 +12,8 @@ This document serves as the project memory for the **EXCALIBUR v92.0** ecosystem
 - **v90.0**: Implementation of the **PAR Method** (Problem, Action, Result) for evidence synthesis.
 - v92.0: Repository cleanup and GitHub-ready structuring.
 - v93.0: Comprehensive Design System Documentation (Tokens, Engine, Components) finalized in /docs.
+- v94.0: Infrastructure setup base (Next.js 15, React 19, MUI v6) LOCKED.
+- v94.1: Component Button (EX-v2-ATOM-001) LOCKED v1.0.0 with 100% test coverage.
 
 
 ## 🛡️ Integrity Protocols

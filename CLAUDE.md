@@ -25,10 +25,10 @@ Node:        24.15.0 | pnpm: 11.2.2
 
 ```
 Momentum:    M3 — Execution (Sprints BFL)
-Ola activa:  [ACTUALIZAR: Ola 0 / 1 / 2 / 3]
-Feature:     [ACTUALIZAR: feat/v2-{scope}]
-SPEC_ID:     [ACTUALIZAR: EX-v2-{AREA}-{###}]
-Último LOCK: [ACTUALIZAR: componente + fecha]
+Ola activa:  Ola 1
+Feature:     feat/v2-atoms-button
+SPEC_ID:     EX-v2-ATOM-001
+Último LOCK: Button — 2026-06-15
 ```
 
 ---
@@ -208,7 +208,7 @@ workflow.sh (deepseek-r1:14b):
 ## RECUPERACIÓN DE SESIÓN
 
 ```
-Último trabajo:  [actualizar al cerrar sesión]
-Próximo paso:    [del GSD Task Card activo]
-Bloqueadores:    [ninguno o descripción]
+Último trabajo:  Implementación de Button (EX-v2-ATOM-001) LOCKED v1.0.0
+Próximo paso:    Seleccionar siguiente componente de Ola 1 (Tag/Badge)
+Bloqueadores:    Ninguno
 ```
