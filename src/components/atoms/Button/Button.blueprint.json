@@ -1,0 +1,68 @@
+{
+  "spec_ref": "EX-v2-ATOM-001",
+  "atomic_level": "atom",
+  "component_name": "Button",
+  "props_contract": {
+    "variant": {
+      "type": "'filled' | 'outlined' | 'text' | 'cta'",
+      "default": "'filled'"
+    },
+    "label": {
+      "type": "string",
+      "required": true
+    },
+    "onClick": {
+      "type": "() => void",
+      "required": false
+    },
+    "disabled": {
+      "type": "boolean",
+      "default": "false"
+    },
+    "loading": {
+      "type": "boolean",
+      "default": "false"
+    },
+    "type": {
+      "type": "'button' | 'submit' | 'reset'",
+      "default": "'button'"
+    }
+  },
+  "variantes": ["filled", "outlined", "text", "cta"],
+  "states": ["default", "hover", "focus", "disabled", "loading"],
+  "wcag_criteria": ["1.4.3", "1.4.6", "2.4.7", "4.1.2"],
+  "bem_classes": {
+    "block": "ex-button",
+    "modifiers": {
+      "variant": "ex-button--[variant]",
+      "loading": "ex-button--loading",
+      "disabled": "ex-button--disabled"
+    }
+  },
+  "m3_tokens": [
+    "var(--md-sys-color-primary)",
+    "var(--md-sys-color-on-primary)",
+    "var(--md-sys-color-surface)",
+    "var(--md-sys-color-on-surface)"
+  ],
+  "spec_criteria": [
+    "CA-001: Implementa variantes filled, outlined, text y cta.",
+    "CA-002: Soporta estado 'loading' con spinner integrado.",
+    "CA-003: Accesibilidad WCAG 2.2 AA (axe-core 0 violations).",
+    "CA-004: Usa exclusivamente tokens de diseño M3.",
+    "CA-005: BEM naming strict según DESIGN_SPEC."
+  ],
+  "fuera_de_alcance": [
+    "Navegación directa (usar un wrapper Link si es necesario)",
+    "Iconos complejos (solo texto para esta versión base)",
+    "Lógica de formularios (manejo de estado externo)"
+  ],
+  "blueprint_gate": {
+    "BH-1": "PASS",
+    "BH-2": "PASS",
+    "BH-3": "PASS",
+    "BH-4": "PASS",
+    "BH-5": "PASS",
+    "BH-6": "PASS"
+  }
+}
