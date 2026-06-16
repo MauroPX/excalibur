@@ -28,3 +28,8 @@ Thumbs.db
 
 # Backups
 backup/
+.vercel
+.aider*
+
+*storybook.log
+storybook-static

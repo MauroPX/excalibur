@@ -123,7 +123,7 @@ echo ""
 # ── EXTRAER SPEC DEL SPEC_DOCUMENT ──
 echo "▶ Extrayendo SPEC de SPEC_DOCUMENT..."
 # Extraer el bloque del SPEC_ID hasta el siguiente ##
-SPEC_CONTENT=$(awk "/^###? ${SPEC_ID}/,/^###? EX-v2-/" "$SPEC_DOC" | head -n -1)
+SPEC_CONTENT=$(awk "/^###? ${SPEC_ID}/,/^###? EX-v2-/" "$SPEC_DOC" | sed '$d')
 echo "$SPEC_CONTENT" > "$BASE_DIR/outputs/spec_${SPEC_ID}.txt"
 echo "  ✅ SPEC extraído"
 echo ""
@@ -179,7 +179,7 @@ echo ""
 extract_block() {
   local file="$1"
   local header="$2"
-  awk "/^### ${header}/,/^### /" "$file" | head -n -1 | tail -n +2
+  awk "/^### ${header}/,/^### /" "$file" | sed '$d' | tail -n +2
 }
 
 extract_block "$BASE_DIR/outputs/plan_${SPEC_ID}.txt" "IMPLEMENTADOR" > "$BASE_DIR/outputs/impl_prompt.txt"

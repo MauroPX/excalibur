@@ -1,0 +1,18 @@
+{
+  "spec_id": "EX-v2-INFRA-001",
+  "component": "Setup",
+  "level": "infra",
+  "type": "infrastructure",
+  "dependencies": [],
+  "props": {},
+  "states": [],
+  "variants": [],
+  "blueprint_gate": {
+    "BH-1": "PASS",
+    "BH-2": "PASS",
+    "BH-3": "PASS",
+    "BH-4": "PASS",
+    "BH-5": "PASS",
+    "BH-6": "PASS"
+  }
+}

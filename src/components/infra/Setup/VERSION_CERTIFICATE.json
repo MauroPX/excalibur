@@ -1,0 +1,18 @@
+{
+  "spec_id": "EX-v2-INFRA-001",
+  "component": "Setup",
+  "version": "1.0.0",
+  "status": "LOCKED",
+  "date": "2026-06-15",
+  "build": {
+    "status": "PASS",
+    "next_version": "15.5.19",
+    "react_version": "19.0.0"
+  },
+  "verification": {
+    "type_check": "PASS",
+    "lint": "PASS",
+    "unit_tests": "N/A",
+    "axe_violations": 0
+  }
+}
