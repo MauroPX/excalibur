@@ -32,3 +32,19 @@ Componente base para interacciones.
 - `focus`
 - `disabled`
 - `loading`
+
+### Tag
+Etiqueta para categorización.
+
+**Variantes:**
+- `filled`: Fondo sólido suave.
+- `outlined`: Borde fino.
+
+**Tokens M3:**
+- `primary-container`: `var(--md-sys-color-primary-container)`
+- `on-primary-container`: `var(--md-sys-color-on-primary-container)`
+
+**Clases BEM:**
+- `.ex-tag`
+- `.ex-tag--[color]`
+- `.ex-tag--[size]`

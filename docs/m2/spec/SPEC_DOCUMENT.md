@@ -31,3 +31,15 @@ Setup inicial del proyecto con Next.js 15, React 19 y MUI v6.
 - CA-004: Usa exclusivamente tokens de diseño M3.
 - CA-005: BEM naming strict según DESIGN_SPEC.
 
+### EX-v2-ATOM-002 — Tag
+**Estado:** IN_SPEC | **Prioridad:** P1
+
+**Descripción:**
+Componente de etiqueta/badge para categorizar contenido (tecnologías, roles, estados).
+
+**Criterios de Aceptación:**
+- CA-001: Soporta múltiples colores (primary, secondary, error, success, info).
+- CA-002: Soporta tamaños small, medium, large.
+- CA-003: Accesibilidad WCAG 2.2 AA (contraste de texto).
+- CA-004: Opción de incluir un icono pequeño a la izquierda.
+

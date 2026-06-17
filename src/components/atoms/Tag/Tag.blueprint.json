@@ -1,0 +1,45 @@
+{
+  "spec_ref": "EX-v2-ATOM-002",
+  "atomic_level": "atom",
+  "component_name": "Tag",
+  "props_contract": {
+    "label": { "type": "string", "required": true },
+    "color": { "type": "'primary' | 'secondary' | 'error' | 'success' | 'warning' | 'info'", "default": "'primary'" },
+    "size": { "type": "'small' | 'medium' | 'large'", "default": "'medium'" },
+    "variant": { "type": "'filled' | 'outlined'", "default": "'filled'" },
+    "icon": { "type": "ReactNode", "required": false }
+  },
+  "variantes": ["filled", "outlined"],
+  "states": ["default"],
+  "wcag_criteria": ["1.4.3", "1.4.6"],
+  "bem_classes": {
+    "block": "ex-tag",
+    "modifiers": {
+      "color": "ex-tag--[color]",
+      "size": "ex-tag--[size]",
+      "variant": "ex-tag--[variant]"
+    }
+  },
+  "m3_tokens": [
+    "var(--md-sys-color-primary-container)",
+    "var(--md-sys-color-on-primary-container)",
+    "var(--md-sys-color-secondary-container)",
+    "var(--md-sys-color-on-secondary-container)",
+    "var(--md-sys-color-error-container)",
+    "var(--md-sys-color-on-error-container)"
+  ],
+  "spec_criteria": [
+    "CA-001: Soporta múltiples colores.",
+    "CA-002: Soporta tamaños small, medium, large.",
+    "CA-003: Accesibilidad WCAG 2.2 AA.",
+    "CA-004: Opción de incluir un icono."
+  ],
+  "blueprint_gate": {
+    "BH-1": "PASS",
+    "BH-2": "PASS",
+    "BH-3": "PASS",
+    "BH-4": "PASS",
+    "BH-5": "PASS",
+    "BH-6": "PASS"
+  }
+}

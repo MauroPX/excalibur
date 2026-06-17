@@ -16,6 +16,14 @@
       "version": "1.0.0",
       "status": "LOCKED",
       "dependents": []
+    },
+    {
+      "spec_id": "EX-v2-ATOM-002",
+      "component": "Tag",
+      "level": "atoms",
+      "version": "1.0.0",
+      "status": "LOCKED",
+      "dependents": []
     }
   ]
 }

@@ -1,0 +1,18 @@
+{
+  "spec_id": "EX-v2-ATOM-002",
+  "component": "Tag",
+  "version": "1.0.0",
+  "atomic_level": "atom",
+  "titan_momentum": "M3",
+  "ola": "1",
+  "rama": "feat/v2-atoms-tag",
+  "fecha_lock": "2026-06-15",
+  "status": "LOCKED",
+  "variantes": ["filled", "outlined"],
+  "wcag_verificados": true,
+  "axe_violations": 0,
+  "tests_passing": true,
+  "coverage": "100%",
+  "dependents": [],
+  "firmado": "Leonel Mauricio Gomez Ocampo"
+}
