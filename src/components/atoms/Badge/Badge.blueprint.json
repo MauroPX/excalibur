@@ -1,0 +1,42 @@
+{
+  "spec_ref": "EX-v2-ATOM-003",
+  "atomic_level": "atom",
+  "component_name": "Badge",
+  "props_contract": {
+    "content": { "type": "string | number", "required": false },
+    "variant": { "type": "'standard' | 'dot'", "default": "'standard'" },
+    "color": { "type": "'primary' | 'secondary' | 'error' | 'warning' | 'info' | 'success'", "default": "'error'" },
+    "overlap": { "type": "'circular' | 'rectangular'", "default": "'rectangular'" },
+    "children": { "type": "ReactNode", "required": false }
+  },
+  "variantes": ["standard", "dot"],
+  "states": ["default"],
+  "wcag_criteria": ["1.4.3", "4.1.2"],
+  "bem_classes": {
+    "block": "ex-badge",
+    "modifiers": {
+      "variant": "ex-badge--[variant]",
+      "color": "ex-badge--[color]"
+    }
+  },
+  "m3_tokens": [
+    "var(--md-sys-color-error)",
+    "var(--md-sys-color-on-error)",
+    "var(--md-sys-color-primary)",
+    "var(--md-sys-color-on-primary)"
+  ],
+  "spec_criteria": [
+    "CA-001: Soporta variantes 'dot' y 'standard'.",
+    "CA-002: Posicionamiento configurable.",
+    "CA-003: Colores semánticos M3.",
+    "CA-004: Accesibilidad garantizada."
+  ],
+  "blueprint_gate": {
+    "BH-1": "PASS",
+    "BH-2": "PASS",
+    "BH-3": "PASS",
+    "BH-4": "PASS",
+    "BH-5": "PASS",
+    "BH-6": "PASS"
+  }
+}

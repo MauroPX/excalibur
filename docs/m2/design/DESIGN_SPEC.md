@@ -48,3 +48,19 @@ Etiqueta para categorización.
 - `.ex-tag`
 - `.ex-tag--[color]`
 - `.ex-tag--[size]`
+
+### Badge
+Indicador de estado o contador.
+
+**Variantes:**
+- `standard`: Muestra texto/número.
+- `dot`: Punto de notificación simple.
+
+**Tokens M3:**
+- `error`: `var(--md-sys-color-error)`
+- `on-error`: `var(--md-sys-color-on-error)`
+
+**Clases BEM:**
+- `.ex-badge`
+- `.ex-badge--dot`
+- `.ex-badge--[color]`

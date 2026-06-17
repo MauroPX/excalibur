@@ -43,3 +43,15 @@ Componente de etiqueta/badge para categorizar contenido (tecnologías, roles, es
 - CA-003: Accesibilidad WCAG 2.2 AA (contraste de texto).
 - CA-004: Opción de incluir un icono pequeño a la izquierda.
 
+### EX-v2-ATOM-003 — Badge
+**Estado:** IN_SPEC | **Prioridad:** P1
+
+**Descripción:**
+Componente para mostrar indicadores numéricos, estados de alerta o puntos de notificación.
+
+**Criterios de Aceptación:**
+- CA-001: Soporta variantes 'dot' (punto) y 'standard' (con contenido).
+- CA-002: Posicionamiento configurable (top-right por defecto).
+- CA-003: Colores semánticos M3 (error, warning, success, info).
+- CA-004: Accesibilidad: contraste adecuado y anuncios para lectores de pantalla.
+
