@@ -25,10 +25,10 @@ Node:        24.15.0 | pnpm: 11.2.2
 
 ```
 Momentum:    M3 — Execution (Sprints BFL)
-Ola activa:  Ola 1
-Feature:     feat/v2-atoms-button
-SPEC_ID:     EX-v2-ATOM-001
-Último LOCK: Button — 2026-06-15
+Ola activa:  Ola 2 (Molecules)
+Feature:     Ola 2 Molecules (3/5 LOCKED)
+SPEC_ID:     EX-v2-MOL-003
+Último LOCK: SkillBar — 2026-06-17
 ```
 
 ---

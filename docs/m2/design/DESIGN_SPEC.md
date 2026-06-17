@@ -64,3 +64,29 @@ Indicador de estado o contador.
 - `.ex-badge`
 - `.ex-badge--dot`
 - `.ex-badge--[color]`
+
+### Icon
+Wrapper de iconografía.
+
+**Tamaños:**
+- `xs`: 16px
+- `sm`: 20px
+- `md`: 24px
+- `lg`: 32px
+- `xl`: 48px
+
+### Metric
+Display de datos cuantitativos.
+
+**Clases BEM:**
+- `.ex-metric`
+- `.ex-metric__value`
+- `.ex-metric__label`
+
+### Chip
+Input/Choice compacto.
+
+**Clases BEM:**
+- `.ex-chip`
+- `.ex-chip--selected`
+- `.ex-chip--deletable`

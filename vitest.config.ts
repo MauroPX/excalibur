@@ -12,6 +12,14 @@ export default defineConfig({
     environment: 'jsdom',
     setupFiles: ['./vitest.setup.ts'],
     globals: true,
+    server: {
+      deps: {
+        inline: [/@mui\/material/, /@mui\/icons-material/],
+      },
+    },
+  },
+  ssr: {
+    noExternal: [/@mui/],
   },
   resolve: {
     alias: {

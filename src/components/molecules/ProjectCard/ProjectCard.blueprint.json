@@ -1,0 +1,24 @@
+{
+  "spec_ref": "EX-v2-MOL-002",
+  "atomic_level": "molecule",
+  "component_name": "ProjectCard",
+  "dependencies": ["EX-v2-ATOM-002", "EX-v2-ATOM-005"],
+  "props_contract": {
+    "title": { "type": "string", "required": true },
+    "description": { "type": "string", "required": true },
+    "tags": { "type": "string[]", "required": true },
+    "metric": { "type": "{ value: string, label: string }", "required": false },
+    "imageUrl": { "type": "string", "required": false }
+  },
+  "bem_classes": {
+    "block": "ex-project-card",
+    "elements": ["content", "header", "tags", "metric-preview"],
+    "modifiers": {}
+  },
+  "m3_tokens": {
+    "surface": "var(--md-sys-color-surface-container-low)",
+    "on-surface": "var(--md-sys-color-on-surface)",
+    "outline": "var(--md-sys-color-outline-variant)"
+  },
+  "blueprint_gate": { "BH-1..6": "PASS" }
+}

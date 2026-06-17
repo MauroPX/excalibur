@@ -1,0 +1,22 @@
+{
+  "spec_ref": "EX-v2-MOL-004",
+  "atomic_level": "molecule",
+  "component_name": "TimelineStep",
+  "dependencies": ["EX-v2-ATOM-003"],
+  "props_contract": {
+    "company": { "type": "string", "required": true },
+    "role": { "type": "string", "required": true },
+    "period": { "type": "string", "required": true },
+    "isLast": { "type": "boolean", "default": false }
+  },
+  "bem_classes": {
+    "block": "ex-timeline-step",
+    "elements": ["connector", "dot", "info", "period"],
+    "modifiers": { "last": "ex-timeline-step--last" }
+  },
+  "m3_tokens": {
+    "dot": "var(--md-sys-color-primary)",
+    "line": "var(--md-sys-color-outline-variant)"
+  },
+  "blueprint_gate": { "BH-1..6": "PASS" }
+}
