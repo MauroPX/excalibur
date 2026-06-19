@@ -10,6 +10,14 @@ interface ChatResponseBody {
   provider?: 'claude' | 'gemini' | 'fallback'
 }
 
+// Códigos que indican quota agotada o servicio no disponible → ceder al siguiente proveedor
+const YIELD_TO_NEXT: Set<number> = new Set([
+  429, // Rate limit / quota exceeded
+  529, // Anthropic overloaded
+  503, // Service unavailable
+  502, // Bad gateway
+])
+
 const SYSTEM_PROMPT =
   'Eres el asistente de portafolio de Leonel Mauricio Gómez Ocampo, Staff Product Architect. ' +
   'Responde en español de forma concisa y profesional. ' +
@@ -37,6 +45,11 @@ function validateMessage(raw: unknown): string | null {
   const cleaned = stripHtmlTags(raw)
   if (cleaned.length === 0 || cleaned.length > 500) return null
   return cleaned
+}
+
+function shouldYield(status: number): boolean {
+  // Ceder al siguiente proveedor si: quota agotada, overloaded, o cualquier otro error del servidor
+  return YIELD_TO_NEXT.has(status) || status >= 500
 }
 
 // ─── Anthropic (Claude Sonnet 4.6) ────────────────────────────────────────────
@@ -70,12 +83,15 @@ async function callClaude(message: string): Promise<string | null> {
     })
 
     clearTimeout(timeout)
-    if (!res.ok) return null
+
+    // 429 quota / 529 overloaded / 5xx → ceder a Gemini
+    if (shouldYield(res.status) || !res.ok) return null
 
     const data = (await res.json()) as AnthropicResponse
     const block = data.content.find((b) => b.type === 'text' && typeof b.text === 'string')
     return block?.text ?? null
   } catch {
+    // Timeout (AbortError) o error de red → ceder a Gemini
     clearTimeout(timeout)
     return null
   }
@@ -113,11 +129,14 @@ async function callGemini(message: string): Promise<string | null> {
     })
 
     clearTimeout(timeout)
-    if (!res.ok) return null
+
+    // 429 quota / 5xx → ceder a fallback estático
+    if (shouldYield(res.status) || !res.ok) return null
 
     const data = (await res.json()) as GeminiResponse
     return data.candidates?.[0]?.content?.parts?.[0]?.text ?? null
   } catch {
+    // Timeout o error de red → ceder a fallback estático
     clearTimeout(timeout)
     return null
   }
@@ -136,7 +155,9 @@ export async function POST(request: NextRequest): Promise<NextResponse<ChatRespo
   const message = validateMessage((body as Partial<ChatRequestBody>).message)
   if (!message) return NextResponse.json(FALLBACK_RESPONSE)
 
-  // Cadena: Claude → Gemini → fallback estático
+  // Cadena de proveedores: Claude → Gemini → fallback estático
+  // Cada proveedor cede al siguiente si: no tiene key, quota agotada (429),
+  // overloaded (529), error de servidor (5xx), timeout (3s) o error de red.
   const claudeText = await callClaude(message)
   if (claudeText) {
     return NextResponse.json({ response: claudeText, suggested_cases: SUGGESTED_CASES, provider: 'claude' })
