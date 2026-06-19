@@ -74,13 +74,14 @@ export const Button = ({
   loading = false,
   type = 'button',
 }: ButtonProps) => {
-  // Mapeo de variante personalizada a variante de MUI
-  const muiVariant = variant === 'filled' || variant === 'cta' ? 'contained' : variant === 'outlined' ? 'outlined' : 'text'
+  const muiVariant: 'contained' | 'outlined' | 'text' =
+    variant === 'filled' || variant === 'cta' ? 'contained' :
+    variant === 'outlined' ? 'outlined' : 'text'
 
   return (
     <StyledButton
       className={`ex-button ex-button--${variant}${loading ? ' ex-button--loading' : ''}${disabled ? ' ex-button--disabled' : ''}`}
-      variant={muiVariant as any}
+      variant={muiVariant}
       variantCustom={variant}
       onClick={onClick}
       disabled={disabled || loading}

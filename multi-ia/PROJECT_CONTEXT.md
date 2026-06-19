@@ -16,7 +16,7 @@ IC:           Leonel Mauricio Gómez Ocampo
 ## STACK TÉCNICO
 
 Frontend:     Next.js 15 · App Router · React 19 · TypeScript 5 strict
-DS:           MUI v6 · M3 Tokens · Storybook 8 · axe-core
+DS:           MUI v6 · M3 Tokens · Storybook 10.4.4 · axe-core
 Package mgr:  pnpm 11.2.2
 Node:         24.15.0
 i18n:         next-intl (ES + EN)

@@ -84,7 +84,7 @@ it('no tiene violaciones de accesibilidad', async () => {
 
 ---
 
-## REGLAS DE STORYBOOK 8
+## REGLAS DE STORYBOOK 10
 
 ```typescript
 // ✅ Una story por estado del componente (no solo Default)

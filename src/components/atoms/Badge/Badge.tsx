@@ -50,7 +50,7 @@ export const Badge = ({
     <StyledBadge
       badgeContent={content}
       variant={variant}
-      color={color as any}
+      color={color}
       overlap={overlap}
       className={`ex-badge ex-badge--${variant} ex-badge--${color}`}
     >

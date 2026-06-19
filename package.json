@@ -6,6 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "test": "vitest run",
     "lint": "eslint",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
@@ -19,6 +20,7 @@
     "@chromatic-com/storybook": "^5.2.1",
     "@emotion/react": "^11.13.0",
     "@emotion/styled": "^11.13.0",
+    "@eslint/eslintrc": "^3.3.5",
     "@mui/material": "^6.4.0",
     "@mui/system": "^6.4.0",
     "@storybook/addon-a11y": "10.4.4",
