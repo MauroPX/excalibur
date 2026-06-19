@@ -1,0 +1,213 @@
+name: EXCALIBUR v2 — CI/CD
+
+on:
+  push:
+    branches:
+      - 'feat/v2-**'
+  pull_request:
+    branches:
+      - v2
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  NODE_VERSION: '24'
+  PNPM_VERSION: '11.2.2'
+
+jobs:
+  # ─── Job 1: Lint ──────────────────────────────────────────────────────────────
+  lint:
+    name: Lint (ESLint 9)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: ${{ env.PNPM_VERSION }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Run ESLint
+        run: pnpm lint
+
+  # ─── Job 2: Type check ────────────────────────────────────────────────────────
+  typecheck:
+    name: TypeScript strict
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: ${{ env.PNPM_VERSION }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: tsc --noEmit
+        run: pnpm tsc --noEmit
+
+  # ─── Job 3: Unit tests ────────────────────────────────────────────────────────
+  test:
+    name: Vitest + jest-axe
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: ${{ env.PNPM_VERSION }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Run tests with coverage
+        run: pnpm test:coverage
+
+      - name: Upload coverage report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: coverage
+          path: coverage/
+          retention-days: 7
+
+  # ─── Job 4: Axe a11y gate ────────────────────────────────────────────────────
+  axe:
+    name: Axe a11y gate
+    runs-on: ubuntu-latest
+    needs: [test]
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: ${{ env.PNPM_VERSION }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Run axe a11y tests (must be 0 violations)
+        run: pnpm test -- --reporter=verbose --grep "axe"
+
+  # ─── Job 5: Next.js build ────────────────────────────────────────────────────
+  build:
+    name: Next.js build
+    runs-on: ubuntu-latest
+    needs: [lint, typecheck, test]
+    env:
+      NEXT_PUBLIC_APP_ENV: ci
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: ${{ env.PNPM_VERSION }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build Next.js
+        run: pnpm build
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: nextjs-build
+          path: .next/
+          retention-days: 1
+
+  # ─── Job 6: Storybook build ───────────────────────────────────────────────────
+  build-storybook:
+    name: Storybook build
+    runs-on: ubuntu-latest
+    needs: [lint, typecheck, test]
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: ${{ env.PNPM_VERSION }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build Storybook
+        run: pnpm build-storybook
+
+      - name: Upload Storybook artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: storybook-static
+          path: storybook-static/
+          retention-days: 1
+
+  # ─── Job 7: Chromatic visual regression ──────────────────────────────────────
+  chromatic:
+    name: Chromatic visual regression
+    runs-on: ubuntu-latest
+    needs: [build-storybook]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: ${{ env.PNPM_VERSION }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Download Storybook artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: storybook-static
+          path: storybook-static/
+
+      - name: Run Chromatic
+        uses: chromaui/action@latest
+        with:
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          storybookBuildDir: storybook-static
+          exitOnceUploaded: true
+          onlyChanged: true
