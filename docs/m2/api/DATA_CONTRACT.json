@@ -1,0 +1,117 @@
+{
+  "version": "1.0.0",
+  "fecha": "2026-06-15",
+  "description": "Contrato de datos entre Strapi (backend) y Next.js (frontend). Define las interfaces TypeScript que src/lib/types.ts debe implementar.",
+  "types": {
+    "AudienceTag": {
+      "type": "union",
+      "values": ["cliente", "reclutador", "comunidad", "normal", "todos"]
+    },
+    "SymptomTag": {
+      "type": "union",
+      "values": ["legacy", "conversion", "ia", "a11y", "performance", "design-system", "team-scaling"]
+    },
+    "RoleTag": {
+      "type": "union",
+      "values": ["staff-architect", "product-manager", "ux-designer", "tech-lead", "design-engineer", "designops"]
+    },
+    "MetricData": {
+      "fields": {
+        "label": "string",
+        "value": "string",
+        "unit": "string | undefined",
+        "trend": "'positive' | 'negative' | 'neutral'"
+      }
+    },
+    "ProjectData": {
+      "description": "Modelo de proyecto normalizado para uso en el frontend",
+      "fields": {
+        "id": "number",
+        "slug": "string",
+        "client": "string",
+        "sector": "string",
+        "role": "string",
+        "year_start": "number",
+        "year_end": "number | null",
+        "summary": "string",
+        "par_problem": "string",
+        "par_action": "string",
+        "par_result": "string",
+        "metrics": "MetricData[]",
+        "skills": "string[]",
+        "stack": "string[]",
+        "audience_tags": "AudienceTag[]",
+        "symptom_tags": "SymptomTag[]",
+        "role_tags": "RoleTag[]",
+        "featured": "boolean",
+        "og_image": "string | undefined",
+        "content": "string | undefined"
+      }
+    },
+    "ExperienceData": {
+      "fields": {
+        "id": "number",
+        "company": "string",
+        "role": "string",
+        "year_start": "number",
+        "year_end": "number | null",
+        "description": "string",
+        "achievements": "string[]",
+        "skills": "string[]",
+        "audience_tags": "AudienceTag[]"
+      }
+    },
+    "SkillData": {
+      "fields": {
+        "id": "number",
+        "name": "string",
+        "category": "'pensamiento' | 'diseno' | 'operaciones' | 'tecnico'",
+        "level": "number",
+        "level_label": "'Senior' | 'Expert' | 'Lead'",
+        "icon_name": "string | undefined"
+      }
+    },
+    "TitanModuleData": {
+      "fields": {
+        "id": "number",
+        "version": "string",
+        "hub_name": "string",
+        "hub_title": "string",
+        "description": "string",
+        "momentum": "'M0' | 'M1' | 'M2' | 'M3' | 'M4' | 'M5'",
+        "commands_count": "number",
+        "features": "string[] | undefined"
+      }
+    },
+    "ChatRequest": {
+      "fields": {
+        "message": "string"
+      },
+      "constraints": {
+        "message": "maxLength: 500, minLength: 1, sanitized: true"
+      }
+    },
+    "ChatResponse": {
+      "fields": {
+        "response": "string",
+        "suggested_cases": "string[] | undefined",
+        "provider": "'claude' | 'gemini' | 'fallback'"
+      }
+    }
+  },
+  "static_fallback": {
+    "description": "Datos estáticos usados cuando Strapi no está disponible",
+    "source": "src/data/evidence-dna.json",
+    "projects_available": 7,
+    "projects_target": 20,
+    "gap": "13 proyectos pendientes de migrar a Strapi"
+  },
+  "environment_vars": {
+    "NEXT_PUBLIC_STRAPI_URL": { "required": true, "example": "https://api.maurogomez.design" },
+    "STRAPI_READ_TOKEN": { "required": true, "secret": true },
+    "ANTHROPIC_API_KEY": { "required": false, "secret": true, "fallback": "Gemini → static" },
+    "GEMINI_API_KEY": { "required": false, "secret": true, "fallback": "static" },
+    "NEXT_PUBLIC_SITE_URL": { "required": true, "example": "https://maurogomez.design" },
+    "NEXT_PUBLIC_DEFAULT_LANG": { "required": false, "default": "es" }
+  }
+}
