@@ -115,6 +115,8 @@ export function TitanRAGAgent({
 
   return (
     <Box
+      data-atomic="organism"
+      data-component="TitanRAGAgent"
       className="ex-titan-rag"
       sx={{
         display: 'flex',

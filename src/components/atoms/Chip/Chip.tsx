@@ -68,6 +68,8 @@ export const Chip = ({
 }: ChipProps) => {
   return (
     <StyledChip
+      data-atomic="atom"
+      data-component="Chip"
       role="button"
       aria-pressed={selected}
       className={`ex-chip ${selected ? 'ex-chip--selected' : ''} ${onDelete ? 'ex-chip--deletable' : ''} ${disabled ? 'ex-chip--disabled' : ''}`}

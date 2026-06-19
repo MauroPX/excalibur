@@ -56,7 +56,7 @@ export const Hero = ({
   metrics,
 }: HeroProps) => {
   return (
-    <StyledHero className="ex-hero" aria-label="Introducción">
+    <StyledHero data-atomic="organism" data-component="Hero" className="ex-hero" aria-label="Introducción">
       <Container maxWidth="lg">
         <Typography
           variant="h1"

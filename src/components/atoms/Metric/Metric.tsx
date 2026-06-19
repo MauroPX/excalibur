@@ -38,7 +38,11 @@ export const Metric = ({
   trend = 'neutral',
 }: MetricProps) => {
   return (
-    <StyledMetric className={`ex-metric ex-metric--${trend}`}>
+    <StyledMetric
+      data-atomic="atom"
+      data-component="Metric"
+      className={`ex-metric ex-metric--${trend}`}
+    >
       <Typography
         variant="h4"
         component="div"

@@ -49,7 +49,7 @@ export const SkillBar = ({
   icon,
 }: SkillBarProps) => {
   return (
-    <StyledSkillBar className="ex-skill-bar">
+    <StyledSkillBar data-atomic="molecule" data-component="SkillBar" className="ex-skill-bar">
       <Header className="ex-skill-bar__label-group">
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5 }}>
           {icon && <Icon icon={icon} size="sm" color="var(--md-sys-color-primary)" />}

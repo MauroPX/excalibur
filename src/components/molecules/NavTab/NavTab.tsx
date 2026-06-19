@@ -81,6 +81,8 @@ export const NavTab = ({
 }: NavTabProps) => {
   return (
     <StyledTab
+      data-atomic="molecule"
+      data-component="NavTab"
       active={active}
       onClick={onClick}
       className={`ex-nav-tab ${active ? 'ex-nav-tab--active' : ''}`}

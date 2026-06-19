@@ -53,6 +53,8 @@ export const TimelineStep = ({
 }: TimelineStepProps) => {
   return (
     <StyledTimelineStep
+      data-atomic="molecule"
+      data-component="TimelineStep"
       className={`ex-timeline-step${isLast ? ' ex-timeline-step--last' : ''}`}
     >
       <div className="ex-timeline-step__connector">

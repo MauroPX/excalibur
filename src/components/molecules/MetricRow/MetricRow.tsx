@@ -23,6 +23,8 @@ const StyledMetricRow = styled(Box)({
 export const MetricRow = ({ metrics }: MetricRowProps) => {
   return (
     <StyledMetricRow
+      data-atomic="molecule"
+      data-component="MetricRow"
       className="ex-metric-row"
       role="list"
       aria-label="Métricas clave"

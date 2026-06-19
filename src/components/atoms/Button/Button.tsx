@@ -80,6 +80,8 @@ export const Button = ({
 
   return (
     <StyledButton
+      data-atomic="atom"
+      data-component="Button"
       className={`ex-button ex-button--${variant}${loading ? ' ex-button--loading' : ''}${disabled ? ' ex-button--disabled' : ''}`}
       variant={muiVariant}
       variantCustom={variant}
