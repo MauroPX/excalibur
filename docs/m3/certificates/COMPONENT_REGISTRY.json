@@ -104,6 +104,15 @@
       "version": "1.0.0",
       "status": "LOCKED",
       "dependents": ["EX-v2-ATOM-001", "EX-v2-MOL-005"]
+    },
+    {
+      "spec_id": "EX-v2-RAG-001",
+      "component": "TitanRAGAgent",
+      "level": "organisms",
+      "version": "1.0.0",
+      "status": "LOCKED",
+      "dependents": ["EX-v2-ATOM-001"],
+      "api_connected": false
     }
   ]
 }

@@ -15,3 +15,4 @@
 | EX-v2-MOL-004 | TimelineStep | molecules | 2 | LOCKED | 1.0.0 |
 | EX-v2-MOL-005 | MetricRow | molecules | 2 | LOCKED | 1.0.0 |
 | EX-v2-HERO-001 | Hero | organisms | 2 | LOCKED | 1.0.0 |
+| EX-v2-RAG-001 | TitanRAGAgent | organisms | 3 | LOCKED | 1.0.0 |
