@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import { Box, Container, Typography } from '@mui/material'
+import { Container, Typography } from '@mui/material'
 import { styled } from '@mui/material/styles'
 import { Button } from '@/components/atoms/Button'
 import { MetricRow } from '@/components/molecules/MetricRow'
@@ -17,7 +17,7 @@ export interface HeroProps {
   metrics: MetricProps[]
 }
 
-const StyledHero = styled(Box)({
+const StyledHero = styled('section')({
   minHeight: '100dvh',
   display: 'flex',
   alignItems: 'center',
@@ -56,7 +56,7 @@ export const Hero = ({
   metrics,
 }: HeroProps) => {
   return (
-    <StyledHero component="section" className="ex-hero" aria-label="Introducción">
+    <StyledHero className="ex-hero" aria-label="Introducción">
       <Container maxWidth="lg">
         <Typography
           variant="h1"

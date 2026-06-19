@@ -192,7 +192,7 @@ export function TitanRAGAgent({
               flexShrink: 0,
             }}
           >
-            <SendIcon fontSize="small" />
+            <SendIcon />
           </IconButton>
         </Box>
       </Paper>
