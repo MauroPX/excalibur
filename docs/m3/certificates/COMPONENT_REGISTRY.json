@@ -32,6 +32,54 @@
       "version": "1.0.0",
       "status": "LOCKED",
       "dependents": []
+    },
+    {
+      "spec_id": "EX-v2-ATOM-004",
+      "component": "Icon",
+      "level": "atoms",
+      "version": "1.0.0",
+      "status": "LOCKED",
+      "dependents": []
+    },
+    {
+      "spec_id": "EX-v2-ATOM-005",
+      "component": "Metric",
+      "level": "atoms",
+      "version": "1.0.0",
+      "status": "LOCKED",
+      "dependents": []
+    },
+    {
+      "spec_id": "EX-v2-ATOM-006",
+      "component": "Chip",
+      "level": "atoms",
+      "version": "1.0.0",
+      "status": "LOCKED",
+      "dependents": []
+    },
+    {
+      "spec_id": "EX-v2-MOL-001",
+      "component": "NavTab",
+      "level": "molecules",
+      "version": "1.0.0",
+      "status": "LOCKED",
+      "dependents": ["EX-v2-ATOM-004"]
+    },
+    {
+      "spec_id": "EX-v2-MOL-002",
+      "component": "ProjectCard",
+      "level": "molecules",
+      "version": "1.0.0",
+      "status": "LOCKED",
+      "dependents": ["EX-v2-ATOM-002", "EX-v2-ATOM-005"]
+    },
+    {
+      "spec_id": "EX-v2-MOL-003",
+      "component": "SkillBar",
+      "level": "molecules",
+      "version": "1.0.0",
+      "status": "LOCKED",
+      "dependents": ["EX-v2-ATOM-004"]
     }
   ]
 }

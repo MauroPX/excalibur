@@ -1,0 +1,18 @@
+{
+  "spec_ref": "EX-v2-MOL-005",
+  "atomic_level": "molecule",
+  "component_name": "MetricRow",
+  "dependencies": ["EX-v2-ATOM-005"],
+  "props_contract": {
+    "metrics": { "type": "MetricProps[]", "required": true }
+  },
+  "bem_classes": {
+    "block": "ex-metric-row",
+    "elements": ["item"],
+    "modifiers": {}
+  },
+  "m3_tokens": {
+    "gap": "16px"
+  },
+  "blueprint_gate": { "BH-1..6": "PASS" }
+}
