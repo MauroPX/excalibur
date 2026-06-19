@@ -1,6 +1,5 @@
-import type { Meta, StoryObj } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/nextjs-vite'
 import { Chip } from './Chip'
-import React from 'react'
 
 const meta: Meta<typeof Chip> = {
   title: 'Atoms/Chip',
