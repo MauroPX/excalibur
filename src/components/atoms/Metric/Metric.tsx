@@ -13,7 +13,7 @@ export interface MetricProps {
   trend?: 'positive' | 'negative' | 'neutral'
 }
 
-const StyledMetric = styled(Box)(({ theme }) => ({
+const StyledMetric = styled(Box)(() => ({
   display: 'flex',
   flexDirection: 'column',
   padding: '16px',

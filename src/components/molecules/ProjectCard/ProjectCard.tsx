@@ -19,7 +19,7 @@ export interface ProjectCardProps {
   imageUrl?: string
 }
 
-const StyledProjectCard = styled(Card)(({ theme }) => ({
+const StyledProjectCard = styled(Card)(() => ({
   borderRadius: '16px',
   background: 'var(--md-sys-color-surface-container-low)',
   border: '1px solid var(--md-sys-color-outline-variant)',

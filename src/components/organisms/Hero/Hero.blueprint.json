@@ -1,0 +1,31 @@
+{
+  "spec_ref": "EX-v2-HERO-001",
+  "atomic_level": "organism",
+  "component_name": "Hero",
+  "ola": "2",
+  "law_of_ux": ["Ley de Posicion Serial (primero)", "Ley de Hick (1 CTA)"],
+  "dependencies": ["EX-v2-ATOM-001", "EX-v2-MOL-005"],
+  "props_contract": {
+    "headline": { "type": "string", "required": true },
+    "subheadline": { "type": "string", "required": false },
+    "ctaLabel": { "type": "string", "required": true },
+    "ctaHref": { "type": "string", "required": true },
+    "secondaryCtaLabel": { "type": "string", "required": false },
+    "secondaryCtaHref": { "type": "string", "required": false },
+    "metrics": { "type": "MetricProps[]", "required": true }
+  },
+  "bem_classes": {
+    "block": "ex-hero",
+    "elements": ["headline", "subheadline", "cta-group", "metrics"],
+    "modifiers": {}
+  },
+  "m3_tokens": {
+    "background": "var(--md-sys-color-surface)",
+    "headline-color": "var(--md-sys-color-on-surface)",
+    "subheadline-color": "var(--md-sys-color-on-surface-variant)"
+  },
+  "wcag_criteria": ["1.3.1", "2.4.6", "1.4.6"],
+  "responsive": ["320px", "768px", "1440px"],
+  "i18n": true,
+  "blueprint_gate": { "BH-1": "PASS", "BH-2": "PASS", "BH-3": "PASS", "BH-4": "PASS", "BH-5": "PASS", "BH-6": "PASS" }
+}
