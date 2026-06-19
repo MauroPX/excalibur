@@ -1,0 +1,70 @@
+{
+  "spec_ref": "EX-v2-MOL-006",
+  "atomic_level": "molecule",
+  "component_name": "AudienceCard",
+  "ola": "2",
+  "rama": "feat/v2-ola2-close",
+  "law_of_ux": "Ley de Proximidad + Serial Position",
+  "dependencies": ["EX-v2-ATOM-001", "EX-v2-ATOM-002", "EX-v2-ATOM-004"],
+  "props_contract": {
+    "type": { "type": "'symptom' | 'role'", "required": true },
+    "title": { "type": "string", "required": true },
+    "description": { "type": "string", "required": true },
+    "iconName": { "type": "string", "required": false },
+    "tag": { "type": "'cliente' | 'reclutador' | 'comunidad' | 'normal'", "required": false },
+    "targetSlug": { "type": "string", "required": false },
+    "onClick": { "type": "() => void", "required": false }
+  },
+  "variants": ["symptom", "role"],
+  "states": ["default", "hover", "focus", "active"],
+  "wcag_criteria": ["1.3.1", "1.4.3", "2.1.1", "2.4.7", "4.1.2"],
+  "bem_classes": {
+    "block": "ex-audience-card",
+    "elements": ["icon", "title", "description", "tag", "cta"],
+    "modifiers": ["symptom", "role", "hover"]
+  },
+  "m3_tokens": {
+    "surface": "var(--md-sys-color-surface-container-low)",
+    "surface-hover": "var(--md-sys-color-surface-container-high)",
+    "on-surface": "var(--md-sys-color-on-surface)",
+    "primary": "var(--md-sys-color-primary)",
+    "outline-variant": "var(--md-sys-color-outline-variant)",
+    "secondary-container": "var(--md-sys-color-secondary-container)"
+  },
+  "dom_identity": {
+    "data-atomic": "molecule",
+    "data-component": "AudienceCard",
+    "root_element": "article"
+  },
+  "i18n_keys": [
+    "audienceCard.cta",
+    "audienceCard.symptom.ariaLabel",
+    "audienceCard.role.ariaLabel"
+  ],
+  "spec_criteria": [
+    "CA-001: variante symptom con título + descripción + ícono",
+    "CA-002: variante role con título + descripción + ícono",
+    "CA-003: CTA Button atom variante text|outlined",
+    "CA-004: Tag atom con etiqueta de audiencia",
+    "CA-005: hover elevación M3 surface-container-high + 200ms",
+    "CA-006: WCAG 2.2 AA — contraste + focus visible + role=article + aria-label",
+    "CA-007: 0 hex hardcoded — solo tokens M3",
+    "CA-008: data-atomic='molecule' data-component='AudienceCard' en root",
+    "CA-009: clickable completo con teclado (Enter/Space en article)",
+    "CA-010: ES/EN next-intl useTranslations"
+  ],
+  "out_of_scope": [
+    "No hace fetch de datos (los recibe por props)",
+    "No maneja routing (llama onClick del padre)",
+    "No contiene lógica de filtrado",
+    "No tiene estado interno de carga"
+  ],
+  "blueprint_gate": {
+    "BH-1": "PASS — tokens existen en DESIGN_TOKENS.json",
+    "BH-2": "PASS — WCAG 1.3.1, 1.4.3, 2.1.1, 2.4.7, 4.1.2 válidos en 2.2",
+    "BH-3": "PASS — MUI v6, next-intl versiones fijadas en package.json",
+    "BH-4": "PASS — 0 any en props_contract",
+    "BH-5": "PASS — scope es nivel molecule (compone átomos, sin lógica de negocio)",
+    "BH-6": "PASS — sin PENDIENTE sin resolver"
+  }
+}

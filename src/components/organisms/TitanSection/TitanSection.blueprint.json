@@ -1,0 +1,86 @@
+{
+  "spec_ref": "EX-v2-ORG-004",
+  "atomic_level": "organism",
+  "component_name": "TitanSection",
+  "ola": "3",
+  "rama": "feat/v2-ola3-organisms",
+  "law_of_ux": "Ley de Jakob (familiaridad con cards de features)",
+  "client_component": false,
+  "dependencies": [
+    "EX-v2-ATOM-003",
+    "EX-v2-ATOM-006",
+    "EX-v2-ATOM-004",
+    "EX-v2-MOL-005"
+  ],
+  "props_contract": {
+    "modules": {
+      "type": "Array<{ hubName: string; hubTitle: string; description: string; momentum: 'M0'|'M1'|'M2'|'M3'|'M4'|'M5'; commandsCount: number; features?: string[] }>",
+      "required": true
+    },
+    "version": { "type": "string", "required": false, "default": "'v7.0'" }
+  },
+  "momentum_colors": {
+    "M0": "var(--md-sys-color-error-container)",
+    "M1": "var(--md-sys-color-secondary-container)",
+    "M2": "var(--md-sys-color-tertiary-container)",
+    "M3": "var(--md-sys-color-primary-container)",
+    "M4": "var(--md-sys-color-secondary-container)",
+    "M5": "var(--md-sys-color-primary-container)"
+  },
+  "wcag_criteria": ["1.3.1", "1.4.3", "2.4.6"],
+  "bem_classes": {
+    "block": "ex-titan-section",
+    "elements": ["header", "version-badge", "modules-grid", "module-card", "module-stats"],
+    "modifiers": ["m0", "m1", "m2", "m3", "m4", "m5"]
+  },
+  "m3_tokens": {
+    "surface-container-low": "var(--md-sys-color-surface-container-low)",
+    "on-surface": "var(--md-sys-color-on-surface)",
+    "primary-container": "var(--md-sys-color-primary-container)",
+    "on-primary-container": "var(--md-sys-color-on-primary-container)",
+    "secondary-container": "var(--md-sys-color-secondary-container)",
+    "tertiary-container": "var(--md-sys-color-tertiary-container)"
+  },
+  "dom_identity": {
+    "data-atomic": "organism",
+    "data-component": "TitanSection",
+    "root_element": "section"
+  },
+  "i18n_keys": [
+    "titanSection.title", "titanSection.subtitle",
+    "titanSection.version", "titanSection.module.commands"
+  ],
+  "spec_criteria": [
+    "CA-001: grid de cards de módulos TITAN — una por hub M0..M5",
+    "CA-002: cada card muestra hub_name, hub_title, description, commands_count, momentum Badge",
+    "CA-003: Badge atom con versión 'v7.0' destacada en header",
+    "CA-004: Chip atom con momentum M0..M5 con color semántico del token",
+    "CA-005: MetricRow con total comandos + módulos activos",
+    "CA-006: carga desde /api/titan-modules con fallback estático (6 módulos hardcoded)",
+    "CA-007: data-atomic='organism' data-component='TitanSection' en root",
+    "CA-008: ES/EN next-intl",
+    "CA-009: 0 hex hardcoded — solo tokens M3"
+  ],
+  "static_fallback": {
+    "modules": [
+      { "hubName": "MEGA_01", "hubTitle": "Críticos", "momentum": "M0", "commandsCount": 12 },
+      { "hubName": "MEGA_02", "hubTitle": "Estrategia", "momentum": "M1", "commandsCount": 18 },
+      { "hubName": "MEGA_03", "hubTitle": "Arquitectura", "momentum": "M2", "commandsCount": 22 },
+      { "hubName": "MEGA_04", "hubTitle": "Ejecución", "momentum": "M3", "commandsCount": 31 },
+      { "hubName": "MEGA_05", "hubTitle": "Auditoría", "momentum": "M4", "commandsCount": 14 },
+      { "hubName": "MEGA_06", "hubTitle": "Operaciones", "momentum": "M5", "commandsCount": 9 }
+    ]
+  },
+  "out_of_scope": [
+    "No hace fetch directo (Server Component usa ISR)",
+    "No tiene interactividad — es informativo (Server Component)"
+  ],
+  "blueprint_gate": {
+    "BH-1": "PASS — tokens existen en DESIGN_TOKENS.json",
+    "BH-2": "PASS — WCAG criterios válidos en 2.2",
+    "BH-3": "PASS — dependencias versiones fijadas",
+    "BH-4": "PASS — 0 any en props_contract",
+    "BH-5": "PASS — scope organism (orquesta átomos + moléculas, sin lógica de negocio)",
+    "BH-6": "PASS — sin PENDIENTE sin resolver"
+  }
+}

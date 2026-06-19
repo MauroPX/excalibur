@@ -1,0 +1,85 @@
+{
+  "spec_ref": "EX-v2-ORG-005",
+  "atomic_level": "organism",
+  "component_name": "StackSection",
+  "ola": "3",
+  "rama": "feat/v2-ola3-organisms",
+  "law_of_ux": "Ley de Prägnanz (forma simple — radar legible de un vistazo)",
+  "client_component": true,
+  "dependencies": [
+    "EX-v2-MOL-003",
+    "EX-v2-ATOM-004",
+    "EX-v2-ATOM-006"
+  ],
+  "props_contract": {
+    "skills": {
+      "type": "Array<{ name: string; category: 'pensamiento'|'diseno'|'operaciones'|'tecnico'; level: number; levelLabel: 'Senior'|'Expert'|'Lead'; iconName?: string }>",
+      "required": true
+    }
+  },
+  "radar_axes": {
+    "pensamiento": "Pensamiento sistémico",
+    "diseno": "Diseño de producto",
+    "operaciones": "Operaciones",
+    "tecnico": "Técnico"
+  },
+  "radar_config": {
+    "library": "recharts",
+    "type": "RadarChart",
+    "domain": [0, 100],
+    "color": "var(--md-sys-color-primary)"
+  },
+  "wcag_criteria": ["1.1.1", "1.3.1", "1.4.3", "2.1.1"],
+  "bem_classes": {
+    "block": "ex-stack-section",
+    "elements": ["radar-wrapper", "radar-chart", "filter-chips", "skills-list", "category-group"],
+    "modifiers": ["pensamiento", "diseno", "operaciones", "tecnico"]
+  },
+  "m3_tokens": {
+    "surface": "var(--md-sys-color-surface)",
+    "surface-container-low": "var(--md-sys-color-surface-container-low)",
+    "on-surface": "var(--md-sys-color-on-surface)",
+    "primary": "var(--md-sys-color-primary)",
+    "primary-container": "var(--md-sys-color-primary-container)",
+    "outline-variant": "var(--md-sys-color-outline-variant)"
+  },
+  "dom_identity": {
+    "data-atomic": "organism",
+    "data-component": "StackSection",
+    "root_element": "section"
+  },
+  "i18n_keys": [
+    "stackSection.title", "stackSection.subtitle",
+    "stackSection.category.pensamiento", "stackSection.category.diseno",
+    "stackSection.category.operaciones", "stackSection.category.tecnico",
+    "stackSection.radar.ariaLabel"
+  ],
+  "spec_criteria": [
+    "CA-001: RadarChart (Recharts) con 4 ejes usando tokens M3",
+    "CA-002: radar aria-label descriptivo + tabla oculta para a11y",
+    "CA-003: lista de SkillBars agrupada por categoría",
+    "CA-004: Chips de categoría para filtrar SkillBars visibles",
+    "CA-005: ISR desde /api/skills con fallback a datos estáticos",
+    "CA-006: responsivo — radar simplificado 320px / completo 768px+",
+    "CA-007: data-atomic='organism' data-component='StackSection' en root",
+    "CA-008: ES/EN next-intl",
+    "CA-009: 0 hex hardcoded"
+  ],
+  "a11y_radar_pattern": {
+    "note": "RadarChart no es accesible por defecto; complementar con tabla visualmente oculta",
+    "implementation": "aria-hidden=true en el SVG + <table className='sr-only'> con los valores"
+  },
+  "out_of_scope": [
+    "No hace fetch directo (recibe skills por props)",
+    "No permite edición de skills",
+    "No tiene animación de entrada del radar (opcional en M4)"
+  ],
+  "blueprint_gate": {
+    "BH-1": "PASS — tokens existen en DESIGN_TOKENS.json",
+    "BH-2": "PASS — WCAG criterios válidos en 2.2",
+    "BH-3": "PASS — recharts ya en devDependencies del proyecto",
+    "BH-4": "PASS — 0 any en props_contract",
+    "BH-5": "PASS — scope organism (visualización compleja + datos externos)",
+    "BH-6": "PASS — sin PENDIENTE sin resolver"
+  }
+}

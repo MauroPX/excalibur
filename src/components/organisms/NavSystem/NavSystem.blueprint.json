@@ -1,0 +1,89 @@
+{
+  "spec_ref": "EX-v2-ORG-002",
+  "atomic_level": "organism",
+  "component_name": "NavSystem",
+  "ola": "3",
+  "rama": "feat/v2-ola3-organisms",
+  "law_of_ux": "Ley de Miller (7±2) + Ley de Proximidad",
+  "client_component": true,
+  "dependencies": [
+    "EX-v2-MOL-001",
+    "EX-v2-MOL-006",
+    "EX-v2-RAG-001"
+  ],
+  "props_contract": {
+    "symptomCards": {
+      "type": "Array<{ title: string; description: string; iconName?: string; tag?: string; targetSlug?: string }>",
+      "required": true
+    },
+    "roleCards": {
+      "type": "Array<{ title: string; description: string; iconName?: string; tag?: string; targetSlug?: string }>",
+      "required": true
+    },
+    "featuredProjects": {
+      "type": "Array<{ slug: string; title: string; summary: string; tags: string[] }>",
+      "required": false
+    },
+    "defaultTab": { "type": "'A' | 'B' | 'C' | 'D'", "required": false, "default": "'A'" }
+  },
+  "tabs": {
+    "A": { "label": "Por síntoma", "iconName": "TroubleshootOutlined", "content": "AudienceCard grid (symptom)" },
+    "B": { "label": "Por rol", "iconName": "WorkOutlined", "content": "AudienceCard grid (role)" },
+    "C": { "label": "Pregúntale a TITAN", "iconName": "SmartToyOutlined", "content": "TitanRAGAgent embedded" },
+    "D": { "label": "Explorar", "iconName": "ExploreOutlined", "content": "Featured projects list" }
+  },
+  "wcag_criteria": ["1.3.1", "2.1.1", "2.4.3", "2.4.7", "4.1.2", "4.1.3"],
+  "bem_classes": {
+    "block": "ex-nav-system",
+    "elements": ["tabs-bar", "tab-panel", "cards-grid"],
+    "modifiers": ["tab-a", "tab-b", "tab-c", "tab-d"]
+  },
+  "m3_tokens": {
+    "surface": "var(--md-sys-color-surface)",
+    "surface-container": "var(--md-sys-color-surface-container)",
+    "on-surface": "var(--md-sys-color-on-surface)",
+    "primary": "var(--md-sys-color-primary)",
+    "outline-variant": "var(--md-sys-color-outline-variant)"
+  },
+  "dom_identity": {
+    "data-atomic": "organism",
+    "data-component": "NavSystem",
+    "root_element": "section"
+  },
+  "aria_pattern": {
+    "tablist": "role=tablist aria-label='Navegación por audiencia'",
+    "tab": "role=tab aria-selected aria-controls=panel-{id}",
+    "tabpanel": "role=tabpanel id=panel-{id} aria-labelledby=tab-{id}"
+  },
+  "i18n_keys": [
+    "navSystem.tab.a", "navSystem.tab.b", "navSystem.tab.c", "navSystem.tab.d",
+    "navSystem.ariaLabel"
+  ],
+  "spec_criteria": [
+    "CA-001: 4 NavTabs accesibles — iconos + etiquetas A/B/C/D",
+    "CA-002: Tab A — grid de AudienceCards symptom (mín 4)",
+    "CA-003: Tab B — grid de AudienceCards role (mín 4)",
+    "CA-004: Tab C — TitanRAGAgent embebido completo",
+    "CA-005: Tab D — lista de proyectos destacados",
+    "CA-006: cambio de tab sin recarga — React state",
+    "CA-007: role=tablist, role=tab, aria-selected, aria-controls",
+    "CA-008: responsivo — fila horizontal desktop / scroll mobile",
+    "CA-009: data-atomic='organism' data-component='NavSystem' en root",
+    "CA-010: ES/EN next-intl",
+    "CA-011: 0 hex hardcoded",
+    "CA-012: animación fade 150ms entre tabs"
+  ],
+  "out_of_scope": [
+    "No hace fetch directo — recibe datos por props desde Server Component padre",
+    "No maneja routing de casos (delega a AudienceCard onClick)",
+    "No incluye lógica de analytics (PostHog se añade en M4)"
+  ],
+  "blueprint_gate": {
+    "BH-1": "PASS — tokens existen en DESIGN_TOKENS.json",
+    "BH-2": "PASS — WCAG criterios válidos en 2.2",
+    "BH-3": "PASS — dependencias versiones fijadas",
+    "BH-4": "PASS — 0 any en props_contract",
+    "BH-5": "PASS — scope es organism (orquesta moléculas + tiene interactividad de UI)",
+    "BH-6": "PASS — sin PENDIENTE sin resolver"
+  }
+}

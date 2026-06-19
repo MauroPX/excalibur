@@ -1,0 +1,78 @@
+{
+  "spec_ref": "EX-v2-MOL-007",
+  "atomic_level": "molecule",
+  "component_name": "RoadmapSplitButton",
+  "ola": "2",
+  "rama": "feat/v2-ola2-close",
+  "law_of_ux": "Ley de Hick (reducir opciones visibles)",
+  "dependencies": ["EX-v2-ATOM-001", "EX-v2-ATOM-004"],
+  "props_contract": {
+    "options": {
+      "type": "Array<{ label: string; value: string }>",
+      "required": true
+    },
+    "selectedValue": { "type": "string", "required": true },
+    "onChange": { "type": "(value: string) => void", "required": true },
+    "primaryLabel": { "type": "string", "required": false }
+  },
+  "variants": ["default"],
+  "states": ["default", "open", "disabled"],
+  "wcag_criteria": ["1.3.1", "2.1.1", "2.4.7", "4.1.2"],
+  "bem_classes": {
+    "block": "ex-roadmap-split",
+    "elements": ["primary", "arrow", "dropdown", "option"],
+    "modifiers": ["open", "disabled"]
+  },
+  "m3_tokens": {
+    "primary": "var(--md-sys-color-primary)",
+    "on-primary": "var(--md-sys-color-on-primary)",
+    "surface-container": "var(--md-sys-color-surface-container)",
+    "on-surface": "var(--md-sys-color-on-surface)",
+    "outline": "var(--md-sys-color-outline)"
+  },
+  "dom_identity": {
+    "data-atomic": "molecule",
+    "data-component": "RoadmapSplitButton",
+    "root_element": "div"
+  },
+  "aria_pattern": {
+    "root": "role=group",
+    "trigger": "aria-haspopup=listbox aria-expanded={open} aria-controls=roadmap-dropdown",
+    "listbox": "role=listbox id=roadmap-dropdown",
+    "option": "role=option aria-selected={selected}"
+  },
+  "keyboard": {
+    "Enter/Space": "abre/cierra dropdown en trigger",
+    "ArrowDown": "navega a siguiente opción",
+    "ArrowUp": "navega a opción anterior",
+    "Escape": "cierra dropdown, foco regresa a trigger",
+    "Home/End": "primera/última opción"
+  },
+  "i18n_keys": [
+    "roadmapSplit.ariaLabel",
+    "roadmapSplit.openMenu"
+  ],
+  "spec_criteria": [
+    "CA-001: acción primaria + flecha dropdown separados visualmente",
+    "CA-002: dropdown abre/cierra; cierra al seleccionar o click fuera",
+    "CA-003: opción seleccionada refleja en label del botón primario",
+    "CA-004: teclado — Enter abre, ArrowUp/Down navega, Escape cierra",
+    "CA-005: aria-expanded, aria-haspopup, aria-controls correctos",
+    "CA-006: 0 hex hardcoded — solo tokens M3",
+    "CA-007: data-atomic='molecule' data-component='RoadmapSplitButton' en root",
+    "CA-008: ES/EN next-intl"
+  ],
+  "out_of_scope": [
+    "No hace fetch (recibe options por props)",
+    "No maneja routing interno",
+    "No tiene animación de roadmap — solo la UI del split button"
+  ],
+  "blueprint_gate": {
+    "BH-1": "PASS — tokens existen en DESIGN_TOKENS.json",
+    "BH-2": "PASS — WCAG 1.3.1, 2.1.1, 2.4.7, 4.1.2 válidos en 2.2",
+    "BH-3": "PASS — MUI v6 versión fijada",
+    "BH-4": "PASS — 0 any en props_contract",
+    "BH-5": "PASS — scope es nivel molecule (sin lógica de negocio)",
+    "BH-6": "PASS — sin PENDIENTE sin resolver"
+  }
+}

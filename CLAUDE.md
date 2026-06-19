@@ -26,9 +26,9 @@ Node:        24.15.0 | pnpm: 11.2.2
 ```
 Momentum:    M3 — Execution (Sprints BFL)
 Ola activa:  Ola 2 (Molecules)
-Feature:     Ola 2 Molecules (3/5 LOCKED)
-SPEC_ID:     EX-v2-MOL-003
-Último LOCK: SkillBar — 2026-06-17
+Feature:     Ola 2 Molecules (5/7 LOCKED)
+SPEC_ID:     EX-v2-MOL-006
+Último LOCK: MetricRow — 2026-06-17
 ```
 
 ---
