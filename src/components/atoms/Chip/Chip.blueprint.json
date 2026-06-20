@@ -1,0 +1,41 @@
+{
+  "spec_ref": "EX-v2-ATOM-006",
+  "atomic_level": "atom",
+  "component_name": "Chip",
+  "props_contract": {
+    "label": { "type": "string", "required": true },
+    "selected": { "type": "boolean", "default": false },
+    "onDelete": { "type": "() => void", "required": false },
+    "icon": { "type": "React.ReactNode", "required": false },
+    "disabled": { "type": "boolean", "default": false }
+  },
+  "bem_classes": {
+    "block": "ex-chip",
+    "elements": ["label", "icon", "delete-icon"],
+    "modifiers": {
+      "selected": "ex-chip--selected",
+      "deletable": "ex-chip--deletable",
+      "disabled": "ex-chip--disabled"
+    }
+  },
+  "m3_tokens": {
+    "background": "var(--md-sys-color-secondary-container)",
+    "on-background": "var(--md-sys-color-on-secondary-container)",
+    "outline": "var(--md-sys-color-outline)",
+    "selected-background": "var(--md-sys-color-primary-container)",
+    "selected-on-background": "var(--md-sys-color-on-primary-container)"
+  },
+  "accessibility": {
+    "role": "button",
+    "aria-pressed": "selected",
+    "keyboard_nav": "Tab, Enter, Space, Backspace (for delete)"
+  },
+  "blueprint_gate": {
+    "BH-1": "Definition of props contract: DONE",
+    "BH-2": "Selection of M3 Tokens: DONE",
+    "BH-3": "BEM Hierarchy mapping: DONE",
+    "BH-4": "A11y requirements mapping: DONE",
+    "BH-5": "Compliance with ADR-002: DONE",
+    "BH-6": "Architecture alignment: PASS"
+  }
+}

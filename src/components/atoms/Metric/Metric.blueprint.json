@@ -1,0 +1,21 @@
+{
+  "spec_ref": "EX-v2-ATOM-005",
+  "atomic_level": "atom",
+  "component_name": "Metric",
+  "props_contract": {
+    "value": { "type": "string | number", "required": true },
+    "label": { "type": "string", "required": true },
+    "trend": { "type": "'positive' | 'negative' | 'neutral'", "default": "'neutral'" }
+  },
+  "bem_classes": {
+    "block": "ex-metric",
+    "elements": ["value", "label"],
+    "modifiers": { "trend": "ex-metric--[trend]" }
+  },
+  "m3_tokens": [
+    "var(--md-sys-color-primary)",
+    "var(--md-sys-color-error)",
+    "var(--md-sys-color-on-surface)"
+  ],
+  "blueprint_gate": { "BH-1..6": "PASS" }
+}

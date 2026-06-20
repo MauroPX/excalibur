@@ -1,0 +1,68 @@
+{
+  "spec_ref": "EX-v2-ORG-006",
+  "atomic_level": "organism",
+  "component_name": "ContactSection",
+  "ola": "3",
+  "rama": "feat/v2-ola3-organisms",
+  "law_of_ux": "Ley de Posición Serial (último = segundo más recordado) + Ley de Hick (1 CTA)",
+  "client_component": true,
+  "dependencies": [
+    "EX-v2-ATOM-001",
+    "EX-v2-ATOM-004"
+  ],
+  "props_contract": {
+    "email": { "type": "string", "required": true },
+    "calendarUrl": { "type": "string", "required": false },
+    "headline": { "type": "string", "required": false },
+    "subtext": { "type": "string", "required": false }
+  },
+  "cta_hierarchy": {
+    "primary": "Agendar reunión (Button cta → calendarUrl)",
+    "secondary": "Copiar email (Button text → clipboard API + toast)"
+  },
+  "wcag_criteria": ["1.3.1", "1.4.3", "2.1.1", "2.4.7", "2.5.3", "4.1.2"],
+  "bem_classes": {
+    "block": "ex-contact-section",
+    "elements": ["headline", "subtext", "cta-group", "email-copy", "copy-feedback"],
+    "modifiers": ["copied"]
+  },
+  "m3_tokens": {
+    "surface": "var(--md-sys-color-surface)",
+    "surface-container": "var(--md-sys-color-surface-container)",
+    "on-surface": "var(--md-sys-color-on-surface)",
+    "primary": "var(--md-sys-color-primary)",
+    "on-primary": "var(--md-sys-color-on-primary)"
+  },
+  "dom_identity": {
+    "data-atomic": "organism",
+    "data-component": "ContactSection",
+    "root_element": "section"
+  },
+  "i18n_keys": [
+    "contact.headline", "contact.subtext",
+    "contact.cta.calendar", "contact.cta.email",
+    "contact.email.copied", "contact.email.copy"
+  ],
+  "spec_criteria": [
+    "CA-001: 1 CTA 'Agendar reunión' Button variant=cta → calendarUrl",
+    "CA-002: email alternativo con copy al portapapeles + feedback visual 'Copiado!'",
+    "CA-003: mensaje breve de propuesta de valor (headline + subtext por i18n)",
+    "CA-004: accesibilidad — aria-live en feedback de copy, focus claro en CTAs",
+    "CA-005: data-atomic='organism' data-component='ContactSection' en root",
+    "CA-006: ES/EN next-intl",
+    "CA-007: 0 hex hardcoded, solo tokens M3"
+  ],
+  "out_of_scope": [
+    "No tiene formulario de contacto (MVP usa email directo)",
+    "No integra con backend de envío de mensajes",
+    "No valida disponibilidad del calendario"
+  ],
+  "blueprint_gate": {
+    "BH-1": "PASS — tokens existen en DESIGN_TOKENS.json",
+    "BH-2": "PASS — WCAG criterios válidos en 2.2",
+    "BH-3": "PASS — dependencias versiones fijadas",
+    "BH-4": "PASS — 0 any en props_contract",
+    "BH-5": "PASS — scope organism (acción de usuario con estado clipboard)",
+    "BH-6": "PASS — sin PENDIENTE sin resolver"
+  }
+}

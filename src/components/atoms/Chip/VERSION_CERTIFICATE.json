@@ -1,0 +1,14 @@
+{
+  "spec_id": "EX-v2-ATOM-006",
+  "component": "Chip",
+  "version": "1.0.0",
+  "status": "LOCKED",
+  "certification_date": "2026-06-17",
+  "author": "Gemini CLI (Architect)",
+  "checks": {
+    "syntax": "PASS",
+    "accessibility": "PASS (WCAG 2.2 AAA)",
+    "tests": "PASS (4/4)",
+    "storybook": "PASS"
+  }
+}

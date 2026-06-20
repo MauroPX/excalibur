@@ -1,0 +1,73 @@
+{
+  "spec_ref": "EX-v2-ORG-003",
+  "atomic_level": "organism",
+  "component_name": "CasesSection",
+  "ola": "3",
+  "rama": "feat/v2-ola3-organisms",
+  "law_of_ux": "Ley de Posición Serial (medio) + Ley de Zeigarnik",
+  "client_component": true,
+  "dependencies": [
+    "EX-v2-MOL-002",
+    "EX-v2-ATOM-006",
+    "EX-v2-ATOM-001"
+  ],
+  "props_contract": {
+    "projects": {
+      "type": "Array<{ slug: string; title: string; description: string; tags: string[]; metric?: { value: string; label: string }; symptomTags: string[]; roleTags: string[]; audienceTags: string[] }>",
+      "required": true
+    },
+    "totalCount": { "type": "number", "required": false }
+  },
+  "filter_system": {
+    "symptomTags": ["legacy", "conversion", "ia", "a11y", "performance", "design-system", "team-scaling"],
+    "roleTags": ["staff-architect", "product-manager", "ux-designer", "tech-lead", "design-engineer", "designops"],
+    "behavior": "AND dentro de mismo grupo, OR entre grupos"
+  },
+  "wcag_criteria": ["1.3.1", "2.1.1", "2.4.3", "4.1.3"],
+  "bem_classes": {
+    "block": "ex-cases-section",
+    "elements": ["filters", "grid", "card-wrapper", "empty-state", "load-more"],
+    "modifiers": ["filtered", "loading"]
+  },
+  "m3_tokens": {
+    "surface": "var(--md-sys-color-surface)",
+    "on-surface": "var(--md-sys-color-on-surface)",
+    "surface-container-low": "var(--md-sys-color-surface-container-low)",
+    "primary": "var(--md-sys-color-primary)"
+  },
+  "dom_identity": {
+    "data-atomic": "organism",
+    "data-component": "CasesSection",
+    "root_element": "section"
+  },
+  "i18n_keys": [
+    "casesSection.title", "casesSection.subtitle",
+    "casesSection.filter.symptoms", "casesSection.filter.roles",
+    "casesSection.empty", "casesSection.viewAll"
+  ],
+  "spec_criteria": [
+    "CA-001: grid responsivo 1/2/3 columnas (320/768/1440px)",
+    "CA-002: Chips de filtro por symptom_tags y role_tags",
+    "CA-003: filtros actualizan lista sin reload — React state",
+    "CA-004: máximo 20 ProjectCards; botón 'Ver todos' si hay más",
+    "CA-005: estado vacío con mensaje claro cuando filtro sin resultados",
+    "CA-006: ISR desde /api/projects con fallback a evidence-dna.json",
+    "CA-007: aria-live='polite' para actualización al filtrar",
+    "CA-008: data-atomic='organism' data-component='CasesSection' en root",
+    "CA-009: ES/EN next-intl",
+    "CA-010: 0 hex hardcoded"
+  ],
+  "out_of_scope": [
+    "No hace fetch directo — recibe projects por props del Server Component",
+    "No maneja paginación compleja (máx 20 en MVP)",
+    "No incluye búsqueda por texto libre"
+  ],
+  "blueprint_gate": {
+    "BH-1": "PASS — tokens existen en DESIGN_TOKENS.json",
+    "BH-2": "PASS — WCAG criterios válidos en 2.2",
+    "BH-3": "PASS — dependencias versiones fijadas",
+    "BH-4": "PASS — 0 any en props_contract",
+    "BH-5": "PASS — scope organism (orquesta moléculas + lógica de filtrado de UI)",
+    "BH-6": "PASS — sin PENDIENTE sin resolver"
+  }
+}

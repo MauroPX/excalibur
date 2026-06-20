@@ -33,3 +33,4 @@ backup/
 
 *storybook.log
 storybook-static
+tsconfig.tsbuildinfo

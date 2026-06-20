@@ -1,22 +1,30 @@
-// For more info, see https://github.com/storybookjs/eslint-plugin-storybook#configuration-flat-config-format
+import { dirname } from "path";
+import { fileURLToPath } from "url";
+import { FlatCompat } from "@eslint/eslintrc";
 import storybook from "eslint-plugin-storybook";
 
-import { defineConfig, globalIgnores } from "eslint/config";
-import nextVitals from "eslint-config-next/core-web-vitals.js";
-import nextTs from "eslint-config-next/typescript";
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
-const eslintConfig = defineConfig([
-  ...nextVitals,
-  ...nextTs,
-  // Override default ignores of eslint-config-next.
-  globalIgnores([
-    // Default ignores of eslint-config-next:
-    ".next/**",
-    "out/**",
-    "build/**",
-    "next-env.d.ts",
-  ]),
-  ...storybook.configs["flat/recommended"]
-]);
+const compat = new FlatCompat({ baseDirectory: __dirname });
+
+const eslintConfig = [
+  ...compat.extends("next/core-web-vitals", "next/typescript"),
+  ...storybook.configs["flat/recommended"],
+  {
+    ignores: [
+      ".next/**",
+      "out/**",
+      "build/**",
+      "next-env.d.ts",
+      "coverage/**",
+      // Legacy v1 components — no son parte del sistema de diseño v2
+      "src/components/InquisitorHUD.tsx",
+      "src/components/StaffAtoms.tsx",
+      "src/components/TitanRAGAgent.tsx",
+      "src/stories/**",
+    ],
+  },
+];
 
 export default eslintConfig;

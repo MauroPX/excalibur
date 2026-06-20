@@ -1,0 +1,24 @@
+{
+  "spec_ref": "EX-v2-MOL-001",
+  "atomic_level": "molecule",
+  "component_name": "NavTab",
+  "dependencies": ["EX-v2-ATOM-004"],
+  "props_contract": {
+    "label": { "type": "string", "required": true },
+    "icon": { "type": "React.ElementType", "required": true },
+    "active": { "type": "boolean", "default": false },
+    "symptom": { "type": "string", "required": false },
+    "onClick": { "type": "() => void", "required": true }
+  },
+  "bem_classes": {
+    "block": "ex-nav-tab",
+    "elements": ["label", "symptom", "icon-wrapper"],
+    "modifiers": { "active": "ex-nav-tab--active" }
+  },
+  "m3_tokens": {
+    "active-bg": "var(--md-sys-color-primary-container)",
+    "active-content": "var(--md-sys-color-on-primary-container)",
+    "inactive-content": "var(--md-sys-color-on-surface-variant)"
+  },
+  "blueprint_gate": { "BH-1..6": "PASS" }
+}

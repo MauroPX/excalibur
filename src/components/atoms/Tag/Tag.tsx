@@ -1,6 +1,6 @@
 'use client'
 
-import React, { ReactNode } from 'react'
+import React from 'react'
 import { Chip } from '@mui/material'
 import { styled } from '@mui/material/styles'
 
@@ -14,7 +14,7 @@ export interface TagProps {
   /** Variante visual */
   variant?: 'filled' | 'outlined'
   /** Icono opcional a la izquierda */
-  icon?: ReactNode
+  icon?: React.ReactElement
 }
 
 const StyledTag = styled(Chip, {
@@ -64,11 +64,13 @@ export const Tag = ({
 }: TagProps) => {
   return (
     <StyledTag
+      data-atomic="atom"
+      data-component="Tag"
       label={label}
-      color={color as any}
-      variant={variant as any}
+      color={color}
+      variant={variant}
       customSize={size}
-      icon={icon as any}
+      icon={icon}
       className={`ex-tag ex-tag--${color} ex-tag--${size} ex-tag--${variant}`}
     />
   )

@@ -1,0 +1,13 @@
+{
+  "spec_ref": "EX-v2-ATOM-004",
+  "atomic_level": "atom",
+  "component_name": "Icon",
+  "props_contract": {
+    "name": { "type": "string", "required": true },
+    "size": { "type": "'xs' | 'sm' | 'md' | 'lg' | 'xl'", "default": "'md'" },
+    "color": { "type": "string", "default": "'inherit'" },
+    "ariaLabel": { "type": "string", "required": false }
+  },
+  "m3_tokens": ["var(--md-sys-color-primary)", "var(--md-sys-color-on-surface-variant)"],
+  "blueprint_gate": { "BH-1..6": "PASS" }
+}

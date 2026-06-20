@@ -1,0 +1,69 @@
+{
+  "spec_ref": "EX-v2-A11Y-001",
+  "atomic_level": "organism",
+  "component_name": "InquisitorHUD",
+  "ola": "3",
+  "rama": "feat/v2-ola3-organisms",
+  "law_of_ux": "Principio de Visibilidad del Estado del Sistema (a11y en tiempo real)",
+  "client_component": true,
+  "dependencies": [
+    "EX-v2-ATOM-001",
+    "EX-v2-ATOM-003"
+  ],
+  "props_contract": {
+    "enabled": { "type": "boolean", "required": false, "default": "false" }
+  },
+  "activation_conditions": {
+    "keyboard": "Alt+A toggle",
+    "url_flag": "?inquisitor=1 en querystring",
+    "env": "process.env.NODE_ENV === 'development' || url_flag activo"
+  },
+  "panel_sections": {
+    "atomic_tree": "Lista data-atomic + data-component del DOM actual",
+    "missing_aria": "Elementos sin aria-label o role apropiado — resaltados en rojo",
+    "violations_summary": "Recuento de violaciones por tipo (badge count)"
+  },
+  "wcag_criteria": ["1.3.1", "1.4.3", "2.1.1", "2.4.7", "4.1.2"],
+  "bem_classes": {
+    "block": "ex-inquisitor-hud",
+    "elements": ["toggle-btn", "panel", "section", "tree-item", "violation-row"],
+    "modifiers": ["open", "violation", "warning"]
+  },
+  "m3_tokens": {
+    "surface-container-highest": "var(--md-sys-color-surface-container-highest)",
+    "on-surface": "var(--md-sys-color-on-surface)",
+    "error": "var(--md-sys-color-error)",
+    "error-container": "var(--md-sys-color-error-container)",
+    "primary": "var(--md-sys-color-primary)",
+    "outline": "var(--md-sys-color-outline)"
+  },
+  "dom_identity": {
+    "data-atomic": "organism",
+    "data-component": "InquisitorHUD",
+    "root_element": "div",
+    "position": "fixed bottom-right z-index-9999"
+  },
+  "spec_criteria": [
+    "CA-001: toggle Alt+A + botón flotante esquina inferior derecha",
+    "CA-002: overlay lista todos data-atomic presentes en el DOM actual",
+    "CA-003: resalta en rojo elementos sin aria-label o role apropiado",
+    "CA-004: panel colapsable con recuento de violaciones por tipo (Badge atom)",
+    "CA-005: solo visible en development || ?inquisitor=1",
+    "CA-006: no afecta layout del portafolio — position fixed, z-index alto",
+    "CA-007: data-atomic='organism' data-component='InquisitorHUD' en root del HUD",
+    "CA-008: el propio HUD cumple WCAG 2.2 AA"
+  ],
+  "out_of_scope": [
+    "No reemplaza axe-core en CI (complemento visual, no sustituto)",
+    "No persiste resultados (solo en memoria del DOM actual)",
+    "No tiene modo producción sin el url flag"
+  ],
+  "blueprint_gate": {
+    "BH-1": "PASS — tokens existen en DESIGN_TOKENS.json",
+    "BH-2": "PASS — WCAG criterios válidos en 2.2",
+    "BH-3": "PASS — sin dependencias extra (DOM API nativo)",
+    "BH-4": "PASS — 0 any en props_contract",
+    "BH-5": "PASS — scope organism (lógica de auditoría DOM, estado, teclado)",
+    "BH-6": "PASS — sin PENDIENTE sin resolver"
+  }
+}

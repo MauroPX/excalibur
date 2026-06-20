@@ -1,8 +1,272 @@
 # TRACEABILITY MATRIX — EXCALIBUR v2.0
+# TITAN v7.0 | Actualizado: 2026-06-19
+# Fuente de verdad: plan de trabajo vs estado real del repositorio
 
-| SPEC_ID | Componente | Nivel | Ola | Estado | Versión |
-|---|---|---|---|---|---|
-| EX-v2-INFRA-001 | Setup base | infra | 0 | LOCKED | 1.0.0 |
-| EX-v2-ATOM-001 | Button | atoms | 1 | LOCKED | 1.0.0 |
-| EX-v2-ATOM-002 | Tag | atoms | 1 | LOCKED | 1.0.0 |
-| EX-v2-ATOM-003 | Badge | atoms | 1 | LOCKED | 1.0.0 |
+---
+
+## COMPONENTES — CICLO BFL
+
+| SPEC_ID | Componente | Nivel | Ola | Estado | .tsx | .test | .stories | Blueprint | Cert src/ | data-atomic | Versión |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| EX-v2-INFRA-001 | Setup base | infra | 0 | LOCKED | ✅ | — | — | ✅ | ✅ | — | 1.0.0 |
+| EX-v2-ATOM-001 | Button | atoms | 1 | LOCKED | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1.0.0 |
+| EX-v2-ATOM-002 | Tag | atoms | 1 | LOCKED | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1.0.0 |
+| EX-v2-ATOM-003 | Badge | atoms | 1 | LOCKED | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1.0.0 |
+| EX-v2-ATOM-004 | Icon | atoms | 1 | LOCKED | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1.0.0 |
+| EX-v2-ATOM-005 | Metric | atoms | 1 | LOCKED | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1.0.0 |
+| EX-v2-ATOM-006 | Chip | atoms | 1 | LOCKED | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1.0.0 |
+| EX-v2-MOL-001 | NavTab | molecules | 2 | LOCKED | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1.0.0 |
+| EX-v2-MOL-002 | ProjectCard | molecules | 2 | LOCKED | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1.0.0 |
+| EX-v2-MOL-003 | SkillBar | molecules | 2 | LOCKED | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1.0.0 |
+| EX-v2-MOL-004 | TimelineStep | molecules | 2 | LOCKED | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1.0.0 |
+| EX-v2-MOL-005 | MetricRow | molecules | 2 | LOCKED | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1.0.0 |
+| EX-v2-MOL-006 | AudienceCard | molecules | 2 | PENDING | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | — |
+| EX-v2-MOL-007 | RoadmapSplitButton | molecules | 2 | PENDING | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | — |
+| EX-v2-HERO-001 | Hero | organisms | 2 | LOCKED | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1.0.0 |
+| EX-v2-RAG-001 | TitanRAGAgent | organisms | 3 | LOCKED | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1.0.0 |
+| EX-v2-ORG-002 | NavSystem | organisms | 3 | PENDING | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | — |
+| EX-v2-ORG-003 | CasesSection | organisms | 3 | PENDING | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | — |
+| EX-v2-ORG-004 | TitanSection | organisms | 3 | PENDING | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | — |
+| EX-v2-ORG-005 | StackSection | organisms | 3 | PENDING | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | — |
+| EX-v2-ORG-006 | ContactSection | organisms | 3 | PENDING | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | — |
+| EX-v2-A11Y-001 | InquisitorHUD | organisms | 3 | MIGRAR | ⚠️ | ❌ | ❌ | ❌ | ❌ | ❌ | — |
+| EX-v2-TMPL-001 | HomeTemplate | templates | 4 | PENDING | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | — |
+| EX-v2-TMPL-002 | CasePage | templates | 4 | PENDING | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | — |
+
+> **NOTA InquisitorHUD:** existe código legacy en raíz eliminada (`src/components/InquisitorHUD.tsx` borrado en cleanup). Requiere BLUEPRINT fresh → Forge desde cero en `src/components/organisms/InquisitorHUD/`.
+
+---
+
+## INFRAESTRUCTURA CÓDIGO
+
+| SPEC_ID | Artefacto | Ruta | Estado | Bloqueador |
+|---|---|---|---|---|
+| EX-v2-CICD-001 | GitHub Actions 7 jobs | `.github/workflows/v2.yml` | ✅ ACTIVO | — |
+| EX-v2-THEME-001 | titanThemeDark + M3 tokens | `src/theme/` | ❌ NO EXISTE | Directorio no creado |
+| EX-v2-I18N-001 | next-intl ES/EN | `src/i18n/messages/` | ⚠️ VACÍO | Directorio existe, 0 archivos JSON |
+| EX-v2-CMS-001 | Strapi API client | `src/lib/strapi.ts` | ❌ NO EXISTE | `src/lib/` no creado |
+| EX-v2-CMS-002 | TypeScript types | `src/lib/types.ts` | ❌ NO EXISTE | Depende de EX-v2-CMS-001 |
+| EX-v2-API-001 | `/api/chat` multi-provider | `src/app/api/chat/route.ts` | ✅ ACTIVO | pgvector pendiente |
+| EX-v2-API-002 | `/api/health` health check | `src/app/api/health/route.ts` | ❌ NO EXISTE | M4 |
+| EX-v2-DATA-001 | evidence-dna.json (7/20) | `src/data/evidence-dna.json` | ⚠️ INCOMPLETO | 13 proyectos pendientes |
+
+---
+
+## INFRAESTRUCTURA SERVICIOS
+
+| Servicio | Provider | Estado | Próximo paso |
+|---|---|---|---|
+| Frontend deploy | Vercel | ✅ Preview activo (PR #1) | Merge PR #1 para v2 branch |
+| CI/CD pipeline | GitHub Actions | ✅ 7 jobs activos | PR #1 corriendo |
+| Chromatic visual | Chromatic.com | ✅ Token configurado | Validar primera ejecución |
+| Backend CMS | Railway + Strapi v5 | ❌ No iniciado | Post-M3 (M4) |
+| PostgreSQL + pgvector | Railway | ❌ No iniciado | Depende de Strapi |
+| Dominio propio | — | ❌ Pendiente | M4 |
+
+---
+
+## DOCUMENTACIÓN POR MOMENTUM
+
+### M0 — Foundation (12/12) ✅ SELLADO
+
+| Artefacto | Ruta | Estado |
+|---|---|---|
+| PROJECT_MANIFEST | `docs/m0/PROJECT_MANIFEST.md` | ✅ |
+| GSD_TASK_CARD_M0 | `docs/m0/GSD_TASK_CARD_M0.md` | ✅ |
+| ADR-001 Stack | `docs/m0/adr/ADR-001-stack.md` | ✅ |
+| ADR-002 Design | `docs/m0/adr/ADR-002-design-system.md` | ✅ |
+| ADR-003 Backend | `docs/m0/adr/ADR-003-backend.md` | ✅ |
+| ADR-004 Deploy | `docs/m0/adr/ADR-004-deploy.md` | ✅ |
+| ADR-005 IA/RAG | `docs/m0/adr/ADR-005-ia-rag.md` | ✅ |
+| QUALITY_POLICY | `docs/m0/compliance/QUALITY_POLICY.md` | ✅ |
+| WCAG_COMMITMENT | `docs/m0/compliance/WCAG_COMMITMENT.md` | ✅ |
+| SECURITY_POLICY | `docs/m0/security/SECURITY_POLICY.md` | ✅ |
+| THREAT_MODEL_v0 | `docs/m0/security/THREAT_MODEL_v0.md` | ✅ |
+| THREAT_MODEL | `docs/m0/security/THREAT_MODEL.md` | ✅ |
+
+### M1 — Strategy (10/10) ✅ SELLADO
+
+| Artefacto | Ruta | Estado |
+|---|---|---|
+| ROADMAP_v1 | `docs/m1/ROADMAP_v1.md` | ✅ |
+| STRATEGY_BRIEF | `docs/m1/STRATEGY_BRIEF.md` | ✅ |
+| PRODUCT_BACKLOG | `docs/m1/PRODUCT_BACKLOG.md` | ✅ |
+| CUSTOMER_JOURNEY_FULL | `docs/m1/CUSTOMER_JOURNEY_FULL.md` | ✅ |
+| TASK_JOURNEY_MAPS | `docs/m1/TASK_JOURNEY_MAPS.md` | ✅ |
+| USER_TASKS_MATRIX | `docs/m1/USER_TASKS_MATRIX.md` | ✅ |
+| RISK_REGISTER | `docs/m1/RISK_REGISTER.md` | ✅ |
+| SEO_AIO_PLAN | `docs/m1/SEO_AIO_PLAN.md` | ✅ |
+| THREAT_MODEL (copia) | `docs/m1/THREAT_MODEL.md` | ✅ |
+| GSD_TASK_CARD_M1 | `docs/m1/GSD_TASK_CARD_M1.md` | ✅ |
+
+### M2 — Architecture (11/11) ✅ SELLADO
+
+| Artefacto | Ruta | Estado |
+|---|---|---|
+| SPEC_DOCUMENT | `docs/m2/spec/SPEC_DOCUMENT.md` | ✅ |
+| TRACEABILITY_MATRIX | `docs/m2/spec/TRACEABILITY_MATRIX.md` | ✅ (este archivo) |
+| DESIGN_TOKENS | `docs/m2/design/DESIGN_TOKENS.json` | ✅ |
+| DESIGN_SPEC | `docs/m2/design/DESIGN_SPEC.md` | ✅ |
+| API_CONTRACTS | `docs/m2/api/API_CONTRACTS.md` | ✅ |
+| SCHEMA_SPEC | `docs/m2/api/SCHEMA_SPEC.json` | ✅ |
+| DATA_CONTRACT | `docs/m2/api/DATA_CONTRACT.json` | ✅ |
+| ARCHITECTURE_RECORD | `docs/m2/arch/ARCHITECTURE_RECORD.md` | ✅ |
+| OBSERVABILITY_PLAN | `docs/m2/arch/OBSERVABILITY_PLAN.md` | ✅ |
+| GSD_TASK_CARD_M2 | `docs/m2/GSD_TASK_CARD_M2.md` | ✅ |
+| v2.yml (copia cicd) | `docs/m2/cicd/v2.yml` | ✅ |
+
+### M3 — Execution (prompts BFL) (6/25) ⚠️ EN CURSO
+
+| Artefacto | Ruta | Estado |
+|---|---|---|
+| PROMPT Ola 0 Setup | `docs/m3/prompts/ola0/PROMPT_EX-v2-INFRA-001_setup.md` | ✅ |
+| PROMPT Ola 1 Button | `docs/m3/prompts/ola1/PROMPT_EX-v2-ATOM-001_Button.md` | ✅ |
+| PROMPT Ola 1 Tag | `docs/m3/prompts/ola1/PROMPT_EX-v2-ATOM-002_Tag.md` | ✅ |
+| PROMPT Ola 2 Hero | `docs/m3/prompts/ola2/PROMPT_OLA2_Hero.md` | ✅ |
+| PROMPT Ola 3 TitanRAGAgent | `docs/m3/prompts/ola3/PROMPT_OLA3_TitanRAGAgent.md` | ✅ |
+| PROMPT Ola 3 Gemini handoff | `docs/m3/prompts/ola3/PROMPT_OLA3_GEMINI_HANDOFF.md` | ✅ |
+| PROMPT ATOM-003..006 (4) | `docs/m3/prompts/ola1/` | ❌ PENDIENTE |
+| PROMPT MOL-001..007 (7) | `docs/m3/prompts/ola2/` | ❌ PENDIENTE (6 faltan) |
+| PROMPT ORG-002..006 (5) | `docs/m3/prompts/ola3/` | ❌ PENDIENTE |
+| PROMPT A11Y-001 (1) | `docs/m3/prompts/ola3/` | ❌ PENDIENTE |
+| PROMPT TMPL-001..002 (2) | `docs/m3/prompts/ola4/` | ❌ PENDIENTE |
+
+### M3 — Certificates (14/14 para componentes LOCKED) ✅
+
+| SPEC_ID | Cert docs/m3/ | Cert src/ | GSD Card |
+|---|---|---|---|
+| EX-v2-INFRA-001 | ✅ | ✅ | ✅ |
+| EX-v2-ATOM-001 | ✅ | ✅ | ✅ |
+| EX-v2-ATOM-002 | ✅ | ✅ | ✅ |
+| EX-v2-ATOM-003 | ✅ | ✅ | ✅ |
+| EX-v2-ATOM-004 | ✅ (cert) | ✅ | — |
+| EX-v2-ATOM-005 | ✅ (cert) | ✅ | — |
+| EX-v2-ATOM-006 | ✅ (cert) | ✅ | — |
+| EX-v2-MOL-001 | ✅ (cert) | ✅ | — |
+| EX-v2-MOL-002 | ✅ (cert) | ✅ | — |
+| EX-v2-MOL-003 | ✅ (cert) | ✅ | — |
+| EX-v2-MOL-004 | ✅ | ✅ | — |
+| EX-v2-MOL-005 | ✅ | ✅ | — |
+| EX-v2-HERO-001 | ✅ | ✅ | — |
+| EX-v2-RAG-001 | ✅ | ✅ | — |
+
+> **GAP menor:** GSD Task Cards individuales generadas solo para INFRA-001, ATOM-001, ATOM-002, ATOM-003. Los demás tienen VERSION_CERTIFICATE pero no GSD_TASK_CARD. No es bloqueante (requisito de LOCK es el cert, no la card individual).
+
+---
+
+## CONTENIDO / DATA
+
+| Item | Estado | Detalle |
+|---|---|---|
+| evidence-dna.json | ⚠️ 7/20 | Datos estáticos de proyectos — RAG parcial |
+| Strapi Projects (20) | ❌ No en CMS | Bloqueado por Railway + Strapi setup |
+| Strapi Experience | ❌ No en CMS | Idem |
+| Strapi Skills | ❌ No en CMS | Idem |
+| Strapi TitanModules | ❌ No en CMS | Idem |
+| i18n es.json | ❌ No existe | `src/i18n/messages/` vacío |
+| i18n en.json | ❌ No existe | Idem |
+| pgvector embeddings | ❌ No iniciado | Depende de Strapi en Railway |
+
+---
+
+## GRAFO DE DEPENDENCIAS (Atomic Design)
+
+```
+EX-v2-TMPL-001 HomeTemplate
+  └── EX-v2-HERO-001 Hero
+  │     └── EX-v2-ATOM-001 Button ✅
+  │     └── EX-v2-MOL-005 MetricRow ✅
+  │           └── EX-v2-ATOM-005 Metric ✅
+  └── EX-v2-ORG-002 NavSystem ❌
+  │     └── EX-v2-MOL-001 NavTab ✅
+  │     └── EX-v2-MOL-006 AudienceCard ❌
+  │     └── EX-v2-RAG-001 TitanRAGAgent ✅
+  │     └── EX-v2-MOL-002 ProjectCard ✅
+  │           └── EX-v2-ATOM-002 Tag ✅
+  │           └── EX-v2-ATOM-005 Metric ✅
+  └── EX-v2-ORG-003 CasesSection ❌
+  │     └── EX-v2-MOL-002 ProjectCard ✅
+  │     └── EX-v2-MOL-007 RoadmapSplitButton ❌
+  └── EX-v2-ORG-004 TitanSection ❌
+  │     └── EX-v2-ATOM-003 Badge ✅
+  │     └── EX-v2-ATOM-006 Chip ✅
+  └── EX-v2-ORG-005 StackSection ❌
+  │     └── EX-v2-MOL-003 SkillBar ✅
+  │           └── EX-v2-ATOM-004 Icon ✅
+  └── EX-v2-ORG-006 ContactSection ❌
+        └── EX-v2-ATOM-001 Button ✅
+
+EX-v2-TMPL-002 CasePage
+  └── EX-v2-MOL-004 TimelineStep ✅
+        └── EX-v2-ATOM-003 Badge ✅
+  └── EX-v2-MOL-005 MetricRow ✅
+  └── EX-v2-MOL-002 ProjectCard ✅
+```
+
+---
+
+## RUTA CRÍTICA — PRÓXIMOS PASOS DESBLOQUEANTES
+
+```
+[INMEDIATO]
+  1. Merge PR #1 (feat/v2-titan-rag → v2) — CI/CD 7/7 verde
+  2. feat/v2-theme → src/theme/ titanThemeDark + M3 tokens
+  3. feat/v2-i18n → src/i18n/messages/es.json + en.json + middleware
+
+[OLA 2 — MOLÉCULAS RESTANTES]
+  4. BLUEPRINT EX-v2-MOL-006 AudienceCard
+  5. BLUEPRINT EX-v2-MOL-007 RoadmapSplitButton
+
+[OLA 3 — ORGANISMOS]
+  6. BLUEPRINT EX-v2-ORG-002 NavSystem (mayor — compone 4 tabs)
+  7. BLUEPRINT EX-v2-ORG-003 CasesSection
+  8. BLUEPRINT EX-v2-ORG-004 TitanSection
+  9. BLUEPRINT EX-v2-ORG-005 StackSection
+  10. BLUEPRINT EX-v2-ORG-006 ContactSection
+  11. BLUEPRINT EX-v2-A11Y-001 InquisitorHUD (fresh desde cero)
+
+[OLA 4 — TEMPLATES]
+  12. BLUEPRINT EX-v2-TMPL-001 HomeTemplate
+  13. BLUEPRINT EX-v2-TMPL-002 CasePage
+
+[PARALELO — NO BLOQUEANTE PARA BFL]
+  • feat/v2-strapi → src/lib/strapi.ts + types.ts
+  • Railway: Strapi v5 + PostgreSQL 16 + pgvector setup
+  • Completar evidence-dna.json 7→20 proyectos
+```
+
+---
+
+## RESUMEN EJECUTIVO
+
+```
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SPEC_IDs LOCKED:     14 / 24  (58%)
+SPEC_IDs PENDIENTES: 10 / 24  (42%)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+ATOMIC DESIGN:
+  Infra:      1/1  ✅ 100%
+  Átomos:     6/6  ✅ 100%
+  Moléculas:  5/7  ⚠️  71%  (AudienceCard + RoadmapSplitButton)
+  Organismos: 2/8  ⚠️  25%  (5 secciones + InquisitorHUD pendientes)
+  Templates:  0/2  ❌   0%
+
+DOCUMENTACIÓN:
+  M0:  12/12 ✅  M1: 10/10 ✅  M2: 11/11 ✅
+  M3 prompts: 6/25 ⚠️
+
+INFRAESTRUCTURA SERVICIOS:
+  CI/CD:    ✅  Vercel preview: ✅  Chromatic: ✅
+  Strapi:   ❌  pgvector: ❌  Dominio: ❌ (M4)
+
+CALIDAD (componentes LOCKED):
+  Tests:    ✅ todos pasan
+  TS:       ✅ 0 errores
+  axe:      ✅ 0 violations
+  data-*:   ✅ 13/13 componentes con atributos semánticos
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+```
+
+📍 Momentum: M3 | Ola activa: 2 | Artefacto: TRACEABILITY_MATRIX | Nivel: A
+Firmado: Leonel Mauricio Gómez Ocampo — Staff Product Architect | 2026-06-19

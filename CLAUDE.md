@@ -25,10 +25,10 @@ Node:        24.15.0 | pnpm: 11.2.2
 
 ```
 Momentum:    M3 — Execution (Sprints BFL)
-Ola activa:  Ola 1
-Feature:     feat/v2-atoms-button
-SPEC_ID:     EX-v2-ATOM-001
-Último LOCK: Button — 2026-06-15
+Ola activa:  Ola 4 (Templates)
+Feature:     Ola 3 Organisms (6/6 LOCKED) ✅ | Ola 2 Molecules (7/7 LOCKED) ✅
+SPEC_ID:     EX-v2-TMPL-001
+Último LOCK: InquisitorHUD (A11Y-001) — 2026-06-20
 ```
 
 ---

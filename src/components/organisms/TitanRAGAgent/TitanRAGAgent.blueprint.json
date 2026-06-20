@@ -1,0 +1,24 @@
+{
+  "spec_ref": "EX-v2-RAG-001",
+  "atomic_level": "organism",
+  "component_name": "TitanRAGAgent",
+  "ola": "3",
+  "dependencies": ["EX-v2-ATOM-001"],
+  "props_contract": {
+    "initialSuggestions": { "type": "string[]", "required": false },
+    "placeholder": { "type": "string", "required": false }
+  },
+  "bem_classes": {
+    "block": "ex-titan-rag",
+    "elements": ["input", "suggestions", "suggestion", "response", "loading", "error"]
+  },
+  "wcag_criteria": ["4.1.2", "4.1.3", "1.3.1", "2.1.1"],
+  "blueprint_gate": {
+    "BH-1": "PASS",
+    "BH-2": "PASS",
+    "BH-3": "PASS",
+    "BH-4": "PASS",
+    "BH-5": "PASS",
+    "BH-6": "PASS"
+  }
+}

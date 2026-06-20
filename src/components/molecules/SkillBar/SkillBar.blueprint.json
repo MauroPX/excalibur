@@ -1,0 +1,22 @@
+{
+  "spec_ref": "EX-v2-MOL-003",
+  "atomic_level": "molecule",
+  "component_name": "SkillBar",
+  "dependencies": ["EX-v2-ATOM-004"],
+  "props_contract": {
+    "skill": { "type": "string", "required": true },
+    "level": { "type": "number", "required": true },
+    "levelLabel": { "type": "string", "required": true },
+    "icon": { "type": "React.ElementType", "required": false }
+  },
+  "bem_classes": {
+    "block": "ex-skill-bar",
+    "elements": ["track", "progress", "label-group"],
+    "modifiers": {}
+  },
+  "m3_tokens": {
+    "track": "var(--md-sys-color-surface-container-highest)",
+    "progress": "var(--md-sys-color-primary)"
+  },
+  "blueprint_gate": { "BH-1..6": "PASS" }
+}
