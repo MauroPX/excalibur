@@ -1,0 +1,116 @@
+{
+  "spec_id": "EX-v2-TMPL-002",
+  "component": "CasePage",
+  "atomic_level": "template",
+  "ola": "4",
+  "version_target": "1.0.0",
+  "fecha_blueprint": "2026-06-20",
+
+  "gate1_checks": {
+    "BH-1_tokens_only": "PASS — solo var(--md-sys-color-*), 0 hex hardcoded",
+    "BH-2_bem_classes": "PASS — ex-case-page, ex-case-page__header, ex-case-page__metrics, ex-case-page__timeline, ex-case-page__stack, ex-case-page__nav, ex-case-page__breadcrumb",
+    "BH-3_atomic_attributes": "PASS — data-atomic='template' data-component='CasePage' en <main>",
+    "BH-4_typescript_strict": "PASS — 0 any, CasePageData interface exportada",
+    "BH-5_dependencies_locked": "PASS — MOL-002, MOL-003, MOL-004, MOL-005, ATOM-001, ATOM-002 todos LOCKED",
+    "BH-6_a11y_wcag": "PASS — SkipLink, landmark main, breadcrumb nav aria-label, heading hierarchy"
+  },
+
+  "component_type": "Server Component",
+  "client_component": false,
+
+  "props_interface": {
+    "name": "CasePageProps",
+    "fields": [
+      {
+        "name": "caseData",
+        "type": "CasePageData",
+        "required": true,
+        "shape": {
+          "slug": "string",
+          "title": "string",
+          "description": "string",
+          "tags": "string[]",
+          "metrics": "Array<{ value: string | number; label: string }>",
+          "timeline": "Array<{ step: number; title: string; description: string; status: 'done' | 'active' | 'pending' }>",
+          "techStack": "Array<{ name: string; level: number }>",
+          "nextCase": "{ slug: string; title: string } | null",
+          "audienceTags": "string[]"
+        }
+      }
+    ]
+  },
+
+  "dom_structure": {
+    "root": "<main id='main-content' data-atomic='template' data-component='CasePage' className='ex-case-page'>",
+    "children": [
+      "<a href='#main-content' className='ex-case-page__skip-link'>Saltar al contenido</a>",
+      "<nav aria-label='Breadcrumb' className='ex-case-page__breadcrumb'><ol><li><a href='/'>Inicio</a></li><li><a href='/#casos'>Casos</a></li><li aria-current='page'>{title}</li></ol></nav>",
+      "<header className='ex-case-page__header'><h1>{title}</h1><p>{description}</p><Box sx={{ display:'flex', gap:1 }}>{tags.map(t => <Tag key={t} label={t} />)}</Box></header>",
+      "<section aria-labelledby='metrics-heading' className='ex-case-page__metrics'><h2 id='metrics-heading'>Resultados clave</h2>{metrics.map(m => <MetricRow key={m.label} items={[m]} />)}</section>",
+      "<section aria-labelledby='timeline-heading' className='ex-case-page__timeline'><h2 id='timeline-heading'>Proceso</h2>{timeline.map(t => <TimelineStep key={t.step} {...t} />)}</section>",
+      "<section aria-labelledby='stack-heading' className='ex-case-page__stack'><h2 id='stack-heading'>Stack usado</h2>{techStack.map(s => <SkillBar key={s.name} name={s.name} level={s.level} />)}</section>",
+      "<nav aria-label='Navegación entre casos' className='ex-case-page__nav'><Button variant='text' label='← Volver a casos' onClick={() => router.push('/#casos')} />{nextCase && <Button variant='cta' label={`Siguiente: ${nextCase.title} →`} onClick={() => router.push(`/caso/${nextCase.slug}`)} />}</nav>"
+    ]
+  },
+
+  "notes": "CasePage tiene navegación 'nextCase' que requiere router. Usar 'use client' SOLO en un subcomponente CasePageNav para los botones de navegación. El resto del template es Server Component.",
+
+  "subcomponents": {
+    "CasePageNav": {
+      "type": "client",
+      "reason": "Necesita useRouter para la navegación entre casos",
+      "props": "{ backHref: string; nextCase: { slug: string; title: string } | null }"
+    }
+  },
+
+  "bem_classes": {
+    "ex-case-page": "elemento raíz <main>",
+    "ex-case-page__skip-link": "skip link WCAG 2.4.1",
+    "ex-case-page__breadcrumb": "nav de breadcrumb WCAG 2.4.8",
+    "ex-case-page__header": "header con título, descripción y tags",
+    "ex-case-page__metrics": "sección MetricRow(s)",
+    "ex-case-page__timeline": "sección TimelineStep(s)",
+    "ex-case-page__stack": "sección SkillBar(s)",
+    "ex-case-page__nav": "nav entre casos (prev/next)"
+  },
+
+  "imports": [
+    "import { Tag } from '@/components/atoms/Tag'",
+    "import { Button } from '@/components/atoms/Button'",
+    "import { ProjectCard } from '@/components/molecules/ProjectCard'",
+    "import { MetricRow } from '@/components/molecules/MetricRow'",
+    "import { TimelineStep } from '@/components/molecules/TimelineStep'",
+    "import { SkillBar } from '@/components/molecules/SkillBar'"
+  ],
+
+  "acceptance_criteria": [
+    "CA-001: Header con título, descripción y tags del proyecto",
+    "CA-002: Sección métricas con MetricRow(s)",
+    "CA-003: Sección timeline con TimelineStep(s)",
+    "CA-004: Sección stack con SkillBar por tecnología",
+    "CA-005: Botón 'Siguiente caso' (cta) + 'Volver a casos' (text)",
+    "CA-006: data-atomic=template data-component=CasePage en main",
+    "CA-007: SkipLink + main#main-content",
+    "CA-008: Breadcrumb con aria-label y aria-current en ítem activo",
+    "CA-009: 0 hex hardcoded",
+    "CA-010: Server Component raíz — solo CasePageNav es client"
+  ],
+
+  "tests_required": [
+    "CA-001: header con título y tags",
+    "CA-002: MetricRow(s) renderizados",
+    "CA-003: TimelineStep(s) renderizados",
+    "CA-004: SkillBar(s) renderizados",
+    "CA-005: botones de navegación",
+    "CA-006: data-atomic=template",
+    "CA-007: skip-link y main landmark",
+    "CA-008: breadcrumb con aria-current",
+    "axe: 0 violations"
+  ],
+
+  "stories_required": [
+    "Default (caso completo con todos los campos)",
+    "SinNextCase (último caso, sin botón siguiente)",
+    "MinimoDatos (solo campos requeridos)"
+  ]
+}
