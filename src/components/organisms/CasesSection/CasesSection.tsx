@@ -22,7 +22,7 @@ export interface CasesSectionProps {
 const SYMPTOM_TAGS = ['legacy', 'conversion', 'ia', 'a11y', 'performance', 'design-system', 'team-scaling']
 const ROLE_TAGS = ['staff-architect', 'product-manager', 'ux-designer', 'tech-lead', 'design-engineer', 'designops']
 
-const CasesSection: React.FC<CasesSectionProps> = ({ projects, totalCount }) => {
+const CasesSection: React.FC<CasesSectionProps> = ({ projects }) => {
   const [activeSymptoms, setActiveSymptoms] = useState<string[]>([])
   const [activeRoles, setActiveRoles] = useState<string[]>([])
 
