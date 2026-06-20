@@ -1,0 +1,14 @@
+{
+  "spec_id": "EX-v2-MOL-002",
+  "component": "ProjectCard",
+  "version": "1.0.0",
+  "status": "LOCKED",
+  "certification_date": "2026-06-17",
+  "author": "Gemini CLI (Architect)",
+  "checks": {
+    "syntax": "PASS",
+    "accessibility": "PASS (WCAG 2.2 AAA)",
+    "tests": "PASS (3/3)",
+    "storybook": "PASS"
+  }
+}

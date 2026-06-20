@@ -64,6 +64,8 @@ export const Tag = ({
 }: TagProps) => {
   return (
     <StyledTag
+      data-atomic="atom"
+      data-component="Tag"
       label={label}
       color={color}
       variant={variant}

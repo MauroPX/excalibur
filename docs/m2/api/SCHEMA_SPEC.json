@@ -1,0 +1,118 @@
+{
+  "version": "1.0.0",
+  "strapi_version": "5.x",
+  "fecha": "2026-06-15",
+  "content_types": {
+    "Project": {
+      "description": "Caso de estudio PAR con métricas verificables",
+      "fields": {
+        "slug": { "type": "uid", "required": true, "targetField": "client" },
+        "client": { "type": "string", "required": true, "maxLength": 120 },
+        "sector": { "type": "string", "required": true },
+        "role": { "type": "string", "required": true },
+        "year_start": { "type": "integer", "required": true, "min": 2010 },
+        "year_end": { "type": "integer", "required": false },
+        "summary": { "type": "text", "required": true, "maxLength": 280 },
+        "par_problem": { "type": "richtext", "required": true },
+        "par_action": { "type": "richtext", "required": true },
+        "par_result": { "type": "richtext", "required": true },
+        "metrics": {
+          "type": "component",
+          "repeatable": true,
+          "component": "shared.metric"
+        },
+        "skills": { "type": "json" },
+        "stack": { "type": "json" },
+        "audience_tags": {
+          "type": "enumeration",
+          "enum": ["cliente", "reclutador", "comunidad", "normal", "todos"],
+          "repeatable": true
+        },
+        "symptom_tags": {
+          "type": "enumeration",
+          "enum": ["legacy", "conversion", "ia", "a11y", "performance", "design-system", "team-scaling"],
+          "repeatable": true
+        },
+        "role_tags": {
+          "type": "enumeration",
+          "enum": ["staff-architect", "product-manager", "ux-designer", "tech-lead", "design-engineer", "designops"],
+          "repeatable": true
+        },
+        "featured": { "type": "boolean", "default": false },
+        "og_image": { "type": "media", "allowedTypes": ["images"] },
+        "content": { "type": "richtext" },
+        "locale": { "type": "string", "default": "es" }
+      },
+      "i18n": true
+    },
+    "Experience": {
+      "description": "Historial laboral para timeline y NavSystem Tab B",
+      "fields": {
+        "company": { "type": "string", "required": true },
+        "role": { "type": "string", "required": true },
+        "year_start": { "type": "integer", "required": true },
+        "year_end": { "type": "integer", "required": false },
+        "description": { "type": "text", "required": true },
+        "achievements": { "type": "json" },
+        "skills": { "type": "json" },
+        "audience_tags": {
+          "type": "enumeration",
+          "enum": ["cliente", "reclutador", "comunidad", "normal"],
+          "repeatable": true
+        }
+      },
+      "i18n": false
+    },
+    "Skill": {
+      "description": "Competencias técnicas y de producto por capa",
+      "fields": {
+        "name": { "type": "string", "required": true },
+        "category": {
+          "type": "enumeration",
+          "enum": ["pensamiento", "diseno", "operaciones", "tecnico"],
+          "required": true
+        },
+        "level": { "type": "integer", "required": true, "min": 0, "max": 100 },
+        "level_label": {
+          "type": "enumeration",
+          "enum": ["Senior", "Expert", "Lead"],
+          "required": true
+        },
+        "icon_name": { "type": "string" }
+      },
+      "i18n": false
+    },
+    "TitanModule": {
+      "description": "Módulos de TITAN v7.0 para TitanSection",
+      "fields": {
+        "version": { "type": "string", "required": true, "default": "v7.0" },
+        "hub_name": { "type": "string", "required": true },
+        "hub_title": { "type": "string", "required": true },
+        "description": { "type": "text", "required": true },
+        "momentum": {
+          "type": "enumeration",
+          "enum": ["M0", "M1", "M2", "M3", "M4", "M5"],
+          "required": true
+        },
+        "commands_count": { "type": "integer", "default": 0 },
+        "features": { "type": "json" }
+      },
+      "i18n": true
+    }
+  },
+  "components": {
+    "shared.metric": {
+      "description": "Métrica verificable de impacto",
+      "fields": {
+        "label": { "type": "string", "required": true },
+        "value": { "type": "string", "required": true },
+        "unit": { "type": "string" },
+        "trend": {
+          "type": "enumeration",
+          "enum": ["positive", "negative", "neutral"],
+          "default": "positive"
+        }
+      }
+    }
+  }
+}

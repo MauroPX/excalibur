@@ -13,7 +13,7 @@ export interface MetricProps {
   trend?: 'positive' | 'negative' | 'neutral'
 }
 
-const StyledMetric = styled(Box)(({ theme }) => ({
+const StyledMetric = styled(Box)(() => ({
   display: 'flex',
   flexDirection: 'column',
   padding: '16px',
@@ -38,7 +38,11 @@ export const Metric = ({
   trend = 'neutral',
 }: MetricProps) => {
   return (
-    <StyledMetric className={`ex-metric ex-metric--${trend}`}>
+    <StyledMetric
+      data-atomic="atom"
+      data-component="Metric"
+      className={`ex-metric ex-metric--${trend}`}
+    >
       <Typography
         variant="h4"
         component="div"

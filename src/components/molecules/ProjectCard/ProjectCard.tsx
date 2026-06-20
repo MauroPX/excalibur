@@ -19,7 +19,7 @@ export interface ProjectCardProps {
   imageUrl?: string
 }
 
-const StyledProjectCard = styled(Card)(({ theme }) => ({
+const StyledProjectCard = styled(Card)(() => ({
   borderRadius: '16px',
   background: 'var(--md-sys-color-surface-container-low)',
   border: '1px solid var(--md-sys-color-outline-variant)',
@@ -69,7 +69,7 @@ export const ProjectCard = ({
   imageUrl,
 }: ProjectCardProps) => {
   return (
-    <StyledProjectCard className="ex-project-card">
+    <StyledProjectCard data-atomic="molecule" data-component="ProjectCard" className="ex-project-card">
       <CardImage src={imageUrl} className="ex-project-card__header" />
       
       <CardContent className="ex-project-card__content" sx={{ flexGrow: 1, display: 'flex', flexDirection: 'column', gap: 2 }}>

@@ -34,6 +34,8 @@ export const Icon = ({
   return (
     <Box
       component="span"
+      data-atomic="atom"
+      data-component="Icon"
       className={`ex-icon ex-icon--${size}`}
       role={ariaLabel ? 'img' : undefined}
       sx={{

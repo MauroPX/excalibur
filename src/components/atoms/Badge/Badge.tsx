@@ -48,6 +48,8 @@ export const Badge = ({
 }: BadgeProps) => {
   return (
     <StyledBadge
+      data-atomic="atom"
+      data-component="Badge"
       badgeContent={content}
       variant={variant}
       color={color}
