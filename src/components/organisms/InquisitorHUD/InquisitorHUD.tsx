@@ -16,7 +16,7 @@ export interface InquisitorHUDProps {
 
 export const InquisitorHUD: React.FC<InquisitorHUDProps> = ({ enabled = false }) => {
   const [visible, setVisible] = useState(false)
-  const [issues, setIssues] = useState<A11yIssue[]>([])
+  const [issues] = useState<A11yIssue[]>([])
   const [activeFilter, setActiveFilter] = useState<A11yIssue['impact'] | 'all'>('all')
 
   useEffect(() => {
