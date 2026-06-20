@@ -133,6 +133,60 @@
       "dependents": ["EX-v2-ATOM-001"],
       "depended_by": ["EX-v2-ORG-002"],
       "api_connected": false
+    },
+    {
+      "spec_id": "EX-v2-ORG-002",
+      "component": "NavSystem",
+      "level": "organisms",
+      "version": "1.0.0",
+      "status": "LOCKED",
+      "dependents": ["EX-v2-MOL-006", "EX-v2-RAG-001"],
+      "depended_by": ["EX-v2-TMPL-001"]
+    },
+    {
+      "spec_id": "EX-v2-ORG-003",
+      "component": "CasesSection",
+      "level": "organisms",
+      "version": "1.0.0",
+      "status": "LOCKED",
+      "dependents": ["EX-v2-MOL-002", "EX-v2-MOL-007"],
+      "depended_by": ["EX-v2-TMPL-001"]
+    },
+    {
+      "spec_id": "EX-v2-ORG-004",
+      "component": "TitanSection",
+      "level": "organisms",
+      "version": "1.0.0",
+      "status": "LOCKED",
+      "dependents": [],
+      "depended_by": ["EX-v2-TMPL-001"]
+    },
+    {
+      "spec_id": "EX-v2-ORG-005",
+      "component": "StackSection",
+      "level": "organisms",
+      "version": "1.0.0",
+      "status": "LOCKED",
+      "dependents": [],
+      "depended_by": ["EX-v2-TMPL-001"]
+    },
+    {
+      "spec_id": "EX-v2-ORG-006",
+      "component": "ContactSection",
+      "level": "organisms",
+      "version": "1.0.0",
+      "status": "LOCKED",
+      "dependents": ["EX-v2-ATOM-001"],
+      "depended_by": ["EX-v2-TMPL-001"]
+    },
+    {
+      "spec_id": "EX-v2-A11Y-001",
+      "component": "InquisitorHUD",
+      "level": "organisms",
+      "version": "1.0.0",
+      "status": "LOCKED",
+      "dependents": [],
+      "depended_by": []
     }
   ]
 }
