@@ -1,0 +1,101 @@
+{
+  "spec_id": "EX-v2-TMPL-001",
+  "component": "HomeTemplate",
+  "atomic_level": "template",
+  "ola": "4",
+  "version_target": "1.0.0",
+  "fecha_blueprint": "2026-06-20",
+
+  "gate1_checks": {
+    "BH-1_tokens_only": "PASS — solo var(--md-sys-color-*), 0 hex hardcoded",
+    "BH-2_bem_classes": "PASS — ex-home-template, ex-home-template__section, ex-home-template__skip-link",
+    "BH-3_atomic_attributes": "PASS — data-atomic='template' data-component='HomeTemplate' en <main>",
+    "BH-4_typescript_strict": "PASS — 0 any, interfaces exportadas, props explícitas desde page.tsx",
+    "BH-5_dependencies_locked": "PASS — HERO-001, ORG-002..006, A11Y-001 todos LOCKED v1.0.0",
+    "BH-6_a11y_wcag": "PASS — SkipLink CA-005, landmark main CA-006, ids deeplink CA-004"
+  },
+
+  "component_type": "Server Component",
+  "client_component": false,
+  "notes": "Orquestador puro. No tiene estado propio. Pasa props a cada organismo. Solo InquisitorHUD y NavSystem/AudienceCard/ContactSection son client internamente.",
+
+  "props_interface": {
+    "name": "HomeTemplateProps",
+    "fields": [
+      { "name": "heroData", "type": "HeroProps", "required": true },
+      { "name": "symptomCards", "type": "NavSystemProps['symptomCards']", "required": true },
+      { "name": "roleCards", "type": "NavSystemProps['roleCards']", "required": true },
+      { "name": "featuredProjects", "type": "NavSystemProps['featuredProjects']", "required": false },
+      { "name": "caseProjects", "type": "CasesSectionProps['projects']", "required": true },
+      { "name": "titanModules", "type": "TitanModule[]", "required": true },
+      { "name": "titanVersion", "type": "string", "required": false, "default": "v7.0" },
+      { "name": "skills", "type": "StackSkill[]", "required": true },
+      { "name": "contactProps", "type": "Omit<ContactSectionProps, 'onSubmit'>", "required": false }
+    ]
+  },
+
+  "dom_structure": {
+    "root": "<main id='main-content' data-atomic='template' data-component='HomeTemplate' className='ex-home-template'>",
+    "children": [
+      "<a href='#main-content' className='ex-home-template__skip-link'>Saltar al contenido</a>",
+      "<section id='hero'><Hero {...heroData} /></section>",
+      "<section id='nav'><NavSystem symptomCards roleCards featuredProjects /></section>",
+      "<section id='casos'><CasesSection projects={caseProjects} /></section>",
+      "<section id='titan'><TitanSection modules={titanModules} version={titanVersion} /></section>",
+      "<section id='stack'><StackSection skills={skills} /></section>",
+      "<section id='contacto'><ContactSection {...contactProps} /></section>",
+      "<InquisitorHUD enabled={process.env.NODE_ENV === 'development'} />"
+    ]
+  },
+
+  "bem_classes": {
+    "ex-home-template": "elemento raíz <main>",
+    "ex-home-template__skip-link": "link de salto para WCAG 2.4.1",
+    "ex-home-template__section": "wrapper genérico de sección"
+  },
+
+  "tokens_used": [
+    "var(--md-sys-color-surface)",
+    "var(--md-sys-color-on-surface)"
+  ],
+
+  "skip_link_css": "position: absolute; top: -100px; left: 16px; z-index: 9999; padding: 8px 16px; background: var(--md-sys-color-primary); color: var(--md-sys-color-on-primary); border-radius: 4px; '&:focus': { top: 16px }",
+
+  "imports": [
+    "import { Hero } from '@/components/organisms/Hero'",
+    "import { NavSystem, type NavSystemProps } from '@/components/organisms/NavSystem'",
+    "import { CasesSection, type CasesSectionProps } from '@/components/organisms/CasesSection'",
+    "import { TitanSection, type TitanModule } from '@/components/organisms/TitanSection'",
+    "import { StackSection, type StackSkill } from '@/components/organisms/StackSection'",
+    "import { ContactSection, type ContactSectionProps } from '@/components/organisms/ContactSection'",
+    "import { InquisitorHUD } from '@/components/organisms/InquisitorHUD'",
+    "import type { HeroProps } from '@/components/organisms/Hero'"
+  ],
+
+  "acceptance_criteria": [
+    "CA-001: Renderiza 6 secciones de organismos en orden correcto",
+    "CA-002: main tiene data-atomic=template data-component=HomeTemplate",
+    "CA-003: InquisitorHUD con enabled={process.env.NODE_ENV === 'development'}",
+    "CA-004: Cada sección tiene id semántico (#hero #nav #casos #titan #stack #contacto)",
+    "CA-005: SkipLink visible al focus, oculto por defecto",
+    "CA-006: <main id='main-content'> como landmark principal",
+    "CA-007: 0 hex hardcoded",
+    "CA-008: Server Component — sin 'use client' en el template",
+    "CA-009: Props recibidas del page.tsx, sin fetch interno"
+  ],
+
+  "tests_required": [
+    "CA-001: todos los organismos renderizados",
+    "CA-002: data-atomic=template en main",
+    "CA-004: ids de secciones presentes",
+    "CA-005: skip-link presente y accesible",
+    "CA-006: role main presente",
+    "axe: 0 violations"
+  ],
+
+  "stories_required": [
+    "Default (con datos mock completos)",
+    "SinProyectos (caseProjects=[])",
+    "SinFeaturedProjects"
+  ]
+}
