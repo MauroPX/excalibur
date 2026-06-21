@@ -1,16 +1,10 @@
 import type { Metadata } from 'next'
-import { Roboto } from 'next/font/google'
 import './globals.css'
-
-const roboto = Roboto({
-  weight: ['300', '400', '500', '700'],
-  subsets: ['latin'],
-  display: 'swap',
-})
+import ThemeRegistry from '@/theme/ThemeRegistry'
 
 export const metadata: Metadata = {
-  title: 'MauricioGO Portafolio v2',
-  description: 'Staff Product Architect',
+  title: 'MauricioGO Portafolio v2 — Staff Product Architect',
+  description: 'Leonel Mauricio Gómez Ocampo — Staff Product Architect. Diseño, construyo y escalo productos digitales.',
 }
 
 export default function RootLayout({
@@ -19,10 +13,11 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={roboto.className}>
-        {/* MUI ThemeProvider placeholder */}
-        {children}
+    <html lang="es">
+      <body>
+        <ThemeRegistry>
+          {children}
+        </ThemeRegistry>
       </body>
     </html>
   )

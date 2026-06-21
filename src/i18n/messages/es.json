@@ -1,0 +1,99 @@
+{
+  "nav": {
+    "skipLink": "Saltar al contenido",
+    "tabs": {
+      "symptoms": "Por síntoma",
+      "roles": "Por rol",
+      "titan": "Pregúntale a TITAN",
+      "explore": "Explorar"
+    },
+    "audienceLabel": "Navegación por audiencia"
+  },
+  "hero": {
+    "title": "Staff Product Architect",
+    "subtitle": "Diseño, construyo y escalo productos digitales con equipos de alto rendimiento.",
+    "cta": "Ver casos de estudio",
+    "ctaSecondary": "Hablar con TITAN"
+  },
+  "cases": {
+    "title": "Casos de estudio",
+    "empty": "No hay proyectos para los filtros seleccionados.",
+    "filters": {
+      "symptoms": "Filtrar por síntoma",
+      "roles": "Filtrar por rol"
+    }
+  },
+  "titan": {
+    "title": "Framework de trabajo",
+    "placeholder": "¿Cuál es tu desafío de producto?",
+    "suggestions": [
+      "¿Cómo escalo un equipo de diseño?",
+      "¿Qué hacer con un sistema legacy?",
+      "¿Cómo mejorar la conversión?"
+    ]
+  },
+  "stack": {
+    "title": "Stack técnico",
+    "tableLabel": "Datos del stack técnico",
+    "tableCaption": "Niveles de habilidades técnicas",
+    "columns": {
+      "skill": "Habilidad",
+      "category": "Categoría",
+      "level": "Nivel"
+    }
+  },
+  "contact": {
+    "title": "Hablemos",
+    "subtitle": "Cuéntame sobre tu proyecto o desafío",
+    "channels": {
+      "label": "Canal de contacto",
+      "linkedin": "LinkedIn",
+      "email": "Email",
+      "github": "GitHub"
+    },
+    "form": {
+      "label": "Formulario de contacto",
+      "name": "Nombre",
+      "email": "Email",
+      "message": "Mensaje",
+      "submit": "Enviar",
+      "submitting": "Enviando...",
+      "success": "¡Mensaje enviado!",
+      "successDetail": "Te contactaré pronto.",
+      "errors": {
+        "nameRequired": "El nombre es requerido",
+        "emailInvalid": "Email inválido",
+        "messageTooShort": "El mensaje debe tener al menos 20 caracteres"
+      }
+    }
+  },
+  "casePage": {
+    "breadcrumb": {
+      "home": "Inicio",
+      "cases": "Casos"
+    },
+    "sections": {
+      "metrics": "Resultados clave",
+      "timeline": "Proceso",
+      "stack": "Stack usado"
+    },
+    "nav": {
+      "back": "← Volver a casos",
+      "next": "Siguiente: {title} →"
+    }
+  },
+  "inquisitor": {
+    "title": "INQUISITOR HUD",
+    "close": "Cerrar panel de accesibilidad",
+    "panelLabel": "Panel de accesibilidad InquisitorHUD",
+    "filters": {
+      "label": "Filtrar por impacto",
+      "all": "Todos"
+    },
+    "issues": {
+      "label": "{count} problemas de accesibilidad",
+      "empty": "Ejecuta una auditoría para ver resultados.",
+      "noMatch": "Sin problemas para este filtro."
+    }
+  }
+}
