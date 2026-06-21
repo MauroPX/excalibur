@@ -25,10 +25,12 @@ Node:        24.15.0 | pnpm: 11.2.2
 
 ```
 Momentum:    M3 — Execution (Sprints BFL)
-Ola activa:  Ola 4 (Templates)
-Feature:     Ola 3 Organisms (6/6 LOCKED) ✅ | Ola 2 Molecules (7/7 LOCKED) ✅
-SPEC_ID:     EX-v2-TMPL-001
-Último LOCK: InquisitorHUD (A11Y-001) — 2026-06-20
+Ola activa:  Ola 6 (Pages/Routing o i18n wiring)
+Feature:     Ola 5 Infra LOCKED ✅ | Ola 4 Templates LOCKED ✅ | Ola 3 Organisms LOCKED ✅
+SPEC_ID:     próximo por definir (Ola 6)
+Último LOCK: Ola 5 Infra (MUI Theme M3 + i18n + Strapi/Claude lib + chat API) — 2026-06-21
+PRs:         #2 MERGED ✅ | #3 MERGED ✅ | #4 MERGED ✅ | #1 CLOSED (superseded)
+Chromatic:   49 stories publicadas — baseline establecido
 ```
 
 ---
@@ -208,7 +210,11 @@ workflow.sh (deepseek-r1:14b):
 ## RECUPERACIÓN DE SESIÓN
 
 ```
-Último trabajo:  Implementación de Button (EX-v2-ATOM-001) LOCKED v1.0.0
-Próximo paso:    Seleccionar siguiente componente de Ola 1 (Tag/Badge)
-Bloqueadores:    Ninguno
+Último trabajo:  Ola 5 Infra LOCKED — MUI Theme M3 + i18n + Strapi/Claude lib + /api/chat
+                 Chromatic inicializado: 49 stories en baseline
+                 PR #4 mergeado → v2. PR #1 cerrado (superseded).
+Próximo paso:    Definir Ola 6 — candidatos: i18n wiring (useTranslations en todos los componentes)
+                 | páginas Next.js (/casos/[slug]) | env vars Vercel (STRAPI, ANTHROPIC, GEMINI)
+Bloqueadores:    Chromatic UI Tests — 49 cambios pendientes de aceptar como baseline en chromatic.com
+                 Env vars Vercel: NEXT_PUBLIC_STRAPI_URL, STRAPI_API_TOKEN, ANTHROPIC_API_KEY, GEMINI_API_KEY
 ```
