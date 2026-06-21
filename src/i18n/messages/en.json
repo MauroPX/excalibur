@@ -1,0 +1,99 @@
+{
+  "nav": {
+    "skipLink": "Skip to content",
+    "tabs": {
+      "symptoms": "By symptom",
+      "roles": "By role",
+      "titan": "Ask TITAN",
+      "explore": "Explore"
+    },
+    "audienceLabel": "Audience navigation"
+  },
+  "hero": {
+    "title": "Staff Product Architect",
+    "subtitle": "I design, build, and scale digital products with high-performance teams.",
+    "cta": "View case studies",
+    "ctaSecondary": "Talk to TITAN"
+  },
+  "cases": {
+    "title": "Case studies",
+    "empty": "No projects match the selected filters.",
+    "filters": {
+      "symptoms": "Filter by symptom",
+      "roles": "Filter by role"
+    }
+  },
+  "titan": {
+    "title": "Work framework",
+    "placeholder": "What is your product challenge?",
+    "suggestions": [
+      "How do I scale a design team?",
+      "What to do with a legacy system?",
+      "How to improve conversion?"
+    ]
+  },
+  "stack": {
+    "title": "Tech stack",
+    "tableLabel": "Tech stack data",
+    "tableCaption": "Technical skill levels",
+    "columns": {
+      "skill": "Skill",
+      "category": "Category",
+      "level": "Level"
+    }
+  },
+  "contact": {
+    "title": "Let's talk",
+    "subtitle": "Tell me about your project or challenge",
+    "channels": {
+      "label": "Contact channel",
+      "linkedin": "LinkedIn",
+      "email": "Email",
+      "github": "GitHub"
+    },
+    "form": {
+      "label": "Contact form",
+      "name": "Name",
+      "email": "Email",
+      "message": "Message",
+      "submit": "Send",
+      "submitting": "Sending...",
+      "success": "Message sent!",
+      "successDetail": "I'll reach out soon.",
+      "errors": {
+        "nameRequired": "Name is required",
+        "emailInvalid": "Invalid email",
+        "messageTooShort": "Message must be at least 20 characters"
+      }
+    }
+  },
+  "casePage": {
+    "breadcrumb": {
+      "home": "Home",
+      "cases": "Cases"
+    },
+    "sections": {
+      "metrics": "Key results",
+      "timeline": "Process",
+      "stack": "Stack used"
+    },
+    "nav": {
+      "back": "← Back to cases",
+      "next": "Next: {title} →"
+    }
+  },
+  "inquisitor": {
+    "title": "INQUISITOR HUD",
+    "close": "Close accessibility panel",
+    "panelLabel": "InquisitorHUD accessibility panel",
+    "filters": {
+      "label": "Filter by impact",
+      "all": "All"
+    },
+    "issues": {
+      "label": "{count} accessibility issues",
+      "empty": "Run an audit to see results.",
+      "noMatch": "No issues for this filter."
+    }
+  }
+}
