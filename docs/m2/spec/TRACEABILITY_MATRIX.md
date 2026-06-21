@@ -1,5 +1,5 @@
 # TRACEABILITY MATRIX — EXCALIBUR v2.0
-# TITAN v7.0 | Actualizado: 2026-06-19
+# TITAN v7.0 | Actualizado: 2026-06-21
 # Fuente de verdad: plan de trabajo vs estado real del repositorio
 
 ---
@@ -20,20 +20,20 @@
 | EX-v2-MOL-003 | SkillBar | molecules | 2 | LOCKED | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1.0.0 |
 | EX-v2-MOL-004 | TimelineStep | molecules | 2 | LOCKED | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1.0.0 |
 | EX-v2-MOL-005 | MetricRow | molecules | 2 | LOCKED | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1.0.0 |
-| EX-v2-MOL-006 | AudienceCard | molecules | 2 | PENDING | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | — |
-| EX-v2-MOL-007 | RoadmapSplitButton | molecules | 2 | PENDING | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | — |
+| EX-v2-MOL-006 | AudienceCard | molecules | 2 | LOCKED | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1.0.0 |
+| EX-v2-MOL-007 | RoadmapSplitButton | molecules | 2 | LOCKED | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1.0.0 |
 | EX-v2-HERO-001 | Hero | organisms | 2 | LOCKED | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1.0.0 |
 | EX-v2-RAG-001 | TitanRAGAgent | organisms | 3 | LOCKED | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1.0.0 |
-| EX-v2-ORG-002 | NavSystem | organisms | 3 | PENDING | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | — |
-| EX-v2-ORG-003 | CasesSection | organisms | 3 | PENDING | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | — |
-| EX-v2-ORG-004 | TitanSection | organisms | 3 | PENDING | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | — |
-| EX-v2-ORG-005 | StackSection | organisms | 3 | PENDING | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | — |
-| EX-v2-ORG-006 | ContactSection | organisms | 3 | PENDING | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | — |
-| EX-v2-A11Y-001 | InquisitorHUD | organisms | 3 | MIGRAR | ⚠️ | ❌ | ❌ | ❌ | ❌ | ❌ | — |
-| EX-v2-TMPL-001 | HomeTemplate | templates | 4 | PENDING | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | — |
-| EX-v2-TMPL-002 | CasePage | templates | 4 | PENDING | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | — |
-
-> **NOTA InquisitorHUD:** existe código legacy en raíz eliminada (`src/components/InquisitorHUD.tsx` borrado en cleanup). Requiere BLUEPRINT fresh → Forge desde cero en `src/components/organisms/InquisitorHUD/`.
+| EX-v2-ORG-002 | NavSystem | organisms | 3 | LOCKED | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1.0.0 |
+| EX-v2-ORG-003 | CasesSection | organisms | 3 | LOCKED | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1.0.0 |
+| EX-v2-ORG-004 | TitanSection | organisms | 3 | LOCKED | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1.0.0 |
+| EX-v2-ORG-005 | StackSection | organisms | 3 | LOCKED | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1.0.0 |
+| EX-v2-ORG-006 | ContactSection | organisms | 3 | LOCKED | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1.0.0 |
+| EX-v2-A11Y-001 | InquisitorHUD | organisms | 3 | LOCKED | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1.0.0 |
+| EX-v2-TMPL-001 | HomeTemplate | templates | 4 | LOCKED | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1.0.0 |
+| EX-v2-TMPL-002 | CasePage | templates | 4 | LOCKED | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1.0.0 |
+| EX-v2-PAGE-001 | / (HomePage) | pages | 7 | LOCKED | ✅ | — | — | — | — | — | 1.0.0 |
+| EX-v2-PAGE-002 | /casos/[slug] | pages | 7 | LOCKED | ✅ | — | — | — | — | — | 1.0.0 |
 
 ---
 
@@ -42,13 +42,13 @@
 | SPEC_ID | Artefacto | Ruta | Estado | Bloqueador |
 |---|---|---|---|---|
 | EX-v2-CICD-001 | GitHub Actions 7 jobs | `.github/workflows/v2.yml` | ✅ ACTIVO | — |
-| EX-v2-THEME-001 | titanThemeDark + M3 tokens | `src/theme/` | ❌ NO EXISTE | Directorio no creado |
-| EX-v2-I18N-001 | next-intl ES/EN | `src/i18n/messages/` | ⚠️ VACÍO | Directorio existe, 0 archivos JSON |
-| EX-v2-CMS-001 | Strapi API client | `src/lib/strapi.ts` | ❌ NO EXISTE | `src/lib/` no creado |
-| EX-v2-CMS-002 | TypeScript types | `src/lib/types.ts` | ❌ NO EXISTE | Depende de EX-v2-CMS-001 |
-| EX-v2-API-001 | `/api/chat` multi-provider | `src/app/api/chat/route.ts` | ✅ ACTIVO | pgvector pendiente |
-| EX-v2-API-002 | `/api/health` health check | `src/app/api/health/route.ts` | ❌ NO EXISTE | M4 |
-| EX-v2-DATA-001 | evidence-dna.json (7/20) | `src/data/evidence-dna.json` | ⚠️ INCOMPLETO | 13 proyectos pendientes |
+| EX-v2-THEME-001 | MUI Theme M3 + CSS tokens | `src/theme/` | ✅ ACTIVO | — |
+| EX-v2-I18N-001 | next-intl ES/EN + provider | `src/i18n/` | ✅ ACTIVO | Components usan strings fijos (i18n parcial) |
+| EX-v2-CMS-001 | Strapi API client | `src/lib/strapi.ts` | ✅ ACTIVO | STRAPI_API_TOKEN pendiente en Vercel |
+| EX-v2-CMS-002 | TypeScript types | `src/lib/types.ts` | ✅ ACTIVO | — |
+| EX-v2-API-001 | `/api/chat` multi-provider | `src/app/api/chat/route.ts` | ✅ ACTIVO | ANTHROPIC_API_KEY + GEMINI_API_KEY pendientes |
+| EX-v2-API-002 | `/api/health` health check | `src/app/api/health/route.ts` | ✅ ACTIVO | — |
+| EX-v2-DATA-001 | Datos estáticos casos (3/20) | `src/app/casos/[slug]/page.tsx` | ⚠️ PARCIAL | Migrar a Strapi cuando CMS esté en Railway |
 
 ---
 
@@ -56,11 +56,12 @@
 
 | Servicio | Provider | Estado | Próximo paso |
 |---|---|---|---|
-| Frontend deploy | Vercel | ✅ Preview activo (PR #1) | Merge PR #1 para v2 branch |
-| CI/CD pipeline | GitHub Actions | ✅ 7 jobs activos | PR #1 corriendo |
-| Chromatic visual | Chromatic.com | ✅ Token configurado | Validar primera ejecución |
-| Backend CMS | Railway + Strapi v5 | ❌ No iniciado | Post-M3 (M4) |
-| PostgreSQL + pgvector | Railway | ❌ No iniciado | Depende de Strapi |
+| Frontend deploy | Vercel | ✅ v2 branch activo | Configurar env vars en dashboard |
+| CI/CD pipeline | GitHub Actions | ✅ 7 jobs activos | — |
+| Chromatic visual | Chromatic.com | ✅ 49 stories baseline | Aceptar 49 cambios en chromatic.com |
+| Backend CMS | Railway + Strapi v5 | ❌ No iniciado | **Ola 8** — crear proyecto Railway |
+| PostgreSQL + pgvector | Railway | ❌ No iniciado | Depende de Strapi en Railway |
+| Env vars Vercel | Vercel Dashboard | ❌ Pendientes | Ver .env.local.example para lista completa |
 | Dominio propio | — | ❌ Pendiente | M4 |
 
 ---
@@ -241,30 +242,37 @@ EX-v2-TMPL-002 CasePage
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-SPEC_IDs LOCKED:     14 / 24  (58%)
-SPEC_IDs PENDIENTES: 10 / 24  (42%)
+SPEC_IDs LOCKED:     26 / 26  (100%) ✅
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 ATOMIC DESIGN:
   Infra:      1/1  ✅ 100%
   Átomos:     6/6  ✅ 100%
-  Moléculas:  5/7  ⚠️  71%  (AudienceCard + RoadmapSplitButton)
-  Organismos: 2/8  ⚠️  25%  (5 secciones + InquisitorHUD pendientes)
-  Templates:  0/2  ❌   0%
+  Moléculas:  7/7  ✅ 100%
+  Organismos: 8/8  ✅ 100%
+  Templates:  2/2  ✅ 100%
+  Pages:      2/2  ✅ 100%
 
 DOCUMENTACIÓN:
   M0:  12/12 ✅  M1: 10/10 ✅  M2: 11/11 ✅
-  M3 prompts: 6/25 ⚠️
+  M3 prompts: 6/25 ⚠️ (prompts de documentación internos — no bloqueante)
+
+INFRAESTRUCTURA CÓDIGO:
+  CI/CD:  ✅  Theme M3: ✅  i18n: ✅ (parcial — strings en ES fijo)
+  Libs:   ✅  API /chat: ✅  API /health: ✅
+  Pages:  ✅  /casos/[slug]: ✅ (3 casos estáticos)
 
 INFRAESTRUCTURA SERVICIOS:
-  CI/CD:    ✅  Vercel preview: ✅  Chromatic: ✅
-  Strapi:   ❌  pgvector: ❌  Dominio: ❌ (M4)
+  CI/CD:    ✅  Vercel v2 branch: ✅  Chromatic: ✅ (49 stories)
+  Strapi:   ❌ (Ola 8 — Railway)
+  pgvector: ❌ (Ola 9 — depende de Strapi)
+  Dominio:  ❌ (M4)
 
-CALIDAD (componentes LOCKED):
-  Tests:    ✅ todos pasan
+CALIDAD:
+  Tests:    ✅ 171/171 pasan
   TS:       ✅ 0 errores
   axe:      ✅ 0 violations
-  data-*:   ✅ 13/13 componentes con atributos semánticos
+  Build:    ✅ Next.js build exitoso
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
