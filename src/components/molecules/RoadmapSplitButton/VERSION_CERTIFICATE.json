@@ -15,14 +15,14 @@
   "axe_violations": 0,
   "tests_passing": true,
   "coverage": "14/14",
-  "stories_completas": false,
+  "stories_completas": true,
   "chromatic_approved": false,
   "gate1_pass": true,
   "gate2_pass": true,
   "forge_seal_items": 12,
-  "forge_seal_pass": 11,
+  "forge_seal_pass": 12,
   "dependents": ["EX-v2-ATOM-001", "EX-v2-ATOM-004"],
   "depended_by": ["EX-v2-ORG-003"],
   "firmado": "Leonel Mauricio Gomez Ocampo",
-  "notas": "Stories pendientes (forge_seal_pass 11/12). Fix axe: aria-label en listbox."
+  "notas": "Stories generadas 2026-06-21: Default, WithPrimaryLabel, SingleOption. forge_seal 12/12."
 }

@@ -16,6 +16,7 @@ const eslintConfig = [
       ".next/**",
       "out/**",
       "build/**",
+      "storybook-static/**",
       "next-env.d.ts",
       "coverage/**",
       // Legacy v1 components — no son parte del sistema de diseño v2
