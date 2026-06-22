@@ -1,0 +1,35 @@
+{
+  "spec_id": "EX-v2-UX-001",
+  "component_name": "VisualUX",
+  "atomic_level": "mixed",
+  "sprint": "C",
+  "fecha": "2026-06-22",
+  "components_new": ["ThemeToggle"],
+  "components_updated": ["StackSection"],
+  "stories_new": [
+    "CasesSection.stories.tsx",
+    "ContactSection.stories.tsx",
+    "NavSystem.stories.tsx",
+    "InquisitorHUD.stories.tsx",
+    "TitanSection.stories.tsx",
+    "StackSection.stories.tsx"
+  ],
+  "gates": {
+    "CC-01": "PASS — recharts 3.8.1 instalado",
+    "CC-02": "PASS — ThemeToggle no existe, se crea",
+    "CC-03": "PASS — useColorMode exportado desde ThemeRegistry (Sprint A)",
+    "CC-04": "PASS — Hero.stories.tsx usa @storybook/nextjs-vite",
+    "CC-05": "PENDING — verificar StackSection imports al final"
+  },
+  "recharts_version": "3.8.1",
+  "recharts_api_compatible": true,
+  "ThemeToggle_spec": {
+    "dir": "src/components/atoms/ThemeToggle/",
+    "files": ["ThemeToggle.tsx", "ThemeToggle.test.tsx", "ThemeToggle.stories.tsx", "index.ts"],
+    "uses_context": "useColorMode from @/theme/ThemeRegistry",
+    "icons": "SVG inline — no @mui/icons-material",
+    "data_atomic": "atom"
+  },
+  "gate_1": "PASS",
+  "signed_by": "ARCHITECT — Claude Sonnet 4.6"
+}
