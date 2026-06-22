@@ -1,0 +1,53 @@
+{
+  "spec_id": "EX-v2-THEME-002",
+  "component_name": "ThemeSystem",
+  "atomic_level": "infra",
+  "sprint": "A",
+  "date": "2026-06-22",
+  "forge_seal": {
+    "checks_total": 20,
+    "checks_pass": 20,
+    "checks_fail": 0,
+    "result": "PASS"
+  },
+  "blind_review": {
+    "model": "deepseek-r1:14b",
+    "items": ["TH-01","TH-02","TH-03","TH-04","TH-05","TH-06","TH-07","TH-08","TH-09","TH-10","TH-11","TH-12"],
+    "result": "SPRINT_A_REVIEW: PASS"
+  },
+  "files_created": [
+    "src/theme/tokens.ts"
+  ],
+  "files_modified": [
+    "src/theme/index.ts",
+    "src/theme/ThemeRegistry.tsx",
+    "src/app/globals.css",
+    "src/app/layout.tsx",
+    "src/components/organisms/InquisitorHUD/InquisitorHUD.tsx"
+  ],
+  "adr_compliance": {
+    "ADR-001": "PASS — Next.js 15 + React 19 + TS strict + pnpm",
+    "ADR-002": "PASS — zero hex hardcoded en componentes; tokens solo en tokens.ts; InquisitorHUD corregido"
+  },
+  "dark_palette_locked": {
+    "primary": "#C4BEFF",
+    "surface": "#0D0F1A",
+    "cta": "#F7AF12"
+  },
+  "light_palette_locked": {
+    "primary": "#5B4CF5",
+    "surface": "#FDFCFF",
+    "cta": "#C4830A"
+  },
+  "toggle_mechanism": "localStorage('excalibur-theme') + data-theme attr en <html> + ColorModeContext",
+  "anti_flash": "script inline en <head> — sincrono antes del render",
+  "typecheck": "PASS — 0 errors",
+  "gate_lock": "PASS",
+  "signed_by": "ARCHITECT — Claude Sonnet 4.6",
+  "multi_ia": {
+    "blueprint": "Claude Sonnet 4.6",
+    "forge": "Aider + qwen2.5-coder:14b (contenido) + Claude Sonnet 4.6 (revisión arquitectónica y corrección contexto)",
+    "review": "deepseek-r1:14b",
+    "lock": "Claude Sonnet 4.6"
+  }
+}
