@@ -1,24 +1,9 @@
+import { getTranslations } from 'next-intl/server'
 import { HomeTemplate } from '@/components/templates/HomeTemplate'
-import type { HeroProps } from '@/components/organisms/Hero'
 import type { NavSystemProps } from '@/components/organisms/NavSystem'
 import type { CasesSectionProject } from '@/components/organisms/CasesSection'
 import type { TitanModule } from '@/components/organisms/TitanSection'
 import type { StackSkill } from '@/components/organisms/StackSection'
-
-const heroData: HeroProps = {
-  headline: 'Staff Product Architect',
-  subheadline: 'Diseño, construyo y escalo productos digitales que el equipo opera sin mí.',
-  ctaLabel: 'Ver casos de estudio',
-  ctaHref: '#casos',
-  secondaryCtaLabel: 'Hablar con TITAN',
-  secondaryCtaHref: '#titan',
-  metrics: [
-    { value: '+10', label: 'años de experiencia' },
-    { value: '4', label: 'países' },
-    { value: '20+', label: 'proyectos en producción' },
-    { value: '654', label: 'fallas WCAG eliminadas' },
-  ],
-}
 
 const symptomCards: NavSystemProps['symptomCards'] = [
   { title: 'Mi sistema es inaccesible', description: 'Auditoría WCAG 2.2 y eliminación de fallas de accesibilidad con evidencia técnica verificable.', tag: 'cliente', targetSlug: 'fdn' },
@@ -87,10 +72,25 @@ const skills: StackSkill[] = [
   { name: 'Figma', level: 78, category: 'design' },
 ]
 
-export default function HomePage() {
+export default async function HomePage() {
+  const t = await getTranslations('hero')
+
   return (
     <HomeTemplate
-      heroData={heroData}
+      heroData={{
+        headline: t('title'),
+        subheadline: t('subtitle'),
+        ctaLabel: t('cta'),
+        ctaHref: '#casos',
+        secondaryCtaLabel: t('ctaSecondary'),
+        secondaryCtaHref: '#titan',
+        metrics: [
+          { value: '+10', label: 'años de experiencia' },
+          { value: '4', label: 'países' },
+          { value: '20+', label: 'proyectos en producción' },
+          { value: '654', label: 'fallas WCAG eliminadas' },
+        ],
+      }}
       symptomCards={symptomCards}
       roleCards={roleCards}
       caseProjects={caseProjects}

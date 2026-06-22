@@ -1,0 +1,26 @@
+{
+  "spec_id": "EX-v2-I18N-002",
+  "component_name": "i18nWiring",
+  "atomic_level": "infra",
+  "sprint": "D",
+  "date": "2026-06-22",
+  "forge_seal": {
+    "checks_total": 9,
+    "checks_pass": 9,
+    "checks_fail": 0,
+    "result": "PASS"
+  },
+  "files_modified": [
+    "src/app/page.tsx",
+    "src/components/organisms/CasesSection/CasesSection.tsx",
+    "src/components/organisms/ContactSection/ContactSection.tsx"
+  ],
+  "i18n_applied": {
+    "page.tsx": "getTranslations('hero') — Server Component",
+    "CasesSection": "useTranslations('cases') — title + empty",
+    "ContactSection": "useTranslations('contact') — title + subtitle + channels + form completo"
+  },
+  "typecheck": "PASS — 0 errors",
+  "gate_lock": "PASS",
+  "signed_by": "ARCHITECT — Claude Sonnet 4.6"
+}
