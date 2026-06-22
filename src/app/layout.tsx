@@ -18,7 +18,11 @@ export default async function RootLayout({
   const messages = await getMessages()
 
   return (
-    <html lang={locale}>
+    <html lang={locale} suppressHydrationWarning>
+      <head>
+        {/* Anti-flash: aplica data-theme ANTES que React hidrate */}
+        <script dangerouslySetInnerHTML={{ __html: `(function(){var t=localStorage.getItem('excalibur-theme');if(!t){t=window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);})();` }} />
+      </head>
       <body>
         <NextIntlClientProvider messages={messages}>
           <ThemeRegistry>
