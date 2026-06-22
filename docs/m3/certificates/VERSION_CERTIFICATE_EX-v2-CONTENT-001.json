@@ -1,0 +1,27 @@
+{
+  "spec_id": "EX-v2-CONTENT-001",
+  "component_name": "ContentRealData",
+  "atomic_level": "content",
+  "sprint": "B",
+  "date": "2026-06-22",
+  "forge_seal": {
+    "checks_total": 20,
+    "checks_pass": 20,
+    "checks_fail": 0,
+    "result": "PASS"
+  },
+  "files_modified": [
+    "src/app/page.tsx",
+    "src/app/casos/[slug]/page.tsx",
+    "src/app/api/chat/route.ts"
+  ],
+  "replacements": {
+    "slugs_removed": ["rappi", "bancolombia", "frubana"],
+    "slugs_added": ["fdn", "solidaria", "bbva"],
+    "hero_metrics": ["+10 años", "4 países", "20+ proyectos", "654 fallas WCAG"],
+    "system_prompt": "actualizado con métricas verificables FDN/Solidaria/BBVA/Correos"
+  },
+  "typecheck": "PASS — 0 errors",
+  "gate_lock": "PASS",
+  "signed_by": "ARCHITECT — Claude Sonnet 4.6"
+}
