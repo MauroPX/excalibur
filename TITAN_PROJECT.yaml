@@ -1,0 +1,118 @@
+# TITAN_PROJECT.yaml — EXCALIBUR v2.0
+# Fuente de verdad del Consejo de Expertos
+# NUNCA hardcodear modelos en código — solo aquí
+# Versión: 1.0 | 2026-06-24
+
+project:
+  name: "EXCALIBUR v2.0 — MauricioGO Portafolio"
+  version: "2.0.0"
+  titan_version: "7.0"
+  repo: "github.com/MauroPX/excalibur"
+  rama_activa: "v2"
+  deploy: "excalibur-six-chi.vercel.app"
+  ic: "Leonel Mauricio Gómez Ocampo"
+
+# ── CONSEJO DE EXPERTOS ──
+# Estrategia: híbrido local + free cloud
+# Local = privado + zero costo + zero rate limit en Forge
+# Cloud free = mayor contexto para OBSERVER y ARCHITECT
+
+council_roles:
+  # ARCHITECT — Blueprint + Lock + decisiones críticas
+  # Claude Code en sesión (free tier actual)
+  architect:
+    model: "claude-sonnet-4-6"
+    provider: "claude-code"
+    invocation: "claude"
+    momentum: [M0, M1, M2, M3, M4, M5]
+    note: "Claude Code lee CLAUDE.md automáticamente"
+
+  # INQUISITOR — Blind Review + auditoría adversarial
+  # LOCAL: deepseek-r1:14b — audita sin enviar código a la nube
+  inquisitor:
+    model: "deepseek-r1:14b"
+    provider: "ollama"
+    invocation: "ollama run deepseek-r1:14b"
+    momentum: [M2, M3, M4]
+    fallback: "deepseek-r1:7b"
+    note: "Blind Review local = privacidad del código + zero latencia"
+
+  # CRAFTSMAN — Forge de código
+  # LOCAL: qwen2.5-coder:14b — especializado en código TypeScript/React
+  craftsman:
+    model: "qwen2.5-coder:14b"
+    provider: "ollama"
+    invocation: "aider --model ollama/qwen2.5-coder:14b"
+    momentum: [M3]
+    fallback: "qwen2.5-coder:7b"
+    note: "Aider + Ollama = Forge local con git integration"
+
+  # OBSERVER — Contexto global + GSD Task Cards
+  # FREE CLOUD: Gemini 2.0 Flash — 1M tokens lee TODO el repo
+  observer:
+    model: "gemini-2.0-flash"
+    provider: "google-ai-studio"
+    invocation: "via API key GEMINI_API_KEY"
+    momentum: [M0, M1, M2, M3, M4, M5]
+    note: "1M tokens = puede leer repo completo. Free tier generoso."
+
+  # CONSULTANT — Estándares industria + benchmarks
+  # LOCAL: qwen2.5:14b — para roles de menor frecuencia
+  consultant:
+    model: "qwen2.5:14b"
+    provider: "ollama"
+    invocation: "ollama run qwen2.5:14b"
+    momentum: [M1, M4]
+    note: "Silencio positivo — solo interviene si hay contradicción real"
+
+  # TESTER — Generación de tests
+  # LOCAL: gemma2:9b
+  tester:
+    model: "gemma2:9b"
+    provider: "ollama"
+    invocation: "aider --model ollama/gemma2:9b"
+    momentum: [M3]
+    note: "Especializado en tests Vitest + jest-axe"
+
+# ── ORQUESTACIÓN ──
+orchestration:
+  aggregator: "workflow.sh"
+  aider_config: ".aider.conf.yml"
+  ollama_base: "http://localhost:11434"
+  fallback_global: "claude-sonnet-4-6"
+
+# ── STACK EXCALIBUR ──
+stack:
+  frontend: "Next.js 15 · React 19 · TypeScript 5 strict · MUI v6"
+  ds: "Storybook 10.4.6 · axe-core · Chromatic"
+  testing: "Vitest 4 · Testing Library · jest-axe"
+  i18n: "next-intl"
+  backend: "Strapi v5 · PostgreSQL 16 · pgvector · Railway"
+  ia_api: "Claude Sonnet 4.6 · Gemini 2.0 Flash"
+  deploy: "Vercel (v2) · GitHub Actions 7 jobs"
+  package: "pnpm 11.2.2"
+
+# ── ESTADO ACTUAL ──
+momentum_status:
+  M0: "LOCKED"
+  M1: "LOCKED"
+  M2: "LOCKED"
+  M3: "LOCKED — 26/26 componentes · 171 tests"
+  M4: "PENDIENTE — auditoría formal + Chromatic baseline"
+  M5: "PENDIENTE — Railway + Strapi + dominio"
+
+# ── GAPS CONOCIDOS ──
+gaps_criticos:
+  - "SPRINT_A: tema dark/light toggle con tokens M3 reales"
+  - "SPRINT_B: contenido real FDN/Solidaria/BBVA (placeholder actual)"
+  - "SPRINT_C: RadarChart + ThemeToggle + 6 stories faltantes"
+  - "SPRINT_D: i18n aplicado en page.tsx y organismos"
+  - "SPRINT_E: Chromatic baseline 52+ stories"
+  - "SPRINT_F: Railway + Strapi + pgvector + dominio"
+
+# ── APE TRACEABILITY (SKILL_PERSUASION) ──
+ape_status:
+  M0: "PENDIENTE — APE_DECLARATION_M0.md no generado"
+  M1: "PENDIENTE — insights de usuario no capturados con formato APE"
+  M2: "PENDIENTE — SPEC_DOCUMENT sin referencias APE explícitas"
+  M3: "PARCIAL — componentes LOCKED sin APE_TRACEABILITY en BLUEPRINT"
