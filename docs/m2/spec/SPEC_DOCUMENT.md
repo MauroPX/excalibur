@@ -3,7 +3,7 @@
 ## INFRAESTRUCTURA
 
 ### EX-v2-INFRA-001 — Setup base
-**Estado:** IN_SPEC | **Prioridad:** P0
+**Estado:** LOCKED | **Prioridad:** P0
 
 **Descripción:**
 Setup inicial del proyecto con Next.js 15, React 19 y MUI v6.
@@ -19,7 +19,7 @@ Setup inicial del proyecto con Next.js 15, React 19 y MUI v6.
 ## ÁTOMOS
 
 ### EX-v2-ATOM-001 — Button
-**Estado:** IN_SPEC | **Prioridad:** P0
+**Estado:** LOCKED | **Prioridad:** P0
 
 **Descripción:**
 Átomo de botón universal para el sistema EXCALIBUR. Soporta múltiples variantes y estados de carga.
@@ -32,7 +32,7 @@ Setup inicial del proyecto con Next.js 15, React 19 y MUI v6.
 - CA-005: BEM naming strict según DESIGN_SPEC.
 
 ### EX-v2-ATOM-002 — Tag
-**Estado:** IN_SPEC | **Prioridad:** P1
+**Estado:** LOCKED | **Prioridad:** P1
 
 **Descripción:**
 Componente de etiqueta/badge para categorizar contenido (tecnologías, roles, estados).
@@ -44,7 +44,7 @@ Componente de etiqueta/badge para categorizar contenido (tecnologías, roles, es
 - CA-004: Opción de incluir un icono pequeño a la izquierda.
 
 ### EX-v2-ATOM-003 — Badge
-**Estado:** IN_SPEC | **Prioridad:** P1
+**Estado:** LOCKED | **Prioridad:** P1
 
 **Descripción:**
 Componente para mostrar indicadores numéricos, estados de alerta o puntos de notificación.
@@ -56,7 +56,7 @@ Componente para mostrar indicadores numéricos, estados de alerta o puntos de no
 - CA-004: Accesibilidad: contraste adecuado y anuncios para lectores de pantalla.
 
 ### EX-v2-ATOM-004 — Icon
-**Estado:** IN_SPEC | **Prioridad:** P1
+**Estado:** LOCKED | **Prioridad:** P1
 
 **Descripción:**
 Componente envoltorio para iconos del sistema, asegurando consistencia en tamaño y color.
@@ -67,7 +67,7 @@ Componente envoltorio para iconos del sistema, asegurando consistencia en tamañ
 - CA-003: Accesibilidad: etiquetas aria-label obligatorias para iconos funcionales.
 
 ### EX-v2-ATOM-005 — Metric
-**Estado:** IN_SPEC | **Prioridad:** P1
+**Estado:** LOCKED | **Prioridad:** P1
 
 **Descripción:**
 Visualizador de métricas clave (números grandes con etiquetas).
@@ -82,7 +82,7 @@ Visualizador de métricas clave (números grandes con etiquetas).
 ## MOLÉCULAS
 
 ### EX-v2-MOL-001 — NavTab
-**Estado:** IN_SPEC | **Prioridad:** P0
+**Estado:** LOCKED | **Prioridad:** P0
 
 **Descripción:**
 Componente de navegación especializado que combina icono y etiqueta, optimizado para la selección de categorías en el portafolio.
@@ -94,7 +94,7 @@ Componente de navegación especializado que combina icono y etiqueta, optimizado
 - CA-004: Implementa subtexto opcional para descripción de síntomas/roles.
 
 ### EX-v2-MOL-002 — ProjectCard
-**Estado:** IN_SPEC | **Prioridad:** P0
+**Estado:** LOCKED | **Prioridad:** P0
 
 **Descripción:**
 Tarjeta de previsualización de proyectos que consolida metadatos, tags y métricas de impacto.
@@ -106,7 +106,7 @@ Tarjeta de previsualización de proyectos que consolida metadatos, tags y métri
 - CA-004: Accesibilidad: Enlace único claro para lectores de pantalla.
 
 ### EX-v2-MOL-003 — SkillBar
-**Estado:** IN_SPEC | **Prioridad:** P1
+**Estado:** LOCKED | **Prioridad:** P1
 
 **Descripción:**
 Visualizador de competencia técnica con barra de progreso y etiquetas de nivel.
@@ -117,7 +117,7 @@ Visualizador de competencia técnica con barra de progreso y etiquetas de nivel.
 - CA-003: Etiqueta de nivel (Senior, Expert, Lead).
 
 ### EX-v2-MOL-004 — TimelineStep
-**Estado:** IN_SPEC | **Prioridad:** P1
+**Estado:** LOCKED | **Prioridad:** P1
 
 **Descripción:**
 Elemento de la cronología profesional que conecta hitos con evidencia PAR.
@@ -128,7 +128,7 @@ Elemento de la cronología profesional que conecta hitos con evidencia PAR.
 - CA-003: Soporta expansión para mostrar detalles PAR.
 
 ### EX-v2-MOL-005 — MetricRow
-**Estado:** IN_SPEC | **Prioridad:** P1
+**Estado:** LOCKED | **Prioridad:** P1
 
 **Descripción:**
 Fila horizontal optimizada para mostrar múltiples métricas clave en paralelo.
@@ -139,7 +139,7 @@ Fila horizontal optimizada para mostrar múltiples métricas clave en paralelo.
 - CA-003: Alineación consistente de etiquetas y valores.
 
 ### EX-v2-MOL-006 — AudienceCard
-**Estado:** IN_SPEC | **Prioridad:** P0
+**Estado:** LOCKED | **Prioridad:** P0
 
 **Descripción:**
 Card de selección de audiencia para NavSystem (Tab A = síntomas, Tab B = roles). El usuario hace clic en la card que describe su situación o perfil y es llevado al caso de estudio relevante. Es el núcleo del sistema de navegación por intención.
@@ -159,7 +159,7 @@ Card de selección de audiencia para NavSystem (Tab A = síntomas, Tab B = roles
 - CA-010: ES/EN con next-intl (useTranslations).
 
 ### EX-v2-MOL-007 — RoadmapSplitButton
-**Estado:** IN_SPEC | **Prioridad:** P1
+**Estado:** LOCKED | **Prioridad:** P1
 
 **Descripción:**
 Botón split (acción primaria + dropdown) para seleccionar vistas del roadmap o fases del proyecto en NavSystem. Permite al usuario cambiar el contexto de visualización sin abandonar la sección.
@@ -181,7 +181,7 @@ Botón split (acción primaria + dropdown) para seleccionar vistas del roadmap o
 ## ORGANISMOS
 
 ### EX-v2-ORG-002 — NavSystem
-**Estado:** IN_SPEC | **Prioridad:** P0
+**Estado:** LOCKED | **Prioridad:** P0
 
 **Descripción:**
 Sistema de navegación de 4 tabs que organiza el portafolio por intención de audiencia. Es el segundo elemento visible después del Hero. Tab A = por síntoma, Tab B = por rol, Tab C = TitanRAGAgent (IA), Tab D = explorar (radar de stack). Client Component interactivo.
@@ -205,7 +205,7 @@ Sistema de navegación de 4 tabs que organiza el portafolio por intención de au
 - CA-012: Animación de transición entre tabs (fade 150ms).
 
 ### EX-v2-ORG-003 — CasesSection
-**Estado:** IN_SPEC | **Prioridad:** P0
+**Estado:** LOCKED | **Prioridad:** P0
 
 **Descripción:**
 Sección de los 20 casos de estudio del portafolio. Grid filtrable por etiquetas de síntoma, rol y audiencia. Carga datos desde Strapi (ISR 1h) con fallback a `evidence-dna.json`. Es la sección de mayor profundidad del portafolio.
@@ -227,7 +227,7 @@ Sección de los 20 casos de estudio del portafolio. Grid filtrable por etiquetas
 - CA-010: 0 hex hardcoded.
 
 ### EX-v2-ORG-004 — TitanSection
-**Estado:** IN_SPEC | **Prioridad:** P1
+**Estado:** LOCKED | **Prioridad:** P1
 
 **Descripción:**
 Showcase de los módulos de TITAN v7.0. Muestra los 6 hubs (M0→M5) con título, descripción y recuento de comandos. Diferenciador técnico del portafolio que demuestra el sistema de trabajo del IC.
@@ -248,7 +248,7 @@ Showcase de los módulos de TITAN v7.0. Muestra los 6 hubs (M0→M5) con título
 - CA-009: 0 hex hardcoded, solo tokens M3.
 
 ### EX-v2-ORG-005 — StackSection
-**Estado:** IN_SPEC | **Prioridad:** P1
+**Estado:** LOCKED | **Prioridad:** P1
 
 **Descripción:**
 Visualización de capacidades técnicas y de producto. Radar chart de 4 dimensiones (pensamiento, diseño, operaciones, técnico) + lista de skills por capa. Demuestra la amplitud end-to-end del IC.
@@ -269,7 +269,7 @@ Visualización de capacidades técnicas y de producto. Radar chart de 4 dimensio
 - CA-009: 0 hex hardcoded.
 
 ### EX-v2-ORG-006 — ContactSection
-**Estado:** IN_SPEC | **Prioridad:** P1
+**Estado:** LOCKED | **Prioridad:** P1
 
 **Descripción:**
 Última sección del portafolio. 1 CTA principal de contacto + métodos alternativos (email, calendario). Posición serial: lo último = segundo más recordado. Conversión directa a reunión o mensaje.
@@ -288,7 +288,7 @@ Visualización de capacidades técnicas y de producto. Radar chart de 4 dimensio
 - CA-007: 0 hex hardcoded, solo tokens M3.
 
 ### EX-v2-A11Y-001 — InquisitorHUD
-**Estado:** IN_SPEC | **Prioridad:** P1
+**Estado:** LOCKED | **Prioridad:** P1
 
 **Descripción:**
 Overlay de auditoría de accesibilidad en tiempo real. Se activa con atajo de teclado (Alt+A). Muestra el árbol de `data-atomic` + `data-component` del DOM, resalta elementos sin roles ARIA, y marca violaciones axe-core en producción-like. Migración fresh desde el componente legacy eliminado.

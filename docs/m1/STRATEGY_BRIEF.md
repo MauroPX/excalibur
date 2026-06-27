@@ -114,3 +114,26 @@ en menos de 30 segundos.
 Firmado: Leonel Mauricio Gómez Ocampo — Staff Product Architect | 2026-06-15
 
 📍 Momentum: M1 | Artefacto: STRATEGY_BRIEF | Nivel: A
+
+---
+
+## PATHOS_KEY_INSIGHT (APE_DECLARATION_M1)
+
+Fuente: APE_DECLARATION_M1.md — 3 insights reales verificados
+
+**Insight 1 — El reclutador que no puede verificar:**
+El reclutador técnico intenta evaluar si Mauricio puede liderar su DS
+pero abandona porque ningún portafolio muestra evidencia técnica verificable.
+→ Resuelto con: Storybook live + repos públicos + métricas verificables
+
+**Insight 2 — El CTO con DS caótico:**
+El CTO fintech intenta contratar a alguien que ordene el caos sin romper producción
+pero no puede evaluar porque los portafolios muestran proyectos bonitos, no legacys reales.
+→ Resuelto con: caso FDN (Drupal 7 → Next.js, LCP -90%)
+
+**Insight 3 — El visitante que llega y se pierde:**
+El PM/diseñador LATAM intenta encontrar referentes pero abandona en 2 minutos
+porque los portafolios son catálogos pasivos sin respuestas específicas.
+→ Resuelto con: TitanRAGAgent conversacional en tiempo real
+
+PATHOS_KEY_INSIGHT: APE_GATE_M1 PASS — 3 insights con Ethos+Pathos+Logos

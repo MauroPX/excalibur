@@ -11,8 +11,8 @@
 |---|---|
 | Nombre | MauricioGO — Portafolio Profesional v2 |
 | Repositorio | github.com/MauroPX/excalibur |
-| Rama producción | main → Netlify (actual) |
-| Rama v2 | v2 → Vercel (reconstrucción) |
+| Rama producción | v2 → Vercel (producción activa) |
+| Rama v2 | feat/v2-sprint-abcd → Vercel (desarrollo) |
 | Owner | Leonel Mauricio Gómez Ocampo |
 | Rol | Staff Product Architect |
 | Fecha inicio | 2026-06-15 |
