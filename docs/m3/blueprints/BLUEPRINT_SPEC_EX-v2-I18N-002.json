@@ -1,0 +1,31 @@
+{
+  "spec_id": "EX-v2-I18N-002",
+  "component_name": "i18nWiring",
+  "atomic_level": "infra",
+  "sprint": "D",
+  "fecha": "2026-06-22",
+  "files_to_modify": [
+    "src/app/page.tsx",
+    "src/components/organisms/CasesSection/CasesSection.tsx",
+    "src/components/organisms/ContactSection/ContactSection.tsx"
+  ],
+  "namespaces_used": ["hero", "cases", "contact"],
+  "strategy": {
+    "page.tsx": "Server Component — getTranslations from next-intl/server",
+    "CasesSection.tsx": "Client Component — useTranslations('cases')",
+    "ContactSection.tsx": "Client Component — useTranslations('contact')"
+  },
+  "keys_verified": {
+    "hero": ["title", "subtitle", "cta", "ctaSecondary"],
+    "cases": ["title", "empty"],
+    "contact": ["title", "subtitle", "channels.label", "channels.linkedin", "channels.email", "channels.github", "form.label", "form.name", "form.email", "form.message", "form.submit", "form.submitting", "form.success", "form.successDetail", "form.errors.nameRequired", "form.errors.emailInvalid", "form.errors.messageTooShort"]
+  },
+  "gates": {
+    "DI-01": "PASS — next-intl ^3.26.1 instalado, request.ts configurado",
+    "DI-02": "PASS — es.json tiene hero/cases/contact namespaces completos",
+    "DI-03": "PASS — page.tsx es Server Component (async function)",
+    "DI-04": "PASS — CasesSection y ContactSection son Client Components"
+  },
+  "gate_1": "PASS",
+  "signed_by": "ARCHITECT — Claude Sonnet 4.6"
+}

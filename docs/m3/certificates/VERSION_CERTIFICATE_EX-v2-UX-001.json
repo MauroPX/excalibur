@@ -1,0 +1,27 @@
+{
+  "spec_id": "EX-v2-UX-001",
+  "component_name": "VisualUX",
+  "atomic_level": "mixed",
+  "sprint": "C",
+  "date": "2026-06-22",
+  "forge_seal": {
+    "checks_total": 37,
+    "checks_pass": 37,
+    "checks_fail": 0,
+    "result": "PASS"
+  },
+  "new_components": ["ThemeToggle (EX-v2-ATOM-007)"],
+  "updated_components": ["StackSection — RadarChart con recharts 3.8.1"],
+  "new_stories": [
+    "CasesSection.stories.tsx",
+    "ContactSection.stories.tsx",
+    "NavSystem.stories.tsx",
+    "InquisitorHUD.stories.tsx",
+    "TitanSection.stories.tsx",
+    "StackSection.stories.tsx"
+  ],
+  "recharts_version": "3.8.1",
+  "typecheck": "PASS — 0 errors",
+  "gate_lock": "PASS",
+  "signed_by": "ARCHITECT — Claude Sonnet 4.6"
+}

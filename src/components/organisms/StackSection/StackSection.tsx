@@ -1,5 +1,9 @@
 import React from 'react'
 import { Box, Typography } from '@mui/material'
+import {
+  RadarChart, Radar, PolarGrid, PolarAngleAxis,
+  PolarRadiusAxis, ResponsiveContainer, Tooltip,
+} from 'recharts'
 
 export interface StackSkill {
   name: string
@@ -15,6 +19,14 @@ export interface StackSectionProps {
 export const StackSection: React.FC<StackSectionProps> = ({ skills, title = 'Stack técnico' }) => {
   const categories: Array<StackSkill['category']> = ['frontend', 'backend', 'design', 'process', 'ai']
 
+  const radarData = categories.map(cat => ({
+    category: cat,
+    level: Math.round(
+      skills.filter(s => s.category === cat).reduce((sum, s) => sum + s.level, 0) /
+      Math.max(skills.filter(s => s.category === cat).length, 1)
+    ),
+  }))
+
   return (
     <Box
       component="section"
@@ -27,13 +39,31 @@ export const StackSection: React.FC<StackSectionProps> = ({ skills, title = 'Sta
         {title}
       </Typography>
 
-      {/* Radar: aria-hidden + tabla sr-only para a11y */}
+      {/* RadarChart: aria-hidden — datos accesibles en tabla sr-only abajo */}
       <Box aria-hidden="true" className="ex-stack-section__radar"
-        sx={{ width: '100%', maxWidth: 400, mx: 'auto', height: 300, display: 'flex', alignItems: 'center', justifyContent: 'center',
-              backgroundColor: 'var(--md-sys-color-surface-container)', borderRadius: 2, mb: 4 }}>
-        <Typography variant="body2" sx={{ color: 'var(--md-sys-color-on-surface)' }}>
-          [RadarChart — {skills.length} habilidades]
-        </Typography>
+        sx={{ width: '100%', maxWidth: 400, mx: 'auto', height: 300, mb: 4 }}>
+        <ResponsiveContainer width="100%" height="100%">
+          <RadarChart data={radarData}>
+            <PolarGrid stroke="var(--md-sys-color-outline-variant)" />
+            <PolarAngleAxis
+              dataKey="category"
+              tick={{ fill: 'var(--md-sys-color-on-surface-variant)', fontSize: 12 }}
+            />
+            <PolarRadiusAxis domain={[0, 100]} tick={false} axisLine={false} />
+            <Radar
+              name="Nivel"
+              dataKey="level"
+              stroke="var(--md-sys-color-primary)"
+              fill="var(--md-sys-color-primary)"
+              fillOpacity={0.3}
+            />
+            <Tooltip
+              contentStyle={{ backgroundColor: 'var(--md-sys-color-surface-container)', border: 'none', borderRadius: 8 }}
+              labelStyle={{ color: 'var(--md-sys-color-on-surface)' }}
+              itemStyle={{ color: 'var(--md-sys-color-primary)' }}
+            />
+          </RadarChart>
+        </ResponsiveContainer>
       </Box>
 
       <table className="sr-only" aria-label="Datos del stack técnico">

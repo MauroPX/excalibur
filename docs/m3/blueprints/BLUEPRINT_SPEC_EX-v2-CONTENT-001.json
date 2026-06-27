@@ -1,0 +1,58 @@
+{
+  "spec_id": "EX-v2-CONTENT-001",
+  "component_name": "ContentRealData",
+  "atomic_level": "content",
+  "sprint": "B",
+  "fecha": "2026-06-22",
+  "files_to_modify": [
+    "src/app/page.tsx",
+    "src/app/casos/[slug]/page.tsx",
+    "src/app/api/chat/route.ts"
+  ],
+  "slugs_old": ["rappi", "bancolombia", "frubana"],
+  "slugs_new": ["fdn", "solidaria", "bbva"],
+  "hero_metrics_real": {
+    "metric1": "+10 años experiencia",
+    "metric2": "4 países",
+    "metric3": "20+ proyectos en producción",
+    "metric4": "654 fallas WCAG eliminadas"
+  },
+  "cases": [
+    {
+      "slug": "fdn",
+      "title": "FDN — LCP -90% y WCAG AAA",
+      "sector": "GovTech",
+      "problema": "LCP 25.2s + 654 fallas WCAG en portal Drupal 7",
+      "resultado": "LCP 25.2s → 2.5s (-90%) · 654 fallas eliminadas · WCAG AAA"
+    },
+    {
+      "slug": "solidaria",
+      "title": "Solidaria — Design System 0 violations",
+      "sector": "Insurtech",
+      "problema": "Sin DS · sin tests · sin accesibilidad verificable",
+      "resultado": "0 axe violations · 212 tests verdes · DS en producción"
+    },
+    {
+      "slug": "bbva",
+      "title": "BBVA — Time-to-market -75%",
+      "sector": "Banca & Fintech",
+      "problema": "Alta carga cognitiva en contratación Pyme · TTM 12 meses",
+      "resultado": "-75% time-to-market · Digitalización 100% contratación Pyme"
+    }
+  ],
+  "system_prompt_updated": true,
+  "gates": {
+    "BC-01": "PASS — datos reales FDN/Solidaria/BBVA verificados en PROMPT_SPRINT_B",
+    "BC-02": "PASS — hero metrics: +10años, 4países, 20+ proyectos, 654 fallas",
+    "BC-03": "PASS — síntomas y roles actualizados a casos reales",
+    "BC-04": "PASS — SYSTEM_PROMPT con métricas exactas verificables",
+    "BC-05": "PASS — scope acotado a page.tsx + /casos/[slug] + /api/chat/route.ts"
+  },
+  "gate_1": "PASS",
+  "signed_by": "ARCHITECT — Claude Sonnet 4.6",
+  "multi_ia": {
+    "forge": "Aider + qwen2.5-coder:14b",
+    "review": "deepseek-r1:14b",
+    "lock": "Claude Sonnet 4.6"
+  }
+}

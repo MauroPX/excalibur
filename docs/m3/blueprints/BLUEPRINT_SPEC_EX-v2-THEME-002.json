@@ -1,0 +1,58 @@
+{
+  "spec_id": "EX-v2-THEME-002",
+  "component_name": "ThemeSystem",
+  "atomic_level": "infra",
+  "domain": "design-system",
+  "sprint": "A",
+  "fecha": "2026-06-22",
+  "files_created": [
+    "src/theme/tokens.ts"
+  ],
+  "files_modified": [
+    "src/theme/index.ts",
+    "src/theme/ThemeRegistry.tsx",
+    "src/app/globals.css",
+    "src/app/layout.tsx",
+    "src/components/organisms/InquisitorHUD/InquisitorHUD.tsx"
+  ],
+  "dark_palette": {
+    "primary": "#C4BEFF",
+    "onPrimary": "#2B1F8F",
+    "surface": "#0D0F1A",
+    "onSurface": "#E8E8F5",
+    "cta": "#F7AF12"
+  },
+  "light_palette": {
+    "primary": "#5B4CF5",
+    "onPrimary": "#FFFFFF",
+    "surface": "#FDFCFF",
+    "onSurface": "#1A1C1E",
+    "cta": "#C4830A"
+  },
+  "dark_tokens_count": 32,
+  "light_tokens_count": 32,
+  "toggle_mechanism": "localStorage('excalibur-theme') + data-theme attr en <html>",
+  "anti_flash_strategy": "script inline en <head> antes de body — lee localStorage y aplica data-theme sincrónicamente",
+  "components_affected": [
+    "InquisitorHUD — fix 2 hex hardcodeados (#e65100, #f9a825) → tokens M3"
+  ],
+  "hardcoded_colors_found": [
+    "InquisitorHUD.tsx:40 serious: '#e65100' → var(--md-sys-color-error)",
+    "InquisitorHUD.tsx:41 moderate: '#f9a825' → var(--md-sys-color-tertiary-container)"
+  ],
+  "gates": {
+    "BH-1": "PASS — discrepancia documentada, tokens reales definidos en prompt Sprint A",
+    "BH-2": "PASS — paleta dark verificada, InquisitorHUD flagged para fix",
+    "BH-3": "PASS — mecanismo localStorage + data-theme + anti-flash definido",
+    "BH-4": "PASS — solo InquisitorHUD tiene hex hardcodeados",
+    "BH-5": "PASS — scope acotado a src/theme/ + globals.css + layout.tsx + InquisitorHUD",
+    "BH-6": "PENDING — verificar pnpm build al cierre del sprint"
+  },
+  "gate_1": "PASS",
+  "signed_by": "ARCHITECT — Claude Sonnet 4.6",
+  "multi_ia": {
+    "forge": "Aider + qwen2.5-coder:14b",
+    "review": "Aider + deepseek-r1:14b",
+    "lock": "Claude Code"
+  }
+}

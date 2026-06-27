@@ -1,77 +1,64 @@
+import { getTranslations } from 'next-intl/server'
 import { HomeTemplate } from '@/components/templates/HomeTemplate'
-import type { HeroProps } from '@/components/organisms/Hero'
 import type { NavSystemProps } from '@/components/organisms/NavSystem'
 import type { CasesSectionProject } from '@/components/organisms/CasesSection'
 import type { TitanModule } from '@/components/organisms/TitanSection'
 import type { StackSkill } from '@/components/organisms/StackSection'
 
-const heroData: HeroProps = {
-  headline: 'Staff Product Architect',
-  subheadline: 'Diseño, construyo y escalo productos digitales con equipos de alto rendimiento.',
-  ctaLabel: 'Ver casos de estudio',
-  ctaHref: '#casos',
-  secondaryCtaLabel: 'Hablar con TITAN',
-  secondaryCtaHref: '#titan',
-  metrics: [
-    { value: '+$12M', label: 'ARR generado' },
-    { value: '8', label: 'años de experiencia' },
-    { value: '4', label: 'países' },
-    { value: '40+', label: 'equipos liderados' },
-  ],
-}
-
 const symptomCards: NavSystemProps['symptomCards'] = [
-  { title: 'Mi producto no crece', description: 'Diagnóstico de stagnation y estrategia de crecimiento acelerado.', tag: 'cliente', targetSlug: 'rappi' },
-  { title: 'El equipo no entrega', description: 'Estructura, cadencias y métricas para equipos de alto rendimiento.', tag: 'cliente', targetSlug: 'bancolombia' },
-  { title: 'No sé qué priorizar', description: 'Frameworks de priorización basados en datos e impacto.', tag: 'cliente', targetSlug: 'frubana' },
-  { title: 'Perdemos usuarios', description: 'Reducción de churn y mejora de retención con experimentos.', tag: 'cliente', targetSlug: 'rappi' },
+  { title: 'Mi sistema es inaccesible', description: 'Auditoría WCAG 2.2 y eliminación de fallas de accesibilidad con evidencia técnica verificable.', tag: 'cliente', targetSlug: 'fdn' },
+  { title: 'El TTM es demasiado largo', description: 'Frameworks de entrega que redujeron el time-to-market hasta un 75% en proyectos bancarios.', tag: 'cliente', targetSlug: 'bbva' },
+  { title: 'No tenemos Design System', description: 'Construcción de DS desde cero con gobernanza, tests y Chromatic en producción.', tag: 'cliente', targetSlug: 'solidaria' },
+  { title: 'Nuestra plataforma es legacy', description: 'Migración brownfield sin interrupciones. LCP de 25s a 2.5s en producción real.', tag: 'cliente', targetSlug: 'fdn' },
 ]
 
 const roleCards: NavSystemProps['roleCards'] = [
-  { title: 'Soy CTO / Founder', description: 'Escalabilidad técnica y alineación estrategia-producto.', tag: 'cliente', targetSlug: 'bancolombia' },
-  { title: 'Soy reclutador', description: 'Track record de impacto, cultura y liderazgo a nivel staff.', tag: 'reclutador', targetSlug: 'rappi' },
-  { title: 'Soy PM / PO', description: 'Frameworks, templates y mentoring de product management.', tag: 'comunidad', targetSlug: 'frubana' },
-  { title: 'Soy inversor', description: 'Due diligence de capacidades de producto en startups.', tag: 'cliente', targetSlug: 'bancolombia' },
+  { title: 'Soy CTO / Founder', description: 'Escalabilidad técnica end-to-end. BBVA: -75% TTM. Correos Chile: TTM 12→6 meses.', tag: 'cliente', targetSlug: 'bbva' },
+  { title: 'Soy reclutador', description: '212 tests · 0 violations · DS en prod · 4 países · 10 años. Todo verificable.', tag: 'reclutador', targetSlug: 'solidaria' },
+  { title: 'Soy PM / PO', description: 'TITAN v7.0: metodología de M0 a M5 sin pérdida de contexto entre etapas.', tag: 'comunidad', targetSlug: 'bbva' },
+  { title: 'Soy líder de ingeniería', description: 'Next.js 15 + Strapi v5 + pgvector. LCP -90% con evidencia técnica.', tag: 'cliente', targetSlug: 'fdn' },
 ]
 
 const caseProjects: CasesSectionProject[] = [
   {
-    slug: 'rappi',
-    title: 'Rappi — Crecimiento ARR',
-    description: 'Lideré la estrategia de monetización que generó $3.2M ARR incremental en 8 meses.',
-    tags: ['Crecimiento', 'Monetización', 'LatAm'],
-    symptomTags: ['Mi producto no crece', 'Perdemos usuarios'],
-    roleTags: ['Soy CTO / Founder', 'Soy reclutador'],
-    audienceTags: ['cliente', 'reclutador'],
-    metric: { value: '+$3.2M', label: 'ARR' },
-  },
-  {
-    slug: 'bancolombia',
-    title: 'Bancolombia — NPS y Retención',
-    description: 'Rediseñé el journey digital bancario mejorando NPS +40 puntos y reduciendo churn 28%.',
-    tags: ['Banca digital', 'UX', 'Retención'],
-    symptomTags: ['El equipo no entrega', 'Perdemos usuarios'],
-    roleTags: ['Soy CTO / Founder', 'Soy inversor'],
+    slug: 'fdn',
+    title: 'FDN — LCP -90% y WCAG AAA',
+    description: 'Migración del portal institucional de Drupal 7 a Next.js 14. LCP de 25.2s a 2.5s. 654 fallas WCAG eliminadas. Certificado WCAG AAA 2024.',
+    tags: ['GovTech', 'Next.js', 'WCAG', 'A11Y', 'Performance'],
+    symptomTags: ['legacy', 'a11y', 'performance'],
+    roleTags: ['staff-architect', 'tech-lead', 'design-engineer'],
     audienceTags: ['cliente'],
-    metric: { value: '+40pts', label: 'NPS' },
+    metric: { value: '-90%', label: 'LCP' },
   },
   {
-    slug: 'frubana',
-    title: 'Frubana — Reducción CAC',
-    description: 'Optimicé el funnel de adquisición B2B reduciendo CAC 35% con growth loops.',
-    tags: ['B2B', 'Growth', 'Agritech'],
-    symptomTags: ['No sé qué priorizar', 'Mi producto no crece'],
-    roleTags: ['Soy PM / PO', 'Soy inversor'],
-    audienceTags: ['cliente', 'comunidad'],
-    metric: { value: '-35%', label: 'CAC' },
+    slug: 'solidaria',
+    title: 'Solidaria — Design System 0 violations',
+    description: 'Design System desde cero con gobernanza real. 212 tests, 0 axe violations, Storybook en Chromatic con baseline establecido.',
+    tags: ['Design System', 'WCAG', 'Storybook', 'Insurtech'],
+    symptomTags: ['design-system', 'a11y'],
+    roleTags: ['staff-architect', 'designops'],
+    audienceTags: ['cliente', 'reclutador'],
+    metric: { value: '212', label: 'tests · 0 violations' },
+  },
+  {
+    slug: 'bbva',
+    title: 'BBVA — Time-to-market -75%',
+    description: 'Arquitectura de producto para BBVA Colombia & Panamá. Framework GEMAS + Proyecto Brickell. Digitalización 100% del proceso de contratación Pyme.',
+    tags: ['Banca', 'Fintech', 'SAFe', 'Design System'],
+    symptomTags: ['legacy', 'team-scaling', 'design-system'],
+    roleTags: ['staff-architect', 'product-manager'],
+    audienceTags: ['cliente'],
+    metric: { value: '-75%', label: 'time-to-market' },
   },
 ]
 
 const titanModules: TitanModule[] = [
-  { hubName: 'M0', hubTitle: 'Foundation', description: 'Visión, misión y estructura del portafolio.', momentum: 'M0', commandsCount: 12 },
-  { hubName: 'M1', hubTitle: 'Strategy', description: 'Backlog, roadmap y customer journeys.', momentum: 'M1', commandsCount: 10 },
-  { hubName: 'M2', hubTitle: 'Architecture', description: 'Spec, diseño y contratos de API.', momentum: 'M2', commandsCount: 11 },
-  { hubName: 'M3', hubTitle: 'Execution', description: 'BFL sprints, CI/CD y componentes.', momentum: 'M3', commandsCount: 8 },
+  { hubName: 'Foundation', hubTitle: 'M0 — Visión y estructura', description: 'Diagnóstico, ADRs y gobernanza del proyecto. Sin M0 no hay base sólida.', momentum: 'M0', commandsCount: 12 },
+  { hubName: 'Strategy', hubTitle: 'M1 — Backlog y roadmap', description: 'Customer journeys, backlog priorizado y mapa de riesgos.', momentum: 'M1', commandsCount: 10 },
+  { hubName: 'Architecture', hubTitle: 'M2 — Spec y contratos', description: 'SPEC_DOCUMENT, DESIGN_TOKENS y contratos de API. Sin M2 no hay Forge.', momentum: 'M2', commandsCount: 11 },
+  { hubName: 'Execution', hubTitle: 'M3 — BFL + CI/CD', description: 'Sprints BFL con Blueprint→Forge→Lock. 26/26 componentes LOCKED en este portafolio.', momentum: 'M3', commandsCount: 26 },
+  { hubName: 'Intelligence', hubTitle: 'M4 — RAG y backend', description: 'Strapi v5 + pgvector + Claude API. La IA conoce cada proyecto del portafolio.', momentum: 'M4', commandsCount: 8 },
+  { hubName: 'Operations', hubTitle: 'M5 — Monitoreo y mejora', description: 'Observabilidad, alertas y ciclos de mejora continua.', momentum: 'M5', commandsCount: 6 },
 ]
 
 const skills: StackSkill[] = [
@@ -85,10 +72,25 @@ const skills: StackSkill[] = [
   { name: 'Figma', level: 78, category: 'design' },
 ]
 
-export default function HomePage() {
+export default async function HomePage() {
+  const t = await getTranslations('hero')
+
   return (
     <HomeTemplate
-      heroData={heroData}
+      heroData={{
+        headline: t('title'),
+        subheadline: t('subtitle'),
+        ctaLabel: t('cta'),
+        ctaHref: '#casos',
+        secondaryCtaLabel: t('ctaSecondary'),
+        secondaryCtaHref: '#titan',
+        metrics: [
+          { value: '+10', label: 'años de experiencia' },
+          { value: '4', label: 'países' },
+          { value: '20+', label: 'proyectos en producción' },
+          { value: '654', label: 'fallas WCAG eliminadas' },
+        ],
+      }}
       symptomCards={symptomCards}
       roleCards={roleCards}
       caseProjects={caseProjects}

@@ -1,6 +1,7 @@
 'use client'
 import React, { useState } from 'react'
 import { Box, Typography, TextField, FormHelperText } from '@mui/material'
+import { useTranslations } from 'next-intl'
 import { Button } from '@/components/atoms/Button'
 
 export type ContactChannel = 'linkedin' | 'email' | 'github'
@@ -19,6 +20,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
   emailAddress = 'lemaogo@gmail.com',
   onSubmit,
 }) => {
+  const t = useTranslations('contact')
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [message, setMessage] = useState('')
@@ -29,9 +31,9 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
 
   const validate = () => {
     const e: Record<string, string> = {}
-    if (!name.trim()) e.name = 'El nombre es requerido'
-    if (!email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) e.email = 'Email inválido'
-    if (!message.trim() || message.length < 20) e.message = 'El mensaje debe tener al menos 20 caracteres'
+    if (!name.trim()) e.name = t('form.errors.nameRequired')
+    if (!email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) e.email = t('form.errors.emailInvalid')
+    if (!message.trim() || message.length < 20) e.message = t('form.errors.messageTooShort')
     return e
   }
 
@@ -55,18 +57,18 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
       sx={{ py: 6, backgroundColor: 'var(--md-sys-color-surface)' }}
     >
       <Typography variant="h4" component="h2" sx={{ color: 'var(--md-sys-color-on-surface)', mb: 1 }}>
-        Hablemos
+        {t('title')}
       </Typography>
       <Typography variant="body1" sx={{ color: 'var(--md-sys-color-on-surface)', mb: 4 }}>
-        Cuéntame sobre tu proyecto o desafío
+        {t('subtitle')}
       </Typography>
 
       {/* Canal de contacto */}
-      <Box className="ex-contact-section__channels" role="group" aria-label="Canal de contacto" sx={{ display: 'flex', gap: 1, mb: 3, flexWrap: 'wrap' }}>
+      <Box className="ex-contact-section__channels" role="group" aria-label={t('channels.label')} sx={{ display: 'flex', gap: 1, mb: 3, flexWrap: 'wrap' }}>
         {channels.map(ch => (
           <Button
             key={ch}
-            label={ch.charAt(0).toUpperCase() + ch.slice(1)}
+            label={t(`channels.${ch}`)}
             variant={channel === ch ? 'filled' : 'outlined'}
             onClick={() => setChannel(ch)}
           />
@@ -87,17 +89,17 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
           className="ex-contact-section__success"
           sx={{ p: 3, borderRadius: 2, backgroundColor: 'var(--md-sys-color-primary-container)', textAlign: 'center' }}>
           <Typography variant="h6" sx={{ color: 'var(--md-sys-color-on-primary-container)' }}>
-            ¡Mensaje enviado!
+            {t('form.success')}
           </Typography>
           <Typography variant="body2" sx={{ color: 'var(--md-sys-color-on-primary-container)', mt: 1 }}>
-            Te contactaré pronto.
+            {t('form.successDetail')}
           </Typography>
         </Box>
       ) : (
         <Box
           component="form"
           noValidate
-          aria-label="Formulario de contacto"
+          aria-label={t('form.label')}
           className="ex-contact-section__form"
           onSubmit={handleSubmit}
           sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}
@@ -105,7 +107,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
           <Box>
             <TextField
               id="contact-name"
-              label="Nombre"
+              label={t('form.name')}
               value={name}
               onChange={e => setName(e.target.value)}
               required
@@ -119,7 +121,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
           <Box>
             <TextField
               id="contact-email"
-              label="Email"
+              label={t('form.email')}
               type="email"
               value={email}
               onChange={e => setEmail(e.target.value)}
@@ -134,7 +136,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
           <Box>
             <TextField
               id="contact-message"
-              label="Mensaje"
+              label={t('form.message')}
               value={message}
               onChange={e => setMessage(e.target.value)}
               required
@@ -154,7 +156,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
             className="ex-contact-section__submit"
             style={{ padding: '12px 24px', borderRadius: '8px', border: 'none', cursor: submitting ? 'not-allowed' : 'pointer', backgroundColor: 'var(--md-sys-color-primary)', color: 'var(--md-sys-color-on-primary)', fontSize: '1rem', fontWeight: 600 }}
           >
-            {submitting ? 'Enviando...' : 'Enviar'}
+            {submitting ? t('form.submitting') : t('form.submit')}
           </button>
         </Box>
       )}

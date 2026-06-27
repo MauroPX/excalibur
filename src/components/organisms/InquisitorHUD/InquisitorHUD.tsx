@@ -37,8 +37,8 @@ export const InquisitorHUD: React.FC<InquisitorHUDProps> = ({ enabled = false })
   const byImpact = (imp: A11yIssue['impact']) => issues.filter(i => i.impact === imp).length
   const IMPACT_COLORS: Record<A11yIssue['impact'], string> = {
     critical: 'var(--md-sys-color-error)',
-    serious: '#e65100',
-    moderate: '#f9a825',
+    serious: 'var(--md-sys-color-error)',
+    moderate: 'var(--md-sys-color-tertiary-container)',
     minor: 'var(--md-sys-color-on-surface)',
   }
 

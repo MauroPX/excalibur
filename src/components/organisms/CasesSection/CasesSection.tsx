@@ -1,6 +1,7 @@
 'use client'
 import React, { useState } from 'react'
 import { Box, Typography, Chip as MuiChip } from '@mui/material'
+import { useTranslations } from 'next-intl'
 import { ProjectCard } from '@/components/molecules/ProjectCard'
 
 export interface CasesSectionProject {
@@ -23,6 +24,7 @@ const SYMPTOM_TAGS = ['legacy', 'conversion', 'ia', 'a11y', 'performance', 'desi
 const ROLE_TAGS = ['staff-architect', 'product-manager', 'ux-designer', 'tech-lead', 'design-engineer', 'designops']
 
 const CasesSection: React.FC<CasesSectionProps> = ({ projects }) => {
+  const t = useTranslations('cases')
   const [activeSymptoms, setActiveSymptoms] = useState<string[]>([])
   const [activeRoles, setActiveRoles] = useState<string[]>([])
 
@@ -48,7 +50,7 @@ const CasesSection: React.FC<CasesSectionProps> = ({ projects }) => {
       sx={{ py: 6, backgroundColor: 'var(--md-sys-color-surface)' }}
     >
       <Typography variant="h4" component="h2" sx={{ color: 'var(--md-sys-color-on-surface)', mb: 3 }}>
-        Casos de estudio
+        {t('title')}
       </Typography>
 
       {/* Chips de filtro síntomas */}
@@ -82,13 +84,13 @@ const CasesSection: React.FC<CasesSectionProps> = ({ projects }) => {
       {/* Grid de ProjectCards con aria-live */}
       <Box
         aria-live="polite"
-        aria-label={`${filteredProjects.length} proyectos`}
+        aria-label={t('title')}
         className="ex-cases-section__grid"
         sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', sm: 'repeat(2,1fr)', md: 'repeat(3,1fr)' }, gap: 2 }}
       >
         {filteredProjects.length === 0 ? (
           <Typography className="ex-cases-section__empty-state" sx={{ gridColumn: '1/-1', color: 'var(--md-sys-color-on-surface)', textAlign: 'center', py: 4 }}>
-            No hay proyectos para los filtros seleccionados.
+            {t('empty')}
           </Typography>
         ) : (
           filteredProjects.slice(0, 20).map((p, i) => (
