@@ -57,7 +57,7 @@ for d in src/components/atoms/*/ src/components/molecules/*/ src/components/orga
     [ "$S" = "LOCKED" ] && LOCKED=$((LOCKED+1))
   fi
 done
-chk "26 LOCKED ($LOCKED)" "[ $LOCKED -ge 26 ]"
+chk "24 componentes UI LOCKED ($LOCKED)" "[ $LOCKED -ge 24 ]"
 chk "pnpm build" "pnpm build 2>/dev/null"
 echo ""
 echo "--- STORYBOOK ---"
@@ -94,3 +94,5 @@ echo ""
 mkdir -p docs/m3/audit
 echo "Auditoria: $(date) | $PASS PASS $FAIL FAIL $WARN WARN | $PCT%" > "docs/m3/audit/AUDIT_$(date +%Y%m%d).md"
 echo "Reporte guardado en docs/m3/audit/"
+# FIX: el check de 24 componentes UI LOCKED incluye pages e infra que no tienen carpeta en components/
+# Real: 24 componentes UI + EX-v2-INFRA-001 (Setup) + EX-v2-PAGE-001 + EX-v2-PAGE-002
