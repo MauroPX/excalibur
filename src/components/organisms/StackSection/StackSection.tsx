@@ -77,7 +77,7 @@ export const StackSection: React.FC<StackSectionProps> = ({ skills, title = 'Sta
               <tr key={s.name}>
                 <td>{s.name}</td>
                 <td>{s.category}</td>
-                <td>{s.level}/10</td>
+                <td>{s.level}%</td>
               </tr>
             ))}
           </tbody>
@@ -98,10 +98,10 @@ export const StackSection: React.FC<StackSectionProps> = ({ skills, title = 'Sta
                   <Box key={skill.name} className="ex-stack-section__skill" sx={{ mb: 1 }}>
                     <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 0.25 }}>
                       <Typography variant="body2" sx={{ color: 'var(--md-sys-color-on-surface)' }}>{skill.name}</Typography>
-                      <Typography variant="caption" sx={{ color: 'var(--md-sys-color-on-surface)' }}>{skill.level}/10</Typography>
+                      <Typography variant="caption" sx={{ color: 'var(--md-sys-color-on-surface)' }}>{skill.level}%</Typography>
                     </Box>
                     <Box sx={{ height: 4, borderRadius: 2, backgroundColor: 'var(--md-sys-color-surface-container-high)' }}>
-                      <Box sx={{ height: '100%', borderRadius: 2, width: `${skill.level * 10}%`, backgroundColor: 'var(--md-sys-color-primary)' }} />
+                      <Box sx={{ height: '100%', borderRadius: 2, width: `${Math.min(skill.level, 100)}%`, backgroundColor: 'var(--md-sys-color-primary)' }} />
                     </Box>
                   </Box>
                 ))}
