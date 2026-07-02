@@ -93,6 +93,7 @@ export default async function HomePage() {
       }}
       symptomCards={symptomCards}
       roleCards={roleCards}
+      featuredProjects={caseProjects.map(p => ({ slug: p.slug, title: p.title, summary: p.description, tags: p.tags }))}
       caseProjects={caseProjects}
       titanModules={titanModules}
       titanVersion="v7.0"
