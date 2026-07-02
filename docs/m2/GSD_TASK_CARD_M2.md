@@ -84,3 +84,4 @@ Gate bloqueante para M4: 14/14 P0 SPEC_IDs en LOCKED.
 
 📍 Momentum: M2 | Estado: COMPLETE → LOCKED
 Firmado: Leonel Mauricio Gómez Ocampo — Staff Product Architect | 2026-06-15
+M2_STATUS: LOCKED — 2026-07-02

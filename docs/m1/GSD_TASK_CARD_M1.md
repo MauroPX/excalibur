@@ -79,3 +79,12 @@ M2 debe producir:
 ✅ Generado: GSD_TASK_CARD_M1 — 5/5 artefactos sellados
 → Siguiente: M2 — SPEC_DOCUMENT + DESIGN_SPEC + tokens
 🔒 Gate bloqueante M1→M2: THREAT_MODEL firmado ← YA CUMPLIDO
+
+## SKIPS REGISTRADOS (TITAN /momentum skip)
+- RESEARCH_SYNTHESIS: SKIPPED_WITH_JUSTIFICATION — IC único, experiencia
+  directa 10+ años documentada en evidence-dna.json (20+ proyectos)
+- DESIGN_SPRINT: SKIPPED_WITH_JUSTIFICATION — incertidumbre baja,
+  audiencias conocidas por experiencia directa. SPEC_ITEMs sin
+  sprint_ref declaran riesgo de hipótesis según regla TITAN M2.
+
+M1_STATUS: LOCKED — 2026-07-02

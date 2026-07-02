@@ -69,3 +69,4 @@ El siguiente Momentum (M1 — Estrategia) debe producir:
 ✅ Generado: GSD_TASK_CARD_M0 — 10 artefactos sellados
 → Siguiente: iniciar M1 — STRATEGY_BRIEF
 🔒 Gate: M0 SELLADO — M1 habilitado
+M0_STATUS: LOCKED — 2026-07-02
