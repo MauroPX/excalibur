@@ -56,6 +56,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
       className="ex-contact-section"
       sx={{ py: 6, backgroundColor: 'var(--md-sys-color-surface)' }}
     >
+      <Box sx={{ maxWidth: '1200px', mx: 'auto', px: { xs: 2, sm: 3, md: 4 } }}>
       <Typography variant="h4" component="h2" sx={{ color: 'var(--md-sys-color-on-surface)', mb: 1 }}>
         {t('title')}
       </Typography>
@@ -160,6 +161,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
           </button>
         </Box>
       )}
+      </Box>
     </Box>
   )
 }

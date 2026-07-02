@@ -49,6 +49,7 @@ const CasesSection: React.FC<CasesSectionProps> = ({ projects }) => {
       className="ex-cases-section"
       sx={{ py: 6, backgroundColor: 'var(--md-sys-color-surface)' }}
     >
+      <Box sx={{ maxWidth: '1200px', mx: 'auto', px: { xs: 2, sm: 3, md: 4 } }}>
       <Typography variant="h4" component="h2" sx={{ color: 'var(--md-sys-color-on-surface)', mb: 3 }}>
         {t('title')}
       </Typography>
@@ -97,6 +98,7 @@ const CasesSection: React.FC<CasesSectionProps> = ({ projects }) => {
             <ProjectCard key={i} title={p.title} description={p.description} tags={p.tags} metric={p.metric} />
           ))
         )}
+      </Box>
       </Box>
     </Box>
   )
