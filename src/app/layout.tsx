@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import { getLocale, getMessages } from 'next-intl/server'
 import { NextIntlClientProvider } from 'next-intl'
+import { Analytics } from '@vercel/analytics/react'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 import './globals.css'
 import ThemeRegistry from '@/theme/ThemeRegistry'
 
@@ -28,6 +30,8 @@ export default async function RootLayout({
         <NextIntlClientProvider messages={messages}>
           <ThemeRegistry>
             {children}
+            <Analytics />
+            <SpeedInsights />
           </ThemeRegistry>
         </NextIntlClientProvider>
       </body>
