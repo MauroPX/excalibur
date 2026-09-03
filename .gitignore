@@ -50,3 +50,6 @@ Casos_estudio [Test]/
 TITAN_PROJECT.yaml
 multi-ia/
 docs/m3/prompts/
+
+# Instrucciones de sesión de Claude Code — proceso interno, no público
+CLAUDE.md
