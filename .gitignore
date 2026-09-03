@@ -45,3 +45,8 @@ TITAN/
 excalibur-main_V1/
 Casos_estudio/
 Casos_estudio [Test]/
+
+# Metodología interna / orquestación multi-IA — proceso propio, no se publica en detalle
+TITAN_PROJECT.yaml
+multi-ia/
+docs/m3/prompts/
