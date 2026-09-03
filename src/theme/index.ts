@@ -3,6 +3,17 @@ import { createTheme } from '@mui/material/styles'
 import { Roboto } from 'next/font/google'
 import { darkTokens, lightTokens } from './tokens'
 
+// Augmentación M3: MUI no trae un slot "tertiary" nativo — el M3 Color System
+// (HCT) sí lo requiere como tercer rol de acento (distinto de primary/secondary).
+declare module '@mui/material/styles' {
+  interface Palette {
+    tertiary: Palette['primary']
+  }
+  interface PaletteOptions {
+    tertiary?: PaletteOptions['primary']
+  }
+}
+
 export const roboto = Roboto({
   weight: ['300', '400', '500', '700'],
   subsets: ['latin'],
@@ -27,8 +38,12 @@ function buildTheme(mode: 'dark' | 'light') {
         main: tokens.error,
         contrastText: tokens.onError,
       },
+      tertiary: {
+        main: tokens.tertiary,
+        contrastText: tokens.onTertiary,
+      },
       background: {
-        default: tokens.surface,
+        default: tokens.background,
         paper: tokens.surfaceContainer,
       },
       text: {

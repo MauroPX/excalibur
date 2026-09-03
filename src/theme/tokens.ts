@@ -1,23 +1,37 @@
+// EXCALIBUR v2.0 — M3 Design Tokens
+// Seed: #A47540 (Material Theme Builder, 2026-09-03) — set completo de roles M3
+// Fuente: docs/m2/design/DESIGN_TOKENS.json (mismo valor, misma estructura)
+// 'cta'/'onCta' no son roles M3 estándar — alias del rol 'tertiary'
+// (acento visualmente distinto de 'primary' para el CTA principal del Hero)
+
 export const darkTokens = {
-  primary: '#C4BEFF', onPrimary: '#2B1F8F', primaryContainer: '#423496', onPrimaryContainer: '#E3DFFF',
-  secondary: '#6DD9B0', onSecondary: '#003828', secondaryContainer: '#005140', onSecondaryContainer: '#89F6CC',
-  tertiary: '#EAB4D4', onTertiary: '#47213A', tertiaryContainer: '#613851', onTertiaryContainer: '#FFD8EE',
-  error: '#E87575', onError: '#690005', errorContainer: '#93000A', onErrorContainer: '#FFDAD6',
-  surface: '#0D0F1A', surfaceContainerLowest: '#080A12', surfaceContainerLow: '#161929',
-  surfaceContainer: '#1A1D2E', surfaceContainerHigh: '#252839', surfaceContainerHighest: '#2F3244',
-  onSurface: '#E8E8F5', onSurfaceVariant: '#A3A6B3', outline: '#4A4A6A', outlineVariant: '#2E2E4A',
-  inverseSurface: '#E8E8F5', inverseOnSurface: '#0D0F1A', inversePrimary: '#5B4CF5',
-  scrim: 'rgba(0,0,0,0.5)', cta: '#F7AF12', onCta: '#1A0F00',
+  primary: '#FABA73', onPrimary: '#482900', primaryContainer: '#673D00', onPrimaryContainer: '#FFDCBB',
+  primaryFixed: '#FFDCBB', onPrimaryFixed: '#2C1700', primaryFixedDim: '#FABA73', onPrimaryFixedVariant: '#673D00',
+  secondary: '#E0C1A3', onSecondary: '#402D17', secondaryContainer: '#58432C', onSecondaryContainer: '#FEDDBD',
+  secondaryFixed: '#FEDDBD', onSecondaryFixed: '#281805', secondaryFixedDim: '#E0C1A3', onSecondaryFixedVariant: '#58432C',
+  tertiary: '#BECC9C', onTertiary: '#293411', tertiaryContainer: '#3F4B26', onTertiaryContainer: '#DAE9B6',
+  tertiaryFixed: '#DAE9B6', onTertiaryFixed: '#141F01', tertiaryFixedDim: '#BECC9C', onTertiaryFixedVariant: '#3F4B26',
+  error: '#FFB4AB', onError: '#690005', errorContainer: '#93000A', onErrorContainer: '#FFDAD6',
+  background: '#19120C', onBackground: '#EEE0D5', surface: '#19120C', onSurface: '#EEE0D5',
+  surfaceVariant: '#50453A', onSurfaceVariant: '#D4C4B5', surfaceDim: '#19120C', surfaceBright: '#403830',
+  surfaceContainerLowest: '#130D07', surfaceContainerLow: '#211A14', surfaceContainer: '#251E17', surfaceContainerHigh: '#302921',
+  surfaceContainerHighest: '#3B332C', outline: '#9D8E81', outlineVariant: '#50453A', shadow: '#000000',
+  scrim: '#000000', inverseSurface: '#EEE0D5', inverseOnSurface: '#372F27', inversePrimary: '#845416',
+  cta: '#BECC9C', onCta: '#293411',
 }
 
 export const lightTokens = {
-  primary: '#5B4CF5', onPrimary: '#FFFFFF', primaryContainer: '#E3DFFF', onPrimaryContainer: '#160066',
-  secondary: '#006B54', onSecondary: '#FFFFFF', secondaryContainer: '#89F6CC', onSecondaryContainer: '#002117',
-  tertiary: '#7D4E6E', onTertiary: '#FFFFFF', tertiaryContainer: '#FFD8EE', onTertiaryContainer: '#330B27',
-  error: '#BA1A1A', onError: '#FFFFFF', errorContainer: '#FFDAD6', onErrorContainer: '#410002',
-  surface: '#FDFCFF', surfaceContainerLowest: '#FFFFFF', surfaceContainerLow: '#F3F3F7',
-  surfaceContainer: '#EDEEF2', surfaceContainerHigh: '#E7E8EC', surfaceContainerHighest: '#E1E2E6',
-  onSurface: '#1A1C1E', onSurfaceVariant: '#44474F', outline: '#74777F', outlineVariant: '#C4C6D0',
-  inverseSurface: '#2F3033', inverseOnSurface: '#F2F0F4', inversePrimary: '#C4BEFF',
-  scrim: 'rgba(0,0,0,0.3)', cta: '#744E06', onCta: '#FFFFFF',
+  primary: '#845416', onPrimary: '#FFFFFF', primaryContainer: '#FFDCBB', onPrimaryContainer: '#673D00',
+  primaryFixed: '#FFDCBB', onPrimaryFixed: '#2C1700', primaryFixedDim: '#FABA73', onPrimaryFixedVariant: '#673D00',
+  secondary: '#725A41', onSecondary: '#FFFFFF', secondaryContainer: '#FEDDBD', onSecondaryContainer: '#58432C',
+  secondaryFixed: '#FEDDBD', onSecondaryFixed: '#281805', secondaryFixedDim: '#E0C1A3', onSecondaryFixedVariant: '#58432C',
+  tertiary: '#56633B', onTertiary: '#FFFFFF', tertiaryContainer: '#DAE9B6', onTertiaryContainer: '#3F4B26',
+  tertiaryFixed: '#DAE9B6', onTertiaryFixed: '#141F01', tertiaryFixedDim: '#BECC9C', onTertiaryFixedVariant: '#3F4B26',
+  error: '#BA1A1A', onError: '#FFFFFF', errorContainer: '#FFDAD6', onErrorContainer: '#93000A',
+  background: '#FFF8F4', onBackground: '#211A14', surface: '#FFF8F4', onSurface: '#211A14',
+  surfaceVariant: '#F1DFD0', onSurfaceVariant: '#50453A', surfaceDim: '#E6D8CC', surfaceBright: '#FFF8F4',
+  surfaceContainerLowest: '#FFFFFF', surfaceContainerLow: '#FFF1E7', surfaceContainer: '#FAEBE0', surfaceContainerHigh: '#F4E6DA',
+  surfaceContainerHighest: '#EEE0D5', outline: '#827568', outlineVariant: '#D4C4B5', shadow: '#000000',
+  scrim: '#000000', inverseSurface: '#372F27', inverseOnSurface: '#FDEEE3', inversePrimary: '#FABA73',
+  cta: '#56633B', onCta: '#FFFFFF',
 }
