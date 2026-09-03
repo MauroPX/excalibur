@@ -19,5 +19,5 @@ export const lightTokens = {
   surfaceContainer: '#EDEEF2', surfaceContainerHigh: '#E7E8EC', surfaceContainerHighest: '#E1E2E6',
   onSurface: '#1A1C1E', onSurfaceVariant: '#44474F', outline: '#74777F', outlineVariant: '#C4C6D0',
   inverseSurface: '#2F3033', inverseOnSurface: '#F2F0F4', inversePrimary: '#C4BEFF',
-  scrim: 'rgba(0,0,0,0.3)', cta: '#C4830A', onCta: '#FFFFFF',
+  scrim: 'rgba(0,0,0,0.3)', cta: '#744E06', onCta: '#FFFFFF',
 }

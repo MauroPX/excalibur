@@ -54,8 +54,12 @@
     "md-sys-color-on-surface-variant": "#44474F",
     "md-sys-color-outline": "#74777F",
     "md-sys-color-outline-variant": "#C4C6D0",
-    "md-sys-color-cta": "#C4830A",
-    "md-sys-color-on-cta": "#FFFFFF"
+    "md-sys-color-cta": "#744E06",
+    "md-sys-color-on-cta": "#FFFFFF",
+    "md-sys-color-tertiary": "#7D4E6E",
+    "md-sys-color-on-tertiary": "#FFFFFF",
+    "md-sys-color-tertiary-container": "#FFD8EE",
+    "md-sys-color-on-tertiary-container": "#330B27"
   },
   "source": "src/theme/tokens.ts",
   "updated": "2026-06-26"

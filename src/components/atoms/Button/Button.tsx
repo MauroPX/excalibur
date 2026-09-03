@@ -34,19 +34,23 @@ const StyledButton = styled(MuiButton, {
     fontFamily: 'inherit',
     position: 'relative',
     
-    // Tokens M3
-    backgroundColor: isFilled ? 'var(--md-sys-color-primary)' : 'transparent',
-    color: isFilled 
-      ? 'var(--md-sys-color-on-primary)' 
-      : 'var(--md-sys-color-primary)',
+    // Tokens M3 — variante cta usa su propio par de color (distinto de primary)
+    backgroundColor: isCta
+      ? 'var(--md-sys-color-cta)'
+      : isFilled ? 'var(--md-sys-color-primary)' : 'transparent',
+    color: isCta
+      ? 'var(--md-sys-color-on-cta)'
+      : isFilled
+        ? 'var(--md-sys-color-on-primary)'
+        : 'var(--md-sys-color-primary)',
     border: isOutlined 
       ? `1px solid var(--md-sys-color-primary)` 
       : 'none',
       
     '&:hover': {
-      backgroundColor: isFilled 
-        ? 'var(--md-sys-color-primary)' 
-        : 'rgba(var(--md-sys-color-primary-rgb), 0.08)',
+      backgroundColor: isCta
+        ? 'var(--md-sys-color-cta)'
+        : isFilled ? 'var(--md-sys-color-primary)' : 'rgba(var(--md-sys-color-primary-rgb), 0.08)',
       opacity: 0.9,
     },
     
@@ -56,7 +60,7 @@ const StyledButton = styled(MuiButton, {
       borderColor: isOutlined ? 'rgba(0, 0, 0, 0.12)' : 'none',
     },
 
-    // Variante CTA (podría tener más elevación o un color ligeramente distinto si se define en tokens)
+    // Variante CTA — color propio (var(--md-sys-color-cta)/on-cta) + elevación extra
     ...(isCta && {
       boxShadow: '0px 2px 4px rgba(0,0,0,0.2)',
     }),
