@@ -37,3 +37,11 @@ tsconfig.tsbuildinfo
 multi-ia/outputs/
 multi-ia/logs/
 tsconfig.tsbuildinfo
+
+# Meta / carpetas locales de trabajo — no forman parte del producto Excalibur
+.claude/
+.system/
+TITAN/
+excalibur-main_V1/
+Casos_estudio/
+Casos_estudio [Test]/
