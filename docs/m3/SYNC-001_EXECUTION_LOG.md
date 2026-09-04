@@ -141,8 +141,30 @@ WARN único de auditoría: `STRAPI_URL Railway` (SPRINT_F, backend pendiente —
 
 | # | Decisión | Bloquea |
 |---|---|---|
-| 1 | Confirmar copy/cifras de los 3 ejes de identidad vs. CV maestro (commit `abd9c7b`) | SYNC-001 A-01 → todo el Forge de MOL-008 |
-| 2 | Cerrar BH-6 de `EX-v2-MOL-008`: ¿molécula o organismo-sección? ¿Ola? ¿SPEC_ID definitivo? | Forge de MOL-008 |
-| 3 | Firmar **ADR-006** (PostHog): aprobar dep `posthog-js` + 2 env vars; decidir si se retira `@vercel/analytics`; ¿banner de consentimiento? | Forge de ANALYTICS-001 |
-| 4 | ¿Borrar `docs/m3/drafts/superseded/` y `docs/m3/drafts/*.draft` una vez validadas las bases? | limpieza final |
+| 1 | Confirmar copy/cifras de los 3 ejes de identidad vs. CV maestro (commit `abd9c7b`) | SYNC-001 A-01 → Forge de MOL-008. **Dejado explícitamente pendiente por el IC (2026-09-04) — sin fecha.** |
+| 2 | ~~Cerrar BH-6 de `EX-v2-MOL-008`~~ | ✅ **Resuelto 2026-09-04** — ver Paso 9 |
+| 3 | Firmar **ADR-006** (PostHog) | ✅ **Resuelto 2026-09-04** — ver rama `feat/v2-analytics-posthog` |
+| 4 | ¿Borrar `docs/m3/drafts/superseded/` y `docs/m3/drafts/*.draft` una vez validadas las bases? | sigue abierto — limpieza final |
+
+---
+
+## Paso 9 — Cierre de Gate 1 de EX-v2-MOL-008 (2026-09-04)
+
+El IC pidió completar los puntos 2 y 3 dejando el 1 (copy) explícitamente pendiente. Como
+rol Arquitecto (CLAUDE.md: "Cualquier tarea que requiera razonamiento complejo" +
+"Resolución de conflictos y decisiones de arquitectura"), cerré **BH-6**:
+
+- **Molécula vs. organismo:** confirmado **molécula** — una tarjeta por eje. Si a futuro se
+  necesita una sección "N tarjetas + heading", es un spec de organismo aparte que *compone*
+  este molecule, no lo reemplaza.
+- **Ola:** asignada **Ola 7** — nueva, paralela, no bloquea Ola 6 (Pages/Routing/i18n) en curso.
+- **SPEC_ID definitivo:** `EX-v2-MOL-008` confirmado (siguiente tras `EX-v2-MOL-007`).
+
+Editados: `BLUEPRINT_SPEC_EX-v2-MOL-008.json` (nuevo bloque `gate_1_decision`, `BH-6` → PASS,
+`status` → `BLUEPRINT_APPROVED`), `GSD_TASK_CARD_SYNC-001.md` (A-02 marcado `[x]`, A-01 marcado
+`⏸️ pendiente por decisión explícita`), `TRACEABILITY_MATRIX.md` (fila EX-v2-MOL-008 actualizada).
+
+**Resultado:** el blueprint queda 100% gateado (BH-1..6 PASS). El Forge real (A-03) sigue
+bloqueado — pero ahora por una única causa clara y deliberada: A-01 (contenido), no por
+ambigüedad de arquitectura. Rama: `feat/v2-sync-001-gate1-close` (sobre `feat/v2-sync-001-blueprints`).
 

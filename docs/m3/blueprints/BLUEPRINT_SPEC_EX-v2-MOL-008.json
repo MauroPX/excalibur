@@ -3,9 +3,16 @@
   "base": "SYNC-001",
   "atomic_level": "molecule",
   "component_name": "IdentidadProfesional",
-  "ola": "pendiente (candidata Ola 6/7)",
-  "rama": "feat/v2-sync-001-identidad",
-  "status": "DRAFT — pendiente Gate 1 (BH-1..BH-6) por el IC",
+  "ola": "7 (paralela — no bloqueante para Ola 6 Pages/Routing/i18n en curso)",
+  "rama": "feat/v2-ola7-identidad",
+  "status": "BLUEPRINT_APPROVED — Gate 1 (BH-1..BH-6) PASS el 2026-09-04. Forge bloqueado por SYNC-001 A-01 (copy pendiente — decisión de contenido, no de arquitectura).",
+  "gate_1_decision": {
+    "fecha": "2026-09-04",
+    "decidido_por": "IC (rol Arquitecto — Claude Code)",
+    "molecula_vs_organismo": "MOLÉCULA — una tarjeta por eje de identidad. Confirmado: si más adelante se necesita 'N tarjetas + heading' como sección, es un spec de organismo aparte (candidato: EX-v2-ORG-00X ExperienciaSection) que compondría este molecule, no lo reemplaza.",
+    "ola_asignada": "Ola 7 — nueva ola paralela; no bloquea Ola 6 (Pages/Routing/i18n) que sigue en curso",
+    "spec_id_definitivo": "EX-v2-MOL-008 (siguiente en secuencia tras EX-v2-MOL-007 RoadmapSplitButton — confirmado, no reasignar)"
+  },
   "law_of_ux": "Ley de Proximidad + Ley de Categorización (chunking por rol)",
   "consolidado_de": [
     "docs/m3/IDENTIDAD_PROCESOS.md",
@@ -92,7 +99,7 @@
     "BH-3": "PASS — MUI v6 + next-intl ya en package.json; Chip/Tag/Icon atoms LOCKED",
     "BH-4": "PASS — props_contract sin any",
     "BH-5": "PASS — scope nivel molecule: compone atomos, sin logica de negocio ni fetch",
-    "BH-6": "PENDIENTE — requiere decision del IC: (a) copy final de los 3 ejes (SYNC-001 A-01); (b) confirmar que es molecula y no organismo-seccion; (c) asignar Ola y SPEC_ID definitivo"
+    "BH-6": "PASS (2026-09-04) — arquitectura decidida: molecula confirmada, Ola 7 asignada, SPEC_ID EX-v2-MOL-008 definitivo. Ver gate_1_decision. NOTA: el Forge sigue bloqueado por SYNC-001 A-01 (copy de los 3 ejes vs CV maestro) — eso es una decision de CONTENIDO, separada de este gate de arquitectura, y queda explicitamente pendiente por decision del IC."
   },
   "notas_conflicto_resuelto": [
     "El borrador .tsx.draft hardcodeaba #01602D y usaba MUI color='success'|'warning' — ambos violan ADR-002. Este blueprint los reemplaza por tokens tertiary/secondary-container.",

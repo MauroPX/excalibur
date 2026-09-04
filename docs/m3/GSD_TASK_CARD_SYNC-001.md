@@ -31,7 +31,7 @@ pérdida de identidad ni de valor técnico, y sin tocar la rama `main` / v1 (CON
 | Artefacto | Ruta | Rol | Estado |
 |---|---|---|---|
 | Análisis base | `docs/m1/SYNC-001--Analysis--[base].md` | fuente de verdad del work-stream | ✅ CONSOLIDADO |
-| Blueprint componente | `docs/m3/blueprints/BLUEPRINT_SPEC_EX-v2-MOL-008.json` | contrato de `IdentidadProfesional` | ⚠️ DRAFT — Gate 1 pendiente (BH-6) |
+| Blueprint componente | `docs/m3/blueprints/BLUEPRINT_SPEC_EX-v2-MOL-008.json` | contrato de `IdentidadProfesional` | ✅ Gate 1 (BH-1..6) PASS 2026-09-04 — Forge bloqueado por A-01 |
 | Task card | `docs/m3/GSD_TASK_CARD_SYNC-001.md` | este archivo | ✅ |
 | Borrador descartado | `docs/m3/drafts/IdentidadProfesional.tsx.draft` | referencia visual únicamente | 🗑️ cuarentena |
 
@@ -39,10 +39,12 @@ pérdida de identidad ni de valor técnico, y sin tocar la rama `main` / v1 (CON
 
 ## Requerimientos (checklist)
 
-- [ ] **A-01 — Copy confirmado.** El IC valida el texto y las cifras de los 3 ejes de identidad
-      (§5 del análisis base) contra el CV maestro privado (commit `abd9c7b`).
-- [ ] **A-02 — Gate 1.** El IC cierra BH-6 del blueprint `EX-v2-MOL-008`: decide molécula vs.
-      organismo-sección, asigna Ola y SPEC_ID definitivo.
+- [ ] **A-01 — Copy confirmado.** ⏸️ **DEJADO EXPLÍCITAMENTE PENDIENTE por el IC (2026-09-04).**
+      El IC valida el texto y las cifras de los 3 ejes de identidad (§5 del análisis base) contra
+      el CV maestro privado (commit `abd9c7b`). Bloquea A-03 (Forge) — nada más depende de esto.
+- [x] **A-02 — Gate 1.** ✅ Cerrado 2026-09-04. Decisión: **molécula** (no organismo-sección),
+      **Ola 7** (paralela, no bloquea Ola 6), SPEC_ID definitivo **EX-v2-MOL-008**.
+      Ver `gate_1_decision` en el blueprint.
 - [ ] **A-03 — Forge.** `./multi-ia/workflow.sh "EX-v2-MOL-008 — IdentidadProfesional"`
       genera `.tsx` + `.test.tsx` + `.stories.tsx` según el blueprint.
 - [ ] **A-04 — Datos T-06.** Cablear los hitos reales del CV en `TimelineStep` (EX-v2-MOL-004).
@@ -82,4 +84,4 @@ pérdida de identidad ni de valor técnico, y sin tocar la rama `main` / v1 (CON
 
 ---
 
-📍 Momentum: M3 · Work-stream: SYNC-001 · Próximo paso: **A-01 (IC confirma copy)**
+📍 Momentum: M3 · Work-stream: SYNC-001 · Próximo paso: **A-01 (IC confirma copy) — pendiente por decisión explícita del IC, sin fecha**
