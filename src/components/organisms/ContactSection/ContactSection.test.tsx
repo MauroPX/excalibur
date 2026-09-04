@@ -2,7 +2,9 @@ import React from 'react'
 import { render, screen, fireEvent, waitFor } from '@testing-library/react'
 import { describe, it, expect, vi } from 'vitest'
 import { axe, toHaveNoViolations } from 'jest-axe'
+import { NextIntlClientProvider } from 'next-intl'
 import { ContactSection } from './ContactSection'
+import messages from '@/i18n/messages/es.json'
 
 expect.extend(toHaveNoViolations)
 
@@ -13,7 +15,11 @@ vi.mock('@/components/atoms/Button', () => ({
 }))
 
 function renderContact(props = {}) {
-  return render(<ContactSection {...props} />)
+  return render(
+    <NextIntlClientProvider locale="es" messages={messages}>
+      <ContactSection {...props} />
+    </NextIntlClientProvider>
+  )
 }
 
 describe('ContactSection', () => {
@@ -30,9 +36,9 @@ describe('ContactSection', () => {
 
   it('CA-002: renderiza 3 botones de canal por defecto', () => {
     renderContact()
-    expect(screen.getByRole('button', { name: 'Linkedin' })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: 'LinkedIn' })).toBeInTheDocument()
     expect(screen.getByRole('button', { name: 'Email' })).toBeInTheDocument()
-    expect(screen.getByRole('button', { name: 'Github' })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: 'GitHub' })).toBeInTheDocument()
   })
 
   it('CA-002: canal inicial es linkedin', () => {
@@ -46,9 +52,9 @@ describe('ContactSection', () => {
     expect(screen.getByText(/lemaogo@gmail.com/i)).toBeInTheDocument()
   })
 
-  it('CA-003: click en Github muestra url de github', () => {
+  it('CA-003: click en GitHub muestra url de github', () => {
     renderContact()
-    fireEvent.click(screen.getByText('Github'))
+    fireEvent.click(screen.getByText('GitHub'))
     expect(screen.getByText(/github.com\/MauroPX/i)).toBeInTheDocument()
   })
 

@@ -2,7 +2,9 @@ import React from 'react'
 import { render, screen, fireEvent } from '@testing-library/react'
 import { describe, it, expect, vi } from 'vitest'
 import { axe, toHaveNoViolations } from 'jest-axe'
+import { NextIntlClientProvider } from 'next-intl'
 import { CasesSection } from './CasesSection'
+import messages from '@/i18n/messages/es.json'
 
 expect.extend(toHaveNoViolations)
 
@@ -17,7 +19,11 @@ const mockProjects = [
 ]
 
 function renderCases(props = {}) {
-  return render(<CasesSection projects={mockProjects} {...props} />)
+  return render(
+    <NextIntlClientProvider locale="es" messages={messages}>
+      <CasesSection projects={mockProjects} {...props} />
+    </NextIntlClientProvider>
+  )
 }
 
 describe('CasesSection', () => {
