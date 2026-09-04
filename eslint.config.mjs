@@ -19,6 +19,8 @@ const eslintConfig = [
       "storybook-static/**",
       "next-env.d.ts",
       "coverage/**",
+      // Copia local v1 (gitignored, CONGELADO) — no la audita el sistema de diseño v2
+      "excalibur-main_V1/**",
       // Legacy v1 components — no son parte del sistema de diseño v2
       "src/components/InquisitorHUD.tsx",
       "src/components/StaffAtoms.tsx",

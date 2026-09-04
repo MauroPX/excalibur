@@ -44,5 +44,4 @@ export const AIFocused: Story = {
     ],
     title: 'Stack técnico — AI focus',
   },
-  name: 'AI Focused',
 }
