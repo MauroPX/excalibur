@@ -1,6 +1,6 @@
 {
-  "$version": "3.0.0",
-  "$changelog": "3.0.0 (2026-09-03): migración completa a seed #A47540 (Material Theme Builder) — 50 roles M3 (incl. fixed/dim/bright/background), cta/on-cta ahora alias de tertiary",
+  "$version": "3.1.0",
+  "$changelog": "3.1.0 (2026-09-04): 5 pares de marca en modo claro (primary/secondary/tertiary/error/cta) + on-surface-variant en oscuro suben a AAA (7:1+) via valores medium/high-contrast del export MTB — antes en AA (6.4-6.5:1 / 5.49:1)",
   "$mode": "dual (dark default, light via [data-theme='light'])",
   "dark": {
     "md-sys-color-primary": "#FABA73",
@@ -36,7 +36,7 @@
     "md-sys-color-surface": "#19120C",
     "md-sys-color-on-surface": "#EEE0D5",
     "md-sys-color-surface-variant": "#50453A",
-    "md-sys-color-on-surface-variant": "#D4C4B5",
+    "md-sys-color-on-surface-variant": "#F0E2D6",
     "md-sys-color-surface-dim": "#19120C",
     "md-sys-color-surface-bright": "#403830",
     "md-sys-color-surface-container-lowest": "#130D07",
@@ -55,7 +55,7 @@
     "md-sys-color-on-cta": "#293411"
   },
   "light": {
-    "md-sys-color-primary": "#845416",
+    "md-sys-color-primary": "#502E00",
     "md-sys-color-on-primary": "#FFFFFF",
     "md-sys-color-primary-container": "#FFDCBB",
     "md-sys-color-on-primary-container": "#673D00",
@@ -63,7 +63,7 @@
     "md-sys-color-on-primary-fixed": "#2C1700",
     "md-sys-color-primary-fixed-dim": "#FABA73",
     "md-sys-color-on-primary-fixed-variant": "#673D00",
-    "md-sys-color-secondary": "#725A41",
+    "md-sys-color-secondary": "#46321D",
     "md-sys-color-on-secondary": "#FFFFFF",
     "md-sys-color-secondary-container": "#FEDDBD",
     "md-sys-color-on-secondary-container": "#58432C",
@@ -71,7 +71,7 @@
     "md-sys-color-on-secondary-fixed": "#281805",
     "md-sys-color-secondary-fixed-dim": "#E0C1A3",
     "md-sys-color-on-secondary-fixed-variant": "#58432C",
-    "md-sys-color-tertiary": "#56633B",
+    "md-sys-color-tertiary": "#2F3A17",
     "md-sys-color-on-tertiary": "#FFFFFF",
     "md-sys-color-tertiary-container": "#DAE9B6",
     "md-sys-color-on-tertiary-container": "#3F4B26",
@@ -79,7 +79,7 @@
     "md-sys-color-on-tertiary-fixed": "#141F01",
     "md-sys-color-tertiary-fixed-dim": "#BECC9C",
     "md-sys-color-on-tertiary-fixed-variant": "#3F4B26",
-    "md-sys-color-error": "#BA1A1A",
+    "md-sys-color-error": "#740006",
     "md-sys-color-on-error": "#FFFFFF",
     "md-sys-color-error-container": "#FFDAD6",
     "md-sys-color-on-error-container": "#93000A",
@@ -103,7 +103,7 @@
     "md-sys-color-inverse-surface": "#372F27",
     "md-sys-color-inverse-on-surface": "#FDEEE3",
     "md-sys-color-inverse-primary": "#FABA73",
-    "md-sys-color-cta": "#56633B",
+    "md-sys-color-cta": "#2F3A17",
     "md-sys-color-on-cta": "#FFFFFF"
   },
   "source": "Material Theme Builder — https://material-foundation.github.io/material-theme-builder/ — seed #A47540",
