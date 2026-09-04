@@ -3,7 +3,7 @@ import { describe, it, expect, vi } from 'vitest'
 import { Chip } from './index'
 import { axe } from 'jest-axe'
 import React from 'react'
-import { ThemeProvider, createTheme } from '@mui/material'
+import { ThemeProvider, createTheme } from '@mui/material/styles'
 
 const theme = createTheme()
 

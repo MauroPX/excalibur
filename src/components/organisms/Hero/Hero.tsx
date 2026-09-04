@@ -1,7 +1,8 @@
 'use client'
 
 import React from 'react'
-import { Container, Typography } from '@mui/material'
+import Container from '@mui/material/Container'
+import Typography from '@mui/material/Typography'
 import { styled } from '@mui/material/styles'
 import { Button } from '@/components/atoms/Button'
 import { MetricRow } from '@/components/molecules/MetricRow'

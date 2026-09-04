@@ -3,7 +3,7 @@
 import React from 'react'
 import { styled } from '@mui/material/styles'
 import Typography from '@mui/material/Typography'
-import type { SvgIconProps } from '@mui/material'
+import type { SvgIconProps } from '@mui/material/SvgIcon'
 import { Button } from '@/components/atoms/Button'
 import { Tag } from '@/components/atoms/Tag'
 import { Icon } from '@/components/atoms/Icon'

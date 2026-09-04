@@ -3,7 +3,7 @@ import { describe, it, expect } from 'vitest'
 import { Icon } from './index'
 import { axe } from 'jest-axe'
 import React from 'react'
-import { SvgIcon } from '@mui/material'
+import SvgIcon from '@mui/material/SvgIcon'
 
 const MockIcon = (props: React.ComponentPropsWithoutRef<typeof SvgIcon>) => (
   <SvgIcon {...props} data-testid="mock-icon">

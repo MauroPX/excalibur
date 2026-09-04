@@ -1,7 +1,10 @@
 'use client'
 
 import React from 'react'
-import { Box, Typography, ButtonBase, SvgIconProps } from '@mui/material'
+import Box from '@mui/material/Box'
+import Typography from '@mui/material/Typography'
+import ButtonBase from '@mui/material/ButtonBase'
+import type { SvgIconProps } from '@mui/material/SvgIcon'
 import { styled } from '@mui/material/styles'
 import { Icon } from '@/components/atoms/Icon'
 

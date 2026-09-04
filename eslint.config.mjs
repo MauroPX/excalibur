@@ -12,6 +12,23 @@ const eslintConfig = [
   ...compat.extends("next/core-web-vitals", "next/typescript"),
   ...storybook.configs["flat/recommended"],
   {
+    // ADR-002 — imports por módulo (tree-shaking), nunca el barrel de @mui/material
+    rules: {
+      "no-restricted-imports": [
+        "error",
+        {
+          paths: [
+            {
+              name: "@mui/material",
+              message:
+                "Usa el import por módulo: import Button from '@mui/material/Button' (ADR-002). Para APIs de tema: '@mui/material/styles'.",
+            },
+          ],
+        },
+      ],
+    },
+  },
+  {
     ignores: [
       ".next/**",
       "out/**",

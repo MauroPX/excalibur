@@ -3,7 +3,7 @@ import { describe, it, expect } from 'vitest'
 import { SkillBar } from './index'
 import { axe } from 'jest-axe'
 import React from 'react'
-import { ThemeProvider, createTheme } from '@mui/material'
+import { ThemeProvider, createTheme } from '@mui/material/styles'
 
 const theme = createTheme()
 const MockIcon = () => <svg data-testid="mock-icon" />

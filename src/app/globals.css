@@ -57,6 +57,7 @@
   --md-sys-color-surface-rgb: 25, 18, 12;
   --md-sys-color-on-surface-rgb: 238, 224, 213;
   --md-sys-color-outline-rgb: 157, 142, 129;
+  --md-sys-color-shadow-rgb: 0, 0, 0;
 }
 
 [data-theme="light"] {
@@ -115,6 +116,7 @@
   --md-sys-color-surface-rgb: 255, 248, 244;
   --md-sys-color-on-surface-rgb: 33, 26, 20;
   --md-sys-color-outline-rgb: 130, 117, 104;
+  --md-sys-color-shadow-rgb: 0, 0, 0;
 }
 
 *,

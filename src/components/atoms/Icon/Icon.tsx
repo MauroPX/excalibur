@@ -1,7 +1,8 @@
 'use client'
 
 import React from 'react'
-import { Box, SvgIconProps } from '@mui/material'
+import Box from '@mui/material/Box'
+import type { SvgIconProps } from '@mui/material/SvgIcon'
 
 export interface IconProps {
   /** Componente del icono de MUI */

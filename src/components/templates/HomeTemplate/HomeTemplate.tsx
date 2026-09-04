@@ -1,6 +1,6 @@
 'use client'
 import React from 'react'
-import { Box } from '@mui/material'
+import Box from '@mui/material/Box'
 import { Hero } from '@/components/organisms/Hero'
 import { NavSystem, type NavSystemProps } from '@/components/organisms/NavSystem'
 import { CasesSection, type CasesSectionProject } from '@/components/organisms/CasesSection'

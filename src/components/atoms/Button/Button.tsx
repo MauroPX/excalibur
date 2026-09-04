@@ -1,7 +1,8 @@
 'use client'
 
 import React from 'react'
-import { Button as MuiButton, CircularProgress } from '@mui/material'
+import MuiButton from '@mui/material/Button'
+import CircularProgress from '@mui/material/CircularProgress'
 import { styled } from '@mui/material/styles'
 
 export interface ButtonProps {
@@ -54,15 +55,17 @@ const StyledButton = styled(MuiButton, {
       opacity: 0.9,
     },
     
+    // Estado disabled M3 — on-surface con opacidad (12% contenedor / 38% texto),
+    // se adapta a light/dark en vez de un negro fijo
     '&.Mui-disabled': {
-      backgroundColor: isFilled ? 'rgba(0, 0, 0, 0.12)' : 'transparent',
-      color: 'rgba(0, 0, 0, 0.38)',
-      borderColor: isOutlined ? 'rgba(0, 0, 0, 0.12)' : 'none',
+      backgroundColor: isFilled ? 'rgba(var(--md-sys-color-on-surface-rgb), 0.12)' : 'transparent',
+      color: 'rgba(var(--md-sys-color-on-surface-rgb), 0.38)',
+      borderColor: isOutlined ? 'rgba(var(--md-sys-color-on-surface-rgb), 0.12)' : 'none',
     },
 
     // Variante CTA — color propio (var(--md-sys-color-cta)/on-cta) + elevación extra
     ...(isCta && {
-      boxShadow: '0px 2px 4px rgba(0,0,0,0.2)',
+      boxShadow: '0px 2px 4px rgba(var(--md-sys-color-shadow-rgb), 0.2)',
     }),
   }
 })

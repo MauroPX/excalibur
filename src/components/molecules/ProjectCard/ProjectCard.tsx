@@ -1,7 +1,11 @@
 'use client'
 
 import React from 'react'
-import { Card, CardContent, Typography, Box, Stack } from '@mui/material'
+import Card from '@mui/material/Card'
+import CardContent from '@mui/material/CardContent'
+import Typography from '@mui/material/Typography'
+import Box from '@mui/material/Box'
+import Stack from '@mui/material/Stack'
 import { styled } from '@mui/material/styles'
 import { Tag } from '@/components/atoms/Tag'
 import { Metric } from '@/components/atoms/Metric'
@@ -37,13 +41,13 @@ const StyledProjectCard = styled(Card)(() => ({
     content: '""',
     position: 'absolute',
     inset: 0,
-    background: 'radial-gradient(circle at 25% 25%, rgba(255,255,255,0.05) 0%, transparent 60%)',
+    background: 'radial-gradient(circle at 25% 25%, rgba(var(--md-sys-color-on-surface-rgb), 0.05) 0%, transparent 60%)',
     pointerEvents: 'none',
   },
 
   '&:hover': {
     transform: 'translateY(-8px) scale(1.02)',
-    boxShadow: '0 20px 40px rgba(0,0,0,0.3)',
+    boxShadow: '0 20px 40px rgba(var(--md-sys-color-shadow-rgb), 0.3)',
     borderColor: 'var(--md-sys-color-primary)',
   },
 }))

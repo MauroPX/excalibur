@@ -15,6 +15,7 @@
 | EX-v2-ATOM-004 | Icon | atoms | 1 | LOCKED | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1.0.0 |
 | EX-v2-ATOM-005 | Metric | atoms | 1 | LOCKED | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1.0.0 |
 | EX-v2-ATOM-006 | Chip | atoms | 1 | LOCKED | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1.0.0 |
+| EX-v2-ATOM-007 | ThemeToggle | atoms | 5 | LOCKED | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1.0.0 |
 | EX-v2-MOL-001 | NavTab | molecules | 2 | LOCKED | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1.0.0 |
 | EX-v2-MOL-002 | ProjectCard | molecules | 2 | LOCKED | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1.0.0 |
 | EX-v2-MOL-003 | SkillBar | molecules | 2 | LOCKED | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1.0.0 |
@@ -30,10 +31,33 @@
 | EX-v2-ORG-005 | StackSection | organisms | 3 | LOCKED | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1.0.0 |
 | EX-v2-ORG-006 | ContactSection | organisms | 3 | LOCKED | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1.0.0 |
 | EX-v2-A11Y-001 | InquisitorHUD | organisms | 3 | LOCKED | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1.0.0 |
-| EX-v2-TMPL-001 | HomeTemplate | templates | 4 | LOCKED | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1.0.0 |
-| EX-v2-TMPL-002 | CasePage | templates | 4 | LOCKED | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1.0.0 |
+| EX-v2-TMPL-001 | HomeTemplate | templates | 4 | LOCKED | ✅ | ✅ | — ¹ | ✅ | ✅ | ✅ | 1.0.0 |
+| EX-v2-TMPL-002 | CasePage | templates | 4 | LOCKED | ✅ | ✅ | — ¹ | ✅ | ✅ | ✅ | 1.0.0 |
 | EX-v2-PAGE-001 | / (HomePage) | pages | 7 | LOCKED | ✅ | — | — | — | — | — | 1.0.0 |
 | EX-v2-PAGE-002 | /casos/[slug] | pages | 7 | LOCKED | ✅ | — | — | — | — | — | 1.0.0 |
+
+¹ Templates sin story Storybook por ahora (LOCKED vía `.test` de integración + blueprint + cert).
+  Follow-up recomendado: stories con estados Loading/Empty/Error/HappyPath (ver `docs/m3/DS_GOVERNANCE_AUDIT.md` §D).
+
+---
+
+## DS — GOBERNANZA (auditoría 2026-09-03)
+
+Barrido de las prohibiciones de `CLAUDE.md` / `ADR-002` sobre los 24 componentes LOCKED.
+Detalle: `docs/m3/DS_GOVERNANCE_AUDIT.md`.
+
+| Regla | Resultado |
+|---|---|
+| 0 hex hardcodeado (código productivo) | ✅ |
+| 0 `rgba()` con literal de color | ✅ (5 corregidos → tokens `*-rgb`) |
+| Imports por módulo `@mui/material/X` (ADR-002) | ✅ (22 archivos migrados + regla ESLint `error`) |
+| `data-atomic` + `data-component` | ✅ 24/24 |
+| Clase BEM `ex-*` en root | ✅ 24/24 |
+| Paridad `DESIGN_TOKENS.json` ↔ `tokens.ts` ↔ `globals.css` | ✅ 50 roles × 2 modos, 0 diff |
+| Componentes LOCKED con blueprint | ✅ (ThemeToggle reconstruido) |
+| Componentes LOCKED en esta matriz | ✅ (ATOM-007 añadido) |
+
+Deuda no bloqueante: stories de templates · generador DTCG de tokens (anti-drift) · i18n del aria-label de ThemeToggle · esquemas medium/high-contrast.
 
 ---
 

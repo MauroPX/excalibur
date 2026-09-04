@@ -1,7 +1,7 @@
 'use client'
 
 import React, { ReactNode } from 'react'
-import { Badge as MuiBadge } from '@mui/material'
+import MuiBadge from '@mui/material/Badge'
 import { styled } from '@mui/material/styles'
 
 export interface BadgeProps {

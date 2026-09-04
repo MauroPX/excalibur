@@ -3,7 +3,7 @@ import { describe, it, expect } from 'vitest'
 import { Metric } from './index'
 import { axe } from 'jest-axe'
 import React from 'react'
-import { ThemeProvider, createTheme } from '@mui/material'
+import { ThemeProvider, createTheme } from '@mui/material/styles'
 
 const theme = createTheme()
 

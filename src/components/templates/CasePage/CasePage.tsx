@@ -1,6 +1,7 @@
 'use client'
 import React from 'react'
-import { Box, Typography } from '@mui/material'
+import Box from '@mui/material/Box'
+import Typography from '@mui/material/Typography'
 import { Tag } from '@/components/atoms/Tag'
 import { MetricRow } from '@/components/molecules/MetricRow'
 import { TimelineStep } from '@/components/molecules/TimelineStep'

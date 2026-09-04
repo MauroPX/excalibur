@@ -1,7 +1,9 @@
 'use client'
 
 import React from 'react'
-import { Box, Typography, IconButton } from '@mui/material'
+import Box from '@mui/material/Box'
+import Typography from '@mui/material/Typography'
+import IconButton from '@mui/material/IconButton'
 import { styled } from '@mui/material/styles'
 
 export interface ChipProps {
@@ -37,7 +39,7 @@ const StyledChip = styled(Box, {
   
   '&:hover': {
     opacity: 0.85,
-    boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+    boxShadow: '0 2px 4px rgba(var(--md-sys-color-shadow-rgb), 0.1)',
   },
 
   '&.ex-chip--disabled': {

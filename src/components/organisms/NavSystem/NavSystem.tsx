@@ -1,6 +1,8 @@
 'use client'
 import React, { useState } from 'react'
-import { Box, Tabs, Tab } from '@mui/material'
+import Box from '@mui/material/Box'
+import Tabs from '@mui/material/Tabs'
+import Tab from '@mui/material/Tab'
 import { AudienceCard } from '@/components/molecules/AudienceCard'
 import { TitanRAGAgent } from '@/components/organisms/TitanRAGAgent'
 

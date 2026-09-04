@@ -1,0 +1,57 @@
+{
+  "spec_ref": "EX-v2-ATOM-007",
+  "atomic_level": "atom",
+  "component_name": "ThemeToggle",
+  "ola": "5",
+  "rama": "feat/v2-theme",
+  "reconstruido": "2026-09-03 — el VERSION_CERTIFICATE referenciaba este blueprint pero el archivo no existía (gap de gobernanza). Reconstruido desde ThemeToggle.tsx (LOCKED 1.0.0).",
+  "law_of_ux": "Ley de Control del Usuario — el visitante decide el modo visual",
+  "dependencies": [],
+  "props_contract": {},
+  "context_api": {
+    "hook": "useColorMode() de @/theme/ThemeRegistry",
+    "devuelve": "{ mode: 'dark' | 'light', toggle: () => void }",
+    "persistencia": "localStorage (clave gestionada por ThemeRegistry) + anti-flash en layout.tsx"
+  },
+  "variants": [],
+  "states": ["mode:dark (muestra SunIcon)", "mode:light (muestra MoonIcon)", "hover", "focus"],
+  "wcag_criteria": ["1.4.3", "2.1.1", "2.4.7", "4.1.2"],
+  "bem_classes": {
+    "block": "ex-theme-toggle",
+    "elements": [],
+    "modifiers": []
+  },
+  "m3_tokens": {
+    "color": "var(--md-sys-color-on-surface)",
+    "hover-bg": "var(--md-sys-color-surface-container)"
+  },
+  "dom_identity": {
+    "data-atomic": "atom",
+    "data-component": "ThemeToggle",
+    "root_element": "button (MUI IconButton)"
+  },
+  "i18n_keys": [],
+  "i18n_note": "aria-label dinámico ('Cambiar a modo claro/oscuro') — actualmente string en el componente; pendiente migrar a next-intl (deuda i18n compartida con EX-v2-I18N-001).",
+  "spec_criteria": [
+    "CA-001: alterna dark/light vía useColorMode().toggle",
+    "CA-002: icono contextual — SunIcon en dark, MoonIcon en light",
+    "CA-003: aria-label describe la acción destino ('Cambiar a modo claro' / '...oscuro')",
+    "CA-004: 0 hex hardcoded — color y hover con tokens M3",
+    "CA-005: data-atomic='atom' data-component='ThemeToggle' + className 'ex-theme-toggle'",
+    "CA-006: WCAG 2.2 AA — foco visible, operable por teclado (IconButton nativo), axe 0 violations",
+    "CA-007: SVG inline con aria-hidden — el nombre accesible viene del aria-label del botón"
+  ],
+  "out_of_scope": [
+    "No define la paleta (eso es src/theme/tokens.ts + globals.css)",
+    "No gestiona la persistencia (delegada en ThemeRegistry)",
+    "No renderiza el anti-flash inicial (script en layout.tsx)"
+  ],
+  "blueprint_gate": {
+    "BH-1": "PASS — tokens on-surface / surface-container existen en tokens.ts",
+    "BH-2": "PASS — WCAG 1.4.3/2.1.1/2.4.7/4.1.2 válidos en 2.2",
+    "BH-3": "PASS — MUI IconButton (import por módulo)",
+    "BH-4": "PASS — sin props, sin any",
+    "BH-5": "PASS — átomo puro: un control, sin lógica de negocio",
+    "BH-6": "PASS — sin PENDIENTE bloqueante (deuda i18n del aria-label es transversal, no de este átomo)"
+  }
+}

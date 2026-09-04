@@ -1,6 +1,8 @@
 'use client'
 import React, { useState } from 'react'
-import { Box, Typography, Chip as MuiChip } from '@mui/material'
+import Box from '@mui/material/Box'
+import Typography from '@mui/material/Typography'
+import MuiChip from '@mui/material/Chip'
 import { useTranslations } from 'next-intl'
 import { ProjectCard } from '@/components/molecules/ProjectCard'
 
