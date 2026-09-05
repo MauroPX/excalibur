@@ -1,9 +1,13 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest'
 import { render, screen, fireEvent } from '@testing-library/react'
 import { axe } from 'jest-axe'
-import { NextIntlClientProvider } from 'next-intl'
+import { NextIntlClientProvider, type AbstractIntlMessages } from 'next-intl'
 import messages from '@/i18n/messages/es.json'
 import { LanguageToggle } from './LanguageToggle'
+
+// AbstractIntlMessages no admite arrays como valor de hoja (ej. titan.suggestions:
+// string[]) — es una limitación conocida de los tipos de next-intl vs JSON real.
+const testMessages = messages as unknown as AbstractIntlMessages
 
 const mockReplace = vi.fn()
 
@@ -14,7 +18,7 @@ vi.mock('@/i18n/navigation', () => ({
 
 function renderToggle(currentLocale: 'es' | 'en' = 'es') {
   return render(
-    <NextIntlClientProvider locale="es" messages={messages}>
+    <NextIntlClientProvider locale="es" messages={testMessages}>
       <LanguageToggle currentLocale={currentLocale} />
     </NextIntlClientProvider>
   )

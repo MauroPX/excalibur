@@ -2,11 +2,15 @@ import React from 'react'
 import { render, screen, fireEvent, waitFor } from '@testing-library/react'
 import { describe, it, expect, vi } from 'vitest'
 import { axe, toHaveNoViolations } from 'jest-axe'
-import { NextIntlClientProvider } from 'next-intl'
+import { NextIntlClientProvider, type AbstractIntlMessages } from 'next-intl'
 import { ContactSection } from './ContactSection'
 import messages from '@/i18n/messages/es.json'
 
 expect.extend(toHaveNoViolations)
+
+// AbstractIntlMessages no admite arrays como valor de hoja (ej. titan.suggestions:
+// string[]) — es una limitación conocida de los tipos de next-intl vs JSON real.
+const testMessages = messages as unknown as AbstractIntlMessages
 
 vi.mock('@/components/atoms/Button', () => ({
   Button: ({ label, onClick, variant }: { label: string; onClick?: () => void; variant?: string }) => (
@@ -16,7 +20,7 @@ vi.mock('@/components/atoms/Button', () => ({
 
 function renderContact(props = {}) {
   return render(
-    <NextIntlClientProvider locale="es" messages={messages}>
+    <NextIntlClientProvider locale="es" messages={testMessages}>
       <ContactSection {...props} />
     </NextIntlClientProvider>
   )
