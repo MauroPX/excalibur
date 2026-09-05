@@ -1,0 +1,53 @@
+{
+  "spec_ref": "EX-v2-ORG-008",
+  "atomic_level": "organism",
+  "component_name": "ColorRolesHUD",
+  "base": "docs/m3/COLOR_CONTRAST_AUDIT.md",
+  "ola": "6",
+  "rama": "feat/v2-analytics-posthog",
+  "contexto": "FAB de QA pedido por el IC ('el FAB button o el boton para revisar los roles de color') antes de pushear. Mismo patron que InquisitorHUD (EX-v2-A11Y-001): solo-dev, togglable, fixed position.",
+  "dependencies": ["EX-v2-ORG-007"],
+  "props_contract": {
+    "enabled": { "type": "boolean", "default": "false", "nota": "pasar process.env.NODE_ENV === 'development' desde el layout" }
+  },
+  "variants": [],
+  "states": ["cerrado (solo FAB visible)", "abierto (panel con ColorRolesGallery)"],
+  "wcag_criteria": ["1.4.3", "2.1.1", "2.4.7", "4.1.2"],
+  "bem_classes": {
+    "block": "ex-color-roles-hud",
+    "elements": ["fab", "panel"],
+    "modifiers": []
+  },
+  "m3_tokens": {
+    "fab-bg": "var(--md-sys-color-tertiary-container)",
+    "fab-fg": "var(--md-sys-color-on-tertiary-container)",
+    "panel-border": "var(--md-sys-color-tertiary)",
+    "panel-bg": "var(--md-sys-color-surface-container-high)"
+  },
+  "dom_identity": {
+    "data-atomic": "organism",
+    "data-component": "ColorRolesHUD",
+    "root_element": "Fab (MUI) + Box role=complementary cuando esta abierto"
+  },
+  "i18n_keys": [],
+  "i18n_note": "Herramienta de debug/QA para el equipo, no contenido de cara al visitante final.",
+  "spec_criteria": [
+    "CA-001: FAB fixed bottom-left (InquisitorHUD ya ocupa bottom-right) -- solo visible si enabled=true",
+    "CA-002: Alt+C togglea el panel, Escape lo cierra (Alt+A ya usado por InquisitorHUD, sin colision)",
+    "CA-003: el panel muestra ColorRolesGallery sincronizada con el modo activo real (useColorMode), no un modo fijo",
+    "CA-004: aria-expanded en el FAB refleja el estado abierto/cerrado; panel con role=complementary",
+    "CA-005: si enabled=false, retorna null -- 0 huella en produccion/build de usuario final"
+  ],
+  "out_of_scope": [
+    "No persiste el estado abierto/cerrado entre reloads",
+    "No expone controles para editar tokens -- es de solo lectura"
+  ],
+  "blueprint_gate": {
+    "BH-1": "PASS -- tokens tertiary-container/surface-container-high existen",
+    "BH-2": "PASS -- WCAG 1.4.3/2.1.1/2.4.7/4.1.2 validos",
+    "BH-3": "PASS -- MUI Fab via import por modulo, sin deps nuevas",
+    "BH-4": "PASS -- props tipadas sin any",
+    "BH-5": "PASS -- organismo de QA, sin logica de negocio",
+    "BH-6": "PASS -- decision del IC: agregar el FAB antes de pushear (2026-09-04)"
+  }
+}

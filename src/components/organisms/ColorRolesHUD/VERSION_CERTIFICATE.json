@@ -1,0 +1,18 @@
+{
+  "spec_id": "EX-v2-ORG-008",
+  "component": "ColorRolesHUD",
+  "atomic_level": "organism",
+  "version": "1.0.0",
+  "status": "LOCKED",
+  "locked_at": "2026-09-04T00:00:00Z",
+  "tests_passing": true,
+  "axe_violations": 0,
+  "wcag_level": "AA",
+  "m3_tokens_clean": true,
+  "gate_1": "PASS",
+  "gate_2": "PASS",
+  "gate_3": "PASS",
+  "blueprint_ref": "src/components/organisms/ColorRolesHUD/ColorRolesHUD.blueprint.json",
+  "forge_ref": "src/components/organisms/ColorRolesHUD/ColorRolesHUD.tsx",
+  "notes": "FAB solo-dev (bottom-left, Alt+C) pedido por el IC para revisar roles de color antes de pushear. Wired en src/app/[locale]/layout.tsx, gateado a NODE_ENV=development."
+}

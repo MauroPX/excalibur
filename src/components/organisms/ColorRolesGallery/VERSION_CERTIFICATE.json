@@ -1,0 +1,19 @@
+{
+  "spec_id": "EX-v2-ORG-007",
+  "component": "ColorRolesGallery",
+  "atomic_level": "organism",
+  "version": "1.0.0",
+  "status": "LOCKED",
+  "locked_at": "2026-09-04T00:00:00Z",
+  "tests_passing": true,
+  "axe_violations": 0,
+  "wcag_level": "AA",
+  "m3_tokens_clean": false,
+  "m3_tokens_exception": "excepcion documentada en el blueprint — swatches usan hex literal de tokens.ts a propósito (herramienta de inspección)",
+  "gate_1": "PASS",
+  "gate_2": "PASS",
+  "gate_3": "PASS",
+  "blueprint_ref": "src/components/organisms/ColorRolesGallery/ColorRolesGallery.blueprint.json",
+  "forge_ref": "src/components/organisms/ColorRolesGallery/ColorRolesGallery.tsx",
+  "notes": "Galería en vivo de los 24 pares de color M3 con contraste WCAG calculado en tiempo real. Story en Storybook bajo 'Foundations/Color'. Reutilizada por ColorRolesHUD."
+}
