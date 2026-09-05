@@ -1,0 +1,100 @@
+/**
+ * @fileoverview Centralized Analytics Wrapper for PostHog and Amplitude.
+ * Ensures Dual Dispatch consistency and adheres to E1, E2, and E3 standards.
+ */
+
+import posthog from 'posthog-js';
+import * as amplitude from '@amplitude/analytics-browser';
+
+// Configuration via environment variables
+const POSTHOG_API_KEY = process.env.NEXT_PUBLIC_POSTHOG_KEY;
+const AMPLITUDE_API_KEY = process.env.NEXT_PUBLIC_AMPLITUDE_KEY;
+
+if (!POSTHOG_API_KEY || !AMPLITUDE_API_KEY) {
+  console.warn('Analytics keys are missing from environment variables.');
+}
+
+/**
+ * Deep sanitization of properties to ensure no PII (Personally Identifiable Information) 
+ * is ever dispatched to third-party platforms.
+ * Complies with E3: Privacy & Data Governance.
+ */
+const sanitizeProperties = (obj: Record<string, any>): Record<string, any> => {
+  const forbiddenPII = ['contact_email', 'user_password', 'identity_number', 'full_name'];
+  
+  const clean = (target: any): any => {
+    if (typeof target !== 'object' || target === null) return target;
+
+    if (Array.isArray(target)) {
+      return target.map(item => clean(item));
+    }
+
+    const cleanedObject: Record<string, any> = {};
+    for (const key in target) {
+      if (Object.prototype.hasOwnProperty.call(target, key)) {
+        if (forbiddenPII.includes(key)) {
+          // Strip PII completely from the object
+          continue;
+        }
+        cleanedObject[key] = clean(target[key]);
+      }
+    }
+    return cleanedObject;
+  };
+
+  return clean(obj);
+};
+
+// Initialize SDKs - Only once, check for window object to avoid SSR issues
+if (typeof window !== 'undefined') {
+  posthog.init({
+    api_key: POSTHOG_API_KEY,
+    app_id: process.env.NEXT_PUBLIC_POSTHOG_HOST, // e.g., https://us.i.posthog.com
+    person100: true,
+    capture_pageviews: false, // Managed by our wrapper for consistency
+  });
+
+  amplitude.init(AMPLITUDE_API_KEY);
+}
+
+/**
+ * Core tracking function.
+ * Ensures all events are dispatched to both platforms simultaneously.
+ * 
+ * @param eventName - The name of the event (must follow naming conventions)
+ *@param properties - Optional metadata for the event
+ */
+export const track = (eventName: string, properties: Record<string, any> = {}) => {
+  if (typeof window === 'undefined') return;
+
+  // Apply recursive sanitization (E3 Compliance)
+  const sanitizedProperties = sanitizeProperties(properties);
+
+  // Dual Dispatch (E2)
+  // Fire-and-forget to ensure zero impact on UI performance
+  posthog.capture(eventName, sanitizedProperties);
+  amplitude.track(eventName, sanitizedProperties);
+
+  console.log(`[Analytics] Tracked: ${eventName}`, sanitizedProperties);
+};
+
+/**
+ * Identifies and handles specific conversion events 
+ * with custom logic if needed in the future.
+ */
+export const trackConversion = (type: 'contact_form' | 'external') => {
+  track(`${type}_submitted`, {
+    timestamp: new Date().toISOString(),
+  });
+};
+
+/**
+ * Helper for recording page views consistently across the app
+ */
+export const trackPageView = (path: string) => {
+  track('page_viewed', {
+    url: path,
+    page_type: 'navigation'
+  });
+};
+```

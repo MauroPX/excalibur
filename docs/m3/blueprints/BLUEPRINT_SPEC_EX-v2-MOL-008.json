@@ -1,0 +1,109 @@
+{
+  "spec_ref": "EX-v2-MOL-008",
+  "base": "SYNC-001",
+  "atomic_level": "molecule",
+  "component_name": "IdentidadProfesional",
+  "ola": "7 (paralela — no bloqueante para Ola 6 Pages/Routing/i18n en curso)",
+  "rama": "feat/v2-ola7-identidad",
+  "status": "BLUEPRINT_APPROVED — Gate 1 (BH-1..BH-6) PASS el 2026-09-04. Forge bloqueado por SYNC-001 A-01 (copy pendiente — decisión de contenido, no de arquitectura).",
+  "gate_1_decision": {
+    "fecha": "2026-09-04",
+    "decidido_por": "IC (rol Arquitecto — Claude Code)",
+    "molecula_vs_organismo": "MOLÉCULA — una tarjeta por eje de identidad. Confirmado: si más adelante se necesita 'N tarjetas + heading' como sección, es un spec de organismo aparte (candidato: EX-v2-ORG-00X ExperienciaSection) que compondría este molecule, no lo reemplaza.",
+    "ola_asignada": "Ola 7 — nueva ola paralela; no bloquea Ola 6 (Pages/Routing/i18n) que sigue en curso",
+    "spec_id_definitivo": "EX-v2-MOL-008 (siguiente en secuencia tras EX-v2-MOL-007 RoadmapSplitButton — confirmado, no reasignar)"
+  },
+  "law_of_ux": "Ley de Proximidad + Ley de Categorización (chunking por rol)",
+  "consolidado_de": [
+    "docs/m3/IDENTIDAD_PROCESOS.md",
+    "docs/m3/IDENTIDAD_PROCESOS_V2.md",
+    "docs/m3/PROCESOS_IDENTIDAD.md",
+    "docs/m3/REFACTOR_IDENTIDAD.md",
+    "docs/m3/PRODUCTION_MODULE.md"
+  ],
+  "referencia_visual": "docs/m3/drafts/IdentidadProfesional.tsx.draft (borrador roto — solo layout de referencia, NO reutilizar código)",
+  "contexto": "Cubre la brecha SYNC-001: proyectar la identidad profesional por rol (USER_TASKS_MATRIX T-04) con datos reales del CV maestro. Se consume detrás de NavSystem tab B 'Por rol' y/o en una sección de Experiencia.",
+  "dependencies": ["EX-v2-ATOM-002", "EX-v2-ATOM-006", "EX-v2-ATOM-004"],
+  "depended_by_candidato": ["EX-v2-ORG-002 (NavSystem tab B)"],
+  "props_contract": {
+    "eje": {
+      "type": "'gestion' | 'tecnico' | 'ia'",
+      "required": true,
+      "nota": "categoría del eje de identidad — de SYNC-001--Analysis §5"
+    },
+    "titulo": { "type": "string", "required": true },
+    "descripcion": { "type": "string", "required": true },
+    "skills": { "type": "string[]", "required": true },
+    "estado": {
+      "type": "'activo' | 'en_desarrollo'",
+      "default": "'activo'"
+    },
+    "iconName": { "type": "string", "required": false },
+    "onClick": { "type": "() => void", "required": false }
+  },
+  "variants": ["gestion", "tecnico", "ia"],
+  "states": ["default", "hover", "focus", "estado:activo", "estado:en_desarrollo"],
+  "wcag_criteria": ["1.3.1", "1.4.3", "1.4.6", "2.1.1", "2.4.7", "4.1.2"],
+  "bem_classes": {
+    "block": "ex-identidad-profesional",
+    "elements": ["icon", "titulo", "descripcion", "skills", "skill", "estado"],
+    "modifiers": ["gestion", "tecnico", "ia", "activo", "en-desarrollo", "hover"]
+  },
+  "m3_tokens": {
+    "surface": "var(--md-sys-color-surface-container-low)",
+    "surface-hover": "var(--md-sys-color-surface-container-high)",
+    "on-surface": "var(--md-sys-color-on-surface)",
+    "on-surface-variant": "var(--md-sys-color-on-surface-variant)",
+    "primary": "var(--md-sys-color-primary)",
+    "outline-variant": "var(--md-sys-color-outline-variant)",
+    "estado-activo-bg": "var(--md-sys-color-tertiary-container)",
+    "estado-activo-fg": "var(--md-sys-color-on-tertiary-container)",
+    "estado-endesarrollo-bg": "var(--md-sys-color-secondary-container)",
+    "estado-endesarrollo-fg": "var(--md-sys-color-on-secondary-container)"
+  },
+  "dom_identity": {
+    "data-atomic": "molecule",
+    "data-component": "IdentidadProfesional",
+    "root_element": "article"
+  },
+  "i18n_keys": [
+    "identidadProfesional.gestion.ariaLabel",
+    "identidadProfesional.tecnico.ariaLabel",
+    "identidadProfesional.ia.ariaLabel",
+    "identidadProfesional.estado.activo",
+    "identidadProfesional.estado.enDesarrollo",
+    "identidadProfesional.skillsLabel"
+  ],
+  "spec_criteria": [
+    "CA-001: renderiza titulo + descripcion + lista de skills como Chip atoms (EX-v2-ATOM-006)",
+    "CA-002: 3 variantes de eje (gestion/tecnico/ia) con Icon atom (EX-v2-ATOM-004) por variante",
+    "CA-003: badge de estado (activo | en_desarrollo) con Tag atom (EX-v2-ATOM-002) mapeado a tokens tertiary/secondary-container — NUNCA MUI color='success'|'warning'",
+    "CA-004: 0 hex hardcoded — solo tokens M3 de DESIGN_TOKENS.json",
+    "CA-005: BEM strict segun DESIGN_SPEC — block ex-identidad-profesional",
+    "CA-006: WCAG 2.2 AAA — contraste 7:1, focus visible, role=article + aria-label por variante",
+    "CA-007: data-atomic='molecule' data-component='IdentidadProfesional' en el root",
+    "CA-008: ES/EN via next-intl useTranslations — 0 strings hardcodeados en JSX (los textos de contenido llegan por props, los de UI por i18n)",
+    "CA-009: si recibe onClick, clickable completo con teclado (Enter/Space) sobre el article",
+    "CA-010: carpeta-modulo estandar: IdentidadProfesional.tsx + index.ts + .test.tsx + .stories.tsx + .blueprint.json + VERSION_CERTIFICATE.json"
+  ],
+  "out_of_scope": [
+    "No hace fetch (recibe eje/titulo/descripcion/skills por props)",
+    "No maneja routing (llama onClick del padre)",
+    "No define el copy: los textos reales salen del CV maestro privado (commit abd9c7b), confirmados por el IC en SYNC-001 A-01",
+    "No renderiza el timeline (eso es EX-v2-MOL-004 TimelineStep)",
+    "No es la seccion completa: si se necesita 'N tarjetas + heading' eso seria un organismo aparte"
+  ],
+  "blueprint_gate": {
+    "BH-1": "PASS — todos los tokens referenciados existen en src/theme/tokens.ts (primary, tertiary-container, secondary-container, surface-container-low/high, outline-variant, on-*)",
+    "BH-2": "PASS — WCAG 1.3.1/1.4.3/1.4.6/2.1.1/2.4.7/4.1.2 validos en 2.2; objetivo AAA (1.4.6) consistente con el proyecto (34/34 pares 7:1)",
+    "BH-3": "PASS — MUI v6 + next-intl ya en package.json; Chip/Tag/Icon atoms LOCKED",
+    "BH-4": "PASS — props_contract sin any",
+    "BH-5": "PASS — scope nivel molecule: compone atomos, sin logica de negocio ni fetch",
+    "BH-6": "PASS (2026-09-04) — arquitectura decidida: molecula confirmada, Ola 7 asignada, SPEC_ID EX-v2-MOL-008 definitivo. Ver gate_1_decision. NOTA: el Forge sigue bloqueado por SYNC-001 A-01 (copy de los 3 ejes vs CV maestro) — eso es una decision de CONTENIDO, separada de este gate de arquitectura, y queda explicitamente pendiente por decision del IC."
+  },
+  "notas_conflicto_resuelto": [
+    "El borrador .tsx.draft hardcodeaba #01602D y usaba MUI color='success'|'warning' — ambos violan ADR-002. Este blueprint los reemplaza por tokens tertiary/secondary-container.",
+    "El borrador tenia CompetenciaTag y colorPrimary sin usar y strings en espanol en JSX — este blueprint exige i18n + composicion de atomos LOCKED.",
+    "Los 5 docs de origen mezclaban 'tarjeta' y 'seccion' sin decidir — aqui se fija: MOLECULA (una tarjeta por eje). La seccion, si hace falta, es spec separado."
+  ]
+}

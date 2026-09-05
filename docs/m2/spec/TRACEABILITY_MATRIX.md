@@ -90,6 +90,20 @@ Deuda no bloqueante: stories de templates · generador DTCG de tokens (anti-drif
 
 ---
 
+## WORK-STREAMS ACTIVOS (post-Ola 5)
+
+> Consolidado 2026-09-03 — reemplazan 12 borradores sueltos sin trackear. Índice: `docs/README.md`.
+
+| SPEC_ID | Título | Nivel | Base | Estado | Blueprint | Gate 1 | Próximo paso |
+|---|---|---|---|---|---|---|---|
+| SYNC-001 | Reconciliación contenido v1 → v2 | work-stream | `docs/m1/SYNC-001--Analysis--[base].md` | IN_PROGRESS (Gate 1 cerrado, Forge bloqueado) | — | — | A-01: IC confirma copy de los 3 ejes vs. CV maestro (commit `abd9c7b`) — **pendiente por decisión explícita del IC** |
+| EX-v2-MOL-008 | IdentidadProfesional | molecule | SYNC-001 | BLUEPRINT_APPROVED | `docs/m3/blueprints/BLUEPRINT_SPEC_EX-v2-MOL-008.json` | ✅ BH-1..6 PASS (2026-09-04) — molécula, Ola 7, SPEC_ID definitivo | Forge bloqueado por A-01 (contenido, no arquitectura) |
+| EX-v2-ANALYTICS-001 | AnalyticsWrapper (PostHog) | infra | `docs/m3/analytics/TRACKING_PLAN.md` | BLUEPRINT | `docs/m3/blueprints/BLUEPRINT_SPEC_EX-v2-ANALYTICS-001.json` | BH-4,5 PASS · **BH-3,6 PENDIENTE** | ADR-006: aprobar PostHog + dep `posthog-js` + 2 env vars |
+
+Borradores en cuarentena (no integrados, fuera del build): `docs/m3/drafts/` — ver su `README.md`.
+
+---
+
 ## DOCUMENTACIÓN POR MOMENTUM
 
 ### M0 — Foundation (12/12) ✅ SELLADO

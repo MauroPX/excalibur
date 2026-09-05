@@ -1,0 +1,65 @@
+{
+  "spec_ref": "EX-v2-ANALYTICS-001",
+  "base": "docs/m3/analytics/TRACKING_PLAN.md",
+  "atomic_level": "infra",
+  "component_name": "AnalyticsWrapper",
+  "status": "BLUEPRINT — pendiente ADR-006 (aprobación del stack de analytics por el IC)",
+  "rama": "feat/v2-analytics-posthog",
+  "consolidado_de": ["docs/tracking-plan.md"],
+  "referencia_descartada": "docs/m3/drafts/analytics.ts.draft (dual PostHog+Amplitude — firma init incorrecta, deps sin aprobar, conflicto con @vercel/analytics)",
+  "decision_arquitectura": {
+    "recomendacion": "PostHog SOLO — no dual dispatch",
+    "razon": [
+      "El draft proponia PostHog + Amplitude (dual): ~55KB gz, 4 env vars, doble superficie PII, sin ROI para un portafolio de trafico bajo.",
+      "PostHog solo cubre funnels + session replay + flags + autocapture en un SDK (~28KB gz, 2 env vars).",
+      "Free tier PostHog: 1M eventos/mes — un portafolio no llega al 1%.",
+      "Se conserva @vercel/speed-insights (RUM de Web Vitals, no compite). @vercel/analytics opcional como respaldo de pageviews."
+    ],
+    "descartado": "Amplitude — no aporta nada que PostHog no cubra a esta escala."
+  },
+  "props_contract": {
+    "track": {
+      "firma": "(eventName: EventName, properties?: Record<string, unknown>) => void",
+      "nota": "EventName es union tipada derivada de TRACKING_PLAN.md (no string libre)"
+    },
+    "trackPageView": { "firma": "(path: string) => void" },
+    "trackConversion": { "firma": "(type: 'contact_form' | 'external') => void" }
+  },
+  "modulo": {
+    "ruta": "src/lib/analytics.ts",
+    "provider": "src/components/infra/PostHogProvider.tsx ('use client', monta posthog.init una vez)",
+    "init": "posthog.init(NEXT_PUBLIC_POSTHOG_KEY, { api_host: NEXT_PUBLIC_POSTHOG_HOST, person_profiles: 'identified_only', autocapture: false, capture_pageview: false })",
+    "sanitize": "sanitizeProperties() recursivo — strip de claves PII antes del dispatch (E3)"
+  },
+  "spec_criteria": [
+    "CA-001: un solo modulo wrapper (src/lib/analytics.ts) — ningun componente llama al SDK de PostHog directo",
+    "CA-002: nombres de evento tipados (union EventName) segun TRACKING_PLAN.md — objeto_accion snake_case",
+    "CA-003: sanitizeProperties() elimina PII (contact_email, chat_message_text en claro, identity_number, full_name...) antes de cada capture",
+    "CA-004: chat_message_text -> hash SHA-256 antes del dispatch; contact_email nunca se envia (solo booleano de exito)",
+    "CA-005: session replay con masking activo en input/textarea/[type=email]; vista /privacidad excluida del replay",
+    "CA-006: 0 'any' — Record<string, unknown> + tipos; ADR-002 / TS strict",
+    "CA-007: capture_pageview=false — el pageview lo emite trackPageView() desde el wrapper para consistencia",
+    "CA-008: env vars documentadas en .env.local.example (NEXT_PUBLIC_POSTHOG_KEY, NEXT_PUBLIC_POSTHOG_HOST)",
+    "CA-009: sin PII en URLs; sin envio si typeof window === 'undefined' (SSR-safe)",
+    "CA-010: test en src/lib/analytics.test.ts — sanitizeProperties cubre objetos anidados y arrays"
+  ],
+  "out_of_scope": [
+    "Amplitude / dual dispatch (descartado)",
+    "Consentimiento de cookies avanzado — v1: person_profiles identified_only + masking; banner de consentimiento = follow-up si se decide",
+    "Dashboards de PostHog (se configuran en la plataforma, no en el repo)",
+    "Instrumentar cada componente — eso es trabajo de Forge por evento, no del blueprint"
+  ],
+  "dependencias_nuevas": {
+    "runtime": ["posthog-js"],
+    "env": ["NEXT_PUBLIC_POSTHOG_KEY", "NEXT_PUBLIC_POSTHOG_HOST"],
+    "adr": "ADR-006 — PostHog como plataforma de analytics de producto (pendiente de redactar y firmar por el IC)"
+  },
+  "blueprint_gate": {
+    "BH-1": "N/A — infra, sin tokens M3",
+    "BH-2": "N/A — sin UI propia (el masking de replay se configura, no se renderiza)",
+    "BH-3": "PENDIENTE — requiere anadir posthog-js a package.json (aprobacion IC)",
+    "BH-4": "PASS — contrato sin any",
+    "BH-5": "PASS — scope infra: un wrapper + un provider, sin logica de negocio",
+    "BH-6": "PENDIENTE — bloqueado por ADR-006. El IC decide: (a) PostHog solo (recomendado) vs otra opcion; (b) si se mantiene @vercel/analytics; (c) si hay banner de consentimiento"
+  }
+}
