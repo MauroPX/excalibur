@@ -5,6 +5,7 @@ import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import './globals.css'
 import ThemeRegistry from '@/theme/ThemeRegistry'
+import { PostHogProvider } from '@/components/infra/PostHogProvider'
 
 export const metadata: Metadata = {
   title: 'MauricioGO Portafolio v2 — Staff Product Architect',
@@ -32,6 +33,7 @@ export default async function RootLayout({
             {children}
             <Analytics />
             <SpeedInsights />
+            <PostHogProvider />
           </ThemeRegistry>
         </NextIntlClientProvider>
       </body>

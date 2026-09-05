@@ -213,6 +213,15 @@
       "status": "LOCKED",
       "dependents": ["EX-v2-MOL-002", "EX-v2-MOL-003", "EX-v2-MOL-004", "EX-v2-MOL-005", "EX-v2-ATOM-001", "EX-v2-ATOM-002"],
       "depended_by": []
+    },
+    {
+      "spec_id": "EX-v2-ANALYTICS-001",
+      "component": "PostHogProvider",
+      "level": "infra",
+      "version": "1.0.0",
+      "status": "LOCKED",
+      "dependents": [],
+      "depended_by": []
     }
   ]
 }

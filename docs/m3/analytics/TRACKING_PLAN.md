@@ -4,10 +4,10 @@ spec_id: EX-v2-ANALYTICS-001
 titulo: Plan de instrumentación analítica — Excalibur Portafolio
 momentum: M3
 nivel: A
-estado: BLUEPRINT — pendiente ADR-006
+estado: LOCKED — implementado (ADR-006 firmado 2026-09-04)
 reemplaza: docs/tracking-plan.md
 blueprint: docs/m3/blueprints/BLUEPRINT_SPEC_EX-v2-ANALYTICS-001.json
-actualizado: 2026-09-03
+actualizado: 2026-09-04
 ---
 
 # Tracking Plan — Excalibur Portafolio
@@ -85,5 +85,6 @@ Cumplimiento Ley 1581 (CO) + estándares internacionales.
 
 ---
 
-**Estado:** `BLUEPRINT` — la implementación arranca cuando el IC firme **ADR-006**.
+**Estado:** `LOCKED` — implementado. ADR-006 firmado 2026-09-04. Ver `src/lib/analytics.ts` +
+`src/components/infra/PostHogProvider/` + `VERSION_CERTIFICATE.json`.
 **Owner:** Product Architecture.

@@ -3,8 +3,14 @@
   "base": "docs/m3/analytics/TRACKING_PLAN.md",
   "atomic_level": "infra",
   "component_name": "AnalyticsWrapper",
-  "status": "BLUEPRINT — pendiente ADR-006 (aprobación del stack de analytics por el IC)",
+  "status": "LOCKED (2026-09-04) — ADR-006 firmado + Forge completo. Ver VERSION_CERTIFICATE.json en src/components/infra/PostHogProvider/",
   "rama": "feat/v2-analytics-posthog",
+  "forge_ref": {
+    "modulo": "src/lib/analytics.ts",
+    "provider": "src/components/infra/PostHogProvider/PostHogProvider.tsx",
+    "test": "src/lib/analytics.test.ts",
+    "cert": "src/components/infra/PostHogProvider/VERSION_CERTIFICATE.json"
+  },
   "consolidado_de": ["docs/tracking-plan.md"],
   "referencia_descartada": "docs/m3/drafts/analytics.ts.draft (dual PostHog+Amplitude — firma init incorrecta, deps sin aprobar, conflicto con @vercel/analytics)",
   "decision_arquitectura": {
@@ -52,14 +58,14 @@
   "dependencias_nuevas": {
     "runtime": ["posthog-js"],
     "env": ["NEXT_PUBLIC_POSTHOG_KEY", "NEXT_PUBLIC_POSTHOG_HOST"],
-    "adr": "ADR-006 — PostHog como plataforma de analytics de producto (pendiente de redactar y firmar por el IC)"
+    "adr": "docs/m0/adr/ADR-006-analytics.md — firmado 2026-09-04"
   },
   "blueprint_gate": {
     "BH-1": "N/A — infra, sin tokens M3",
     "BH-2": "N/A — sin UI propia (el masking de replay se configura, no se renderiza)",
-    "BH-3": "PENDIENTE — requiere anadir posthog-js a package.json (aprobacion IC)",
+    "BH-3": "PASS — posthog-js@1.426.2 instalado (pnpm add posthog-js)",
     "BH-4": "PASS — contrato sin any",
     "BH-5": "PASS — scope infra: un wrapper + un provider, sin logica de negocio",
-    "BH-6": "PENDIENTE — bloqueado por ADR-006. El IC decide: (a) PostHog solo (recomendado) vs otra opcion; (b) si se mantiene @vercel/analytics; (c) si hay banner de consentimiento"
+    "BH-6": "PASS — ADR-006 firmado: PostHog solo (recomendado); @vercel/analytics se mantiene (no compite); banner de consentimiento queda fuera de alcance (mitigado con identified_only + masking), follow-up si compliance lo exige"
   }
 }

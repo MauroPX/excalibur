@@ -1,0 +1,21 @@
+{
+  "spec_id": "EX-v2-ANALYTICS-001",
+  "component": "PostHogProvider",
+  "version": "1.0.0",
+  "status": "LOCKED",
+  "date": "2026-09-04",
+  "adr": "docs/m0/adr/ADR-006-analytics.md",
+  "build": {
+    "status": "PASS",
+    "next_version": "15.5.19",
+    "react_version": "19.2.7",
+    "posthog_js_version": "1.426.2"
+  },
+  "verification": {
+    "type_check": "PASS",
+    "lint": "PASS",
+    "unit_tests": "PASS — src/lib/analytics.test.ts (5 tests, sanitizeProperties E3)",
+    "axe_violations": "N/A — no renderiza DOM (return null)"
+  },
+  "notes": "Wrapper de analytics (src/lib/analytics.ts) + provider de inicialización. No-op silencioso sin NEXT_PUBLIC_POSTHOG_KEY. Decisión de arquitectura: ADR-006 (PostHog único, no dual con Amplitude)."
+}

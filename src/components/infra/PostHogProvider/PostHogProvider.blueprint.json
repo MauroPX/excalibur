@@ -1,0 +1,20 @@
+{
+  "spec_id": "EX-v2-ANALYTICS-001",
+  "component": "PostHogProvider",
+  "level": "infra",
+  "type": "infrastructure",
+  "base": "docs/m3/blueprints/BLUEPRINT_SPEC_EX-v2-ANALYTICS-001.json",
+  "adr": "docs/m0/adr/ADR-006-analytics.md",
+  "dependencies": ["posthog-js"],
+  "props": {},
+  "states": ["disabled (sin NEXT_PUBLIC_POSTHOG_KEY)", "enabled"],
+  "variants": [],
+  "blueprint_gate": {
+    "BH-1": "PASS",
+    "BH-2": "PASS",
+    "BH-3": "PASS — posthog-js 1.426.2 instalado en package.json",
+    "BH-4": "PASS",
+    "BH-5": "PASS",
+    "BH-6": "PASS — ADR-006 firmado 2026-09-04"
+  }
+}

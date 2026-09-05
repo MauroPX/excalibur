@@ -73,6 +73,7 @@ Deuda no bloqueante: stories de templates · generador DTCG de tokens (anti-drif
 | EX-v2-API-001 | `/api/chat` multi-provider | `src/app/api/chat/route.ts` | ✅ ACTIVO | ANTHROPIC_API_KEY + GEMINI_API_KEY pendientes |
 | EX-v2-API-002 | `/api/health` health check | `src/app/api/health/route.ts` | ✅ ACTIVO | — |
 | EX-v2-DATA-001 | Datos estáticos casos (3/20) | `src/app/casos/[slug]/page.tsx` | ⚠️ PARCIAL | Migrar a Strapi cuando CMS esté en Railway |
+| EX-v2-ANALYTICS-001 | Analytics wrapper (PostHog, ADR-006) | `src/lib/analytics.ts` + `src/components/infra/PostHogProvider/` | ✅ ACTIVO (no-op sin key) | `NEXT_PUBLIC_POSTHOG_KEY`/`_HOST` pendientes en Vercel |
 
 ---
 
@@ -98,7 +99,7 @@ Deuda no bloqueante: stories de templates · generador DTCG de tokens (anti-drif
 |---|---|---|---|---|---|---|---|
 | SYNC-001 | Reconciliación contenido v1 → v2 | work-stream | `docs/m1/SYNC-001--Analysis--[base].md` | IN_PROGRESS (Gate 1 cerrado, Forge bloqueado) | — | — | A-01: IC confirma copy de los 3 ejes vs. CV maestro (commit `abd9c7b`) — **pendiente por decisión explícita del IC** |
 | EX-v2-MOL-008 | IdentidadProfesional | molecule | SYNC-001 | BLUEPRINT_APPROVED | `docs/m3/blueprints/BLUEPRINT_SPEC_EX-v2-MOL-008.json` | ✅ BH-1..6 PASS (2026-09-04) — molécula, Ola 7, SPEC_ID definitivo | Forge bloqueado por A-01 (contenido, no arquitectura) |
-| EX-v2-ANALYTICS-001 | AnalyticsWrapper (PostHog) | infra | `docs/m3/analytics/TRACKING_PLAN.md` | BLUEPRINT | `docs/m3/blueprints/BLUEPRINT_SPEC_EX-v2-ANALYTICS-001.json` | BH-4,5 PASS · **BH-3,6 PENDIENTE** | ADR-006: aprobar PostHog + dep `posthog-js` + 2 env vars |
+| EX-v2-ANALYTICS-001 | AnalyticsWrapper (PostHog) | infra | `docs/m3/analytics/TRACKING_PLAN.md` | ✅ LOCKED (2026-09-04) | `docs/m3/blueprints/BLUEPRINT_SPEC_EX-v2-ANALYTICS-001.json` | BH-1..6 PASS — ADR-006 firmado | Falta configurar `NEXT_PUBLIC_POSTHOG_KEY`/`_HOST` en Vercel (no-op sin ellas) |
 
 Borradores en cuarentena (no integrados, fuera del build): `docs/m3/drafts/` — ver su `README.md`.
 
@@ -106,7 +107,7 @@ Borradores en cuarentena (no integrados, fuera del build): `docs/m3/drafts/` —
 
 ## DOCUMENTACIÓN POR MOMENTUM
 
-### M0 — Foundation (12/12) ✅ SELLADO
+### M0 — Foundation (13/12) ✅ SELLADO + ADR-006 (2026-09-04, post-sellado — ver nota)
 
 | Artefacto | Ruta | Estado |
 |---|---|---|
@@ -117,6 +118,7 @@ Borradores en cuarentena (no integrados, fuera del build): `docs/m3/drafts/` —
 | ADR-003 Backend | `docs/m0/adr/ADR-003-backend.md` | ✅ |
 | ADR-004 Deploy | `docs/m0/adr/ADR-004-deploy.md` | ✅ |
 | ADR-005 IA/RAG | `docs/m0/adr/ADR-005-ia-rag.md` | ✅ |
+| ADR-006 Analytics | `docs/m0/adr/ADR-006-analytics.md` | ✅ (2026-09-04 — M0 estaba sellado; ADR nuevo se admite igual, la lista de ADRs no es un artefacto cerrado por definición) |
 | QUALITY_POLICY | `docs/m0/compliance/QUALITY_POLICY.md` | ✅ |
 | WCAG_COMMITMENT | `docs/m0/compliance/WCAG_COMMITMENT.md` | ✅ |
 | SECURITY_POLICY | `docs/m0/security/SECURITY_POLICY.md` | ✅ |
