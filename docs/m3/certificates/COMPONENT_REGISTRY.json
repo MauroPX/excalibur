@@ -222,6 +222,33 @@
       "status": "LOCKED",
       "dependents": [],
       "depended_by": []
+    },
+    {
+      "spec_id": "EX-v2-ATOM-008",
+      "component": "LanguageToggle",
+      "level": "atoms",
+      "version": "1.0.0",
+      "status": "LOCKED",
+      "dependents": [],
+      "depended_by": []
+    },
+    {
+      "spec_id": "EX-v2-ORG-007",
+      "component": "ColorRolesGallery",
+      "level": "organisms",
+      "version": "1.0.0",
+      "status": "LOCKED",
+      "dependents": [],
+      "depended_by": ["EX-v2-ORG-008"]
+    },
+    {
+      "spec_id": "EX-v2-ORG-008",
+      "component": "ColorRolesHUD",
+      "level": "organisms",
+      "version": "1.0.0",
+      "status": "LOCKED",
+      "dependents": ["EX-v2-ORG-007"],
+      "depended_by": []
     }
   ]
 }

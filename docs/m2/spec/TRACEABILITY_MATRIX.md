@@ -16,6 +16,7 @@
 | EX-v2-ATOM-005 | Metric | atoms | 1 | LOCKED | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1.0.0 |
 | EX-v2-ATOM-006 | Chip | atoms | 1 | LOCKED | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1.0.0 |
 | EX-v2-ATOM-007 | ThemeToggle | atoms | 5 | LOCKED | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1.0.0 |
+| EX-v2-ATOM-008 | LanguageToggle | atoms | 6 | LOCKED | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1.0.0 |
 | EX-v2-MOL-001 | NavTab | molecules | 2 | LOCKED | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1.0.0 |
 | EX-v2-MOL-002 | ProjectCard | molecules | 2 | LOCKED | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1.0.0 |
 | EX-v2-MOL-003 | SkillBar | molecules | 2 | LOCKED | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1.0.0 |
@@ -31,6 +32,8 @@
 | EX-v2-ORG-005 | StackSection | organisms | 3 | LOCKED | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1.0.0 |
 | EX-v2-ORG-006 | ContactSection | organisms | 3 | LOCKED | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1.0.0 |
 | EX-v2-A11Y-001 | InquisitorHUD | organisms | 3 | LOCKED | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1.0.0 |
+| EX-v2-ORG-007 | ColorRolesGallery | organisms | 6 | LOCKED | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1.0.0 |
+| EX-v2-ORG-008 | ColorRolesHUD | organisms | 6 | LOCKED | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1.0.0 |
 | EX-v2-TMPL-001 | HomeTemplate | templates | 4 | LOCKED | ✅ | ✅ | ✅ ¹ | ✅ | ✅ | ✅ | 1.0.0 |
 | EX-v2-TMPL-002 | CasePage | templates | 4 | LOCKED | ✅ | ✅ | ✅ ¹ | ✅ | ✅ | ✅ | 1.0.0 |
 | EX-v2-PAGE-001 | / (HomePage) | pages | 7 | LOCKED | ✅ | — | — | — | — | — | 1.0.0 |
@@ -112,7 +115,7 @@ decisión del IC.
 | SYNC-001 | Reconciliación contenido v1 → v2 | work-stream | `docs/m1/SYNC-001--Analysis--[base].md` | IN_PROGRESS (Gate 1 cerrado, Forge bloqueado) | — | — | A-01: IC confirma copy de los 3 ejes vs. CV maestro (commit `abd9c7b`) — **pendiente por decisión explícita del IC** |
 | EX-v2-MOL-008 | IdentidadProfesional | molecule | SYNC-001 | BLUEPRINT_APPROVED | `docs/m3/blueprints/BLUEPRINT_SPEC_EX-v2-MOL-008.json` | ✅ BH-1..6 PASS (2026-09-04) — molécula, Ola 7, SPEC_ID definitivo | Forge bloqueado por A-01 (contenido, no arquitectura) |
 | EX-v2-ANALYTICS-001 | AnalyticsWrapper (PostHog) | infra | `docs/m3/analytics/TRACKING_PLAN.md` | ✅ LOCKED (2026-09-04) | `docs/m3/blueprints/BLUEPRINT_SPEC_EX-v2-ANALYTICS-001.json` | BH-1..6 PASS — ADR-006 firmado | Falta configurar `NEXT_PUBLIC_POSTHOG_KEY`/`_HOST` en Vercel (no-op sin ellas) |
-| EX-v2-I18N-ROUTING-001 | i18n bilingüe real + SEO técnico (sitemap/robots/schema.org) | infra + pages | `docs/m1/SEO_AIO_PLAN.md` §6 | 🔴 NOT_STARTED (hallazgo 2026-09-04) | — | — | `src/i18n/request.ts` tiene `locale='es'` hardcodeado — no existe cambio de idioma real, ni `LanguageToggle`, ni middleware, ni schema.org/sitemap/robots. Candidato Ola 6. Requiere blueprint antes de Forge (cambio de arquitectura de rutas) |
+| EX-v2-I18N-ROUTING-001 | i18n bilingüe real + SEO técnico (sitemap/robots/schema.org) | infra + pages | `docs/m1/SEO_AIO_PLAN.md` §6 | ✅ IMPLEMENTADO (2026-09-04) | — | verificado en `.next/server/app/{es,en}.html`: `<html lang>` dinámico, hreflang, og:locale, JSON-LD Person/CreativeWork, sitemap.xml (8 URLs), robots.txt | Contenido de marketing (symptomCards/roleCards/casos en `page.tsx`) sigue en ES-only — es tarea de copywriting, no de código; el mecanismo de idioma es 100% funcional |
 
 Borradores en cuarentena (no integrados, fuera del build): `docs/m3/drafts/` — ver su `README.md`.
 

@@ -2,6 +2,7 @@ import { Metadata } from 'next'
 import Box from '@mui/material/Box'
 import Container from '@mui/material/Container'
 import Typography from '@mui/material/Typography'
+import { setRequestLocale } from 'next-intl/server'
 
 export const metadata: Metadata = {
   title: 'Política de Privacidad — MauricioGO',
@@ -9,7 +10,13 @@ export const metadata: Metadata = {
   robots: 'noindex',
 }
 
-export default function PrivacidadPage() {
+export default async function PrivacidadPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}) {
+  const { locale } = await params
+  setRequestLocale(locale)
   return (
     <Box
       component="main"

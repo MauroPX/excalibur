@@ -1,6 +1,9 @@
 import { notFound } from 'next/navigation'
+import { setRequestLocale } from 'next-intl/server'
+import type { Metadata } from 'next'
 import { CasePage } from '@/components/templates/CasePage'
 import type { CasePageData } from '@/components/templates/CasePage'
+import { CreativeWorkJsonLd } from '@/components/infra/JsonLd'
 
 // Static case data — replace with Strapi fetch when CMS is ready (Sprint F)
 const CASES: Record<string, CasePageData> = {
@@ -85,9 +88,43 @@ export function generateStaticParams() {
   return Object.keys(CASES).map((slug) => ({ slug }))
 }
 
-export default async function CasePageRoute({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string; slug: string }>
+}): Promise<Metadata> {
+  const { locale, slug } = await params
+  const caseData = CASES[slug]
+  if (!caseData) return {}
+  const path = `/casos/${slug}`
+  return {
+    title: caseData.title,
+    description: caseData.description,
+    alternates: {
+      canonical: locale === 'es' ? path : `/en${path}`,
+      languages: { es: path, en: `/en${path}` },
+    },
+    openGraph: {
+      title: caseData.title,
+      description: caseData.description,
+      type: 'article',
+    },
+  }
+}
+
+export default async function CasePageRoute({
+  params,
+}: {
+  params: Promise<{ locale: string; slug: string }>
+}) {
+  const { locale, slug } = await params
+  setRequestLocale(locale)
   const caseData = CASES[slug]
   if (!caseData) notFound()
-  return <CasePage caseData={caseData} />
+  return (
+    <>
+      <CreativeWorkJsonLd name={caseData.title} description={caseData.description} url={`/casos/${slug}`} />
+      <CasePage caseData={caseData} />
+    </>
+  )
 }

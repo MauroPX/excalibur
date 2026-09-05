@@ -221,11 +221,37 @@ Ola 6 — ya estaba listada como candidata en `CLAUDE.md`):**
 5. `sitemap.ts`, `robots.ts`, JSON-LD (`Person` + `CreativeWork` por caso) — la parte de §1 que
    nunca se construyó, independiente del punto de idioma.
 
-No se implementó nada de esto ahora — es un cambio de arquitectura de rutas (App Router), no un
-fix puntual. Queda documentado para que el IC decida cuándo entra (ver pregunta al usuario).
+**Actualización — implementado 2026-09-04.** El IC pidió empezar antes de pushear. Los 5 puntos
+de arriba están hechos y verificados (build real, no solo lint):
+
+1. `middleware.ts` + `src/i18n/routing.ts` (`defineRouting`) + `src/i18n/navigation.ts`
+   (`createNavigation`) — reemplaza el `locale='es'` hardcodeado de `src/i18n/request.ts`.
+2. Rutas movidas a `src/app/[locale]/...` (`page.tsx`, `casos/[slug]/page.tsx`,
+   `privacidad/page.tsx`, `layout.tsx`). `src/app/api/*` queda fuera (no localizado).
+3. `LanguageToggle` (`EX-v2-ATOM-008`, LOCKED) — preserva el pathname vía `src/i18n/navigation.ts`.
+   De paso: `ThemeToggle` (`EX-v2-ATOM-007`) estaba certificado pero **nunca se renderizaba en
+   ningún lado** — ambos toggles ahora viven en una barra fija en `[locale]/layout.tsx`.
+4. `generateMetadata` con `alternates.languages` (hreflang) en home y en cada caso.
+5. `src/app/sitemap.ts` (8 URLs — 2 locales × home+3 casos), `src/app/robots.ts`,
+   `PersonJsonLd`/`CreativeWorkJsonLd` (`src/components/infra/JsonLd/`).
+
+Verificado en el HTML generado (`.next/server/app/{es,en}.html` tras `pnpm build`):
+`<html lang="en">` real, `hreflang` correcto, `og:locale` `en_US`/`es_CO`, JSON-LD `Person`
+presente, y el contenido de `useTranslations()` **sí cambia** a inglés en `/en` (antes,
+imposible). De regalo: se corrigió un bug real en `CasePageNav.tsx` — apuntaba a `/caso/{slug}`
+(singular) cuando la ruta real es `/casos/{slug}` (plural); el botón "siguiente caso" nunca
+había funcionado.
+
+**Lo que queda fuera de este alcance (no es código, es contenido):** `symptomCards`, `roleCards`,
+`caseProjects` y el copy de cada caso en `page.tsx`/`casos/[slug]/page.tsx` son literales en
+español — visitar `/en` sirve el layout y el `useTranslations()` en inglés, pero ese contenido
+de marketing sigue en español. Traducirlo es una decisión editorial del IC, no un fix técnico.
+
+Verificado: `lint 0 · test 198/198 · build 0 · build-storybook 0 · audit 97%`.
+Rama: `feat/v2-analytics-posthog`.
 
 ---
 
 📍 Momentum: M1 | Artefacto: SEO_AIO_PLAN | Nivel: B
 Firmado: Leonel Mauricio Gómez Ocampo — Staff Product Architect | 2026-06-15
-Auditoría de estado real: Claude Code (rol Arquitecto) | 2026-09-04
+Auditoría de estado real + implementación: Claude Code (rol Arquitecto) | 2026-09-04

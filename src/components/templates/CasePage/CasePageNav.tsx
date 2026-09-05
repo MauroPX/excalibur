@@ -1,8 +1,9 @@
 'use client'
 import React from 'react'
 import Box from '@mui/material/Box'
+import { useTranslations } from 'next-intl'
 import { Button } from '@/components/atoms/Button'
-import { useRouter } from 'next/navigation'
+import { useRouter } from '@/i18n/navigation'
 
 export interface CasePageNavProps {
   backHref?: string
@@ -10,6 +11,7 @@ export interface CasePageNavProps {
 }
 
 export const CasePageNav: React.FC<CasePageNavProps> = ({ backHref = '/#casos', nextCase }) => {
+  const t = useTranslations('casePage.nav')
   const router = useRouter()
   return (
     <Box
@@ -18,12 +20,12 @@ export const CasePageNav: React.FC<CasePageNavProps> = ({ backHref = '/#casos', 
       className="ex-case-page__nav"
       sx={{ display: 'flex', gap: 2, justifyContent: 'space-between', pt: 4, pb: 6 }}
     >
-      <Button variant="text" label="← Volver a casos" onClick={() => router.push(backHref)} />
+      <Button variant="text" label={t('back')} onClick={() => router.push(backHref)} />
       {nextCase && (
         <Button
           variant="cta"
-          label={`Siguiente: ${nextCase.title} →`}
-          onClick={() => router.push(`/caso/${nextCase.slug}`)}
+          label={t('next', { title: nextCase.title })}
+          onClick={() => router.push(`/casos/${nextCase.slug}`)}
         />
       )}
     </Box>

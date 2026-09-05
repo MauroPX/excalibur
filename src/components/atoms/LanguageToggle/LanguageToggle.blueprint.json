@@ -1,0 +1,55 @@
+{
+  "spec_ref": "EX-v2-ATOM-008",
+  "atomic_level": "atom",
+  "component_name": "LanguageToggle",
+  "base": "EX-v2-I18N-ROUTING-001",
+  "ola": "6",
+  "rama": "feat/v2-analytics-posthog",
+  "law_of_ux": "Ley de Control del Usuario — el visitante decide el idioma (misma ley que ThemeToggle EX-v2-ATOM-007, para el modo visual)",
+  "contexto": "Cierra el hallazgo de docs/m1/SEO_AIO_PLAN.md §6: src/i18n/request.ts tenia locale='es' hardcodeado, sin mecanismo de cambio. Este atomo + src/i18n/routing.ts + middleware.ts + navigation.ts lo resuelven.",
+  "dependencies": [],
+  "props_contract": {
+    "currentLocale": { "type": "'es' | 'en'", "required": true }
+  },
+  "variants": [],
+  "states": ["locale:es (ofrece cambiar a EN)", "locale:en (ofrece cambiar a ES)", "hover", "focus"],
+  "wcag_criteria": ["1.4.3", "2.1.1", "2.4.7", "3.1.1", "3.1.2", "4.1.2"],
+  "bem_classes": {
+    "block": "ex-language-toggle",
+    "elements": [],
+    "modifiers": []
+  },
+  "m3_tokens": {
+    "color": "var(--md-sys-color-on-surface)",
+    "hover-bg": "var(--md-sys-color-surface-container)"
+  },
+  "dom_identity": {
+    "data-atomic": "atom",
+    "data-component": "LanguageToggle",
+    "root_element": "button (MUI IconButton)"
+  },
+  "i18n_keys": [
+    "languageToggle.switchToEnglish",
+    "languageToggle.switchToSpanish"
+  ],
+  "spec_criteria": [
+    "CA-001: renderiza un boton con el locale activo en mayusculas (ES/EN)",
+    "CA-002: aria-label describe la accion destino (cambiar a ingles/espanol) via next-intl useTranslations",
+    "CA-003: al hacer click, preserva el pathname actual (usePathname/useRouter de src/i18n/navigation, NO next/navigation a secas) y cambia solo el locale",
+    "CA-004: WCAG 2.2 AA — foco visible, operable por teclado, axe 0 violations",
+    "CA-005: 0 hex hardcoded — tokens M3",
+    "CA-006: satisface WCAG 3.1.1/3.1.2 indirectamente: al cambiar el locale, LocaleLayout actualiza <html lang> en el siguiente render"
+  ],
+  "out_of_scope": [
+    "No traduce el contenido de las paginas (eso es contenido, no codigo — ver SEO_AIO_PLAN.md §6)",
+    "No persiste preferencia de idioma en cookie/localStorage — depende de la URL (locale-in-path), consistente con SEO (cada idioma es una URL indexable)"
+  ],
+  "blueprint_gate": {
+    "BH-1": "PASS — tokens existen en tokens.ts",
+    "BH-2": "PASS — WCAG 1.4.3/2.1.1/2.4.7/3.1.1/3.1.2/4.1.2 validos en 2.2",
+    "BH-3": "PASS — next-intl@3.26.5 ya en package.json, createNavigation/defineRouting disponibles",
+    "BH-4": "PASS — props tipadas sin any",
+    "BH-5": "PASS — atomo puro, un control",
+    "BH-6": "PASS — decision del IC: empezar i18n/SEO ahora, antes de pushear (2026-09-04)"
+  }
+}

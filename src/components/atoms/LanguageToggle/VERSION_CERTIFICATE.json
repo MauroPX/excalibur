@@ -1,0 +1,18 @@
+{
+  "spec_id": "EX-v2-ATOM-008",
+  "component": "LanguageToggle",
+  "atomic_level": "atom",
+  "version": "1.0.0",
+  "status": "LOCKED",
+  "locked_at": "2026-09-04T00:00:00Z",
+  "tests_passing": true,
+  "axe_violations": 0,
+  "wcag_level": "AA",
+  "m3_tokens_clean": true,
+  "gate_1": "PASS",
+  "gate_2": "PASS",
+  "gate_3": "PASS",
+  "blueprint_ref": "src/components/atoms/LanguageToggle/LanguageToggle.blueprint.json",
+  "forge_ref": "src/components/atoms/LanguageToggle/LanguageToggle.tsx",
+  "notes": "Cierra el hallazgo de docs/m1/SEO_AIO_PLAN.md §6 — primer mecanismo real de cambio de idioma del portafolio. Preserva el pathname vía src/i18n/navigation.ts."
+}

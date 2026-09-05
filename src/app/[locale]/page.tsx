@@ -1,5 +1,7 @@
-import { getTranslations } from 'next-intl/server'
+import { getTranslations, setRequestLocale } from 'next-intl/server'
+import type { Metadata } from 'next'
 import { HomeTemplate } from '@/components/templates/HomeTemplate'
+import { PersonJsonLd } from '@/components/infra/JsonLd'
 import type { NavSystemProps } from '@/components/organisms/NavSystem'
 import type { CasesSectionProject } from '@/components/organisms/CasesSection'
 import type { TitanModule } from '@/components/organisms/TitanSection'
@@ -72,11 +74,26 @@ const skills: StackSkill[] = [
   { name: 'Figma', level: 78, category: 'design' },
 ]
 
-export default async function HomePage() {
+export const metadata: Metadata = {
+  alternates: {
+    canonical: '/',
+    languages: { es: '/', en: '/en' },
+  },
+}
+
+export default async function HomePage({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}) {
+  const { locale } = await params
+  setRequestLocale(locale)
   const t = await getTranslations('hero')
 
   return (
-    <HomeTemplate
+    <>
+      <PersonJsonLd />
+      <HomeTemplate
       heroData={{
         headline: t('title'),
         subheadline: t('subtitle'),
@@ -98,6 +115,7 @@ export default async function HomePage() {
       titanModules={titanModules}
       titanVersion="v7.0"
       skills={skills}
-    />
+      />
+    </>
   )
 }
