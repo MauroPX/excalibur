@@ -112,6 +112,7 @@ decisión del IC.
 | SYNC-001 | Reconciliación contenido v1 → v2 | work-stream | `docs/m1/SYNC-001--Analysis--[base].md` | IN_PROGRESS (Gate 1 cerrado, Forge bloqueado) | — | — | A-01: IC confirma copy de los 3 ejes vs. CV maestro (commit `abd9c7b`) — **pendiente por decisión explícita del IC** |
 | EX-v2-MOL-008 | IdentidadProfesional | molecule | SYNC-001 | BLUEPRINT_APPROVED | `docs/m3/blueprints/BLUEPRINT_SPEC_EX-v2-MOL-008.json` | ✅ BH-1..6 PASS (2026-09-04) — molécula, Ola 7, SPEC_ID definitivo | Forge bloqueado por A-01 (contenido, no arquitectura) |
 | EX-v2-ANALYTICS-001 | AnalyticsWrapper (PostHog) | infra | `docs/m3/analytics/TRACKING_PLAN.md` | ✅ LOCKED (2026-09-04) | `docs/m3/blueprints/BLUEPRINT_SPEC_EX-v2-ANALYTICS-001.json` | BH-1..6 PASS — ADR-006 firmado | Falta configurar `NEXT_PUBLIC_POSTHOG_KEY`/`_HOST` en Vercel (no-op sin ellas) |
+| EX-v2-I18N-ROUTING-001 | i18n bilingüe real + SEO técnico (sitemap/robots/schema.org) | infra + pages | `docs/m1/SEO_AIO_PLAN.md` §6 | 🔴 NOT_STARTED (hallazgo 2026-09-04) | — | — | `src/i18n/request.ts` tiene `locale='es'` hardcodeado — no existe cambio de idioma real, ni `LanguageToggle`, ni middleware, ni schema.org/sitemap/robots. Candidato Ola 6. Requiere blueprint antes de Forge (cambio de arquitectura de rutas) |
 
 Borradores en cuarentena (no integrados, fuera del build): `docs/m3/drafts/` — ver su `README.md`.
 

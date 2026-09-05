@@ -187,5 +187,45 @@ i18n: {
 
 ---
 
+---
+
+## 6. Estado real vs. plan — auditado 2026-09-04
+
+Disparado por una observación del IC sobre el toggle de idioma. Verificado contra el
+código real (no contra lo que dice `TRACEABILITY_MATRIX` de "i18n ✅ ACTIVO"):
+
+| Ítem del plan (§1, §4) | Estado real | Evidencia |
+|---|---|---|
+| Meta tags (OG, Twitter, robots, keywords, title template) | ❌ No implementado | `src/app/layout.tsx` solo exporta `{ title, description }` — sin `openGraph`, `twitter`, `robots`, `alternates` |
+| `sitemap.ts` / `robots.txt` | ❌ No existen | `find src/app -iname "sitemap*" -o -iname "robots*"` → vacío |
+| Schema.org JSON-LD (`Person`, `CreativeWork` por caso) | ❌ No implementado | 0 ocurrencias de `application/ld+json` o `schema.org` en `src/` |
+| Metadata dinámica por caso (`generateMetadata`) | ❌ No implementado | `src/app/casos/[slug]/page.tsx` no exporta `generateMetadata` |
+| **i18n bilingüe ES/EN — el plan asume que existe** | ❌ **No existe ningún mecanismo de cambio de idioma** | `src/i18n/request.ts` tiene `const locale = 'es'` **hardcodeado** — nunca lee `en.json`. Sin `middleware.ts`, sin `LanguageToggle`, sin `useLocale`/`setLocale` en ningún componente (grep completo de `src/` = 0 resultados) |
+| hreflang / `alternates.languages` | ❌ No implementado | consecuencia directa del punto anterior — no hay 2 locales servidos, no hay nada que alternar |
+
+**Conclusión:** `en.json` existe (`src/i18n/messages/en.json`) pero **es contenido muerto** —
+ningún visitante lo ve nunca, porque `getRequestConfig()` siempre resuelve a `'es'`. La entrada
+"i18n: ✅ ACTIVO (parcial)" de `TRACEABILITY_MATRIX.md` describe la cobertura de `useTranslations()`
+dentro de los componentes, pero no aclara que el mecanismo de *selección* de idioma —el 50% que
+lo hace útil— no existe. Esto también es un gap de accesibilidad: WCAG 3.1.1/3.1.2 (idioma de
+página/idioma de partes) da por hecho que el `lang` del documento refleja lo que el usuario eligió;
+hoy `<html lang={locale}>` en `layout.tsx` siempre resuelve `es` porque `getLocale()` no tiene de
+dónde más leer.
+
+**Para implementarlo de verdad hace falta (candidato a work-stream `EX-v2-I18N-ROUTING-001`,
+Ola 6 — ya estaba listada como candidata en `CLAUDE.md`):**
+1. `middleware.ts` con `createMiddleware` de `next-intl` (detección de locale por URL/cookie/`Accept-Language`).
+2. Reestructurar rutas bajo `src/app/[locale]/...` (o el patrón de subpath que decida next-intl).
+3. `LanguageToggle` (molécula, mismo patrón que `ThemeToggle`) + `useLocale()`/`Link` localizado.
+4. `generateMetadata` con `alternates.languages` (hreflang) por página.
+5. `sitemap.ts`, `robots.ts`, JSON-LD (`Person` + `CreativeWork` por caso) — la parte de §1 que
+   nunca se construyó, independiente del punto de idioma.
+
+No se implementó nada de esto ahora — es un cambio de arquitectura de rutas (App Router), no un
+fix puntual. Queda documentado para que el IC decida cuándo entra (ver pregunta al usuario).
+
+---
+
 📍 Momentum: M1 | Artefacto: SEO_AIO_PLAN | Nivel: B
 Firmado: Leonel Mauricio Gómez Ocampo — Staff Product Architect | 2026-06-15
+Auditoría de estado real: Claude Code (rol Arquitecto) | 2026-09-04
