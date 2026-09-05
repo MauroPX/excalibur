@@ -31,13 +31,16 @@
 | EX-v2-ORG-005 | StackSection | organisms | 3 | LOCKED | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1.0.0 |
 | EX-v2-ORG-006 | ContactSection | organisms | 3 | LOCKED | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1.0.0 |
 | EX-v2-A11Y-001 | InquisitorHUD | organisms | 3 | LOCKED | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1.0.0 |
-| EX-v2-TMPL-001 | HomeTemplate | templates | 4 | LOCKED | ✅ | ✅ | — ¹ | ✅ | ✅ | ✅ | 1.0.0 |
-| EX-v2-TMPL-002 | CasePage | templates | 4 | LOCKED | ✅ | ✅ | — ¹ | ✅ | ✅ | ✅ | 1.0.0 |
+| EX-v2-TMPL-001 | HomeTemplate | templates | 4 | LOCKED | ✅ | ✅ | ✅ ¹ | ✅ | ✅ | ✅ | 1.0.0 |
+| EX-v2-TMPL-002 | CasePage | templates | 4 | LOCKED | ✅ | ✅ | ✅ ¹ | ✅ | ✅ | ✅ | 1.0.0 |
 | EX-v2-PAGE-001 | / (HomePage) | pages | 7 | LOCKED | ✅ | — | — | — | — | — | 1.0.0 |
 | EX-v2-PAGE-002 | /casos/[slug] | pages | 7 | LOCKED | ✅ | — | — | — | — | — | 1.0.0 |
 
-¹ Templates sin story Storybook por ahora (LOCKED vía `.test` de integración + blueprint + cert).
-  Follow-up recomendado: stories con estados Loading/Empty/Error/HappyPath (ver `docs/m3/DS_GOVERNANCE_AUDIT.md` §D).
+¹ Stories añadidas 2026-09-04 con datos reales del portafolio (mismos fixtures que los
+  `.stories.tsx` de cada organismo / que `src/app/casos/[slug]/page.tsx`). HomeTemplate: 2
+  stories (HappyPath, sin featuredProjects). CasePage: 4 stories (FDN, Solidaria, BBVA, sin
+  siguiente caso). Ver `docs/m3/DS_GOVERNANCE_AUDIT.md` §D — nota: no incluyen Loading/Empty/
+  Error porque estos templates no tienen esos estados (son composición estática de props).
 
 ---
 
@@ -57,7 +60,16 @@ Detalle: `docs/m3/DS_GOVERNANCE_AUDIT.md`.
 | Componentes LOCKED con blueprint | ✅ (ThemeToggle reconstruido) |
 | Componentes LOCKED en esta matriz | ✅ (ATOM-007 añadido) |
 
-Deuda no bloqueante: stories de templates · generador DTCG de tokens (anti-drift) · i18n del aria-label de ThemeToggle · esquemas medium/high-contrast.
+Resuelto 2026-09-04: stories de templates (§ tabla arriba) · generador de tokens
+(`scripts/generate-tokens.mjs`, `pnpm tokens:generate` / `pnpm tokens:check` — encontró y
+corrigió un bug real: `--md-sys-color-primary-rgb` en light mode tenía el triplete equivocado,
+copiado de `inverse-primary` en vez de `primary`) · decorator global `NextIntlClientProvider`
+en `.storybook/preview.tsx` (arregla un throw en runtime de CasesSection/ContactSection/
+HomeTemplate en Storybook que el build no detectaba — solo empaqueta, no renderiza).
+
+Deuda no bloqueante restante: i18n del aria-label de ThemeToggle · esquemas medium/high-contrast
+· wiring de `pnpm tokens:check` en CI (`.github/workflows/v2.yml`) — no se tocó el workflow,
+decisión del IC.
 
 ---
 

@@ -3,9 +3,9 @@ base: EX-v2-THEME-001 / DESIGN_SPEC
 titulo: Auditoría de gobernanza del Design System — TITAN
 momentum: M3
 nivel: A
-estado: APLICADA (2026-09-03)
-rama: fix/v2-ds-governance
-alcance: src/components/** · src/theme/** · src/app/globals.css · docs/m2/design/**
+estado: APLICADA (2026-09-03, extendida 2026-09-04 — generador de tokens + stories de templates)
+rama: fix/v2-ds-governance · feat/v2-analytics-posthog (extensión)
+alcance: src/components/** · src/theme/** · src/app/globals.css · docs/m2/design/** · scripts/** · .storybook/**
 ---
 
 # Auditoría de gobernanza del Design System — EXCALIBUR v2.0
@@ -27,10 +27,12 @@ atomic data?"). 24 componentes LOCKED auditados uno por uno.
 | 7 | Clase BEM `ex-*` en el root de cada componente | ✅ 24/24 | ✅ 24/24 |
 | 8 | Paridad de tokens `DESIGN_TOKENS.json` ↔ `tokens.ts` ↔ `globals.css` | ✅ 50×2, 0 diff | ✅ 50×2, 0 diff (+ `--*-rgb` derivados) |
 | 9 | `darkTokens` y `lightTokens` con el mismo set de roles | ✅ 50 = 50 | ✅ 50 = 50 |
-| 10 | Cada componente LOCKED con `.tsx + index.ts + .test + .stories + blueprint + CERT` | ⚠️ 3 gaps | ⚠️ 1 gap (stories de templates — ver §D) |
+| 10 | Cada componente LOCKED con `.tsx + index.ts + .test + .stories + blueprint + CERT` | ⚠️ 3 gaps | ✅ 0 gaps (stories de templates añadidas 2026-09-04 — ver §D) |
 | 11 | Cada componente LOCKED con fila en `TRACEABILITY_MATRIX` | ❌ falta ATOM-007 | ✅ añadida |
+| 12 | Fuente única de tokens (generador, no mantenimiento a mano) | ❌ no existía | ✅ `scripts/generate-tokens.mjs` + `pnpm tokens:generate`/`tokens:check` — ver §G |
+| 13 | Stories renderizan de verdad en Storybook (no solo compilan) | ❌ `useTranslations()` sin provider rompía CasesSection/ContactSection/HomeTemplate en runtime | ✅ decorator global `NextIntlClientProvider` en `.storybook/preview.tsx` — ver §D |
 
-Verificación final: `pnpm lint` 0 · `pnpm test` 176/176 · `pnpm build` 0 · `pnpm build-storybook` 0 · `workflow_bfl.sh audit` 97%.
+Verificación final (2026-09-04): `pnpm lint` 0 · `pnpm test` 181/181 (25 archivos) · `pnpm build` 0 · `pnpm build-storybook` 0 · `workflow_bfl.sh audit` 97%.
 
 ---
 
@@ -74,8 +76,9 @@ Verificado con barrido por carpeta. La regla de identidad DOM del blueprint (`do
 | Gap | Estado |
 |---|---|
 | `atoms/ThemeToggle/` sin `.blueprint.json` (el `VERSION_CERTIFICATE` lo referenciaba → ref rota) | ✅ **Reconstruido** desde el componente + formato `AudienceCard.blueprint.json`. BH-1..6 documentados. |
-| `templates/HomeTemplate/` y `templates/CasePage/` sin `.stories.tsx` (la matriz decía `✅`) | 📝 **Matriz corregida** a `—`. Recomendación de follow-up: stories de template con estados Loading/Empty/Error/HappyPath (estilo BCS `bcs-frontend`). No se generan a medias solo por cerrar la casilla. |
+| `templates/HomeTemplate/` y `templates/CasePage/` sin `.stories.tsx` (la matriz decía `✅` — falso) | ✅ **Añadidas 2026-09-04**, con datos reales del portafolio (mismos fixtures que los `.stories.tsx` de cada organismo / que `src/app/casos/[slug]/page.tsx`). HomeTemplate: 2 stories. CasePage: 4 stories (FDN, Solidaria, BBVA, sin siguiente caso). No incluyen Loading/Empty/Error porque estos templates no tienen esos estados — son composición estática de props, no fetch. |
 | `infra/Setup/` sin `.tsx/.test/.stories` | ✅ Esperado — es infra (sin componente UI). |
+| **Bug de runtime descubierto:** `CasesSection`/`ContactSection` (y por herencia `HomeTemplate`) llaman `useTranslations()` sin `NextIntlClientProvider` en Storybook. `pnpm build-storybook` nunca lo detectó porque *empaqueta*, no *renderiza* cada story. | ✅ Decorator global en `.storybook/preview.tsx` con los mensajes reales de `es.json` (mismo patrón que el fix de `4f6ab9e` para los tests). Verificado con un smoke test temporal (render real de `HomeTemplate` con los 2 stories, sin throw) — no se commitea, era solo para esta verificación. |
 
 ## E. Paridad y estructura de tokens
 
@@ -91,33 +94,44 @@ globals.css :root/[data-theme=light]    ← 0 diferencias vs JSON y vs tokens.ts
 - Seed `#A47540` (Material Theme Builder, 2026-09-03) declarado en las 3 fuentes.
 - `cta` / `on-cta` documentados como alias no-estándar del rol `tertiary` (comentado en `tokens.ts`).
 
-**Riesgo residual (preventivo, no conflicto):** las 3 fuentes se mantienen **a mano**. Hoy 0 drift,
-pero nada lo garantiza. Recomendación: generador `DESIGN_TOKENS.json (DTCG) → tokens.ts + globals.css`
-(patrón `tokens:generate` de `bcs-frontend`). Eliminaría esta clase de bug (fue la causa de los 3
-fallos falsos de auditoría del 2026-09-03).
+**Riesgo residual — resuelto 2026-09-04.** Las 3 fuentes se mantenían **a mano**; nada garantizaba
+que siguieran en sync. Se construyó `scripts/generate-tokens.mjs`: `DESIGN_TOKENS.json` (fuente
+única) → genera `tokens.ts` + el bloque de color de `globals.css`. `pnpm tokens:generate` escribe,
+`pnpm tokens:check` audita sin escribir (falla con exit 1 si hay drift — listo para CI, no
+wireado en `.github/workflows/v2.yml` por decisión de no tocar CI sin pedido explícito).
+
+**El generador encontró un bug real en el primer run:** `--md-sys-color-primary-rgb` en
+`[data-theme="light"]` de `globals.css` valía `132, 84, 22` (el RGB de `#845416`, que es
+`inverse-primary` de **dark** mode) en vez de `80, 46, 0` (el RGB correcto del `primary` de
+**light** mode, `#502E00`). Consecuencia real: `rgba(var(--md-sys-color-primary-rgb), 0.08)`
+en el hover de `Button`/`NavTab` en **light mode** pintaba con el tinte equivocado. Corregido
+por el propio generador al escribir. Esto es exactamente la clase de bug que motivó construirlo.
 
 ## F. TRACEABILITY_MATRIX — correcciones
 
 | Fila | Antes | Después |
 |---|---|---|
 | `EX-v2-ATOM-007` ThemeToggle | ausente de la tabla COMPONENTES | añadida (LOCKED, Ola 5) |
-| `EX-v2-TMPL-001/002` columna `.stories` | `✅` | `—` (+ nota) |
-| Sección nueva "DS — Gobernanza (2026-09-03)" | — | resumen de esta auditoría |
+| `EX-v2-TMPL-001/002` columna `.stories` | `✅` (falso) | `—` (2026-09-03) → `✅` real (2026-09-04, stories añadidas) |
+| `EX-v2-MOL-008` / `EX-v2-ANALYTICS-001` (work-streams) | DRAFT / BLUEPRINT | BLUEPRINT_APPROVED / LOCKED — ver `SYNC-001_EXECUTION_LOG.md` y `ADR-006-analytics.md` |
+| Sección "DS — Gobernanza" | — | resumen de esta auditoría, extendido 2026-09-04 |
 
-> No se refrescó el resto de la matriz (conteos de test "171", "Ola activa: 2", "i18n no existe") —
-> eso es tarea de un LOCK de ola, no de esta auditoría de DS.
+> No se refrescó el resto de la matriz (conteos de test "171", "Ola activa: 2") — eso es tarea
+> de un LOCK de ola, no de esta auditoría de DS.
 
 ---
 
-## Deuda registrada (no bloqueante)
+## Deuda registrada
 
-| Item | Prioridad | Nota |
+| Item | Estado | Nota |
 |---|---|---|
-| Stories de templates (Loading/Empty/Error/Happy) | media | estilo BCS; los templates ya tienen `.test` de integración |
-| Generador DTCG de tokens | media | preventivo anti-drift |
+| Stories de templates (HomeTemplate, CasePage) | ✅ Resuelto 2026-09-04 | datos reales del portafolio; sin Loading/Empty/Error (no aplican — sin fetch) |
+| Generador DTCG de tokens | ✅ Resuelto 2026-09-04 | `scripts/generate-tokens.mjs` — encontró y corrigió el bug de `primary-rgb` arriba |
+| Decorator i18n global en Storybook | ✅ Resuelto 2026-09-04 | destapaba un throw en runtime no detectado por el build |
+| `pnpm tokens:check` en CI | ⏸️ No bloqueante | script listo; wiring a `.github/workflows/v2.yml` pendiente de pedido explícito del IC |
 | i18n del `aria-label` de ThemeToggle | baja | deuda transversal `EX-v2-I18N-001` (componentes con strings fijos) |
 | Esquemas medium/high-contrast | baja | hoy solo base light/dark; natural si a11y es diferenciador |
 
 ---
 
-📍 Momentum: M3 · Auditoría de DS · **gobernanza aplicada al 100% en color, imports y atomic data**
+📍 Momentum: M3 · Auditoría de DS · **gobernanza aplicada al 100% — color, imports, atomic data, fuente de tokens y stories de templates**

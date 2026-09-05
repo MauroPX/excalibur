@@ -1,6 +1,6 @@
 // EXCALIBUR v2.0 — M3 Design Tokens
-// Seed: #A47540 (Material Theme Builder, 2026-09-03) — set completo de roles M3
-// Fuente: docs/m2/design/DESIGN_TOKENS.json (mismo valor, misma estructura)
+// Seed: #A47540 (Material Theme Builder, 2026-09-03) — GENERADO, no editar a mano
+// Fuente: docs/m2/design/DESIGN_TOKENS.json — regenerar con: pnpm tokens:generate
 // 'cta'/'onCta' no son roles M3 estándar — alias del rol 'tertiary'
 // (acento visualmente distinto de 'primary' para el CTA principal del Hero)
 
