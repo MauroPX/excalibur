@@ -79,7 +79,9 @@ Frontmatter recomendado en cada doc nuevo: `base:`, `momentum:`, `nivel:`, `esta
 | `m3/certificates/COMPONENT_REGISTRY.json` | Registro de 24 componentes LOCKED |
 | `m3/certificates/*-CERTIFICATE.json` · `VERSION_CERTIFICATE_*.json` | Sellos de LOCK |
 | `m3/certificates/GSD_TASK_CARD_*.md` | Task cards por componente (Setup, Button, Tag, Badge) |
-| `m3/analytics/TRACKING_PLAN.md` | 🔵 **Work-stream ANALYTICS-001** — plan de tracking (PostHog) |
+| `m3/DS_GOVERNANCE_AUDIT.md` | 🔵 Auditoría de gobernanza del DS (color, imports, atomic data, tokens, stories) |
+| `m3/COLOR_CONTRAST_AUDIT.md` | 🔵 Auditoría de contraste WCAG por rol — texto e iconos, light/dark |
+| `m3/analytics/TRACKING_PLAN.md` | 🔵 **Work-stream ANALYTICS-001** — plan de tracking (PostHog) — LOCKED |
 | `m3/GSD_TASK_CARD_SYNC-001.md` | 🔵 Task card work-stream SYNC-001 |
 | `m3/SYNC-001_EXECUTION_LOG.md` | Bitácora de consolidación SYNC-001 (2026-09-03) |
 | `m3/GSD_TASK_CARD_M3_TEMPLATE.md` | Plantilla de task card |
@@ -123,9 +125,9 @@ Frontmatter recomendado en cada doc nuevo: `base:`, `momentum:`, `nivel:`, `esta
 
 | ID | Base | Estado | Próximo paso |
 |---|---|---|---|
-| **SYNC-001** | `m1/SYNC-001--Analysis--[base].md` | análisis cerrado | A-01: IC confirma copy de los 3 ejes vs. CV maestro |
-| **EX-v2-MOL-008** | `m3/blueprints/BLUEPRINT_SPEC_EX-v2-MOL-008.json` | DRAFT | Gate 1 BH-6 (molécula vs. organismo, Ola, SPEC_ID) |
-| **EX-v2-ANALYTICS-001** | `m3/blueprints/BLUEPRINT_SPEC_EX-v2-ANALYTICS-001.json` | BLUEPRINT | ADR-006 (aprobar PostHog + `posthog-js`) |
+| **SYNC-001** | `m1/SYNC-001--Analysis--[base].md` | Gate 1 cerrado, Forge bloqueado | A-01: IC confirma copy de los 3 ejes vs. CV maestro — **pendiente por decisión explícita del IC** |
+| **EX-v2-MOL-008** | `m3/blueprints/BLUEPRINT_SPEC_EX-v2-MOL-008.json` | BLUEPRINT_APPROVED (BH-1..6 PASS) | Forge bloqueado por A-01 (contenido, no arquitectura) |
+| **EX-v2-ANALYTICS-001** | `m3/blueprints/BLUEPRINT_SPEC_EX-v2-ANALYTICS-001.json` | ✅ LOCKED | Configurar `NEXT_PUBLIC_POSTHOG_KEY`/`_HOST` en Vercel (no-op sin ellas) |
 
 ---
 

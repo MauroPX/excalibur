@@ -130,8 +130,25 @@ por el propio generador al escribir. Esto es exactamente la clase de bug que mot
 | Decorator i18n global en Storybook | ✅ Resuelto 2026-09-04 | destapaba un throw en runtime no detectado por el build |
 | `pnpm tokens:check` en CI | ⏸️ No bloqueante | script listo; wiring a `.github/workflows/v2.yml` pendiente de pedido explícito del IC |
 | i18n del `aria-label` de ThemeToggle | baja | deuda transversal `EX-v2-I18N-001` (componentes con strings fijos) |
+| Contraste de texto/iconos por rol, validado contra uso real | ✅ Resuelto 2026-09-04 | ver `docs/m3/COLOR_CONTRAST_AUDIT.md` — 42/48 pares AAA + 36/36 combos icono/texto reales AAA |
 | Esquemas medium/high-contrast | baja | hoy solo base light/dark; natural si a11y es diferenciador |
 
 ---
 
-📍 Momentum: M3 · Auditoría de DS · **gobernanza aplicada al 100% — color, imports, atomic data, fuente de tokens y stories de templates**
+## H. Contraste de texto e iconos por rol
+
+Verificación independiente (no se tomó de un commit previo) con la fórmula WCAG de luminancia
+relativa, cruzada contra el **uso real** de cada token en `src/components/`. Documento completo:
+**`docs/m3/COLOR_CONTRAST_AUDIT.md`**.
+
+Resumen: 42/48 pares semánticos en AAA (los 6 restantes — `fixed-dim`/`on-fixed-variant` — están
+en AA y **no se usan en ningún componente hoy**, sin brecha activa). Los 3 puntos donde el código
+pasa un color explícito a un icono/texto de apoyo (`primary` en `AudienceCard`/`SkillBar`,
+`on-surface-variant` en `NavTab` inactivo) se verificaron contra las 6 superficies reales donde
+se renderizan × 2 modos = 36 combinaciones, **36/36 en AAA**. Confirmado también que el cambio
+light↔dark es correcto **por construcción** (fuente única de tokens + 0% hex hardcodeado + un
+solo mecanismo de swap vía `[data-theme]`), no solo "correcto hoy por casualidad".
+
+---
+
+📍 Momentum: M3 · Auditoría de DS · **gobernanza aplicada al 100% — color, imports, atomic data, fuente de tokens, stories de templates y contraste texto/iconos**
