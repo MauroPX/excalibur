@@ -135,8 +135,6 @@ Según `SKILL_SEO_AEO_GEO §3.1`, un portafolio de consultoría requiere schema 
 **Resultado:** Ecosistema completo lanzado en tiendas (Jul 2020), suscripción mensual $59,900 COP, MVP corporativo de monedero virtual.
 **og:description:** `Diseñé el ecosistema de producto E2E de Ruedaz (Parking International) — 5 plataformas conectadas, de la app de usuario final al portal corporativo.`
 
-*(Nota de honestidad: la cifra de "+90% en uso recurrente" citada en el dossier interno de carrera aparece en dos resúmenes consolidados pero sin link a fuente primaria dentro de los documentos individuales revisados — se deja fuera de esta versión hasta confirmarla, mismo criterio que el costo TITAN pendiente en §6.)*
-
 ### FDN — Financiera de Desarrollo Nacional
 *Consultor de Accesibilidad y Estrategia Digital · Feb 2026*
 
@@ -196,8 +194,6 @@ El caso FDN tiene **dos momentums distintos, con distinto nivel de evidencia** �
 > Automatiza declaraciones WCAG 2.2, políticas de calidad ISO 9001, evaluaciones de seguridad ISO 27001 y mapeo GDPR/Ley 1581 — generadas como documentación viva, no como PDF que se desactualiza.
 
 *(Referencia interna: `TITAN_v7_0_CORE.md` — "Sistema Maestro de Ingeniería y Orquestación de IA" que garantiza Perfección Atómica mediante M3 Foundations, WCAG 2.2 AA/AAA y el protocolo BFL.)*
-
-> ⚠️ **PENDIENTE — no implementar aún:** la versión anterior de esta sección incluía "reemplaza $3,000–$25,000 en auditorías externas". Es un dato heredado del v1 sin fuente verificable en esta conversación. Se retira de la versión lista para implementar hasta que se confirme de dónde sale ese rango (o se decida no usarlo). No incluir en `es.json`/`en.json` mientras siga pendiente.
 
 ---
 
