@@ -73,7 +73,12 @@ La IA (Claude Sonnet) generó el hook de autenticación base, el layout inicial 
 *(Nota de método: este tipo de transparencia sobre uso de IA es un diferenciador real frente a otros candidatos — pocos lo documentan así. Vale la pena mantenerlo visible en el portafolio, no ocultarlo.)*
 
 ### Resultado verificable
-Demo desplegada y funcional: `simon-v2-monitor.netlify.app` — app conectada a datos reales de Traccar (demo4), no mockup estático.
+Demo desplegada y funcional — app conectada a datos reales de Traccar (demo4), no mockup estático. Evidencia pública (ver también §Publicación pública):
+- Producción: `simon-v2-monitor-rmxm.vercel.app/?demo=true`
+- Preview (Capas 2+3): `simon-v2-monitor-rmxm-git-feat-capa-2-lemaogo-9238s-projects.vercel.app`
+- Repositorio: `github.com/MauroPX/simon-v2-monitor`
+- Documentación técnica: `github.com/MauroPX/simon-v2-monitor/blob/feat/capa-2/docs/TECHNICAL_CHALLENGE_RESPONSE.md`
+- Video (Loom): `loom.com/share/dc3ef2ab5fb84e9b8c52709b26b8f915`
 
 **og:description sugerida:** `Prueba técnica de Design Engineer: monitor GPS en tiempo real sobre Traccar, con decisiones documentadas (por qué polling y no WebSocket, por qué Zustand) y transparencia total sobre qué generó la IA y qué corregí manualmente.`
 
@@ -152,6 +157,31 @@ Herramienta: "TITAN Research Intelligence Skill v5.1". Etapas donde se usó: cla
 **og:description sugerida:** `Prueba técnica de investigación UX (7 días, sin pantallas pedidas): estrategia completa con 5 hipótesis fundamentadas en marcos teóricos, metodología mixta y priorización RICE+Inclusión — con declaración transparente de uso de IA como parte evaluada del proceso.`
 
 *(Nota de método — por qué se documenta así: el brief pedía transparencia sobre IA como competencia evaluada, así que mostrar la declaración de uso de IA tal cual aparece en la entrega es coherente y no debilita el caso — al contrario, es evidencia de proceso honesto. Lo que sí debilitaría el caso es presentar las ~120 páginas de research sin editar como si fueran el entregable: por eso el caso se construye solo sobre las 17 páginas finales, y el research crudo se menciona como paso de trabajo, no como resultado.)*
+
+---
+
+## Publicación pública — evidencia de autoría (LinkedIn + fecha)
+
+**Por qué esto importa:** estas pruebas implicaron investigación y trabajo real. Publicarlas con URL propia y fecha, declarando explícitamente que son ejercicios de evaluación y no un encargo remunerado, deja un registro público de autoría — quien lo lea después sabe, por tus propias palabras y con timestamp, que esto no fue trabajo cedido a la empresa evaluadora. *(Nota: esto ayuda a dejar evidencia pública de autoría, pero no es asesoría legal — no soy abogado. Si te preocupa el uso indebido de un caso puntual, vale la pena revisar los términos que aceptaste al tomar esa prueba específica, sobre todo si hubo algún acuerdo firmado.)*
+
+Fórmula común para el texto de LinkedIn de cada caso: **(1)** qué era el reto, **(2)** que fue una prueba de selección — no un encargo pagado, **(3)** qué decidiste y por qué, **(4)** el link.
+
+### Caso 1 — FleetControl
+- **Estado:** ✅ listo para publicar — URLs verificadas.
+- Producción: `simon-v2-monitor-rmxm.vercel.app/?demo=true` · Preview: `simon-v2-monitor-rmxm-git-feat-capa-2-lemaogo-9238s-projects.vercel.app` · Repo: `github.com/MauroPX/simon-v2-monitor` · Video: `loom.com/share/dc3ef2ab5fb84e9b8c52709b26b8f915`
+- **Texto sugerido:**
+  > Prueba técnica de Design Engineer: construir un monitor de flota en tiempo real sobre la API real de Traccar (GPS open-source). Ejercicio de evaluación de un proceso de selección, no un encargo remunerado — lo comparto por las decisiones que documenté en el camino: por qué polling + interpolación en vez de WebSocket, por qué Zustand y no Context, y qué generó la IA vs. qué corregí yo manualmente (documentado explícitamente, no oculto). Demo, repo y video técnico en los comentarios.
+
+### Caso 2 — Solidaria Portal
+- **Estado:** ✅ URL verificada, falta redactar el texto final (recordar: es autodiagnóstico propio, no una prueba encargada — el texto debe reflejar eso, distinto a los otros 3 casos).
+- Producción: `solidaria-portal.vercel.app`
+- **Nota:** aquí NO aplica la fórmula "prueba de selección, no encargo remunerado" — es un diagnóstico que hiciste por iniciativa propia antes de una entrevista, así que el texto debe decir eso, no lo de arriba. Aplica también el filtro de confidencialidad de más abajo.
+
+### Caso 3 — BCS
+- **Estado:** ⏳ pendiente — falta URL pública (link de Figma compartido y/o Chromatic/Storybook).
+
+### Caso 4 — Codesa
+- **Estado:** ⏳ pendiente — falta URL pública (el `llm-council` no tiene deploy conocido; evaluar si se publica el research o solo el documento estratégico final).
 
 ---
 
