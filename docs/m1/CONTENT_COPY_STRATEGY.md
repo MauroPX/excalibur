@@ -175,9 +175,11 @@ El caso FDN tiene **dos momentums distintos, con distinto nivel de evidencia** �
 >
 > Gobierna el ciclo de vida completo del producto digital en 6 fases (M0–M5), con un protocolo Blueprint→Forge→Lock que audita cada componente contra Atomic Design, tokens M3/HCT y WCAG 2.2 antes de aprobarlo.
 >
-> **Automatiza lo que hoy cuesta $3,000–$25,000 en auditorías externas:** declaraciones WCAG 2.2, políticas de calidad ISO 9001, evaluaciones de seguridad ISO 27001 y mapeo GDPR/Ley 1581 — generadas como documentación viva, no como PDF que se desactualiza.
+> Automatiza declaraciones WCAG 2.2, políticas de calidad ISO 9001, evaluaciones de seguridad ISO 27001 y mapeo GDPR/Ley 1581 — generadas como documentación viva, no como PDF que se desactualiza.
 
 *(Referencia interna: `TITAN_v7_0_CORE.md` — "Sistema Maestro de Ingeniería y Orquestación de IA" que garantiza Perfección Atómica mediante M3 Foundations, WCAG 2.2 AA/AAA y el protocolo BFL.)*
+
+> ⚠️ **PENDIENTE — no implementar aún:** la versión anterior de esta sección incluía "reemplaza $3,000–$25,000 en auditorías externas". Es un dato heredado del v1 sin fuente verificable en esta conversación. Se retira de la versión lista para implementar hasta que se confirme de dónde sale ese rango (o se decida no usarlo). No incluir en `es.json`/`en.json` mientras siga pendiente.
 
 ---
 
@@ -211,6 +213,61 @@ Con métricas de negocio, no solo de entrega: en BBVA, 5/5 de calificación de P
 
 ---
 
+## 7.5. Valor/STAR-L aplicado a los 6 casos de cliente (dato confirmado, listo para implementar)
+
+Mismo backbone que se definió para los casos de prueba técnica (`docs/m2/spec/CASE_PAGE_CONTENT_STRUCTURE.md`): **Valor** (Insight, primero) → **Situación → Tarea → Acción (opciones descartadas vs. elegida) → Resultado → Aprendizaje**. Todo lo de abajo es dato ya existente en el contenido actual del sitio (v93) o en este documento — ninguna cifra nueva.
+
+### Correos Chile — Portal Empresas B2B
+- **Valor:** Antes de abrir Figma, estudié 297 envíos reales y absorbí el manual de marca completo — el resultado no fue una pantalla bonita, fue un sistema que redujo el tiempo de entrega a la mitad.
+- **Situación:** áreas desconectadas, datos duplicados, cero trazabilidad en la red logística postal nacional de Chile, 13 regiones.
+- **Tarea:** conectar operaciones en tiempo real en 13 regiones sin reconstruir la infraestructura.
+- **Acción:** *descartado* — diseñar sobre supuestos, solo happy path → *elegido* — estudiar el modelo de datos real (297 envíos, 11 campos) y mapear 5 escenarios por flujo (happy path, alternativos, errores, edge cases) antes de abrir Figma → *por qué*: cero ambigüedad en desarrollo, cero retrabajo.
+- **Resultado:** 12→6 meses (estimado 12, entregado en 6), +400 componentes MUI React, 10 desarrolladores autónomos desde sprint 1, >95% fidelidad UI-Dev, 3 productos entregados (Portal B2B, Sucursal Virtual, App Móvil), 2 ciclos extra de mejora en el mismo presupuesto.
+- **Aprendizaje:** diagnosticar el dato real antes de diseñar evita el retrabajo — el mismo principio que aplicas después en Solidaria y FDN.
+
+### BBVA Colombia & Panamá — Sistema GEMAS
+- **Valor:** 3 productos B2B en 2 países no necesitaban 3 soluciones distintas — necesitaban una arquitectura común. Diseñé esa arquitectura, no otra pantalla más.
+- **Situación:** 3 productos B2B con 20+ funcionalidades, sin arquitectura común entre países.
+- **Tarea:** crear una arquitectura instruccional escalable de 5 fases y habilitar interoperabilidad cross-border (Proyecto Brickell, Panamá).
+- **Acción:** *descartado* — soluciones aisladas por país, tutoriales generados manualmente → *elegido* — Sistema GEMAS unificado + orquestación de tutoriales/flujos vía Gemini Gems → *por qué*: evita reinventar la arquitectura por cada país.
+- **Resultado:** 5/5 calificación de 3 Product Owners, +200 usuarios impactados (gestión remota E2E), 100% cumplimiento de tiempos, presentaciones a nivel VP.
+- **Aprendizaje:** una arquitectura común entre productos evita reinventar la rueda por país — mismo principio de "sistema antes que pantalla" que en Correos Chile.
+
+### FDN — Financiera de Desarrollo Nacional
+*(Ya documentado en detalle arriba, §FDN — 2 momentums. Versión Valor/STAR-L:)*
+- **Valor:** Entré a auditar accesibilidad. Al mirar el proceso completo, encontré la causa raíz (un sitio estático en fin de vida) y propuse la arquitectura que la resuelve.
+- **Situación:** mandato de MinTIC exige auditoría WCAG 2.2 completa sobre un sitio en Drupal 7 (EOL).
+- **Tarea:** no solo documentar incidentes — identificar y proponer la solución a la causa raíz.
+- **Acción:** *descartado* — remediar los 654 incidentes puntuales sobre Drupal 7 → *elegido* — proponer migración completa (Next.js/Strapi/RAG) → *por qué*: Drupal 7 está en EOL, remediar sin migrar repara un sistema que de todas formas hay que reemplazar.
+- **Resultado (Momentum 1, confirmado):** 654 incidentes auditados en 7 secciones, 36 reportes Lighthouse, gap analysis, runbook de despliegue. **(Momentum 2, propuesta propia, no aprobada en su totalidad):** arquitectura propuesta con CAPEX estimado y calendario objetivo.
+- **Aprendizaje:** un mandato técnico acotado casi siempre esconde un problema más grande — mismo patrón que en Solidaria.
+
+### Universidad de La Salle
+- **Valor:** No apunté al mínimo aceptable — apunté al nivel más alto posible (AAA), porque bajo obligación normativa, "casi cumplido" sigue siendo riesgo legal.
+- **Situación:** ningún nivel de conformidad por debajo de AAA eliminaba el riesgo legal bajo MinTIC.
+- **Tarea:** alcanzar el nivel más alto de conformidad WCAG posible, no solo "cumplir".
+- **Acción:** *descartado* — AA (cumplimiento mínimo aceptable), evaluación superficial → *elegido* — AAA + 18 categorías evaluadas con 4 roles por criterio + Web Vitals como criterio de accesibilidad → *por qué*: bajo obligación normativa, el mínimo sigue siendo riesgo.
+- **Resultado:** WCAG 2.2 AAA logrado (el nivel más alto), riesgo legal cero bajo normativa MinTIC, Design System Angular Material + IAAP.
+- **Aprendizaje:** cuando el riesgo es legal, "cumplir lo mínimo" no es una opción válida — se replica después en FDN.
+
+### FID Seguros (Chile)
+- **Valor:** Antes de mover una sola pantalla de OutSystems a React, construí el sistema de gobierno completo — sin eso, la migración se fragmenta en meses, no en semanas.
+- **Situación:** migrar de OutSystems (legacy) a MUI React sin un framework de gobierno fragmentaría el sistema.
+- **Tarea:** construir el sistema operativo de diseño completo antes de tocar cualquier pantalla.
+- **Acción:** *descartado* — migrar pantalla por pantalla, ad-hoc → *elegido* — BPM con 4 actores + Framework de Integración D↔D (1,002 filas, 46+ entregables) + guía WCAG con Domain-Driven Design → *por qué*: sin gobierno explícito, la migración se fragmenta.
+- **Resultado:** +70% de eficiencia en CX, equipo de desarrollo autónomo desde el sprint 1.
+- **Aprendizaje:** sin gobierno explícito antes de migrar, el sistema se fragmenta — construirlo primero es más lento al inicio pero evita ese colapso.
+
+### Siclo / IDPay
+- **Valor:** No entregué solo wireframes — entregué la especificación completa: de la pantalla al modelo de datos y los contratos de API que la sostienen.
+- **Situación:** módulo de gestión de convenios sin especificación UX ni técnica completa.
+- **Tarea:** entregar una especificación que cubra el ciclo de vida completo (UX + técnico), no solo pantallas.
+- **Acción:** *descartado* — entregar solo wireframes → *elegido* — 4 flujos + 11 wireframes + revisión del modelo de datos (10 tablas, diagrama ER) + contratos de API (OpenAPI) + marco de métricas CX (CSAT, CES) → *por qué*: una especificación sin el modelo de datos detrás no es completa.
+- **Resultado:** 11 wireframes, ciclo de vida completo documentado.
+- **Aprendizaje:** una especificación UX sin su modelo de datos y contratos de API no está terminada — mismo criterio que aplicas en el diagnóstico E2E de otros casos.
+
+---
+
 ## 8. Metadata por página (contenido real para `SEO_AIO_PLAN.md §1`)
 
 `SEO_AIO_PLAN.md` ya define el código (`generateMetadata`, sitemap, JSON-LD) pero deja los campos de texto como plantilla. Esta tabla es el contenido real que falta:
@@ -220,7 +277,7 @@ Con métricas de negocio, no solo de entrega: en BBVA, 5/5 de calificación de P
 | `/` | Mauricio Gómez — Staff Product Architect \| Design Systems & WCAG 2.2 AAA | Staff Product Architect en Bogotá. Diseño sistemas de producto que un equipo opera sin mí: Design Systems, WCAG 2.2 AAA y orquestación de IA. |
 | `/casos/correos-chile` | Correos Chile — Portal Empresas B2B \| Mauricio Gómez | Comprimí un timeline de 12 a 6 meses conectando 13 regiones postales con un Design System de 400+ componentes MUI React. |
 | `/casos/bbva` | BBVA Colombia & Panamá — Sistema GEMAS \| Mauricio Gómez | Arquitectura de 5 fases para 3 productos B2B de BBVA — 5/5 de calificación de Product Owners y +200 usuarios impactados. |
-| `/casos/fdn` | FDN — Auditoría WCAG 2.2 \| Mauricio Gómez | Auditoría WCAG 2.2 bajo mandato MinTIC: 654 incidentes revisados en 7 secciones, con estrategia de migración aprobada a nivel VP. |
+| `/casos/fdn` | FDN — Auditoría WCAG 2.2 \| Mauricio Gómez | Auditoría WCAG 2.2 bajo mandato MinTIC: 654 incidentes revisados en 7 secciones — más una propuesta propia de arquitectura para resolver la causa raíz. |
 | `/casos/la-salle` | Universidad de La Salle — WCAG 2.2 AAA \| Mauricio Gómez | Conformidad WCAG 2.2 AAA, el nivel más alto, evaluando 18 categorías de accesibilidad con Angular Material. |
 | `/casos/fid-seguros` | FID Seguros — Migración OutSystems a React \| Mauricio Gómez | Migré el Design System de FID Seguros a MUI React con Domain-Driven Design — +70% de eficiencia en CX. |
 | `/casos/siclo-idpay` | Siclo / IDPay — Especificación UX y técnica \| Mauricio Gómez | Especificación UX y técnica completa del módulo de acuerdos de un SaaS B2B: 4 flujos, 11 wireframes, 10 tablas de datos. |

@@ -173,15 +173,31 @@ Fórmula común para el texto de LinkedIn de cada caso: **(1)** qué era el reto
   > Prueba técnica de Design Engineer: construir un monitor de flota en tiempo real sobre la API real de Traccar (GPS open-source). Ejercicio de evaluación de un proceso de selección, no un encargo remunerado — lo comparto por las decisiones que documenté en el camino: por qué polling + interpolación en vez de WebSocket, por qué Zustand y no Context, y qué generó la IA vs. qué corregí yo manualmente (documentado explícitamente, no oculto). Demo, repo y video técnico en los comentarios.
 
 ### Caso 2 — Solidaria Portal
-- **Estado:** ✅ URL verificada, falta redactar el texto final (recordar: es autodiagnóstico propio, no una prueba encargada — el texto debe reflejar eso, distinto a los otros 3 casos).
-- Producción: `solidaria-portal.vercel.app`
-- **Nota:** aquí NO aplica la fórmula "prueba de selección, no encargo remunerado" — es un diagnóstico que hiciste por iniciativa propia antes de una entrevista, así que el texto debe decir eso, no lo de arriba. Aplica también el filtro de confidencialidad de más abajo.
+- **Estado:** ✅ listo para publicar — URLs completas, con demo navegable.
+- **Nota (distinta a los otros 3 casos):** aquí NO aplica la fórmula "prueba de selección, no encargo remunerado" — es un diagnóstico que hiciste por iniciativa propia antes de una entrevista. El texto debe decir eso. Aplica también el filtro de confidencialidad de la sección de Gobernanza (no revela nombres de entrevistadores, cifras internas ni estado del proceso).
+- **Cómo recorrerlo:** portal en producción con demo guiada — botón "¿Cómo funciona?" (tour) en la landing; login con `maria@ejemplo.com` + OTP `123456`; tour automático dentro del portal por pólizas, siniestros, PQRS y pagos.
+- **Evolución V1 → V2 (documentada y trazable, no un rediseño — la misma arquitectura evolucionando por capas):**
+
+| Versión | URL | Commit | Contenido |
+|---|---|---|---|
+| V1 — baseline sellada | `solidaria-portal-c424owwv2-lemaogo-9238s-projects.vercel.app` | `c75a74f` | Landing + Auth SSO + Portal básico + Storybook inicial (7 componentes) |
+| V2 — producción actual | `solidaria-portal.vercel.app` | `812ff9b` | + Material Symbols, logo oficial, tour guiado, login rediseñado, detalle de póliza, tokens dark mode |
+
+- **Rutas de feature (V2, todas bajo `solidaria-portal.vercel.app`):** `/` (landing con tour) · `/login` (SSO + OTP) · `/mis-polizas` (dashboard) · `/mis-polizas/POL-HOG-2024-4521` (detalle) · `/cotizar/hogar` y `/cotizar/mascotas` (cotizador 4 pasos) · `/siniestros/reportar` y `/siniestros/consultar` (tracker unificado, reemplaza los 2 trackers fragmentados del hallazgo original) · `/pqrs/radicar` y `/pqrs/consultar` (4 tipos, Defensor del Consumidor SFC visible) · `/pagos` y `/pagos/confirmacion` (PSE + tarjeta).
+- **Sistema de diseño:** Storybook/Chromatic en `6a2d61bf2ded342d004f1b8f-gjmdfbfoac.chromatic.com` — 8 átomos con overview, tokens, guidelines de uso, criterios WCAG 2.2 AA y skeleton para lazy load. Tokens de color generados algorítmicamente desde el azul de marca (#004173) en espacio HCT de Material Design 3, con contraste AA verificado en light y dark mode.
+- **Repositorio:** privado (`github.com/MauroPX/solidaria-portal`) — no se enlaza como acceso público, solo se menciona que existe y está versionado.
+- **Arquitectura desacoplada (ya verificable, no solo declarada):** el portal corre hoy sobre datos mock — conectar el backend real de Solidaria sería un cambio de variable de entorno, el frontend no cambia.
+- **Texto sugerido (LinkedIn):**
+  > Antes de una entrevista con una aseguradora real, hice mi propio diagnóstico: audité sus 7 canales digitales (sitio, portal cliente, pasarela de pagos, 2 trackers de siniestros distintos, PQRS, programa de lealtad) — todos operando como experiencias separadas, sin identidad unificada. No fue un encargo, fue preparación propia. Construí una propuesta de arquitectura desacoplada para demostrarlo: Design System con tokens generados algorítmicamente en HCT/MD3, 212 tests, 0 violaciones de accesibilidad, WCAG 2.2 AA. Portal navegable y Storybook en los comentarios.
 
 ### Caso 3 — BCS
-- **Estado:** ⏳ pendiente — falta URL pública (link de Figma compartido y/o Chromatic/Storybook).
+- **Estado:** ✅ listo para publicar — URLs verificadas.
+- App: `bcs-frontend-web-app.vercel.app` · Storybook: `bcs-frontend-web-app.vercel.app/storybook/?path=/docs/bienvenida-introducción--docs`
+- **Texto sugerido:**
+  > Prueba técnica de Diseño de Interfaz para Banco Caja Social (2 días, solo pedían un archivo Figma). Ejercicio de evaluación de un proceso de selección, no un encargo remunerado — entregué eso más un Design System de 34 roles M3 en 6 esquemas de color, un monorepo con Storybook/Chromatic, y una auditoría automática de 66 verificaciones de contraste WCAG. App y Storybook en los comentarios.
 
 ### Caso 4 — Codesa
-- **Estado:** ⏳ pendiente — falta URL pública (el `llm-council` no tiene deploy conocido; evaluar si se publica el research o solo el documento estratégico final).
+- **Estado:** ⏳ pendiente — falta definir qué se publica (sin URL de app; a decidir si se cita solo el documento estratégico final, sin link ejecutable, dado que el brief no pedía código ni pantallas).
 
 ---
 
