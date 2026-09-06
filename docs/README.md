@@ -79,6 +79,7 @@ Frontmatter recomendado en cada doc nuevo: `base:`, `momentum:`, `nivel:`, `esta
 | `m3/certificates/COMPONENT_REGISTRY.json` | Registro de 24 componentes LOCKED |
 | `m3/certificates/*-CERTIFICATE.json` · `VERSION_CERTIFICATE_*.json` | Sellos de LOCK |
 | `m3/certificates/GSD_TASK_CARD_*.md` | Task cards por componente (Setup, Button, Tag, Badge) |
+| `m3/ESTADO_2026-09-06.md` | 🟢 **Estado de avance y pendientes** — cierre de sesión, qué entró a `v2`, qué falta |
 | `m3/DS_GOVERNANCE_AUDIT.md` | 🔵 Auditoría de gobernanza del DS (color, imports, atomic data, tokens, stories) |
 | `m3/COLOR_CONTRAST_AUDIT.md` | 🔵 Auditoría de contraste WCAG por rol — texto e iconos, light/dark |
 | `m3/analytics/TRACKING_PLAN.md` | 🔵 **Work-stream ANALYTICS-001** — plan de tracking (PostHog) — LOCKED |
