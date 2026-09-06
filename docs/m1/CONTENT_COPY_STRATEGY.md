@@ -114,10 +114,28 @@ Según `SKILL_SEO_AEO_GEO §3.1`, un portafolio de consultoría requiere schema 
 ### BBVA Colombia & Panamá
 *Staff Product Architect & UX Strategist · Jun 2025 – Feb 2026*
 
-**Insight:** 3 productos B2B con 20+ features necesitaban una arquitectura común, no soluciones aisladas por país.
-**Evidencia:** Orquestación de IA vía Gemini Gems para sistematizar tutoriales y flujos de interoperabilidad transfronteriza (Proyecto Brickell).
-**Resultado:** Sistema GEMAS — arquitectura de 5 fases · 5/5 en calificación de 3 Product Owners · +200 usuarios impactados · 100% de entregas a tiempo · presentaciones a nivel VP.
-**og:description:** `Diseñé GEMAS, una arquitectura de 5 fases para 3 productos B2B de BBVA en Colombia y Panamá — 5/5 de calificación de 3 Product Owners y +200 usuarios impactados.`
+**Insight:** los tutoriales guiados ("coach marks") de funcionalidades ya en producción (Bre-B, Proyecto Brickell Panamá) se construían como guiones sueltos, sin sistema — cada país/producto reinventaba tono, motion y reglas de negocio desde cero.
+**Evidencia:** Sistema GEMAS, construido en 5 fases de madurez documentadas (Cimientos de marca → UX Writing y cognición → UI/Motion → Métricas de producción → Arquitectura de reglas de negocio), más un rediseño técnico propio del modelo de interacción: de "Coach Mark" (pantalla dividida, diagnosticado con jerarquía invertida en una de sus variantes) a "Walkthrough Inmersivo" (pantalla completa, guion técnico a beats de segundos para video sin narración) — incluye además una auditoría de accesibilidad/carga cognitiva propia (contraste AAA 7:1, paleta "Clean Canvas") sobre la interfaz de los tutoriales.
+**Resultado:** +600 usuarios internos impactados en los módulos de Gestión de Capital de Trabajo y Mi Pyme Asegurada · 5/5 en calificación de 3 Product Owners · 100% de entregas a tiempo · presentaciones a nivel VP.
+**og:description:** `Diseñé GEMAS, el sistema de gobierno de tutoriales guiados de BBVA para 3 productos B2B en Colombia y Panamá — 5/5 de calificación de 3 Product Owners y +600 usuarios internos impactados.`
+
+### SuRed / Matrix Giros y Servicios (2024)
+*Consultoría Tercerizada · Integración B2B transaccional*
+
+**Insight:** integrar productos regulados de lotería (Baloto/Miloto) a un canal digital exige seguridad transaccional y conciliación diaria auditable, no solo una pantalla de compra.
+**Evidencia:** Arquitectura de integración B2B con el Operador Nacional de Juegos (ONJ) — JWT con expiración a 60 minutos, cifrado de credenciales SHA-256, protocolos SFTP/SSH bajo PCI-DSS, validación de identidad contra listas de control gubernamentales (SIPLAFT/Habeas Data).
+**Resultado:** Canal Baloto/Miloto activo en producción (App y Web de SuRed), con conciliación automática de doble chequeo diario contra ONJ, reportería contable y tirilla digital en PDF.
+**og:description:** `Lideré la integración B2B de Baloto/Miloto en los canales digitales de SuRed — arquitectura de seguridad JWT/SHA-256 y conciliación diaria auditable con el Operador Nacional de Juegos.`
+
+### Parking International / Ruedaz (2020-2022)
+*Diseño de producto E2E · B2C/B2B*
+
+**Insight:** un producto de parqueo necesitaba pensarse como un ecosistema de 5 plataformas conectadas (App, Web, Portal Corporativo, Parking Inside, Parking Attendant), no como una app aislada.
+**Evidencia:** Ruedaz System Design (WCAG 2.1, Atomic Design), Customer Journeys diferenciados por segmento (B2C recurrente, B2B corporativo con monedero y cortesías), reglas de negocio para suscripciones y validación de cupones vía escaneo OCR de facturas.
+**Resultado:** Ecosistema completo lanzado en tiendas (Jul 2020), suscripción mensual $59,900 COP, MVP corporativo de monedero virtual.
+**og:description:** `Diseñé el ecosistema de producto E2E de Ruedaz (Parking International) — 5 plataformas conectadas, de la app de usuario final al portal corporativo.`
+
+*(Nota de honestidad: la cifra de "+90% en uso recurrente" citada en el dossier interno de carrera aparece en dos resúmenes consolidados pero sin link a fuente primaria dentro de los documentos individuales revisados — se deja fuera de esta versión hasta confirmarla, mismo criterio que el costo TITAN pendiente en §6.)*
 
 ### FDN — Financiera de Desarrollo Nacional
 *Consultor de Accesibilidad y Estrategia Digital · Feb 2026*
@@ -126,7 +144,7 @@ El caso FDN tiene **dos momentums distintos, con distinto nivel de evidencia** �
 
 **Momentum 1 — Auditoría de accesibilidad (confirmado, sobre el sitio real construido):**
 **Insight:** El mandato de MinTIC exigía una auditoría WCAG 2.2 completa, no una revisión superficial.
-**Evidencia:** 654 incidentes auditados en 7 secciones del sitio actual, con 36 reportes de Lighthouse como respaldo.
+**Evidencia:** Línea de tiempo de 3 hitos verificables — certificación WCAG 2.1 AA (22 dic 2023), revalidación WCAG 2.1 AA (16 sep 2024), y auditoría paga de 654 incidentes (sep 2025, 40 horas, PO AMC OC 2025074) que detecta que el sitio certificado en 2024 ya no cumple con WCAG 2.2 — 36 reportes de Lighthouse como respaldo adicional.
 **Resultado:** Gap analysis y runbook de despliegue entregados, con hallazgos que sustentan la estrategia de migración descrita abajo.
 
 **Momentum 2 — Propuesta de valor estratégica (estimación propia, no un entregable ya construido):**
@@ -200,7 +218,7 @@ WCAG 2.2 AAA (el nivel más alto) en Universidad de La Salle; WCAG 2.2 AA en BBV
 Sí. Contratos remotos disponibles de inmediato, compensación en USD, enfoque async-first, con base en Bogotá, Colombia.
 
 **¿En qué industrias tiene experiencia?**
-Fintech (BBVA, Redeban, IDPay, Siclo, FID Seguros), GovTech (FDN, Aportes en Línea, DNP-SINERGIA), Logística (Correos de Chile), EdTech (Universidad de La Salle) y Salud (Colsanitas).
+Fintech (BBVA, Redeban, IDPay, Siclo, FID Seguros), GovTech (FDN, Aportes en Línea, DNP-SINERGIA), Logística (Correos de Chile), EdTech (Universidad de La Salle), Salud (Colsanitas), Juegos de suerte y azar regulados (SuRed/Matrix Giros) y Movilidad/Parking (Parking International/Ruedaz).
 
 **¿Cuánto tiempo toma un Design System construido desde cero con este proceso?**
 En el caso de Correos Chile, un Design System de 400+ componentes en MUI React tomó parte del ciclo de 6 meses que reemplazó un plan original de 12 — el tiempo exacto depende del alcance y del backend existente.
@@ -213,7 +231,7 @@ Con métricas de negocio, no solo de entrega: en BBVA, 5/5 de calificación de P
 
 ---
 
-## 7.5. Valor/STAR-L aplicado a los 6 casos de cliente (dato confirmado, listo para implementar)
+## 7.5. Valor/STAR-L aplicado a los 8 casos de cliente (dato confirmado, listo para implementar)
 
 Mismo backbone que se definió para los casos de prueba técnica (`docs/m2/spec/CASE_PAGE_CONTENT_STRUCTURE.md`): **Valor** (Insight, primero) → **Situación → Tarea → Acción (opciones descartadas vs. elegida) → Resultado → Aprendizaje**. Todo lo de abajo es dato ya existente en el contenido actual del sitio (v93) o en este documento — ninguna cifra nueva.
 
@@ -226,12 +244,28 @@ Mismo backbone que se definió para los casos de prueba técnica (`docs/m2/spec/
 - **Aprendizaje:** diagnosticar el dato real antes de diseñar evita el retrabajo — el mismo principio que aplicas después en Solidaria y FDN.
 
 ### BBVA Colombia & Panamá — Sistema GEMAS
-- **Valor:** 3 productos B2B en 2 países no necesitaban 3 soluciones distintas — necesitaban una arquitectura común. Diseñé esa arquitectura, no otra pantalla más.
-- **Situación:** 3 productos B2B con 20+ funcionalidades, sin arquitectura común entre países.
-- **Tarea:** crear una arquitectura instruccional escalable de 5 fases y habilitar interoperabilidad cross-border (Proyecto Brickell, Panamá).
-- **Acción:** *descartado* — soluciones aisladas por país, tutoriales generados manualmente → *elegido* — Sistema GEMAS unificado + orquestación de tutoriales/flujos vía Gemini Gems → *por qué*: evita reinventar la arquitectura por cada país.
-- **Resultado:** 5/5 calificación de 3 Product Owners, +200 usuarios impactados (gestión remota E2E), 100% cumplimiento de tiempos, presentaciones a nivel VP.
-- **Aprendizaje:** una arquitectura común entre productos evita reinventar la rueda por país — mismo principio de "sistema antes que pantalla" que en Correos Chile.
+- **Valor:** los tutoriales de producto (Bre-B, Brickell) no podían tocar la funcionalidad de fondo — ya estaba en producción. La única palanca disponible era la capa de guía, así que la convertí en un sistema, no en guiones sueltos.
+- **Situación:** 3 productos B2B en 2 países, cada uno construyendo tutoriales guiados ("coach marks") de forma ad-hoc, sin marca, tono ni motion consistentes entre sí.
+- **Tarea:** construir un sistema que orqueste marca, experiencia, movimiento y reglas de negocio para cualquier tutorial futuro — no resolver un tutorial a la vez.
+- **Acción:** *descartado* — seguir generando guiones caso por caso, manteniendo el modelo "Coach Mark" de pantalla dividida tal como estaba → *elegido* — Sistema GEMAS en 5 fases de madurez (taxonomía emocional y matriz de voz/tono por Gema → arquitectura de guion a 2 columnas visual/audio con curva narrativa de 3 actos → coreografía de motion por Gema → algoritmo de densidad y semáforo de producción → auditoría de lógica de negocio sobre casos como Brickell), más un rediseño propio del modelo de interacción (de "Coach Mark" dividido, diagnosticado con jerarquía visual invertida en una de sus variantes, a "Walkthrough Inmersivo" a pantalla completa) y una auditoría de accesibilidad/carga cognitiva (contraste AAA 7:1, paleta "Clean Canvas") → *por qué*: sin sistema, cada país y cada producto repite el mismo trabajo de diagnóstico y queda inconsistente con la marca.
+- **Resultado:** +600 usuarios internos impactados en Gestión de Capital de Trabajo y Mi Pyme Asegurada, 5/5 calificación de 3 Product Owners, 100% cumplimiento de tiempos, presentaciones a nivel VP, sistema reutilizable para cualquier producto/segmento futuro.
+- **Aprendizaje:** cuando no puedes rediseñar el producto porque ya está en producción, la capa de guía es la palanca — convertir un tutorial pasivo en un sistema gobernado y auditable es tan arquitectura de producto como rediseñar la pantalla.
+
+### SuRed / Matrix Giros — Integración B2B Baloto/Miloto
+- **Valor:** no entregué solo una pantalla de compra — entregué la arquitectura de seguridad y conciliación que hace que mover dinero regulado (apuestas) sea auditable, no solo funcional.
+- **Situación:** SuRed necesitaba activar los productos de lotería Baloto y Miloto en su App y Web, en alianza con el Operador Nacional de Juegos (ONJ) — un canal de dinero regulado, no un feature de producto común.
+- **Tarea:** estructurar los requerimientos técnicos (Historias de Usuario Épicas) y liderar la integración B2B end-to-end: seguridad, conciliación, reportería y cumplimiento normativo.
+- **Acción:** *descartado* — replicar el flujo de compra estándar de la app sin controles adicionales → *elegido* — arquitectura de seguridad dedicada (JWT con expiración a 60 min + cifrado SHA-256), conciliación automática de doble chequeo diario contra archivos SFTP de ONJ, y validación de identidad contra listas de control gubernamentales (SIPLAFT) → *por qué*: un error de conciliación o una identidad no validada en un canal de apuestas es un riesgo legal y financiero directo, no solo un bug de UX.
+- **Resultado:** canal Baloto/Miloto activo en producción dentro de SuRed, con tirilla digital en PDF, reportería contable automatizada y conciliación diaria sin intervención manual.
+- **Aprendizaje:** en dominios regulados, la seguridad y la conciliación no son "no-funcionales" — son el producto.
+
+### Parking International / Ruedaz — Ecosistema E2E
+- **Valor:** no diseñé una app de parqueo — diseñé el ecosistema de 5 plataformas que la sostiene, desde el usuario final hasta el operador en sitio.
+- **Situación:** Parking International necesitaba un producto de extremo a extremo para su marca Ruedaz, cubriendo usuario final, portal corporativo y operación en sitio como flujos conectados, no aislados.
+- **Tarea:** diseñar el sistema completo (App, Web, Portal Corporativo, Parking Inside, Parking Attendant) con un mismo lenguaje de diseño y reglas de negocio compartidas.
+- **Acción:** *descartado* — diseñar la app de usuario final primero y resolver el resto por separado después → *elegido* — Ruedaz System Design (WCAG 2.1, Atomic Design) aplicado desde el inicio a las 5 plataformas, con Customer Journeys diferenciados por segmento (B2C recurrente vs. B2B corporativo con monedero y cortesías) y reglas de negocio compartidas para suscripciones y validación de cupones por OCR → *por qué*: resolver las plataformas por separado habría duplicado reglas de negocio y roto la consistencia de marca entre el usuario final y el operador.
+- **Resultado:** ecosistema completo lanzado en tiendas (Jul 2020), suscripción mensual $59,900 COP, MVP corporativo de monedero virtual operativo.
+- **Aprendizaje:** un producto B2C con contraparte B2B/operativa exige diseñar el sistema completo desde el día 1 — resolver solo la app visible es diseñar la mitad del producto.
 
 ### FDN — Financiera de Desarrollo Nacional
 *(Ya documentado en detalle arriba, §FDN — 2 momentums. Versión Valor/STAR-L:)*
@@ -239,7 +273,7 @@ Mismo backbone que se definió para los casos de prueba técnica (`docs/m2/spec/
 - **Situación:** mandato de MinTIC exige auditoría WCAG 2.2 completa sobre un sitio en Drupal 7 (EOL).
 - **Tarea:** no solo documentar incidentes — identificar y proponer la solución a la causa raíz.
 - **Acción:** *descartado* — remediar los 654 incidentes puntuales sobre Drupal 7 → *elegido* — proponer migración completa (Next.js/Strapi/RAG) → *por qué*: Drupal 7 está en EOL, remediar sin migrar repara un sistema que de todas formas hay que reemplazar.
-- **Resultado (Momentum 1, confirmado):** 654 incidentes auditados en 7 secciones, 36 reportes Lighthouse, gap analysis, runbook de despliegue. **(Momentum 2, propuesta propia, no aprobada en su totalidad):** arquitectura propuesta con CAPEX estimado y calendario objetivo.
+- **Resultado (Momentum 1, confirmado):** certificación WCAG 2.1 AA (dic 2023) → revalidación (sep 2024) → auditoría paga de 654 incidentes que detecta la brecha a WCAG 2.2 (sep 2025, 40h, PO AMC OC 2025074), 36 reportes Lighthouse, gap analysis, runbook de despliegue. **(Momentum 2, propuesta propia, no aprobada en su totalidad):** arquitectura propuesta con CAPEX estimado ($100K–$174.5K USD) y calendario objetivo (AA para 30 jun 2026, lanzamiento 30 sep 2026).
 - **Aprendizaje:** un mandato técnico acotado casi siempre esconde un problema más grande — mismo patrón que en Solidaria.
 
 ### Universidad de La Salle
