@@ -7,22 +7,26 @@ import { MetricRow } from '@/components/molecules/MetricRow'
 import { TimelineStep } from '@/components/molecules/TimelineStep'
 import { SkillBar } from '@/components/molecules/SkillBar'
 import { CasePageNav } from './CasePageNav'
+import type { CasePageProps } from './types'
 
-export interface CasePageData {
-  slug: string
-  title: string
-  description: string
-  tags: string[]
-  metrics: Array<{ value: string | number; label: string }>
-  timeline: Array<{ company: string; role: string; period: string; isLast?: boolean }>
-  techStack: Array<{ skill: string; level: number; levelLabel: string }>
-  nextCase: { slug: string; title: string } | null
-  audienceTags?: string[]
-}
-
-export interface CasePageProps {
-  caseData: CasePageData
-}
+// El contrato de datos vive en ./types.ts (EX-v2-TMPL-002 v1.1.0). Se re-exporta
+// aquí para no romper imports existentes de '@/components/templates/CasePage'.
+export type {
+  CasePageData,
+  CasePageProps,
+  CaseType,
+  CaseFormat,
+  Momentum,
+  CaseEstado,
+  MethodologyRef,
+  DecisionRow,
+  AccessLink,
+  AccessLinkKind,
+  AiDisclosureData,
+  ProcessTransformation,
+  CaseSection,
+  CaseBadge,
+} from './types'
 
 export const CasePage: React.FC<CasePageProps> = ({ caseData }) => {
   const { title, description, tags, metrics, timeline, techStack, nextCase } = caseData
