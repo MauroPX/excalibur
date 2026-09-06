@@ -13,6 +13,38 @@
 
 ---
 
+## Insumo base — Investigación de dominio: Guidewire InsuranceSuite
+
+**Etiqueta:** 📚 Investigación autodirigida (construcción de conocimiento de sector) — **no es prueba encargada, ni cliente, ni implementación entregada**
+
+### Qué es esto y qué NO es (Ethos — hay que ser explícito para no generar una impresión falsa)
+Este es el trabajo de investigación de dominio que hiciste **antes** de Solidaria, para entender a fondo cómo opera el software estándar de la industria aseguradora (Guidewire InsuranceSuite: PolicyCenter, ClaimCenter, BillingCenter, APD) — no porque hayas implementado un proyecto sobre Guidewire para un cliente, sino porque necesitabas entender los patrones reales del sector antes de entrar a una entrevista y a un diagnóstico real (Solidaria). Se documenta aquí, separado de los casos de prueba, precisamente para no dar a entender una experiencia de implementación que no existió. Es la base de conocimiento, no un entregable de cliente.
+
+### Alcance de la investigación (consolidado, sin recortar el trabajo real que representa)
+
+**1. Marco metodológico integrado** — cuatro capas conectadas explícitamente: Domain-Driven Design (estratégica, para modelar Bounded Contexts), Double Diamond (procesual, para el ciclo de vida del producto), Design Ops (operativa, para escalar configuración) y Service Blueprint (visual, para mapear la experiencia end-to-end).
+
+**2. Arquitectura de dominio (DDD) de Guidewire InsuranceSuite** — mapeo de APD (Advanced Product Designer) como *bounded context* upstream (fuente única de verdad de coberturas, tarifas y reglas de suscripción) y de PolicyCenter, ClaimCenter y BillingCenter como consumidores downstream, sincronizados pero desacoplados.
+
+**3. Ciclo de vida completo de una póliza, en 7 fases con sus APIs** — adquisición/cotización, suscripción/aprobación, emisión/binding, facturación/cobro, endosos, siniestros (FNOL a cierre) y renovación/retención — cada fase con las APIs involucradas (InsuranceNow, PolicyCenter Cloud, ClaimCenter Cloud, BillingCenter Cloud, ContactManager, APD), sus variables críticas y los roles que aprueban cada paso (UWClerk, UWManager, ClaimsAdjuster, ClaimsManager).
+
+**4. Service Blueprints y Empathy Maps** — mapeo frontstage/backstage/soporte del flujo de emisión de pólizas, y estados emocionales de cliente (estrés/vulnerabilidad en un siniestro) y empleado (frustración por reglas de bloqueo opacas), con la intervención de diseño correspondiente a cada estado.
+
+**5. Diagnóstico técnico propio, con riesgos y mitigaciones** — por ejemplo: manejo de concurrencia en ediciones simultáneas (campo `_revision`, error 409), riesgo de discrepancia entre prima cotizada y facturada en la sincronización PolicyCenter→BillingCenter, y uso de Kafka/Composite API para evitar acoplamiento fuerte entre sistemas.
+
+**6. Matriz de competencias asociada** — Arquitectura de Producto (DDD, System Design), Ingeniería de Integración (orquestación de APIs, arquitectura orientada a eventos), Diseño de Producto/UX (Service Design, Double Diamond), Gobernanza/DevOps (trazabilidad, RACI, CI/CD) y Lógica de Negocio Avanzada (algoritmos de tarifa, reglas de suscripción, expresiones FEEL).
+
+### Cómo se usó realmente
+No es un insumo de un solo caso — es una base de conocimiento de dominio (sobre todo para modelar con DDD) que aplica de forma transversal a todo trabajo en o adyacente al sector asegurador:
+- **Solidaria** — te dio el vocabulario y los patrones reales (bounded contexts, ciclo de vida de póliza, roles de suscripción, lógica de siniestros) antes del diagnóstico; explica por qué pudiste identificar rápido la fragmentación de 7 dominios digitales y proponer una migración a arquitectura desacoplada sin partir de cero. Ver [[WORKTEST_CASES.md#Caso 2 — Solidaria Portal]].
+- **FID Seguros (Chile)** — mismo dominio de negocio (seguros generales), reforzando el modelado DDD usado en la migración de OutSystems a MUI React.
+- **BBVA — Pymes Inbound** — el tramo de contratación de seguros dentro de la digitalización E2E de Capital de Trabajo comparte el mismo lenguaje de dominio (coberturas, suscripción, emisión).
+- **Procesos de entrevista en el sector asegurador** — base de conocimiento previa para llegar con criterio de dominio a conversaciones técnicas con aseguradoras (sin nombrar aquí ningún proceso específico en curso, por la misma regla de confidencialidad de §Gobernanza: no se declara nombre de empresa ni estado de un proceso de selección activo).
+
+**og:description sugerida (si se muestra en portafolio):** `Investigación de dominio propia sobre Guidewire InsuranceSuite (el estándar de la industria aseguradora): arquitectura DDD, ciclo de vida de póliza en 7 fases y Service Blueprints — la base de conocimiento previa a mi diagnóstico de Solidaria, no una implementación de cliente.`
+
+---
+
 ## Caso 1 — FleetControl (Monitor de Flota en Tiempo Real)
 
 **Etiqueta:** 🔧 Prueba técnica — **Rol evaluado:** Design Engineer (UX/UI)
@@ -99,9 +131,27 @@ TITAN v7.0 completo: M0 (contexto + DPC), M1 (Tech Watch Report + Evidence Cards
 
 ---
 
-## Caso 4 — [Codesa] Test (pendiente de estructurar — el más grande)
+## Caso 4 — [Codesa] Test — Estrategia de Investigación UX (Módulo de Pagos)
 
-4 PDFs (documento estratégico, pitch deck, la prueba original, tu entrega final) + un research propio de 7,191 líneas + una aplicación completa construida como parte de la entrega (`llm-council`, con backend y frontend). Requiere una pasada de extracción de PDFs dedicada — no lo hice todavía para no gastar la sesión en una lectura completa sin confirmar antes que quieres ese nivel de detalle para este caso.
+**Etiqueta:** 🔧 Prueba técnica — **Rol evaluado:** Diseñador/a UX Nivel 3 · **Plazo:** 7 días calendario (entrega 7 de julio 2026)
+
+### Contexto de la prueba (del brief real)
+Una entidad financiera reporta que su módulo de pagos tiene solo 28% de finalización y no existe investigación previa sobre por qué. El brief pedía explícitamente **estrategia de investigación, no pantallas ni prototipos**: análisis del problema, estrategia de investigación con metodologías justificadas, enfoque de priorización y recomendaciones. El uso de IA era una de 7 competencias evaluadas, con declaración obligatoria de qué herramienta se usó, en qué parte del proceso, y cómo se validó.
+
+### Qué se entregó y qué se decidió mostrar (Ethos — honestidad sobre el propio proceso)
+La entrega completa tiene 139 páginas, pero no todo tiene el mismo nivel de calidad ni el mismo propósito, y aquí se documenta así en vez de presentarlo como un bloque uniforme:
+- **~120 páginas de research crudo** (recolección inicial de datos vía IA): esto fue un insumo de trabajo interno, no un entregable pulido — tiene formato de citas roto, estadísticas duplicadas y fragmentos de proceso sin limpiar. No se usa como evidencia de portafolio; se documenta su existencia por transparencia, no su contenido.
+- **17 páginas finales ("Entregable 1 — Documento Estratégico de Investigación UX")**: el entregable real, estructurado y de alta calidad, que es la base de este caso.
+
+### El entregable real (Logos)
+Un documento estratégico completo: tabla de actores/supuestos/riesgos, 5 hipótesis fundamentadas en marcos teóricos (Self-Determination Theory, Calm Technology, Design with Intent de Dan Lockton), selección de metodología mixta (analítica de funnel vía PostHog/Amplitude, grabación de sesiones con Hotjar, análisis heurístico, 5 entrevistas contextuales vía Dovetail, 5 pruebas de usabilidad moderadas vía Maze, encuesta CES), priorización con Opportunity Solution Tree + RICE modificado con ejes de Confianza e Inclusión, perfil de participantes inclusivo (gama baja Android, conectividad rural, baja visión, baja alfabetización digital), plan de ejecución de 4 fases día a día, recomendaciones diferenciadas por audiencia, esquema de tracking analítico, y métricas de éxito estilo OKR.
+
+### Uso de IA — declarado explícitamente tal como aparece en la entrega
+Herramienta: "TITAN Research Intelligence Skill v5.1". Etapas donde se usó: clasificación de datos, Evidence Cards, formulación de hipótesis, estructuración del plan, diseño del tracking plan. Validación declarada: "triangulación con marcos teóricos... revisión iterativa... coherencia interna vía IDs de trazabilidad". Principio ético declarado explícitamente en el documento: "cero alucinaciones — no se presentó ningún dato como real sin declarar que era una proyección". Cierre del propio documento: *"El TITAN Skill no reemplazó el criterio humano: lo estructuró, lo aceleró y lo mantuvo alineado con la evidencia. Cada decisión que presentamos aquí pasó por el filtro del skill y por la validación del equipo."*
+
+**og:description sugerida:** `Prueba técnica de investigación UX (7 días, sin pantallas pedidas): estrategia completa con 5 hipótesis fundamentadas en marcos teóricos, metodología mixta y priorización RICE+Inclusión — con declaración transparente de uso de IA como parte evaluada del proceso.`
+
+*(Nota de método — por qué se documenta así: el brief pedía transparencia sobre IA como competencia evaluada, así que mostrar la declaración de uso de IA tal cual aparece en la entrega es coherente y no debilita el caso — al contrario, es evidencia de proceso honesto. Lo que sí debilitaría el caso es presentar las ~120 páginas de research sin editar como si fueran el entregable: por eso el caso se construye solo sobre las 17 páginas finales, y el research crudo se menciona como paso de trabajo, no como resultado.)*
 
 ---
 
@@ -117,6 +167,6 @@ Lo que sí es publicable sin restricción: el trabajo técnico en sí (código, 
 
 ---
 
-📍 Momentum: M1 | Artefacto: WORKTEST_CASES | Nivel: A (borrador, 3/4 casos completo — Codesa pendiente)
+📍 Momentum: M1 | Artefacto: WORKTEST_CASES | Nivel: A (borrador, 4/4 casos completos + 1 insumo base de investigación)
 Fuente: `Casos--[WorkTest]` (carpeta local conectada 2026-09-06)
 Generado: Claude Code (rol Arquitecto) | 2026-09-06

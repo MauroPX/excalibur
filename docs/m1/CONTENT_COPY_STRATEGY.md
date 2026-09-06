@@ -120,12 +120,22 @@ Según `SKILL_SEO_AEO_GEO §3.1`, un portafolio de consultoría requiere schema 
 **og:description:** `Diseñé GEMAS, una arquitectura de 5 fases para 3 productos B2B de BBVA en Colombia y Panamá — 5/5 de calificación de 3 Product Owners y +200 usuarios impactados.`
 
 ### FDN — Financiera de Desarrollo Nacional
-*Consultor de Accesibilidad · Feb 2026*
+*Consultor de Accesibilidad y Estrategia Digital · Feb 2026*
 
+El caso FDN tiene **dos momentums distintos, con distinto nivel de evidencia** — se presentan por separado para no mezclar lo validado con lo propuesto:
+
+**Momentum 1 — Auditoría de accesibilidad (confirmado, sobre el sitio real construido):**
 **Insight:** El mandato de MinTIC exigía una auditoría WCAG 2.2 completa, no una revisión superficial.
-**Evidencia:** 654 incidentes auditados en 7 secciones, con 36 reportes de Lighthouse como respaldo.
-**Resultado:** Estrategia de migración empresarial aprobada a nivel VP (CAPEX de $100K–$174.5K USD). Entregables: gap analysis, manifiesto de proyecto, runbook de despliegue.
-**og:description:** `Auditoría WCAG 2.2 completa bajo mandato MinTIC: 654 incidentes revisados en 7 secciones de FDN, con estrategia de migración aprobada a nivel VP.`
+**Evidencia:** 654 incidentes auditados en 7 secciones del sitio actual, con 36 reportes de Lighthouse como respaldo.
+**Resultado:** Gap analysis y runbook de despliegue entregados, con hallazgos que sustentan la estrategia de migración descrita abajo.
+
+**Momentum 2 — Propuesta de valor estratégica (estimación propia, no un entregable ya construido):**
+**Insight:** Un sitio institucional estático y en EOL (Drupal 7) no puede sostener el rol de referente digital que FDN necesita en Colombia — la oportunidad es convertirlo en un sitio dinámico y pionero, no solo cumplir con accesibilidad.
+**Evidencia:** Estimación propia de arquitectura y alcance (Next.js 14, Strapi v5, PostgreSQL + pgvector, Meilisearch, RAG con Claude API acotado al corpus de FDN, PostHog self-hosted por cumplimiento de Ley 1581) y de inversión (CAPEX de $100K–$174.5K USD) — presentada como propuesta a nivel VP, no como presupuesto ya ejecutado.
+**Resultado:** Propuesta de migración empresarial con calendario objetivo (WCAG AA para el 30 de junio de 2026, lanzamiento el 30 de septiembre de 2026) — se declara explícitamente como visión/estimación propia, no como una entrega ya cerrada.
+**og:description:** `Auditoría WCAG 2.2 sobre el sitio real de FDN (654 incidentes, mandato MinTIC) + una propuesta propia de arquitectura para convertirlo en un sitio dinámico y pionero en Colombia — dos momentums, presentados por separado.`
+
+*(Nota de honestidad: no presentar el Momentum 2 como si ya estuviera construido o aprobado en su totalidad — es una estimación con foco de negocio, y se declara así. El Momentum 1 sí es un entregable verificable con evidencia técnica (los 654 incidentes, los reportes de Lighthouse).)*
 
 ### Universidad de La Salle
 *Staff Product Architect · Dic 2023 – Jul 2024*
