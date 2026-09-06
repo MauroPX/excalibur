@@ -105,6 +105,10 @@ Según `SKILL_SEO_AEO_GEO §3.1`, un portafolio de consultoría requiere schema 
 - 10 desarrolladores autónomos desde el sprint 1
 - >95% de fidelidad UI–Desarrollo
 
+**Evidencia visual (Figma, ya presente en v1 — reusar, no recrear):**
+- [Estructura UI](https://www.figma.com/design/5HUHHeTR2Lqs0CBjdcCehj/%E2%9C%85_%5BM%5D_%5BStructura%5D-%5BFuncionalidades%5D_ID%5BPE%5D?node-id=8072-405168)
+- [Validación de Workflows](https://www.figma.com/proto/5HUHHeTR2Lqs0CBjdcCehj/%E2%9C%85_%5BM%5D_%5BStructura%5D-%5BFuncionalidades%5D_ID%5BPE%5D?page-id=8072%3A405168&node-id=9410-536709)
+
 **og:description sugerida para `/cases/correos-chile`:** `Cómo comprimí un timeline de 12 a 6 meses conectando 13 regiones postales de Chile con un Design System de 400+ componentes MUI React — 10 desarrolladores autónomos desde el sprint 1.`
 
 ---
@@ -117,6 +121,7 @@ Según `SKILL_SEO_AEO_GEO §3.1`, un portafolio de consultoría requiere schema 
 **Insight:** los tutoriales guiados ("coach marks") de funcionalidades ya en producción (Bre-B, Proyecto Brickell Panamá) se construían como guiones sueltos, sin sistema — cada país/producto reinventaba tono, motion y reglas de negocio desde cero.
 **Evidencia:** Sistema GEMAS, construido en 5 fases de madurez documentadas (Cimientos de marca → UX Writing y cognición → UI/Motion → Métricas de producción → Arquitectura de reglas de negocio), más un rediseño técnico propio del modelo de interacción: de "Coach Mark" (pantalla dividida, diagnosticado con jerarquía invertida en una de sus variantes) a "Walkthrough Inmersivo" (pantalla completa, guion técnico a beats de segundos para video sin narración) — incluye además una auditoría de accesibilidad/carga cognitiva propia (contraste AAA 7:1, paleta "Clean Canvas") sobre la interfaz de los tutoriales.
 **Resultado:** +600 usuarios internos impactados en los módulos de Gestión de Capital de Trabajo y Mi Pyme Asegurada · 5/5 en calificación de 3 Product Owners · 100% de entregas a tiempo · presentaciones a nivel VP.
+**Evidencia visual (Figma, ya presente en v1 — reusar, no recrear):** [Demo Tutorial GEMAS](https://www.figma.com/proto/suLl2aXPjYCisSST5i8kta/%F0%9F%8C%9F--BBVA_Sucursal_Panama---Admin_Usuarios--Configuracion?node-id=130-159104&p=f&viewport=-70%2C328%2C0.02&t=y2dHMbaBS96telVJ-1&scaling=contain&content-scaling=fixed&starting-point-node-id=130%3A159104&show-proto-sidebar=1&page-id=0%3A1)
 **og:description:** `Diseñé GEMAS, el sistema de gobierno de tutoriales guiados de BBVA para 3 productos B2B en Colombia y Panamá — 5/5 de calificación de 3 Product Owners y +600 usuarios internos impactados.`
 
 ### SuRed / Matrix Giros y Servicios (2024)
@@ -159,6 +164,9 @@ El caso FDN tiene **dos momentums distintos, con distinto nivel de evidencia** �
 **Insight:** Ningún nivel de conformidad por debajo de AAA eliminaba el riesgo legal bajo estándares MinTIC.
 **Evidencia:** Angular Material + IAAP Design System, evaluados en 18 categorías con 4 roles por criterio.
 **Resultado:** Conformidad WCAG 2.2 AAA (el nivel más alto) — cero riesgo legal bajo normativa MinTIC.
+**Evidencia visual (Figma, ya presente en v1 — reusar, no recrear):**
+- [Sistema de Diseño](https://www.figma.com/design/Co18wJethz2oFoiJCPIJ3M)
+- [Templates UI](https://www.figma.com/design/CPbaPfUr2Lb4XXSBez9xW5/%E2%8E%84--LaSalle-_-Second---Templates--%E2%9C%8F%EF%B8%8F--Copy-?node-id=174-33588&t=P6pSyJ4ujRrkYXAn-1)
 **og:description:** `Logré conformidad WCAG 2.2 AAA — el nivel más alto — para la Universidad de La Salle, evaluando 18 categorías de accesibilidad con Angular Material.`
 
 ### FID Seguros (Chile)
@@ -167,6 +175,7 @@ El caso FDN tiene **dos momentums distintos, con distinto nivel de evidencia** �
 **Insight:** Migrar de OutSystems (legacy) a MUI React sin un framework de gobierno habría fragmentado el sistema en meses.
 **Evidencia:** Sistema operativo de diseño completo: BPM con 4 actores + Framework de Integración D↔D (1,002 filas, 46+ entregables), migrado con Domain-Driven Design.
 **Resultado:** +70% de eficiencia en CX, con equipo de desarrollo autónomo desde el sprint 1.
+**Evidencia visual (Figma, ya presente en v1 — reusar, no recrear):** [Proceso DS & DDD](https://www.figma.com/design/QdPkYTZ2XaHrnWgaconjg5/FID--DS--Seguros-Chile?node-id=0-1&t=nzUxQqCWrJTn8vxV-1)
 **og:description:** `Migré el Design System de FID Seguros de OutSystems a MUI React con Domain-Driven Design — +70% de eficiencia en CX y equipo autónomo desde el sprint 1.`
 
 ### Siclo / IDPay
@@ -344,6 +353,7 @@ Este documento resuelve la mitad de esa decisión editorial: define el copy en e
 - **Stack técnico e industrias** — el listado ya es correcto y sigue formato de tabla escaneable (regla AEO 4: listas > párrafos).
 - **El wrapper técnico del sitio (iframe + `index_clean.html` en `main`)** — es una decisión de arquitectura, no de copy.
 - **Traducción a inglés** — pendiente, ver §10.
+- **El patrón de "chips" de evidencia visual (links a Figma) por caso** — el v1 ya tenía este patrón resuelto (Correos Chile, BBVA, La Salle, FID Seguros en §4/§5 arriba). Al implementar en código, reusar el componente/patrón existente en vez de diseñarlo de nuevo — solo faltaba portarlo con los links reales, que ya quedaron documentados arriba.
 
 ---
 
