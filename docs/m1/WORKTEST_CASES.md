@@ -1,7 +1,7 @@
 # WORKTEST_CASES.md
 # EXCALIBUR v2.0 — Casos de pruebas técnicas (work tests)
 # TITAN v7.0 | M1 | 2026-09-06
-# Nivel: A (borrador — primer caso completo, 2 pendientes)
+# Nivel: A (borrador — 4/4 casos completos + 1 insumo base de investigación; Codesa con decisión de publicación abierta)
 # Fuente: extracción real de la carpeta local `Casos--[WorkTest]`
 
 ---
