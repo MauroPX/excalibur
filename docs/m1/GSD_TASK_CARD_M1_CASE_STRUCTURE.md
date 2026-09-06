@@ -28,7 +28,7 @@ Esta task card documenta las 6 fases para corregirlo, en orden de dependencia, s
 | # | Fase | Qué produce | Depende de | Estado |
 |---|---|---|---|---|
 | 1 | **Consolidar contenido real** | `docs/m1/WORKTEST_CASES.md` (Codesa completo + insumo Guidewire/DDD) y `docs/m1/CONTENT_COPY_STRATEGY.md` (FDN en 2 momentums) comiteados al repo real — hoy solo existen en borrador de sesión | — | 🔜 Siguiente |
-| 2 | **Blueprint del schema nuevo** | `BLUEPRINT_SPEC` con SPEC_IDs nuevos para `entryRole`, `discoveredScope`, `methodology`, `momentumsApplied`, `processOutcome` — decide si extiende `CasePageData` (template) o crea tipo nuevo; **no toca `ProjectCard` (EX-v2-MOL-002, LOCKED)** sin blueprint propio | Fase 1 | Pendiente |
+| 2 | **Blueprint del schema nuevo** | `BLUEPRINT_SPEC` con SPEC_IDs nuevos para `entryRole`, `discoveredScope`, `methodology`, `momentumsApplied`, `processTransformation` — decide si extiende `CasePageData` (template) o crea tipo nuevo; **no toca `ProjectCard` (EX-v2-MOL-002, LOCKED)** sin blueprint propio | Fase 1 | Pendiente |
 | 3 | **Rellenar campos con evidencia real, caso por caso** | Cada caso (4 work-tests + casos de cliente ya documentados) con los campos nuevos completos donde hay evidencia, y explícitamente marcados `pendiente — sin verificar` donde no — nunca inferidos | Fase 2 | Pendiente |
 | 4 | **Complementar con v1 donde aplique** | Rescate de contexto/tono de la copy v1 solo como complemento narrativo — todo dato factual pasa el mismo filtro de verificación que Fase 3 | Fase 3 (en paralelo, mismo criterio) | Pendiente |
 | 5 | **Construir en orden de menor dependencia de gobernanza** | `/metodologia` → páginas de work-tests (`WorkTestCard` nuevo, no reutiliza `ProjectCard`) → casos de cliente actualizados → meta-caso EXCALIBUR | Fases 2-4 | Pendiente |
@@ -48,6 +48,20 @@ Mandato de entrada  →  Descubrimiento  →  Intervención E2E  →  Estandariz
 Esto hace que la estructura de cada caso sea, en sí misma, evidencia de que TITAN se aplica — no solo una afirmación en `/metodologia`.
 
 `momentumsApplied` en el schema (Fase 2) registra qué Momentums (M0–M5) corrieron realmente en cada proyecto de cliente/prueba — dato verificable, no narrativo.
+
+### `processTransformation` — el eje manual→sistematizado y pensamiento→capacidad de ejecución
+
+Campo de 3 partes, pensado para no repetir la marca "TITAN" en cada caso (se nombra una sola vez, bien, en `/metodologia` y en el meta-caso EXCALIBUR — cada caso solo enlaza ahí vía `methodology`):
+
+```
+processTransformation: {
+  before: string,             // el proceso manual/fragmentado real, tal como estaba
+  approach: string,           // cómo se pensó/abordó el problema (lenguaje llano, sin nombrar la marca)
+  capabilityInstalled: string // qué quedó operando sin el autor: equipo autónomo, runbook, sistema repetible
+}
+```
+
+`capabilityInstalled` es el campo del diferenciador real: no es "qué entregué" (eso ya lo cubre `metrics`), es "qué le queda a la organización cuando yo me voy" — ya aparece disperso sin estructurar en casos reales (ej. FID Seguros: "equipo de desarrollo autónomo desde el sprint 1").
 
 ---
 
