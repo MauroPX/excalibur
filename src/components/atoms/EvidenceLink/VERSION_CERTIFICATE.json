@@ -1,0 +1,19 @@
+{
+  "spec_id": "EX-v2-ATOM-009",
+  "component": "EvidenceLink",
+  "atomic_level": "atom",
+  "version": "1.0.0",
+  "status": "LOCKED",
+  "locked_at": "2026-09-06T00:00:00Z",
+  "tests_passing": true,
+  "test_count": 5,
+  "axe_violations": 0,
+  "wcag_level": "AA",
+  "m3_tokens_clean": true,
+  "gate_1": "PASS",
+  "gate_2": "PASS",
+  "gate_3": "PASS",
+  "blueprint_ref": "src/components/atoms/EvidenceLink/EvidenceLink.blueprint.json",
+  "forge_ref": "src/components/atoms/EvidenceLink/EvidenceLink.tsx",
+  "notes": "Chip-enlace a evidencia externa de un caso. Portado del patrón .figma-link del v1. 9 kinds. Siempre target=_blank + declara 'abre en pestaña nueva' en el aria-label. Lo consume EX-v2-MOL-009 EvidenceLinks (Fase B)."
+}

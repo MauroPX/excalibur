@@ -1,0 +1,57 @@
+{
+  "spec_ref": "EX-v2-ATOM-009",
+  "atomic_level": "atom",
+  "component_name": "EvidenceLink",
+  "base": "docs/m2/spec/CASE_PAGE_CONTENT_STRUCTURE.md (bloque de acceso) + main:public/original patrón .figma-link",
+  "ola": "next — casos nuevos (Fase B)",
+  "rama": "v2",
+  "contexto": "Chip-enlace a una evidencia externa de un caso (repo, Figma, producción, Storybook, video…). Portado del patrón .figma-link del v1 con tokens M3. Lo consume EX-v2-MOL-009 EvidenceLinks.",
+  "dependencies": [],
+  "props_contract": {
+    "href": { "type": "string", "required": true },
+    "label": { "type": "string", "required": true },
+    "kind": { "type": "AccessLinkKind ('produccion'|'preview'|'repo'|'storybook'|'chromatic'|'video'|'doc'|'figma'|'demo')", "required": true, "nota": "tipo importado de @/components/templates/CasePage/types" }
+  },
+  "variants": ["produccion", "preview", "repo", "storybook", "chromatic", "video", "doc", "figma", "demo"],
+  "states": ["default", "hover", "focus-visible"],
+  "wcag_criteria": ["1.4.3", "2.4.4", "2.4.7", "3.2.5", "4.1.2"],
+  "bem_classes": {
+    "block": "ex-evidence-link",
+    "elements": ["label"],
+    "modifiers": ["produccion", "preview", "repo", "storybook", "chromatic", "video", "doc", "figma", "demo"]
+  },
+  "m3_tokens": {
+    "border": "var(--md-sys-color-outline-variant)",
+    "text": "var(--md-sys-color-on-surface)",
+    "hover": "var(--md-sys-color-primary)"
+  },
+  "dom_identity": {
+    "data-atomic": "atom",
+    "data-component": "EvidenceLink",
+    "root_element": "a[target=_blank][rel=noopener noreferrer]"
+  },
+  "i18n_keys": [],
+  "i18n_note": "El sufijo '(abre en pestaña nueva)' del aria-label es hardcode en español por ahora — se migra a next-intl en Fase G junto con el resto del chrome compartido.",
+  "spec_criteria": [
+    "CA-001: renderiza un <a> con target=_blank y rel='noopener noreferrer'",
+    "CA-002: ícono contextual por kind (aria-hidden) + label visible + indicador '↗' (aria-hidden)",
+    "CA-003: aria-label = '{label} — {nombre del kind} (abre en pestaña nueva)' — WCAG 3.2.5 / G201",
+    "CA-004: 0 hex hardcoded — border/text/hover con tokens M3",
+    "CA-005: data-atomic='atom' data-component='EvidenceLink' + className 'ex-evidence-link ex-evidence-link--{kind}'",
+    "CA-006: foco visible (outline 2px primary, offset 2px) — WCAG 2.4.7",
+    "CA-007: hover cambia border y color a primary (contraste AAA sobre surface family, ver COLOR_CONTRAST_AUDIT)",
+    "CA-008: axe 0 violations"
+  ],
+  "out_of_scope": [
+    "El texto instruccional `note` de un AccessLink (ej. 'login maria@… → tour') NO va aquí — lo renderiza la molécula EX-v2-MOL-009 EvidenceLinks",
+    "No modal de preview de PDF (el v1 tenía openPDF() — se descarta, todo es target=_blank)"
+  ],
+  "blueprint_gate": {
+    "BH-1": "PASS — tokens outline-variant / on-surface / primary existen en tokens.ts",
+    "BH-2": "PASS — WCAG 1.4.3/2.4.4/2.4.7/3.2.5/4.1.2 válidos en 2.2",
+    "BH-3": "PASS — solo MUI Box (import por módulo), sin deps nuevas; tipo AccessLinkKind ya en el repo (Fase A)",
+    "BH-4": "PASS — props tipadas sin any",
+    "BH-5": "PASS — átomo puro: un enlace, sin lógica de negocio",
+    "BH-6": "PASS — decisión del IC: Fase B, EvidenceLink primero"
+  }
+}

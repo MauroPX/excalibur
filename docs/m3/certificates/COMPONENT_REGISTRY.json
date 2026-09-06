@@ -249,6 +249,15 @@
       "status": "LOCKED",
       "dependents": ["EX-v2-ORG-007"],
       "depended_by": []
+    },
+    {
+      "spec_id": "EX-v2-ATOM-009",
+      "component": "EvidenceLink",
+      "level": "atoms",
+      "version": "1.0.0",
+      "status": "LOCKED",
+      "dependents": [],
+      "depended_by": ["EX-v2-MOL-009"]
     }
   ]
 }
