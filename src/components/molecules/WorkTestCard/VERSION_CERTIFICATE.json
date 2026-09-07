@@ -1,0 +1,21 @@
+{
+  "spec_id": "EX-v2-MOL-010",
+  "component": "WorkTestCard",
+  "atomic_level": "molecule",
+  "version": "1.0.0",
+  "status": "LOCKED",
+  "locked_at": "2026-09-06T00:00:00Z",
+  "tests_passing": true,
+  "test_count": 6,
+  "axe_violations": 0,
+  "wcag_level": "AA",
+  "m3_tokens_clean": true,
+  "gate_1": "PASS",
+  "gate_2": "PASS",
+  "gate_3": "PASS",
+  "blueprint_ref": "src/components/molecules/WorkTestCard/WorkTestCard.blueprint.json",
+  "forge_ref": "src/components/molecules/WorkTestCard/WorkTestCard.tsx",
+  "dependencies": ["EX-v2-ATOM-002"],
+  "no_toca": "EX-v2-MOL-002 ProjectCard (LOCKED) — componente separado por diseño",
+  "notes": "Card de índice para work-tests y meta-caso. Badge por caseType (tertiary/secondary-container). Patrón card-enlazada (un solo <a> en el título con ::after inset:0). No renderiza métricas de negocio."
+}

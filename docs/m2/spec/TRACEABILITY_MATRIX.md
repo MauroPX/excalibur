@@ -25,6 +25,10 @@
 | EX-v2-MOL-005 | MetricRow | molecules | 2 | LOCKED | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1.0.0 |
 | EX-v2-MOL-006 | AudienceCard | molecules | 2 | LOCKED | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1.0.0 |
 | EX-v2-MOL-007 | RoadmapSplitButton | molecules | 2 | LOCKED | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1.0.0 |
+| EX-v2-MOL-009 | EvidenceLinks | molecules | 7 | LOCKED | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1.0.0 |
+| EX-v2-MOL-010 | WorkTestCard | molecules | 7 | LOCKED | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1.0.0 |
+| EX-v2-MOL-011 | DecisionTable | molecules | 7 | LOCKED | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1.0.0 |
+| EX-v2-MOL-012 | AiDisclosure | molecules | 7 | LOCKED | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1.0.0 |
 | EX-v2-HERO-001 | Hero | organisms | 2 | LOCKED | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1.0.0 |
 | EX-v2-RAG-001 | TitanRAGAgent | organisms | 3 | LOCKED | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1.0.0 |
 | EX-v2-ORG-002 | NavSystem | organisms | 3 | LOCKED | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1.0.0 |

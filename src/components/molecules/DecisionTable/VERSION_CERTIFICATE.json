@@ -1,0 +1,20 @@
+{
+  "spec_id": "EX-v2-MOL-011",
+  "component": "DecisionTable",
+  "atomic_level": "molecule",
+  "version": "1.0.0",
+  "status": "LOCKED",
+  "locked_at": "2026-09-06T00:00:00Z",
+  "tests_passing": true,
+  "test_count": 6,
+  "axe_violations": 0,
+  "wcag_level": "AA",
+  "m3_tokens_clean": true,
+  "gate_1": "PASS",
+  "gate_2": "PASS",
+  "gate_3": "PASS",
+  "blueprint_ref": "src/components/molecules/DecisionTable/DecisionTable.blueprint.json",
+  "forge_ref": "src/components/molecules/DecisionTable/DecisionTable.tsx",
+  "dependencies": [],
+  "notes": "Tabla STAR-L 'Acción' (opción descartada → elegida → por qué). <table> semántica con th scope col/row, caption sr-only, scroll horizontal propio en móvil (WCAG 1.4.10)."
+}

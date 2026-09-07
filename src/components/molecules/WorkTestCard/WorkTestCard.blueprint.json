@@ -1,0 +1,66 @@
+{
+  "spec_ref": "EX-v2-MOL-010",
+  "atomic_level": "molecule",
+  "component_name": "WorkTestCard",
+  "base": "docs/m1/GSD_TASK_CARD_M1_CASE_STRUCTURE.md (Fase 5: 'WorkTestCard nuevo, no reutiliza ProjectCard') + docs/m2/spec/CASE_PAGE_CONTENT_STRUCTURE.md §196",
+  "ola": "next — casos nuevos (Fase B)",
+  "rama": "v2",
+  "contexto": "Card de índice para casos de prueba técnica y el meta-caso EXCALIBUR. El badge de tipo de caso es la razón de existir de este componente — EX-v2-MOL-002 ProjectCard está LOCKED con props_contract cerrado {title, description, tags, metric, imageUrl} y NO se extiende.",
+  "dependencies": ["EX-v2-ATOM-002"],
+  "props_contract": {
+    "slug": { "type": "string", "required": true },
+    "title": { "type": "string", "required": true },
+    "valor": { "type": "string", "required": true, "nota": "frase-gancho Insight/Valor" },
+    "href": { "type": "string", "required": true },
+    "badge": { "type": "CaseBadge  ({icon, label})", "required": true },
+    "caseType": { "type": "'work-test' | 'meta'", "required": true, "nota": "Exclude<CaseType,'client'> — los casos 'client' usan ProjectCard" },
+    "tags": { "type": "string[]", "required": false }
+  },
+  "variants": ["work-test", "meta"],
+  "states": ["default", "hover", "focus-within"],
+  "wcag_criteria": ["1.3.1", "1.4.3", "2.4.4", "2.4.7", "4.1.2"],
+  "bem_classes": {
+    "block": "ex-worktest-card",
+    "elements": ["badge", "title", "valor", "tags"],
+    "modifiers": ["work-test", "meta"]
+  },
+  "m3_tokens": {
+    "surface": "var(--md-sys-color-surface-container-low)",
+    "surface-hover": "var(--md-sys-color-surface-container-high)",
+    "border": "var(--md-sys-color-outline-variant)",
+    "border-hover": "var(--md-sys-color-primary)",
+    "title": "var(--md-sys-color-on-surface)",
+    "valor": "var(--md-sys-color-on-surface-variant)",
+    "badge-work-test": "var(--md-sys-color-tertiary-container) / on-tertiary-container",
+    "badge-meta": "var(--md-sys-color-secondary-container) / on-secondary-container"
+  },
+  "dom_identity": {
+    "data-atomic": "molecule",
+    "data-component": "WorkTestCard",
+    "root_element": "article[aria-labelledby]"
+  },
+  "i18n_keys": [],
+  "spec_criteria": [
+    "CA-001: <article> con aria-labelledby → <h3>; badge exacto (icon aria-hidden + label) arriba",
+    "CA-002: patrón 'card enlazada' — un único <a> en el título con ::after {inset:0} cubre toda la card; tags y valor NO son interactivos (sin enlaces anidados)",
+    "CA-003: badge cambia de color según caseType: work-test → tertiary-container, meta → secondary-container",
+    "CA-004: foco visible en la card completa (focus-within outline) cuando el enlace del título recibe foco",
+    "CA-005: `valor` como body2 con token on-surface-variant; `tags` opcionales como Tag size=small variant=outlined",
+    "CA-006: data-atomic='molecule' data-component='WorkTestCard' + data-slug + className con modificador de caseType",
+    "CA-007: 0 hex hardcoded",
+    "CA-008: axe 0 violations — un solo elemento interactivo por card, contraste AAA (badge containers)"
+  ],
+  "out_of_scope": [
+    "NO extiende ni toca EX-v2-MOL-002 ProjectCard (LOCKED)",
+    "No renderiza métricas de negocio (los work-tests no tienen) — solo Valor + tags",
+    "caseType='client' no es válido aquí (los casos de cliente usan ProjectCard)"
+  ],
+  "blueprint_gate": {
+    "BH-1": "PASS — tokens surface-container-low/high, outline-variant, primary, tertiary/secondary-container existen",
+    "BH-2": "PASS — WCAG 1.3.1/1.4.3/2.4.4/2.4.7/4.1.2 válidos en 2.2; contraste de badges verificado AAA (COLOR_CONTRAST_AUDIT)",
+    "BH-3": "PASS — depende de EX-v2-ATOM-002 Tag (LOCKED); MUI Box/Typography por módulo; React.useId",
+    "BH-4": "PASS — props tipadas sin any; caseType con Exclude<CaseType,'client'>",
+    "BH-5": "PASS — molécula: compone Tag, sin lógica de negocio ni fetch",
+    "BH-6": "PASS — Fase B 5/5"
+  }
+}

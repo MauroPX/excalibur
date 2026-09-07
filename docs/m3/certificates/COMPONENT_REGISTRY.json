@@ -258,6 +258,42 @@
       "status": "LOCKED",
       "dependents": [],
       "depended_by": ["EX-v2-MOL-009"]
+    },
+    {
+      "spec_id": "EX-v2-MOL-009",
+      "component": "EvidenceLinks",
+      "level": "molecules",
+      "version": "1.0.0",
+      "status": "LOCKED",
+      "dependents": ["EX-v2-ATOM-009"],
+      "depended_by": ["EX-v2-TMPL-002"]
+    },
+    {
+      "spec_id": "EX-v2-MOL-010",
+      "component": "WorkTestCard",
+      "level": "molecules",
+      "version": "1.0.0",
+      "status": "LOCKED",
+      "dependents": ["EX-v2-ATOM-002"],
+      "depended_by": ["EX-v2-PAGE-005", "EX-v2-PAGE-006"]
+    },
+    {
+      "spec_id": "EX-v2-MOL-011",
+      "component": "DecisionTable",
+      "level": "molecules",
+      "version": "1.0.0",
+      "status": "LOCKED",
+      "dependents": [],
+      "depended_by": ["EX-v2-TMPL-002"]
+    },
+    {
+      "spec_id": "EX-v2-MOL-012",
+      "component": "AiDisclosure",
+      "level": "molecules",
+      "version": "1.0.0",
+      "status": "LOCKED",
+      "dependents": [],
+      "depended_by": ["EX-v2-TMPL-002"]
     }
   ]
 }

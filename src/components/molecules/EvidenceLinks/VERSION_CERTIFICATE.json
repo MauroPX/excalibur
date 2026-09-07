@@ -1,0 +1,20 @@
+{
+  "spec_id": "EX-v2-MOL-009",
+  "component": "EvidenceLinks",
+  "atomic_level": "molecule",
+  "version": "1.0.0",
+  "status": "LOCKED",
+  "locked_at": "2026-09-06T00:00:00Z",
+  "tests_passing": true,
+  "test_count": 7,
+  "axe_violations": 0,
+  "wcag_level": "AA",
+  "m3_tokens_clean": true,
+  "gate_1": "PASS",
+  "gate_2": "PASS",
+  "gate_3": "PASS",
+  "blueprint_ref": "src/components/molecules/EvidenceLinks/EvidenceLinks.blueprint.json",
+  "forge_ref": "src/components/molecules/EvidenceLinks/EvidenceLinks.tsx",
+  "dependencies": ["EX-v2-ATOM-009"],
+  "notes": "Bloque de acceso de un caso (caseFormat 'evidencia-viva'). Lista semántica ul/li de EvidenceLink + note instruccional por enlace. Vacío ⇒ null."
+}

@@ -1,0 +1,57 @@
+{
+  "spec_ref": "EX-v2-MOL-012",
+  "atomic_level": "molecule",
+  "component_name": "AiDisclosure",
+  "base": "docs/m2/spec/CASE_PAGE_CONTENT_STRUCTURE.md §33 (bloque 'Uso de IA declarado', mismo visual en ambas variantes) + docs/m1/WORKTEST_CASES.md (FleetControl, Codesa)",
+  "ola": "next — casos nuevos (Fase B)",
+  "rama": "v2",
+  "contexto": "Bloque de declaración transparente del uso de IA en un caso. Diferenciador — se muestra, no se esconde. Ej. FleetControl: '3 correcciones documentadas'; Codesa: 'TITAN Research Intelligence Skill v5.1 — etapas, validación, cita de cierre'.",
+  "dependencies": [],
+  "props_contract": {
+    "items": { "type": "string[]", "required": true },
+    "source": { "type": "{ label: string; href: string }", "required": false, "nota": "fuente primaria que respalda la declaración" },
+    "title": { "type": "string", "default": "'Uso de IA declarado'" }
+  },
+  "variants": ["con fuente", "sin fuente"],
+  "states": ["default", "vacío (items=[] ⇒ retorna null)"],
+  "wcag_criteria": ["1.3.1", "2.4.4", "2.4.6", "4.1.2"],
+  "bem_classes": {
+    "block": "ex-ai-disclosure",
+    "elements": ["title", "list", "source"],
+    "modifiers": []
+  },
+  "m3_tokens": {
+    "accent": "var(--md-sys-color-tertiary)",
+    "bg": "var(--md-sys-color-surface-container-low)",
+    "text": "var(--md-sys-color-on-surface)",
+    "source-link": "var(--md-sys-color-primary)"
+  },
+  "dom_identity": {
+    "data-atomic": "molecule",
+    "data-component": "AiDisclosure",
+    "root_element": "section[aria-labelledby]"
+  },
+  "i18n_keys": [],
+  "i18n_note": "Título por defecto 'Uso de IA declarado' y prefijo 'Fuente:' + '(abre en pestaña nueva)' son hardcode español — a next-intl en Fase G.",
+  "spec_criteria": [
+    "CA-001: <section> con aria-labelledby → <h3> (título), <ul> de items",
+    "CA-002: `items` vacío ⇒ retorna null",
+    "CA-003: `source` opcional ⇒ enlace target=_blank rel='noopener noreferrer' con aria-label 'Fuente: {label} (abre en pestaña nueva)'",
+    "CA-004: acento visual sutil (border-left tertiary + surface-container-low) — mismo visual en ambas variantes de caso",
+    "CA-005: data-atomic='molecule' data-component='AiDisclosure' + useId para el heading id (sin colisiones)",
+    "CA-006: 0 hex hardcoded",
+    "CA-007: axe 0 violations",
+    "CA-008: useId() se llama antes del early return (rules of hooks)"
+  ],
+  "out_of_scope": [
+    "No decide si el bloque aplica — CasePage lo renderiza solo si caseData.aiDeclared existe"
+  ],
+  "blueprint_gate": {
+    "BH-1": "PASS — tokens tertiary / surface-container-low / on-surface / primary existen",
+    "BH-2": "PASS — WCAG 1.3.1/2.4.4/2.4.6/4.1.2 válidos en 2.2",
+    "BH-3": "PASS — solo MUI Box/Typography; React.useId (React 19)",
+    "BH-4": "PASS — props tipadas sin any",
+    "BH-5": "PASS — molécula de presentación pura",
+    "BH-6": "PASS — Fase B 4/5"
+  }
+}

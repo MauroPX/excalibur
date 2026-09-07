@@ -1,0 +1,54 @@
+{
+  "spec_ref": "EX-v2-MOL-011",
+  "atomic_level": "molecule",
+  "component_name": "DecisionTable",
+  "base": "docs/m2/spec/CASE_PAGE_CONTENT_STRUCTURE.md (STAR-L 'Acción': opción descartada → elegida → por qué)",
+  "ola": "next — casos nuevos (Fase B)",
+  "rama": "v2",
+  "contexto": "Tabla de decisiones de arquitectura/metodología de un caso. Aparece en ambas variantes (evidencia-viva y documento-estrategico). Es la superficie explícita de las alternativas que hoy viven enterradas en la columna 'Por qué' de los docs.",
+  "dependencies": [],
+  "props_contract": {
+    "rows": { "type": "DecisionRow[]  ({decision, discarded, chosen, why})", "required": true, "nota": "tipo de @/components/templates/CasePage/types" },
+    "caption": { "type": "string", "required": false, "nota": "<caption> sr-only — normalmente ya hay un <h2> 'Acción' encima" }
+  },
+  "variants": [],
+  "states": ["default", "vacío (retorna null)"],
+  "wcag_criteria": ["1.3.1", "1.3.2", "1.4.10", "4.1.2"],
+  "bem_classes": {
+    "block": "ex-decision-table",
+    "elements": ["table", "head", "cell"],
+    "modifiers": []
+  },
+  "m3_tokens": {
+    "border": "var(--md-sys-color-outline-variant)",
+    "head-bg": "var(--md-sys-color-surface-container-high)",
+    "text": "var(--md-sys-color-on-surface)"
+  },
+  "dom_identity": {
+    "data-atomic": "molecule",
+    "data-component": "DecisionTable",
+    "root_element": "div[overflow-x:auto] > table"
+  },
+  "i18n_keys": [],
+  "i18n_note": "Los 4 encabezados de columna ('Decisión'/'Opción(es) descartada(s)'/'Elegida'/'Por qué') son hardcode español — se migran a next-intl en Fase G.",
+  "spec_criteria": [
+    "CA-001: <table> semántica — <thead> con <th scope='col'> (4 columnas), <tbody> con <th scope='row'> en la columna Decisión + 3 <td>",
+    "CA-002: `rows` vacío ⇒ retorna null",
+    "CA-003: `caption` opcional ⇒ <caption> sr-only (no visible, sí anunciado)",
+    "CA-004: scroll horizontal propio en móvil (contenedor overflow-x:auto, min-width 640px) — WCAG 1.4.10 reflow: no rompe el layout de la página",
+    "CA-005: data-atomic='molecule' data-component='DecisionTable'",
+    "CA-006: 0 hex hardcoded",
+    "CA-007: axe 0 violations (estructura de tabla de datos válida, no layout table)"
+  ],
+  "out_of_scope": [
+    "No es la tabla genérica de `CaseSection.table` (esa es {headers, rows: string[][]} para el cuerpo documento-estrategico) — DecisionTable es específica de las 4 columnas de STAR-L Acción"
+  ],
+  "blueprint_gate": {
+    "BH-1": "PASS — tokens outline-variant / surface-container-high / on-surface existen",
+    "BH-2": "PASS — WCAG 1.3.1/1.3.2/1.4.10/4.1.2 válidos en 2.2",
+    "BH-3": "PASS — solo MUI Box; tipo DecisionRow ya en el repo (Fase A)",
+    "BH-4": "PASS — props tipadas sin any",
+    "BH-5": "PASS — molécula de presentación pura, sin lógica de negocio",
+    "BH-6": "PASS — Fase B 3/5"
+  }
+}

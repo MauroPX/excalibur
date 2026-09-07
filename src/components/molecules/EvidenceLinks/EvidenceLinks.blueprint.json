@@ -1,0 +1,53 @@
+{
+  "spec_ref": "EX-v2-MOL-009",
+  "atomic_level": "molecule",
+  "component_name": "EvidenceLinks",
+  "base": "docs/m2/spec/CASE_PAGE_CONTENT_STRUCTURE.md (bloque de acceso, caseFormat 'evidencia-viva')",
+  "ola": "next — casos nuevos (Fase B)",
+  "rama": "v2",
+  "contexto": "Contenedor del bloque de acceso de un caso. Fila flex-wrap de EX-v2-ATOM-009 EvidenceLink + el texto instruccional `note` por enlace cuando existe.",
+  "dependencies": ["EX-v2-ATOM-009"],
+  "props_contract": {
+    "links": { "type": "AccessLink[]  ({kind, label, href, note?})", "required": true, "nota": "tipo de @/components/templates/CasePage/types" },
+    "title": { "type": "string", "required": false }
+  },
+  "variants": ["con título", "sin título"],
+  "states": ["default", "vacío (retorna null)"],
+  "wcag_criteria": ["1.3.1", "2.4.4", "4.1.2"],
+  "bem_classes": {
+    "block": "ex-evidence-links",
+    "elements": ["title", "item", "note"],
+    "modifiers": []
+  },
+  "m3_tokens": {
+    "title": "var(--md-sys-color-on-surface)",
+    "note": "var(--md-sys-color-on-surface-variant)"
+  },
+  "dom_identity": {
+    "data-atomic": "molecule",
+    "data-component": "EvidenceLinks",
+    "root_element": "div > ul (semántico, cada enlace es li)"
+  },
+  "i18n_keys": [],
+  "spec_criteria": [
+    "CA-001: renderiza una lista <ul>/<li> de EvidenceLink — uno por cada entrada de `links`",
+    "CA-002: `links` vacío ⇒ retorna null (no renderiza contenedor vacío)",
+    "CA-003: si un link tiene `note`, se muestra como <caption>/texto debajo del chip con token on-surface-variant",
+    "CA-004: `title` opcional ⇒ <h3> + aria-label del <ul> = title; sin title ⇒ aria-label = 'Enlaces de evidencia'",
+    "CA-005: data-atomic='molecule' data-component='EvidenceLinks'",
+    "CA-006: 0 hex hardcoded",
+    "CA-007: axe 0 violations (lista semántica, sin aria-required-children rota)"
+  ],
+  "out_of_scope": [
+    "No decide qué links mostrar — los recibe por props desde CasePage (caseData.accessLinks)",
+    "No aplica a caseFormat 'documento-estrategico' (ese usa `sections`)"
+  ],
+  "blueprint_gate": {
+    "BH-1": "PASS — tokens on-surface / on-surface-variant existen",
+    "BH-2": "PASS — WCAG 1.3.1/2.4.4/4.1.2 válidos en 2.2",
+    "BH-3": "PASS — depende de EX-v2-ATOM-009 (LOCKED); MUI Box/Typography por módulo",
+    "BH-4": "PASS — props tipadas sin any",
+    "BH-5": "PASS — molécula: compone un átomo, sin lógica de negocio",
+    "BH-6": "PASS — Fase B 2/5"
+  }
+}
