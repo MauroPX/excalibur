@@ -1,0 +1,29 @@
+{
+  "spec_id": "EX-v2-ORG-010",
+  "component": "FlagshipSection",
+  "atomic_level": "organism",
+  "ola": "6",
+  "version_target": "1.0.0",
+  "fuente": "Portada de v1 (layer-home #flagship) — mismo caso que src/content/cases/clients/correos-chile.ts. Cero cifras nuevas.",
+  "gate1_checks": {
+    "BH-1_tokens_only": "PASS — solo var(--md-sys-color-*)",
+    "BH-2_bem_classes": "PASS — ex-flagship-section__{badge,metrics,phases,case-link}",
+    "BH-3_atomic_attributes": "PASS — data-atomic='organism' data-component='FlagshipSection'",
+    "BH-4_typescript_strict": "PASS — props tipadas desde @/content/home (typeof FLAGSHIP)",
+    "BH-5_dependencies_locked": "PASS — reusa EX-v2-ATOM-009 EvidenceLink (LOCKED)",
+    "BH-6_a11y_wcag": "PASS — <h2>/<h3> jerarquía, <ol> de fases, EvidenceLink con 'abre en pestaña nueva'"
+  },
+  "props_interface": {
+    "data": "typeof FLAGSHIP  (badge, title, summary, metrics[4], phases[4], figma[], caseHref)"
+  },
+  "acceptance_criteria": [
+    "CA-001: <section aria-labelledby> + <h2> + badge + data-atomic organism",
+    "CA-002: 4 métricas destacadas (12→6, +400, 10, >95%)",
+    "CA-003: 4 fases como <li> con <h3>",
+    "CA-004: 2 enlaces Figma (target=_blank) + link '/casos/correos-chile'",
+    "CA-005: no aparece '-75%' ni cifras fuera del caso canónico",
+    "CA-006: 0 violaciones axe"
+  ],
+  "dependencies": ["EX-v2-ATOM-009"],
+  "no_toca": ["No duplica la lógica de CasePage — es una vista de portada; el detalle vive en /casos/correos-chile"]
+}

@@ -3,28 +3,35 @@ import React from 'react'
 import Box from '@mui/material/Box'
 import { Hero } from '@/components/organisms/Hero'
 import { NavSystem, type NavSystemProps } from '@/components/organisms/NavSystem'
+import { FlagshipSection } from '@/components/organisms/FlagshipSection'
 import { CasesSection, type CasesSectionProject } from '@/components/organisms/CasesSection'
 import { TitanSection, type TitanModule } from '@/components/organisms/TitanSection'
-import { StackSection, type StackSkill } from '@/components/organisms/StackSection'
+import { StackSection } from '@/components/organisms/StackSection'
+import { IndustriesSection } from '@/components/organisms/IndustriesSection'
+import { FaqSection } from '@/components/organisms/FaqSection'
 import { ContactSection, type ContactSectionProps } from '@/components/organisms/ContactSection'
 import { InquisitorHUD } from '@/components/organisms/InquisitorHUD'
 import type { HeroProps } from '@/components/organisms/Hero'
+import type { StackCategory, IndustryEntry, FaqItem, FLAGSHIP } from '@/content/home'
 
 export interface HomeTemplateProps {
   heroData: HeroProps
   symptomCards: NavSystemProps['symptomCards']
   roleCards: NavSystemProps['roleCards']
   featuredProjects?: NavSystemProps['featuredProjects']
+  flagship: typeof FLAGSHIP
   caseProjects: CasesSectionProject[]
   titanModules: TitanModule[]
   titanVersion?: string
-  skills: StackSkill[]
+  stackCategories: StackCategory[]
+  industries: IndustryEntry[]
+  faqItems: FaqItem[]
   contactProps?: Omit<ContactSectionProps, 'onSubmit'>
 }
 
 export const HomeTemplate: React.FC<HomeTemplateProps> = ({
-  heroData, symptomCards, roleCards, featuredProjects,
-  caseProjects, titanModules, titanVersion, skills, contactProps,
+  heroData, symptomCards, roleCards, featuredProjects, flagship,
+  caseProjects, titanModules, titanVersion, stackCategories, industries, faqItems, contactProps,
 }) => (
   <main
     id="main-content"
@@ -65,6 +72,10 @@ export const HomeTemplate: React.FC<HomeTemplateProps> = ({
       />
     </section>
 
+    <section id="flagship" className="ex-home-template__section">
+      <FlagshipSection data={flagship} />
+    </section>
+
     <section id="casos" className="ex-home-template__section">
       <CasesSection projects={caseProjects} />
     </section>
@@ -74,7 +85,15 @@ export const HomeTemplate: React.FC<HomeTemplateProps> = ({
     </section>
 
     <section id="stack" className="ex-home-template__section">
-      <StackSection skills={skills} />
+      <StackSection categories={stackCategories} />
+    </section>
+
+    <section id="industries" className="ex-home-template__section">
+      <IndustriesSection industries={industries} />
+    </section>
+
+    <section id="faq" className="ex-home-template__section">
+      <FaqSection items={faqItems} />
     </section>
 
     <section id="contacto" className="ex-home-template__section">

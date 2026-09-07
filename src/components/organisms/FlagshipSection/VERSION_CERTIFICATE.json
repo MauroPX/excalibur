@@ -1,0 +1,21 @@
+{
+  "spec_id": "EX-v2-ORG-010",
+  "component": "FlagshipSection",
+  "atomic_level": "organism",
+  "version": "1.0.0",
+  "status": "LOCKED",
+  "locked_at": "2026-09-07T00:00:00Z",
+  "tests_passing": true,
+  "test_count": 6,
+  "axe_violations": 0,
+  "wcag_level": "AA",
+  "m3_tokens_clean": true,
+  "gate_1": "PASS",
+  "gate_2": "PASS",
+  "gate_3": "PASS",
+  "blueprint_ref": "src/components/organisms/FlagshipSection/FlagshipSection.blueprint.json",
+  "forge_ref": "src/components/organisms/FlagshipSection/FlagshipSection.tsx",
+  "dependencies": ["EX-v2-ATOM-009"],
+  "depended_by": ["EX-v2-TMPL-001"],
+  "notes": "Portada de v1 #flagship (Correos Chile). Datos 1:1 de src/content/cases/clients/correos-chile.ts vía src/content/home.ts FLAGSHIP."
+}

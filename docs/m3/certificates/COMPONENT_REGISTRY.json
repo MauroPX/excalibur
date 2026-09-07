@@ -173,8 +173,9 @@
       "spec_id": "EX-v2-ORG-005",
       "component": "StackSection",
       "level": "organisms",
-      "version": "1.0.0",
+      "version": "2.0.0",
       "status": "LOCKED",
+      "note": "BREAKING v1→v2: retira level:number fabricado. Contrato `categories: StackCategory[]` (6 categorías reales de v1). Radar grafica appliedIn.length (casos reales por categoría).",
       "dependents": [],
       "depended_by": ["EX-v2-TMPL-001"]
     },
@@ -197,12 +198,43 @@
       "depended_by": []
     },
     {
+      "spec_id": "EX-v2-ORG-009",
+      "component": "FaqSection",
+      "level": "organisms",
+      "version": "1.0.0",
+      "status": "LOCKED",
+      "note": "Portada de v1 #faq. <details>/<summary> + JSON-LD FAQPage. Copy: CONTENT_COPY_STRATEGY.md §7.",
+      "dependents": [],
+      "depended_by": ["EX-v2-TMPL-001"]
+    },
+    {
+      "spec_id": "EX-v2-ORG-010",
+      "component": "FlagshipSection",
+      "level": "organisms",
+      "version": "1.0.0",
+      "status": "LOCKED",
+      "note": "Portada de v1 #flagship (Correos Chile). Datos 1:1 de src/content/cases/clients/correos-chile.ts.",
+      "dependents": ["EX-v2-ATOM-009"],
+      "depended_by": ["EX-v2-TMPL-001"]
+    },
+    {
+      "spec_id": "EX-v2-ORG-011",
+      "component": "IndustriesSection",
+      "level": "organisms",
+      "version": "1.0.0",
+      "status": "LOCKED",
+      "note": "Portada de v1 #industries. 7 industrias de CONTENT_COPY_STRATEGY.md §7 Q5 (sin los nombres sin verificar del grid de v1).",
+      "dependents": [],
+      "depended_by": ["EX-v2-TMPL-001"]
+    },
+    {
       "spec_id": "EX-v2-TMPL-001",
       "component": "HomeTemplate",
       "level": "templates",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "status": "LOCKED",
-      "dependents": ["EX-v2-HERO-001", "EX-v2-ORG-002", "EX-v2-ORG-003", "EX-v2-ORG-004", "EX-v2-ORG-005", "EX-v2-ORG-006", "EX-v2-A11Y-001"],
+      "note": "v1.1.0: cierra el gap v1→v2 de la portada — +FlagshipSection, +IndustriesSection, +FaqSection; StackSection v2.0.0. Orden v1: hero→nav→flagship→casos→titan→stack→industries→faq→contacto.",
+      "dependents": ["EX-v2-HERO-001", "EX-v2-ORG-002", "EX-v2-ORG-003", "EX-v2-ORG-004", "EX-v2-ORG-005", "EX-v2-ORG-006", "EX-v2-ORG-009", "EX-v2-ORG-010", "EX-v2-ORG-011", "EX-v2-A11Y-001"],
       "depended_by": []
     },
     {

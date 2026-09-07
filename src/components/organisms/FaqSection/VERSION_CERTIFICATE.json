@@ -1,0 +1,21 @@
+{
+  "spec_id": "EX-v2-ORG-009",
+  "component": "FaqSection",
+  "atomic_level": "organism",
+  "version": "1.0.0",
+  "status": "LOCKED",
+  "locked_at": "2026-09-07T00:00:00Z",
+  "tests_passing": true,
+  "test_count": 5,
+  "axe_violations": 0,
+  "wcag_level": "AA",
+  "m3_tokens_clean": true,
+  "gate_1": "PASS",
+  "gate_2": "PASS",
+  "gate_3": "PASS",
+  "blueprint_ref": "src/components/organisms/FaqSection/FaqSection.blueprint.json",
+  "forge_ref": "src/components/organisms/FaqSection/FaqSection.tsx",
+  "dependencies": [],
+  "depended_by": ["EX-v2-TMPL-001"],
+  "notes": "Portada de v1 #faq. <details>/<summary> nativo + JSON-LD FAQPage. Copy verbatim de CONTENT_COPY_STRATEGY.md §7 (8 preguntas AEO reconciliadas)."
+}

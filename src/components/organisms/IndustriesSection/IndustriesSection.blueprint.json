@@ -1,0 +1,27 @@
+{
+  "spec_id": "EX-v2-ORG-011",
+  "component": "IndustriesSection",
+  "atomic_level": "organism",
+  "ola": "6",
+  "version_target": "1.0.0",
+  "fuente": "Portada de v1 (layer-home #industries). Clientes: docs/m1/CONTENT_COPY_STRATEGY.md §7 pregunta 5 (ya reconciliada) — NO el grid de v1 con nombres sin verificar.",
+  "gate1_checks": {
+    "BH-1_tokens_only": "PASS — solo var(--md-sys-color-*)",
+    "BH-2_bem_classes": "PASS — ex-industries-section__item",
+    "BH-3_atomic_attributes": "PASS — data-atomic='organism' data-component='IndustriesSection'",
+    "BH-4_typescript_strict": "PASS — props IndustryEntry[] desde @/content/home",
+    "BH-5_dependencies_locked": "PASS — sin dependencias de componentes",
+    "BH-6_a11y_wcag": "PASS — <ul>/<li> semántico, <h2>/<h3> jerarquía"
+  },
+  "props_interface": {
+    "industries": "IndustryEntry[]  ({ icon: string; label: string; clients: string[] })",
+    "title": "string  (default 'Industrias')"
+  },
+  "acceptance_criteria": [
+    "CA-001: <section aria-labelledby> + <h2> + data-atomic organism",
+    "CA-002: 1 <li> por industria con <h3> (icon + label) y lista de clientes",
+    "CA-003: solo clientes de §7 Q5 — no aparecen Fingo/Powwi/Skandia/Mentu/ADL de v1",
+    "CA-004: 0 violaciones axe"
+  ],
+  "no_toca": ["No agrega ningún cliente que no esté en §7 Q5 ni verificado en docs/Career_Dossier/"]
+}

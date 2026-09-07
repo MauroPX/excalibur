@@ -34,12 +34,15 @@
 | EX-v2-ORG-002 | NavSystem | organisms | 3 | LOCKED | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1.0.0 |
 | EX-v2-ORG-003 | CasesSection | organisms | 3 | LOCKED | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1.0.0 |
 | EX-v2-ORG-004 | TitanSection | organisms | 3 | LOCKED | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1.0.0 |
-| EX-v2-ORG-005 | StackSection | organisms | 3 | LOCKED | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1.0.0 |
+| EX-v2-ORG-005 | StackSection | organisms | 6 | LOCKED | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 2.0.0 |
 | EX-v2-ORG-006 | ContactSection | organisms | 3 | LOCKED | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1.0.0 |
 | EX-v2-A11Y-001 | InquisitorHUD | organisms | 3 | LOCKED | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1.0.0 |
 | EX-v2-ORG-007 | ColorRolesGallery | organisms | 6 | LOCKED | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1.0.0 |
 | EX-v2-ORG-008 | ColorRolesHUD | organisms | 6 | LOCKED | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1.0.0 |
-| EX-v2-TMPL-001 | HomeTemplate | templates | 4 | LOCKED | ✅ | ✅ | ✅ ¹ | ✅ | ✅ | ✅ | 1.0.0 |
+| EX-v2-ORG-009 | FaqSection | organisms | 6 | LOCKED | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1.0.0 |
+| EX-v2-ORG-010 | FlagshipSection | organisms | 6 | LOCKED | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1.0.0 |
+| EX-v2-ORG-011 | IndustriesSection | organisms | 6 | LOCKED | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1.0.0 |
+| EX-v2-TMPL-001 | HomeTemplate | templates | 6 | LOCKED | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1.1.0 |
 | EX-v2-TMPL-002 | CasePage | templates | 6 | LOCKED | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1.1.1 |
 | EX-v2-PAGE-001 | / (HomePage) | pages | 7 | LOCKED | ✅ | — | — | — | — | — | 1.0.0 |
 | EX-v2-PAGE-002 | /casos/[slug] | pages | 7 | LOCKED | ✅ | — | — | — | — | — | 1.1.0 |

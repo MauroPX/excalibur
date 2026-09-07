@@ -12,6 +12,9 @@ vi.mock('@/components/organisms/Hero', () => ({
 vi.mock('@/components/organisms/NavSystem', () => ({
   NavSystem: () => <section data-testid="nav-system">NavSystem</section>,
 }))
+vi.mock('@/components/organisms/FlagshipSection', () => ({
+  FlagshipSection: () => <section data-testid="flagship-section">FlagshipSection</section>,
+}))
 vi.mock('@/components/organisms/CasesSection', () => ({
   CasesSection: () => <section data-testid="cases-section">CasesSection</section>,
 }))
@@ -20,6 +23,12 @@ vi.mock('@/components/organisms/TitanSection', () => ({
 }))
 vi.mock('@/components/organisms/StackSection', () => ({
   StackSection: () => <section data-testid="stack-section">StackSection</section>,
+}))
+vi.mock('@/components/organisms/IndustriesSection', () => ({
+  IndustriesSection: () => <section data-testid="industries-section">IndustriesSection</section>,
+}))
+vi.mock('@/components/organisms/FaqSection', () => ({
+  FaqSection: () => <section data-testid="faq-section">FaqSection</section>,
 }))
 vi.mock('@/components/organisms/ContactSection', () => ({
   ContactSection: () => <section data-testid="contact-section">ContactSection</section>,
@@ -35,6 +44,10 @@ const mockHeroData = {
 }
 const mockSymptomCards = [{ title: 'Legacy', description: 'Sistema viejo' }]
 const mockRoleCards = [{ title: 'CTO', description: 'Para CTOs' }]
+const mockFlagship = {
+  badge: '★ Correos Chile', title: 'Portal B2B', summary: 'x',
+  metrics: [], phases: [], figma: [], caseHref: '/casos/correos-chile',
+}
 const mockCaseProjects = [
   {
     slug: 'p1', title: 'Proyecto', description: 'Desc', tags: ['ia'],
@@ -44,9 +57,6 @@ const mockCaseProjects = [
 const mockTitanModules = [
   { hubName: 'ATLAS', hubTitle: 'Arquitectura', description: 'Desc', momentum: 'M3' as const, commandsCount: 10 },
 ]
-const mockSkills = [
-  { name: 'React', level: 9, category: 'frontend' as const },
-]
 
 function renderHome(props = {}) {
   return render(
@@ -54,23 +64,26 @@ function renderHome(props = {}) {
       heroData={mockHeroData as never}
       symptomCards={mockSymptomCards}
       roleCards={mockRoleCards}
+      flagship={mockFlagship as never}
       caseProjects={mockCaseProjects}
       titanModules={mockTitanModules}
-      skills={mockSkills}
+      stackCategories={[]}
+      industries={[]}
+      faqItems={[]}
       {...props}
     />
   )
 }
 
-describe('HomeTemplate', () => {
-  it('CA-001: renderiza los 6 organismos', () => {
+describe('HomeTemplate v1.1.0', () => {
+  it('CA-001: renderiza los 9 organismos (incl. flagship, industries, faq)', () => {
     renderHome()
-    expect(screen.getByTestId('hero')).toBeInTheDocument()
-    expect(screen.getByTestId('nav-system')).toBeInTheDocument()
-    expect(screen.getByTestId('cases-section')).toBeInTheDocument()
-    expect(screen.getByTestId('titan-section')).toBeInTheDocument()
-    expect(screen.getByTestId('stack-section')).toBeInTheDocument()
-    expect(screen.getByTestId('contact-section')).toBeInTheDocument()
+    for (const id of [
+      'hero', 'nav-system', 'flagship-section', 'cases-section',
+      'titan-section', 'stack-section', 'industries-section', 'faq-section', 'contact-section',
+    ]) {
+      expect(screen.getByTestId(id)).toBeInTheDocument()
+    }
   })
 
   it('CA-002: main tiene data-atomic=template y data-component=HomeTemplate', () => {
@@ -80,14 +93,11 @@ describe('HomeTemplate', () => {
     expect(main).toHaveAttribute('data-component', 'HomeTemplate')
   })
 
-  it('CA-004: secciones tienen ids para deeplink', () => {
+  it('CA-004: secciones con ids para deeplink (incl. flagship, industries, faq)', () => {
     const { container } = renderHome()
-    expect(container.querySelector('#hero')).toBeInTheDocument()
-    expect(container.querySelector('#nav')).toBeInTheDocument()
-    expect(container.querySelector('#casos')).toBeInTheDocument()
-    expect(container.querySelector('#titan')).toBeInTheDocument()
-    expect(container.querySelector('#stack')).toBeInTheDocument()
-    expect(container.querySelector('#contacto')).toBeInTheDocument()
+    for (const sel of ['#hero', '#nav', '#flagship', '#casos', '#titan', '#stack', '#industries', '#faq', '#contacto']) {
+      expect(container.querySelector(sel)).toBeInTheDocument()
+    }
   })
 
   it('CA-005: skip-link presente', () => {

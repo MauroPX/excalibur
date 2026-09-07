@@ -1,89 +1,71 @@
 import type { Meta, StoryObj } from '@storybook/nextjs-vite'
 import { HomeTemplate } from './HomeTemplate'
+import { CLIENT_CASES } from '@/content/cases'
+import { STACK_CATEGORIES, INDUSTRIES, FAQ_ITEMS, FLAGSHIP } from '@/content/home'
 
-// Datos reales del portafolio — mismos fixtures que los .stories.tsx de cada
-// organismo (Hero, NavSystem, CasesSection, TitanSection, StackSection,
-// ContactSection). Mantener en sync si esos fixtures cambian.
+// Datos reales — importados del contenido canónico (src/content/**), sin duplicar.
 
 const heroData = {
   headline: 'Construyo sistemas que el equipo opera sin mí',
-  subheadline: 'Staff Product Architect disponible para proyectos Q3 2026.',
-  ctaLabel: 'Ver proyectos',
+  subheadline: 'Staff Product Architect — contratos remotos disponibles, compensación en USD.',
+  ctaLabel: 'Ver casos',
   ctaHref: '#casos',
-  secondaryCtaLabel: 'Descargar CV',
-  secondaryCtaHref: '/cv.pdf',
+  secondaryCtaLabel: 'Metodología',
+  secondaryCtaHref: '#titan',
   metrics: [
-    { value: '+3.2M', label: 'ARR generado', trend: 'positive' as const },
-    { value: '7', label: 'productos lanzados', trend: 'neutral' as const },
-    { value: '96%', label: 'retención', trend: 'positive' as const },
+    { value: '+10', label: 'años de experiencia', trend: 'neutral' as const },
+    { value: '4', label: 'países', trend: 'neutral' as const },
+    { value: '654', label: 'incidentes WCAG auditados (FDN)', trend: 'neutral' as const },
   ],
 }
 
 const symptomCards = [
   { title: 'Mi sistema es inaccesible', description: 'Auditoría WCAG 2.2 y eliminación de fallas con evidencia técnica verificable.', tag: 'cliente' as const, targetSlug: 'fdn' },
-  { title: 'El TTM es demasiado largo', description: 'Frameworks de entrega que redujeron el time-to-market hasta un 75%.', tag: 'cliente' as const, targetSlug: 'bbva' },
-  { title: 'No tenemos Design System', description: 'DS desde cero con gobernanza, tests y Chromatic en producción.', tag: 'cliente' as const, targetSlug: 'solidaria' },
-  { title: 'Nuestra plataforma es legacy', description: 'Migración brownfield sin interrupciones. LCP de 25s a 2.5s en producción real.', tag: 'cliente' as const, targetSlug: 'fdn' },
+  { title: 'El ciclo de entrega es muy largo', description: 'Diagnóstico del dato real antes de diseñar: Correos Chile pasó de 12 a 6 meses.', tag: 'cliente' as const, targetSlug: 'correos-chile' },
+  { title: 'No tenemos Design System', description: 'DS desde cero con gobernanza, tokens desde una fuente y verificación automatizada.', tag: 'cliente' as const, targetSlug: 'fid-seguros' },
+  { title: 'Nuestra plataforma es legacy', description: 'Migración con framework de gobierno D↔D antes de mover la primera pantalla (FID Seguros).', tag: 'cliente' as const, targetSlug: 'fid-seguros' },
 ]
 
 const roleCards = [
-  { title: 'Soy CTO / Founder', description: 'BBVA: -75% TTM. Correos Chile: TTM 12→6 meses.', tag: 'cliente' as const, targetSlug: 'bbva' },
-  { title: 'Soy reclutador', description: '212 tests · 0 violations · DS en prod · 4 países · 10 años.', tag: 'reclutador' as const, targetSlug: 'solidaria' },
-  { title: 'Soy PM / PO', description: 'TITAN v7.0: metodología M0-M5 sin pérdida de contexto.', tag: 'comunidad' as const, targetSlug: 'bbva' },
-  { title: 'Soy líder de ingeniería', description: 'Next.js 15 + Strapi v5 + pgvector. LCP -90% con evidencia técnica.', tag: 'cliente' as const, targetSlug: 'fdn' },
+  { title: 'Soy CTO / Founder', description: 'Correos Chile: ciclo 12→6 meses, 10 devs autónomos desde el sprint 1.', tag: 'cliente' as const, targetSlug: 'correos-chile' },
+  { title: 'Soy reclutador', description: '10 años, 4 países, evidencia verificable por caso: métricas, decisiones y uso de IA declarado.', tag: 'reclutador' as const, targetSlug: 'bbva' },
+  { title: 'Soy PM / PO', description: 'TITAN v7.0: metodología M0-M5 sin pérdida de contexto entre etapas.', tag: 'comunidad' as const, targetSlug: 'bbva' },
+  { title: 'Soy líder de ingeniería', description: 'Auditoría de 654 incidentes + Core Web Vitals en FDN. LCP de 25.2s a un objetivo <2.5s.', tag: 'cliente' as const, targetSlug: 'fdn' },
 ]
 
-const caseProjects = [
-  {
-    slug: 'fdn',
-    title: 'FDN — LCP -90% y WCAG AAA',
-    description: 'Migración Drupal 7 → Next.js 14. LCP 25.2s → 2.5s. 654 fallas WCAG eliminadas. Certificado WCAG AAA 2024.',
-    tags: ['GovTech', 'Next.js', 'WCAG', 'A11Y', 'Performance'],
-    symptomTags: ['legacy', 'a11y', 'performance'],
-    roleTags: ['staff-architect', 'tech-lead'],
+const CASE_META: Record<string, { symptomTags: string[]; roleTags: string[]; metric: { value: string; label: string } }> = {
+  'correos-chile': { symptomTags: ['team-scaling', 'design-system'], roleTags: ['staff-architect', 'designops'], metric: { value: '12→6', label: 'meses de ciclo' } },
+  bbva: { symptomTags: ['design-system', 'team-scaling'], roleTags: ['staff-architect', 'product-manager'], metric: { value: '5/5', label: 'de 3 Product Owners' } },
+  fdn: { symptomTags: ['legacy', 'a11y', 'performance'], roleTags: ['staff-architect', 'tech-lead'], metric: { value: '-90%', label: 'objetivo LCP' } },
+  lasalle: { symptomTags: ['a11y', 'design-system'], roleTags: ['staff-architect', 'designops'], metric: { value: 'AAA', label: 'WCAG 2.2' } },
+  'fid-seguros': { symptomTags: ['legacy', 'design-system'], roleTags: ['staff-architect', 'designops'], metric: { value: '1.002', label: 'filas de gobierno' } },
+  sured: { symptomTags: ['team-scaling'], roleTags: ['tech-lead', 'staff-architect'], metric: { value: '2×/día', label: 'conciliación auditable' } },
+  'parking-ruedaz': { symptomTags: ['conversion', 'design-system'], roleTags: ['ux-designer', 'staff-architect'], metric: { value: '+90%', label: 'uso recurrente' } },
+  'siclo-idpay': { symptomTags: ['conversion'], roleTags: ['product-manager', 'ux-designer'], metric: { value: '10', label: 'tablas ER + OpenAPI' } },
+}
+
+const caseProjects = Object.keys(CASE_META).map((slug) => {
+  const c = CLIENT_CASES[slug]
+  const m = CASE_META[slug]
+  return {
+    slug,
+    title: c.title,
+    description: c.description,
+    tags: c.tags,
+    symptomTags: m.symptomTags,
+    roleTags: m.roleTags,
     audienceTags: ['cliente'],
-    metric: { value: '-90%', label: 'LCP' },
-  },
-  {
-    slug: 'solidaria',
-    title: 'Solidaria — Design System 0 violations',
-    description: 'Design System desde cero con 212 tests, 0 axe violations, Storybook en Chromatic.',
-    tags: ['Design System', 'WCAG', 'Storybook', 'Insurtech'],
-    symptomTags: ['design-system', 'a11y'],
-    roleTags: ['staff-architect', 'designops'],
-    audienceTags: ['cliente', 'reclutador'],
-    metric: { value: '212', label: 'tests · 0 violations' },
-  },
-  {
-    slug: 'bbva',
-    title: 'BBVA — Time-to-market -75%',
-    description: 'Framework GEMAS + Proyecto Brickell. Digitalización 100% contratación Pyme en Colombia & Panamá.',
-    tags: ['Banca', 'Fintech', 'SAFe', 'Design System'],
-    symptomTags: ['legacy', 'team-scaling', 'design-system'],
-    roleTags: ['staff-architect', 'product-manager'],
-    audienceTags: ['cliente'],
-    metric: { value: '-75%', label: 'time-to-market' },
-  },
-]
+    metric: m.metric,
+  }
+})
 
 const titanModules = [
-  { hubName: 'Foundation', hubTitle: 'M0 — Visión y estructura', description: 'Diagnóstico, ADRs y gobernanza del proyecto. Sin M0 no hay base sólida.', momentum: 'M0' as const, commandsCount: 12 },
+  { hubName: 'Foundation', hubTitle: 'M0 — Visión y estructura', description: 'Diagnóstico, ADRs y gobernanza del proyecto.', momentum: 'M0' as const, commandsCount: 12 },
   { hubName: 'Strategy', hubTitle: 'M1 — Backlog y roadmap', description: 'Customer journeys, backlog priorizado y mapa de riesgos.', momentum: 'M1' as const, commandsCount: 10 },
-  { hubName: 'Architecture', hubTitle: 'M2 — Spec y contratos', description: 'SPEC_DOCUMENT, DESIGN_TOKENS y contratos de API. Sin M2 no hay Forge.', momentum: 'M2' as const, commandsCount: 11 },
-  { hubName: 'Execution', hubTitle: 'M3 — BFL + CI/CD', description: 'Sprints BFL con Blueprint→Forge→Lock. 26/26 componentes LOCKED.', momentum: 'M3' as const, commandsCount: 26 },
-  { hubName: 'Intelligence', hubTitle: 'M4 — RAG y backend', description: 'Strapi v5 + pgvector + Claude API. La IA conoce cada proyecto.', momentum: 'M4' as const, commandsCount: 8 },
+  { hubName: 'Architecture', hubTitle: 'M2 — Spec y contratos', description: 'SPEC_DOCUMENT, DESIGN_TOKENS y contratos de API.', momentum: 'M2' as const, commandsCount: 11 },
+  { hubName: 'Execution', hubTitle: 'M3 — BFL + CI/CD', description: 'Sprints BFL con Blueprint→Forge→Lock.', momentum: 'M3' as const, commandsCount: 26 },
+  { hubName: 'Intelligence', hubTitle: 'M4 — RAG y backend', description: 'Strapi v5 + pgvector + Claude API.', momentum: 'M4' as const, commandsCount: 8 },
   { hubName: 'Operations', hubTitle: 'M5 — Monitoreo y mejora', description: 'Observabilidad, alertas y ciclos de mejora continua.', momentum: 'M5' as const, commandsCount: 6 },
-]
-
-const skills = [
-  { name: 'React / Next.js', level: 90, category: 'frontend' as const },
-  { name: 'TypeScript', level: 88, category: 'frontend' as const },
-  { name: 'MUI / Design Systems', level: 85, category: 'design' as const },
-  { name: 'Node.js / Express', level: 75, category: 'backend' as const },
-  { name: 'PostgreSQL + pgvector', level: 72, category: 'backend' as const },
-  { name: 'Product Strategy', level: 95, category: 'process' as const },
-  { name: 'Claude / LLMs', level: 80, category: 'ai' as const },
-  { name: 'Figma', level: 78, category: 'design' as const },
 ]
 
 const meta: Meta<typeof HomeTemplate> = {
@@ -100,10 +82,13 @@ const meta: Meta<typeof HomeTemplate> = {
     heroData,
     symptomCards,
     roleCards,
+    flagship: FLAGSHIP,
     caseProjects,
     titanModules,
     titanVersion: 'v7.0',
-    skills,
+    stackCategories: STACK_CATEGORIES,
+    industries: INDUSTRIES,
+    faqItems: FAQ_ITEMS,
     contactProps: { defaultChannel: 'linkedin' },
   },
 }
@@ -112,7 +97,7 @@ export default meta
 type Story = StoryObj<typeof HomeTemplate>
 
 export const HappyPath: Story = {
-  name: 'HappyPath — página completa',
+  name: 'HappyPath — página completa (9 secciones)',
 }
 
 export const SinProyectosDestacados: Story = {

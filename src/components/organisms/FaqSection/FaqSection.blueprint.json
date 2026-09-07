@@ -1,0 +1,28 @@
+{
+  "spec_id": "EX-v2-ORG-009",
+  "component": "FaqSection",
+  "atomic_level": "organism",
+  "ola": "6",
+  "version_target": "1.0.0",
+  "fuente": "Portada de v1 (layer-home #faq) — copy reconciliado en docs/m1/CONTENT_COPY_STRATEGY.md §7",
+  "gate1_checks": {
+    "BH-1_tokens_only": "PASS — solo var(--md-sys-color-*), 0 hex",
+    "BH-2_bem_classes": "PASS — ex-faq-section__{list,item,q,a}",
+    "BH-3_atomic_attributes": "PASS — data-atomic='organism' data-component='FaqSection'",
+    "BH-4_typescript_strict": "PASS — 0 any; props FaqItem[] desde @/content/home",
+    "BH-5_dependencies_locked": "PASS — sin dependencias de componentes",
+    "BH-6_a11y_wcag": "PASS — <details>/<summary> nativo (teclado sin JS), <h2> etiqueta la sección, JSON-LD FAQPage para AEO"
+  },
+  "props_interface": {
+    "items": "FaqItem[]  ({ q: string; a: string })",
+    "title": "string  (default 'Preguntas comunes')"
+  },
+  "acceptance_criteria": [
+    "CA-001: 1 <details> por pregunta, con <summary> = q y <p> = a",
+    "CA-002: <section aria-labelledby> + <h2> + data-atomic organism",
+    "CA-003: emite <script application/ld+json> con @type FAQPage y una Question por item",
+    "CA-004: no aparece la cifra '$3.000–$25.000' (retirada esta sesión, sin fuente)",
+    "CA-005: 0 violaciones axe"
+  ],
+  "no_toca": ["No inventa preguntas ni respuestas — copy 1:1 de CONTENT_COPY_STRATEGY.md §7"]
+}

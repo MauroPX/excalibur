@@ -5,8 +5,8 @@ import { PersonJsonLd } from '@/components/infra/JsonLd'
 import type { NavSystemProps } from '@/components/organisms/NavSystem'
 import type { CasesSectionProject } from '@/components/organisms/CasesSection'
 import type { TitanModule } from '@/components/organisms/TitanSection'
-import type { StackSkill } from '@/components/organisms/StackSection'
 import { CLIENT_CASES } from '@/content/cases'
+import { STACK_CATEGORIES, INDUSTRIES, FAQ_ITEMS, FLAGSHIP } from '@/content/home'
 
 const symptomCards: NavSystemProps['symptomCards'] = [
   { title: 'Mi sistema es inaccesible', description: 'Auditoría WCAG 2.2 y eliminación de fallas de accesibilidad con evidencia técnica verificable.', tag: 'cliente', targetSlug: 'fdn' },
@@ -63,17 +63,6 @@ const titanModules: TitanModule[] = [
   { hubName: 'Operations', hubTitle: 'M5 — Monitoreo y mejora', description: 'Observabilidad, alertas y ciclos de mejora continua.', momentum: 'M5', commandsCount: 6 },
 ]
 
-const skills: StackSkill[] = [
-  { name: 'React / Next.js', level: 90, category: 'frontend' },
-  { name: 'TypeScript', level: 88, category: 'frontend' },
-  { name: 'MUI / Design Systems', level: 85, category: 'design' },
-  { name: 'Node.js / Express', level: 75, category: 'backend' },
-  { name: 'PostgreSQL', level: 72, category: 'backend' },
-  { name: 'Product Strategy', level: 95, category: 'process' },
-  { name: 'Claude / LLMs', level: 80, category: 'ai' },
-  { name: 'Figma', level: 78, category: 'design' },
-]
-
 export const metadata: Metadata = {
   alternates: {
     canonical: '/',
@@ -111,10 +100,13 @@ export default async function HomePage({
       symptomCards={symptomCards}
       roleCards={roleCards}
       featuredProjects={caseProjects.map(p => ({ slug: p.slug, title: p.title, summary: p.description, tags: p.tags }))}
+      flagship={FLAGSHIP}
       caseProjects={caseProjects}
       titanModules={titanModules}
       titanVersion="v7.0"
-      skills={skills}
+      stackCategories={STACK_CATEGORIES}
+      industries={INDUSTRIES}
+      faqItems={FAQ_ITEMS}
       />
     </>
   )

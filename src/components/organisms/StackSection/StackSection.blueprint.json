@@ -2,8 +2,10 @@
   "spec_ref": "EX-v2-ORG-005",
   "atomic_level": "organism",
   "component_name": "StackSection",
-  "ola": "3",
-  "rama": "feat/v2-ola3-organisms",
+  "ola": "6",
+  "rama": "v2",
+  "version_target": "2.0.0",
+  "v2_0_0_change": "BREAKING — se retira `skills: Array<{ name, category, level }>` (level:number era dato fabricado sin fuente). Nuevo props_contract: `categories: StackCategory[]` (6 categorías reales de v1: Design & Systems, Accessibility, AI & Automation, UX/CX Methods, DesignOps & Process, Analytics & Tools). Cada `item` es una herramienta/método real mostrado como chip SIN nivel. El radar (mismo Recharts + aria-hidden + tabla sr-only) grafica `appliedIn.length` = cuántos casos de src/content/cases/** aplican esa categoría — entero verificable, no %. Sin i18n keys (los ítems son nombres propios; el chrome usa strings directos). Los campos de abajo describen v1.0.0 y se conservan como historial.",
   "law_of_ux": "Ley de Prägnanz (forma simple — radar legible de un vistazo)",
   "client_component": true,
   "dependencies": [
