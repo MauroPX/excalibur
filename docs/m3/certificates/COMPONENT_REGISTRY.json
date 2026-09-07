@@ -209,10 +209,10 @@
       "spec_id": "EX-v2-TMPL-002",
       "component": "CasePage",
       "level": "templates",
-      "version": "1.1.0",
+      "version": "1.1.1",
       "status": "LOCKED",
       "dependents": ["EX-v2-MOL-002", "EX-v2-MOL-003", "EX-v2-MOL-004", "EX-v2-MOL-005", "EX-v2-MOL-009", "EX-v2-MOL-011", "EX-v2-MOL-012", "EX-v2-ATOM-001", "EX-v2-ATOM-002"],
-      "depended_by": []
+      "depended_by": ["EX-v2-PAGE-002", "EX-v2-PAGE-004", "EX-v2-PAGE-006"]
     },
     {
       "spec_id": "EX-v2-ANALYTICS-001",
@@ -294,6 +294,56 @@
       "status": "LOCKED",
       "dependents": [],
       "depended_by": ["EX-v2-TMPL-002"]
+    },
+    {
+      "spec_id": "EX-v2-PAGE-002",
+      "component": "/casos/[slug]",
+      "level": "pages",
+      "version": "1.1.0",
+      "status": "LOCKED",
+      "note": "8 casos de cliente desde src/content/cases/clients/*.ts + sección FDN Momentum 2 (appendixSection). Antes: 3 casos inline (uno mal clasificado).",
+      "dependents": ["EX-v2-TMPL-002"],
+      "depended_by": []
+    },
+    {
+      "spec_id": "EX-v2-PAGE-003",
+      "component": "/metodologia",
+      "level": "pages",
+      "version": "1.0.0",
+      "status": "LOCKED",
+      "note": "Índice de metodología — destino de los chips methodology#slug de cada caso + insumo base Guidewire.",
+      "dependents": [],
+      "depended_by": []
+    },
+    {
+      "spec_id": "EX-v2-PAGE-004",
+      "component": "/pruebas-tecnicas/[slug]",
+      "level": "pages",
+      "version": "1.0.0",
+      "status": "LOCKED",
+      "note": "4 work-tests (FleetControl, Solidaria, BCS, Codesa) vía CasePage + WORK_TEST_CASES.",
+      "dependents": ["EX-v2-TMPL-002"],
+      "depended_by": []
+    },
+    {
+      "spec_id": "EX-v2-PAGE-005",
+      "component": "/pruebas-tecnicas",
+      "level": "pages",
+      "version": "1.0.0",
+      "status": "LOCKED",
+      "note": "Índice de pruebas técnicas con WorkTestCard (grid) + card del meta-caso.",
+      "dependents": ["EX-v2-MOL-010"],
+      "depended_by": []
+    },
+    {
+      "spec_id": "EX-v2-PAGE-006",
+      "component": "/excalibur",
+      "level": "pages",
+      "version": "1.0.0",
+      "status": "LOCKED",
+      "note": "Meta-caso (caseType 'meta') vía CasePage + META_CASE.",
+      "dependents": ["EX-v2-TMPL-002"],
+      "depended_by": []
     }
   ]
 }

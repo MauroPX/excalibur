@@ -6,53 +6,53 @@ import type { NavSystemProps } from '@/components/organisms/NavSystem'
 import type { CasesSectionProject } from '@/components/organisms/CasesSection'
 import type { TitanModule } from '@/components/organisms/TitanSection'
 import type { StackSkill } from '@/components/organisms/StackSection'
+import { CLIENT_CASES } from '@/content/cases'
 
 const symptomCards: NavSystemProps['symptomCards'] = [
   { title: 'Mi sistema es inaccesible', description: 'Auditoría WCAG 2.2 y eliminación de fallas de accesibilidad con evidencia técnica verificable.', tag: 'cliente', targetSlug: 'fdn' },
-  { title: 'El TTM es demasiado largo', description: 'Frameworks de entrega que redujeron el time-to-market hasta un 75% en proyectos bancarios.', tag: 'cliente', targetSlug: 'bbva' },
-  { title: 'No tenemos Design System', description: 'Construcción de DS desde cero con gobernanza, tests y Chromatic en producción.', tag: 'cliente', targetSlug: 'solidaria' },
-  { title: 'Nuestra plataforma es legacy', description: 'Migración brownfield sin interrupciones. LCP de 25s a 2.5s en producción real.', tag: 'cliente', targetSlug: 'fdn' },
+  { title: 'El TTM es demasiado largo', description: 'Diagnóstico del dato real y escenarios antes de diseñar: Correos Chile pasó de 12 a 6 meses de ciclo.', tag: 'cliente', targetSlug: 'correos-chile' },
+  { title: 'No tenemos Design System', description: 'Design Systems desde cero con gobernanza, tokens desde una fuente y verificación automatizada.', tag: 'cliente', targetSlug: 'fid-seguros' },
+  { title: 'Nuestra plataforma es legacy', description: 'Migración sin gobierno explícito se fragmenta. FID Seguros: framework D↔D antes de mover la primera pantalla.', tag: 'cliente', targetSlug: 'fid-seguros' },
 ]
 
 const roleCards: NavSystemProps['roleCards'] = [
-  { title: 'Soy CTO / Founder', description: 'Escalabilidad técnica end-to-end. BBVA: -75% TTM. Correos Chile: TTM 12→6 meses.', tag: 'cliente', targetSlug: 'bbva' },
-  { title: 'Soy reclutador', description: '212 tests · 0 violations · DS en prod · 4 países · 10 años. Todo verificable.', tag: 'reclutador', targetSlug: 'solidaria' },
+  { title: 'Soy CTO / Founder', description: 'Escalabilidad técnica end-to-end. Correos Chile: ciclo 12→6 meses, 10 devs autónomos desde el sprint 1.', tag: 'cliente', targetSlug: 'correos-chile' },
+  { title: 'Soy reclutador', description: '10 años, 4 países, evidencia verificable por caso: métricas, decisiones y uso de IA declarado.', tag: 'reclutador', targetSlug: 'bbva' },
   { title: 'Soy PM / PO', description: 'TITAN v7.0: metodología de M0 a M5 sin pérdida de contexto entre etapas.', tag: 'comunidad', targetSlug: 'bbva' },
-  { title: 'Soy líder de ingeniería', description: 'Next.js 15 + Strapi v5 + pgvector. LCP -90% con evidencia técnica.', tag: 'cliente', targetSlug: 'fdn' },
+  { title: 'Soy líder de ingeniería', description: 'Auditoría de 654 incidentes + Core Web Vitals en FDN. LCP de 25.2s a un objetivo <2.5s.', tag: 'cliente', targetSlug: 'fdn' },
 ]
 
-const caseProjects: CasesSectionProject[] = [
-  {
-    slug: 'fdn',
-    title: 'FDN — LCP -90% y WCAG AAA',
-    description: 'Migración del portal institucional de Drupal 7 a Next.js 14. LCP de 25.2s a 2.5s. 654 fallas WCAG eliminadas. Certificado WCAG AAA 2024.',
-    tags: ['GovTech', 'Next.js', 'WCAG', 'A11Y', 'Performance'],
-    symptomTags: ['legacy', 'a11y', 'performance'],
-    roleTags: ['staff-architect', 'tech-lead', 'design-engineer'],
+// Los 8 casos de cliente (experiencia profesional pagada). Título/descripción/tags
+// vienen del contenido canónico en src/content/cases/clients/*.ts; los tags de filtro
+// (symptom/role) y la métrica destacada se curan aquí para la portada.
+const CASE_META: Record<
+  string,
+  { symptomTags: string[]; roleTags: string[]; metric: { value: string; label: string } }
+> = {
+  'correos-chile': { symptomTags: ['team-scaling', 'design-system'], roleTags: ['staff-architect', 'designops'], metric: { value: '12→6', label: 'meses de ciclo' } },
+  bbva: { symptomTags: ['design-system', 'team-scaling'], roleTags: ['staff-architect', 'product-manager'], metric: { value: '5/5', label: 'de 3 Product Owners' } },
+  fdn: { symptomTags: ['legacy', 'a11y', 'performance'], roleTags: ['staff-architect', 'tech-lead'], metric: { value: '-90%', label: 'objetivo LCP' } },
+  lasalle: { symptomTags: ['a11y', 'design-system'], roleTags: ['staff-architect', 'designops'], metric: { value: 'AAA', label: 'WCAG 2.2' } },
+  'fid-seguros': { symptomTags: ['legacy', 'design-system'], roleTags: ['staff-architect', 'designops'], metric: { value: '1.002', label: 'filas de gobierno' } },
+  sured: { symptomTags: ['team-scaling'], roleTags: ['tech-lead', 'staff-architect'], metric: { value: '2×/día', label: 'conciliación auditable' } },
+  'parking-ruedaz': { symptomTags: ['conversion', 'design-system'], roleTags: ['ux-designer', 'staff-architect'], metric: { value: '+90%', label: 'uso recurrente' } },
+  'siclo-idpay': { symptomTags: ['conversion'], roleTags: ['product-manager', 'ux-designer'], metric: { value: '10', label: 'tablas ER + OpenAPI' } },
+}
+
+const caseProjects: CasesSectionProject[] = Object.keys(CASE_META).map((slug) => {
+  const c = CLIENT_CASES[slug]
+  const m = CASE_META[slug]
+  return {
+    slug,
+    title: c.title,
+    description: c.description,
+    tags: c.tags,
+    symptomTags: m.symptomTags,
+    roleTags: m.roleTags,
     audienceTags: ['cliente'],
-    metric: { value: '-90%', label: 'LCP' },
-  },
-  {
-    slug: 'solidaria',
-    title: 'Solidaria — Design System 0 violations',
-    description: 'Design System desde cero con gobernanza real. 212 tests, 0 axe violations, Storybook en Chromatic con baseline establecido.',
-    tags: ['Design System', 'WCAG', 'Storybook', 'Insurtech'],
-    symptomTags: ['design-system', 'a11y'],
-    roleTags: ['staff-architect', 'designops'],
-    audienceTags: ['cliente', 'reclutador'],
-    metric: { value: '212', label: 'tests · 0 violations' },
-  },
-  {
-    slug: 'bbva',
-    title: 'BBVA — Time-to-market -75%',
-    description: 'Arquitectura de producto para BBVA Colombia & Panamá. Framework GEMAS + Proyecto Brickell. Digitalización 100% del proceso de contratación Pyme.',
-    tags: ['Banca', 'Fintech', 'SAFe', 'Design System'],
-    symptomTags: ['legacy', 'team-scaling', 'design-system'],
-    roleTags: ['staff-architect', 'product-manager'],
-    audienceTags: ['cliente'],
-    metric: { value: '-75%', label: 'time-to-market' },
-  },
-]
+    metric: m.metric,
+  }
+})
 
 const titanModules: TitanModule[] = [
   { hubName: 'Foundation', hubTitle: 'M0 — Visión y estructura', description: 'Diagnóstico, ADRs y gobernanza del proyecto. Sin M0 no hay base sólida.', momentum: 'M0', commandsCount: 12 },

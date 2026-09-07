@@ -69,8 +69,10 @@ export const fdnMomentum2: Momentum2Section = {
     },
   ],
   crossLink: {
-    label: 'Basado en los hallazgos de la auditoría real (Momentum 1) →',
-    href: '#momentum-1',
+    // apunta al inicio de la narrativa del caso auditado (Momentum 1),
+    // que en la plantilla CasePage arranca en el bloque "Valor".
+    label: '↑ Basado en los hallazgos de la auditoría real (Momentum 1)',
+    href: '#valor-heading',
   },
   footerDisclaimer:
     'Propuesta de arquitectura — estimación propia, no un entregable ya construido o aprobado.',

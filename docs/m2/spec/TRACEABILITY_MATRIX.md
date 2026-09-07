@@ -40,9 +40,13 @@
 | EX-v2-ORG-007 | ColorRolesGallery | organisms | 6 | LOCKED | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1.0.0 |
 | EX-v2-ORG-008 | ColorRolesHUD | organisms | 6 | LOCKED | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1.0.0 |
 | EX-v2-TMPL-001 | HomeTemplate | templates | 4 | LOCKED | ✅ | ✅ | ✅ ¹ | ✅ | ✅ | ✅ | 1.0.0 |
-| EX-v2-TMPL-002 | CasePage | templates | 6 | LOCKED | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1.1.0 |
+| EX-v2-TMPL-002 | CasePage | templates | 6 | LOCKED | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1.1.1 |
 | EX-v2-PAGE-001 | / (HomePage) | pages | 7 | LOCKED | ✅ | — | — | — | — | — | 1.0.0 |
-| EX-v2-PAGE-002 | /casos/[slug] | pages | 7 | LOCKED | ✅ | — | — | — | — | — | 1.0.0 |
+| EX-v2-PAGE-002 | /casos/[slug] | pages | 7 | LOCKED | ✅ | — | — | — | — | — | 1.1.0 |
+| EX-v2-PAGE-003 | /metodologia | pages | 6 | LOCKED | ✅ | — | — | — | — | — | 1.0.0 |
+| EX-v2-PAGE-004 | /pruebas-tecnicas/[slug] | pages | 6 | LOCKED | ✅ | — | — | — | — | — | 1.0.0 |
+| EX-v2-PAGE-005 | /pruebas-tecnicas | pages | 6 | LOCKED | ✅ | — | — | — | — | — | 1.0.0 |
+| EX-v2-PAGE-006 | /excalibur | pages | 6 | LOCKED | ✅ | — | — | — | — | — | 1.0.0 |
 
 ¹ Stories añadidas 2026-09-04 con datos reales del portafolio (mismos fixtures que los
   `.stories.tsx` de cada organismo / que `src/app/casos/[slug]/page.tsx`). HomeTemplate: 2
@@ -258,7 +262,7 @@ EX-v2-TMPL-001 HomeTemplate
   └── EX-v2-ORG-006 ContactSection ❌
         └── EX-v2-ATOM-001 Button ✅
 
-EX-v2-TMPL-002 CasePage (v1.1.0)
+EX-v2-TMPL-002 CasePage (v1.1.1)
   └── EX-v2-MOL-004 TimelineStep ✅
         └── EX-v2-ATOM-003 Badge ✅
   └── EX-v2-MOL-005 MetricRow ✅

@@ -43,9 +43,15 @@ export const codesaCase: CasePageData = validateCaseData({
       chosen: 'RICE + ejes de Confianza e Inclusión',
       why: 'El dominio (pagos, población vulnerable) exige ejes que el RICE original no contempla',
     },
+    {
+      decision: 'Cómo manejar una falla de red o de pasarela durante el pago',
+      discarded: 'Mostrar un error y perder la intención de pago del usuario',
+      chosen: '"Pago Borrador" (Outbox Pattern) + Circuit Breaker + Bulkhead + trace_id por intento (OpenTelemetry)',
+      why: 'No se pierde la intención de pago, se aísla la pasarela ante una falla externa y se puede diagnosticar el paso exacto donde se detiene el usuario — justificado con un caso real (caída de pasarela de un banco europeo, Cyber Monday 2024)',
+    },
   ],
   resultado:
-    'Un documento estratégico de 17 páginas: tabla de actores/supuestos/riesgos, 5 hipótesis fundamentadas en marcos teóricos, selección de metodología mixta, priorización con Opportunity Solution Tree + RICE modificado, perfil de participantes inclusivo, plan de ejecución de 4 fases día a día, recomendaciones diferenciadas por audiencia, esquema de tracking analítico y métricas de éxito estilo OKR.',
+    'Un documento estratégico de 17 páginas: tabla de actores/supuestos/riesgos, 5 hipótesis fundamentadas en marcos teóricos, selección de metodología mixta, priorización con Opportunity Solution Tree + RICE modificado, perfil de participantes inclusivo, plan de ejecución de 4 fases día a día, un bloque de resiliencia y observabilidad del flujo de pago (Outbox Pattern, tracing con OpenTelemetry, Circuit Breaker + Bulkhead), recomendaciones diferenciadas por audiencia, esquema de tracking analítico y métricas de éxito estilo OKR.',
   aprendizaje:
     'Un framework estándar (RICE) no siempre alcanza — a veces la disciplina correcta es extenderlo con criterio propio, y declarar esa extensión explícitamente en vez de forzar el problema dentro del framework original.',
 
@@ -98,6 +104,12 @@ export const codesaCase: CasePageData = validateCaseData({
       num: '06',
       title: 'Plan de ejecución en 4 fases',
       body: 'Plan día a día en 4 fases, con recomendaciones diferenciadas por audiencia, esquema de tracking analítico y métricas de éxito estilo OKR.',
+    },
+    {
+      num: '07',
+      title: 'Resiliencia y observabilidad del flujo de pago',
+      body: 'Dentro de la Fase 3 del plan, el documento propone un "Pago Borrador" (Outbox Pattern) para no perder la intención de pago del usuario ante una falla de red o de pasarela; Distributed Tracing con OpenTelemetry, generando un trace_id único por intento de pago para diagnosticar en qué paso exacto se detiene un usuario; y Circuit Breaker + Bulkhead para aislar la pasarela de pagos ante una falla externa. Se justifica con un caso de estudio real citado en el documento: la caída de la pasarela de pagos de un banco europeo en Cyber Monday 2024.',
+      chips: ['Outbox Pattern', 'OpenTelemetry / trace_id', 'Circuit Breaker', 'Bulkhead'],
     },
   ],
   aiDeclared: {

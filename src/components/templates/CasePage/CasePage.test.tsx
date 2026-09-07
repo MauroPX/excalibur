@@ -266,6 +266,23 @@ describe('CasePage — v1.1.0 (bloques condicionales)', () => {
     expect(main).toHaveAttribute('data-case-format', 'evidencia-viva')
   })
 
+  it('v1.1.1: `appendixSection` se renderiza dentro de <main> (slot FDN Momentum 2, R-8)', () => {
+    render(
+      <CasePage
+        caseData={mockCaseData}
+        appendixSection={<section data-testid="m2-slot">Momentum 2</section>}
+      />,
+    )
+    const slot = screen.getByTestId('m2-slot')
+    expect(slot).toBeInTheDocument()
+    expect(screen.getByRole('main')).toContainElement(slot)
+  })
+
+  it('v1.1.1: sin `appendixSection` no aparece nada extra', () => {
+    renderCase()
+    expect(screen.queryByTestId('m2-slot')).not.toBeInTheDocument()
+  })
+
   it('axe: 0 violations — variante evidencia-viva completa', async () => {
     const { container } = renderCase({
       badge: { icon: '🔧', label: 'Prueba técnica' },

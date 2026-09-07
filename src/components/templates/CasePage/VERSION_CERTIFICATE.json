@@ -1,16 +1,17 @@
 {
   "spec_id": "EX-v2-TMPL-002",
   "component": "CasePage",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "atomic_level": "template",
   "titan_momentum": "M3",
   "ola": "6",
   "rama": "v2",
-  "fecha_lock": "2026-09-06",
+  "fecha_lock": "2026-09-07",
   "status": "LOCKED",
   "version_history": [
     { "version": "1.0.0", "fecha_lock": "2026-06-20", "nota": "3 casos de cliente (fdn/solidaria/bbva). Header/metrics/timeline/stack/nav." },
-    { "version": "1.1.0", "fecha_lock": "2026-09-06", "nota": "Schema extendido retrocompat (Fase A) + render extendido (Fase C): bloque Valor, backbone STAR-L con <h2> por sección, DecisionTable para `accion`, cuerpo por variante (evidencia-viva → EvidenceLinks | documento-estrategico → secciones numeradas), AiDisclosure, footer con disclaimer exacto, badges de caso y estado, metodología estructurada (chips → /metodologia#slug). Validación build-time R-2 en validateCaseData.ts." }
+    { "version": "1.1.0", "fecha_lock": "2026-09-06", "nota": "Schema extendido retrocompat (Fase A) + render extendido (Fase C): bloque Valor, backbone STAR-L con <h2> por sección, DecisionTable para `accion`, cuerpo por variante (evidencia-viva → EvidenceLinks | documento-estrategico → secciones numeradas), AiDisclosure, footer con disclaimer exacto, badges de caso y estado, metodología estructurada (chips → /metodologia#slug). Validación build-time R-2 en validateCaseData.ts." },
+    { "version": "1.1.1", "fecha_lock": "2026-09-07", "nota": "Añade prop opcional `appendixSection?: ReactNode` — slot de sección compuesta por la página anfitriona, renderizada DENTRO de <main> (después del stack, antes de footer/nav). Uso: sección FDN Momentum 2 (R-8) en /casos/fdn. Aditivo y retrocompat: los casos que no la pasan renderizan idéntico." }
   ],
   "variants": ["client-v1.0.0", "work-test-evidencia-viva", "work-test-documento-estrategico", "meta"],
   "states": ["default", "estado-parcial"],
@@ -18,7 +19,7 @@
   "wcag_verificados": true,
   "axe_violations": 0,
   "tests_passing": true,
-  "test_count": 32,
+  "test_count": 34,
   "coverage": "CA-001..CA-018 + R-2 + R-5",
   "stories_completas": true,
   "stories": ["FDN", "Solidaria", "BBVA", "SinSiguienteCaso", "ClienteV100", "WorkTestEvidenciaViva", "WorkTestDocumentoEstrategico", "MetaCaso"],

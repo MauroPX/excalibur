@@ -83,7 +83,7 @@ const CaseSectionBlock: React.FC<{
   </Box>
 )
 
-export const CasePage: React.FC<CasePageProps> = ({ caseData }) => {
+export const CasePage: React.FC<CasePageProps> = ({ caseData, appendixSection }) => {
   const {
     title,
     description,
@@ -485,6 +485,10 @@ export const CasePage: React.FC<CasePageProps> = ({ caseData }) => {
           <SkillBar key={s.skill} skill={s.skill} level={s.level} levelLabel={s.levelLabel} />
         ))}
       </Box>
+
+      {/* v1.1.1 — slot de sección compuesta por la página (ej. FDN Momentum 2, R-8).
+          Se renderiza dentro de <main>, después del stack y antes del footer/nav. */}
+      {appendixSection}
 
       {/* CA-016 — footer con la frase EXACTA del caso (R-4: nunca compartida) */}
       {footerDisclaimer && (

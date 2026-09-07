@@ -10,6 +10,7 @@
  * Fuentes: docs/m1/GSD_TASK_CARD_M1_CASE_STRUCTURE.md · docs/m2/spec/CASE_PAGE_CONTENT_STRUCTURE.md
  * Vive aquí (no en CasePage.tsx) para que src/content/cases/*.ts importe tipos sin arrastrar 'use client'.
  */
+import type { ReactNode } from 'react'
 
 // ── Uniones ──────────────────────────────────────────────────────────────────
 export type CaseType = 'client' | 'work-test' | 'meta'
@@ -145,4 +146,11 @@ export interface CasePageData {
 
 export interface CasePageProps {
   caseData: CasePageData
+  /**
+   * v1.1.1 — sección extra compuesta por la página anfitriona, renderizada DENTRO
+   * de `<main>` (después del stack, antes del footer/nav). Uso previsto: la sección
+   * "Momentum 2 — Estimación propia" dentro de /casos/fdn (R-8), inequívocamente
+   * separada de la narrativa del caso auditado. No afecta a los casos que no la pasan.
+   */
+  appendixSection?: ReactNode
 }

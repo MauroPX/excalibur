@@ -3,11 +3,10 @@ import { setRequestLocale } from 'next-intl/server'
 import type { Metadata } from 'next'
 import { CasePage } from '@/components/templates/CasePage'
 import { CreativeWorkJsonLd } from '@/components/infra/JsonLd'
-import { CLIENT_CASES, CLIENT_CASE_SLUGS, fdnMomentum2 } from '@/content/cases'
-import { FdnMomentum2Section } from './FdnMomentum2Section'
+import { WORK_TEST_CASES, WORK_TEST_SLUGS } from '@/content/cases'
 
 export function generateStaticParams() {
-  return CLIENT_CASE_SLUGS.map((slug) => ({ slug }))
+  return WORK_TEST_SLUGS.map((slug) => ({ slug }))
 }
 
 export async function generateMetadata({
@@ -16,9 +15,9 @@ export async function generateMetadata({
   params: Promise<{ locale: string; slug: string }>
 }): Promise<Metadata> {
   const { locale, slug } = await params
-  const caseData = CLIENT_CASES[slug]
+  const caseData = WORK_TEST_CASES[slug]
   if (!caseData) return {}
-  const path = `/casos/${slug}`
+  const path = `/pruebas-tecnicas/${slug}`
   return {
     title: caseData.title,
     description: caseData.description,
@@ -34,22 +33,23 @@ export async function generateMetadata({
   }
 }
 
-export default async function CasePageRoute({
+export default async function WorkTestPageRoute({
   params,
 }: {
   params: Promise<{ locale: string; slug: string }>
 }) {
   const { locale, slug } = await params
   setRequestLocale(locale)
-  const caseData = CLIENT_CASES[slug]
+  const caseData = WORK_TEST_CASES[slug]
   if (!caseData) notFound()
   return (
     <>
-      <CreativeWorkJsonLd name={caseData.title} description={caseData.description} url={`/casos/${slug}`} />
-      <CasePage
-        caseData={caseData}
-        appendixSection={slug === 'fdn' ? <FdnMomentum2Section data={fdnMomentum2} /> : undefined}
+      <CreativeWorkJsonLd
+        name={caseData.title}
+        description={caseData.description}
+        url={`/pruebas-tecnicas/${slug}`}
       />
+      <CasePage caseData={caseData} />
     </>
   )
 }
