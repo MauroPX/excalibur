@@ -174,9 +174,9 @@ El caso FDN tiene **dos momentums distintos, con distinto nivel de evidencia** �
 
 **Insight:** Migrar de OutSystems (legacy) a MUI React sin un framework de gobierno habría fragmentado el sistema en meses.
 **Evidencia:** Sistema operativo de diseño completo: BPM con 4 actores + Framework de Integración D↔D (1,002 filas, 46+ entregables), migrado con Domain-Driven Design.
-**Resultado:** +70% de eficiencia en CX, con equipo de desarrollo autónomo desde el sprint 1.
+**Resultado:** BPM con 4 actores + Framework de Integración D↔D (1,002 filas, 46+ entregables) migrado con Domain-Driven Design, equipo de desarrollo autónomo desde el sprint 1.
 **Evidencia visual (Figma, ya presente en v1 — reusar, no recrear):** [Proceso DS & DDD](https://www.figma.com/design/QdPkYTZ2XaHrnWgaconjg5/FID--DS--Seguros-Chile?node-id=0-1&t=nzUxQqCWrJTn8vxV-1)
-**og:description:** `Migré el Design System de FID Seguros de OutSystems a MUI React con Domain-Driven Design — +70% de eficiencia en CX y equipo autónomo desde el sprint 1.`
+**og:description:** `Migré el Design System de FID Seguros de OutSystems a MUI React con Domain-Driven Design — BPM de 4 actores y Framework de Integración D↔D, equipo autónomo desde el sprint 1.`
 
 ### Siclo / IDPay
 *UX Product Design Consultant · Oct 2025*
@@ -232,7 +232,7 @@ En el caso de Correos Chile, un Design System de 400+ componentes en MUI React t
 Sí. En Universidad de La Salle implementó el sistema de accesibilidad AAA sobre Angular Material; en la mayoría de casos fintech (BBVA, Correos Chile, FID Seguros) trabajó sobre React con MUI.
 
 **¿Cómo mide el impacto real de un Design System, más allá del número de componentes?**
-Con métricas de negocio, no solo de entrega: en BBVA, 5/5 de calificación de Product Owners y 100% de entregas a tiempo; en Correos Chile, más del 95% de fidelidad entre diseño y desarrollo; en FID Seguros, +70% de eficiencia en CX.
+Con métricas de negocio, no solo de entrega: en BBVA, 5/5 de calificación de Product Owners y 100% de entregas a tiempo; en Correos Chile, más del 95% de fidelidad entre diseño y desarrollo; en FID Seguros, un Framework de Integración D↔D de 1,002 filas y 46+ entregables que dejó al equipo de desarrollo autónomo desde el sprint 1.
 
 ---
 
@@ -294,7 +294,7 @@ Mismo backbone que se definió para los casos de prueba técnica (`docs/m2/spec/
 - **Situación:** migrar de OutSystems (legacy) a MUI React sin un framework de gobierno fragmentaría el sistema.
 - **Tarea:** construir el sistema operativo de diseño completo antes de tocar cualquier pantalla.
 - **Acción:** *descartado* — migrar pantalla por pantalla, ad-hoc → *elegido* — BPM con 4 actores + Framework de Integración D↔D (1,002 filas, 46+ entregables) + guía WCAG con Domain-Driven Design → *por qué*: sin gobierno explícito, la migración se fragmenta.
-- **Resultado:** +70% de eficiencia en CX, equipo de desarrollo autónomo desde el sprint 1.
+- **Resultado:** BPM con 4 actores + Framework de Integración D↔D (1,002 filas, 46+ entregables), equipo de desarrollo autónomo desde el sprint 1.
 - **Aprendizaje:** sin gobierno explícito antes de migrar, el sistema se fragmenta — construirlo primero es más lento al inicio pero evita ese colapso.
 
 ### Siclo / IDPay
@@ -315,10 +315,10 @@ Mismo backbone que se definió para los casos de prueba técnica (`docs/m2/spec/
 |---|---|---|
 | `/` | Mauricio Gómez — Staff Product Architect \| Design Systems & WCAG 2.2 AAA | Staff Product Architect en Bogotá. Diseño sistemas de producto que un equipo opera sin mí: Design Systems, WCAG 2.2 AAA y orquestación de IA. |
 | `/casos/correos-chile` | Correos Chile — Portal Empresas B2B \| Mauricio Gómez | Comprimí un timeline de 12 a 6 meses conectando 13 regiones postales con un Design System de 400+ componentes MUI React. |
-| `/casos/bbva` | BBVA Colombia & Panamá — Sistema GEMAS \| Mauricio Gómez | Arquitectura de 5 fases para 3 productos B2B de BBVA — 5/5 de calificación de Product Owners y +200 usuarios impactados. |
+| `/casos/bbva` | BBVA Colombia & Panamá — Sistema GEMAS \| Mauricio Gómez | Arquitectura de 5 fases para 3 productos B2B de BBVA — 5/5 de calificación de Product Owners y +600 usuarios internos impactados. |
 | `/casos/fdn` | FDN — Auditoría WCAG 2.2 \| Mauricio Gómez | Auditoría WCAG 2.2 bajo mandato MinTIC: 654 incidentes revisados en 7 secciones — más una propuesta propia de arquitectura para resolver la causa raíz. |
 | `/casos/la-salle` | Universidad de La Salle — WCAG 2.2 AAA \| Mauricio Gómez | Conformidad WCAG 2.2 AAA, el nivel más alto, evaluando 18 categorías de accesibilidad con Angular Material. |
-| `/casos/fid-seguros` | FID Seguros — Migración OutSystems a React \| Mauricio Gómez | Migré el Design System de FID Seguros a MUI React con Domain-Driven Design — +70% de eficiencia en CX. |
+| `/casos/fid-seguros` | FID Seguros — Migración OutSystems a React \| Mauricio Gómez | Migré el Design System de FID Seguros a MUI React con Domain-Driven Design — BPM de 4 actores y Framework de Integración D↔D de 1,002 filas. |
 | `/casos/siclo-idpay` | Siclo / IDPay — Especificación UX y técnica \| Mauricio Gómez | Especificación UX y técnica completa del módulo de acuerdos de un SaaS B2B: 4 flujos, 11 wireframes, 10 tablas de datos. |
 | `/titan` | TITAN v7.0 — Framework de orquestación de producto multi-IA | Framework de orquestación de producto multi-IA creado por Mauricio Gómez. Gobierna 6 fases de producto con protocolo Blueprint-Forge-Lock. |
 

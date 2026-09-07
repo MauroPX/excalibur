@@ -9,7 +9,7 @@
 **Resumen en 3 líneas (regla DIS-E3):**
 - Estos son casos de **pruebas técnicas de procesos de selección**, no de clientes reales pagados — se etiquetan y se muestran por separado, según lo acordado en `CONTENT_COPY_STRATEGY.md §"pruebas vs experiencia"`.
 - Ninguna métrica aquí es de negocio (no hubo negocio real) — son de **capacidad demostrada**: alcance resuelto, calidad técnica, criterio de decisión bajo restricción de tiempo.
-- Primer caso completo: FleetControl. Solidaria y Codesa quedan como próximos — Solidaria por tamaño de repo, Codesa por volumen de PDFs (4 documentos + research de 7,191 líneas).
+- Los 4 casos (FleetControl, Solidaria, BCS, Codesa) están documentados en detalle abajo; solo queda pendiente decidir cómo se publica Codesa (sin URL ejecutable — ver Caso 4).
 
 ---
 
@@ -150,6 +150,8 @@ La entrega completa tiene 139 páginas, pero no todo tiene el mismo nivel de cal
 
 ### El entregable real (Logos)
 Un documento estratégico completo: tabla de actores/supuestos/riesgos, 5 hipótesis fundamentadas en marcos teóricos (Self-Determination Theory, Calm Technology, Design with Intent de Dan Lockton), selección de metodología mixta (analítica de funnel vía PostHog/Amplitude, grabación de sesiones con Hotjar, análisis heurístico, 5 entrevistas contextuales vía Dovetail, 5 pruebas de usabilidad moderadas vía Maze, encuesta CES), priorización con Opportunity Solution Tree + RICE modificado con ejes de Confianza e Inclusión, perfil de participantes inclusivo (gama baja Android, conectividad rural, baja visión, baja alfabetización digital), plan de ejecución de 4 fases día a día, recomendaciones diferenciadas por audiencia, esquema de tracking analítico, y métricas de éxito estilo OKR.
+
+**Resiliencia y observabilidad del flujo de pago (FASE 3 del plan de ejecución):** el documento propone un "Pago Borrador" (Outbox Pattern) para no perder la intención de pago del usuario ante una falla de red o de pasarela; Distributed Tracing con OpenTelemetry, generando un `trace_id` único por intento de pago para diagnosticar en qué paso exacto se detiene un usuario; y Circuit Breaker + Bulkhead para aislar la pasarela de pagos ante una falla externa, justificado con un caso de estudio real citado en el documento (caída de la pasarela de pagos de un banco europeo en Cyber Monday 2024).
 
 ### Uso de IA — declarado explícitamente tal como aparece en la entrega
 Herramienta: "TITAN Research Intelligence Skill v5.1". Etapas donde se usó: clasificación de datos, Evidence Cards, formulación de hipótesis, estructuración del plan, diseño del tracking plan. Validación declarada: "triangulación con marcos teóricos... revisión iterativa... coherencia interna vía IDs de trazabilidad". Principio ético declarado explícitamente en el documento: "cero alucinaciones — no se presentó ningún dato como real sin declarar que era una proyección". Cierre del propio documento: *"El TITAN Skill no reemplazó el criterio humano: lo estructuró, lo aceleró y lo mantuvo alineado con la evidencia. Cada decisión que presentamos aquí pasó por el filtro del skill y por la validación del equipo."*
