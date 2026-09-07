@@ -7,7 +7,8 @@ import { useRouter } from '@/i18n/navigation'
 
 export interface CasePageNavProps {
   backHref?: string
-  nextCase?: { slug: string; title: string } | null
+  /** `href` opcional (v1.1.0): los work-tests navegan a /pruebas-tecnicas/, no a /casos/ */
+  nextCase?: { slug: string; title: string; href?: string } | null
 }
 
 export const CasePageNav: React.FC<CasePageNavProps> = ({ backHref = '/#casos', nextCase }) => {
@@ -25,7 +26,7 @@ export const CasePageNav: React.FC<CasePageNavProps> = ({ backHref = '/#casos', 
         <Button
           variant="cta"
           label={t('next', { title: nextCase.title })}
-          onClick={() => router.push(`/casos/${nextCase.slug}`)}
+          onClick={() => router.push(nextCase.href ?? `/casos/${nextCase.slug}`)}
         />
       )}
     </Box>

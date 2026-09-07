@@ -6,7 +6,7 @@
   "version_target": "1.1.0",
   "version_history": [
     { "version": "1.0.0", "fecha": "2026-06-20", "estado": "LOCKED", "nota": "3 casos de cliente (fdn/solidaria/bbva)" },
-    { "version": "1.1.0", "fecha": "2026-09-06", "estado": "BLUEPRINT (Fase A) — Forge pendiente (Fase C)", "nota": "schema extendido retrocompat: Valor/STAR-L, caseType/caseFormat, metodología estructurada, cuerpo por variante. Contrato movido a types.ts. Fuente: GSD_TASK_CARD_M1_CASE_STRUCTURE.md + CASE_PAGE_CONTENT_STRUCTURE.md" }
+    { "version": "1.1.0", "fecha": "2026-09-06", "estado": "LOCKED", "nota": "Fase A: schema extendido retrocompat (contrato en types.ts). Fase C: render extendido con bloques condicionales — Valor, STAR-L (<h2> por sección), DecisionTable, cuerpo por variante, AiDisclosure, footer disclaimer exacto, badges de caso/estado, metodología estructurada. Validación build-time R-2 en validateCaseData.ts. 32 tests (CA-001..CA-018 + R-2 + R-5), 4 stories nuevas, axe 0. Fuente: GSD_TASK_CARD_M1_CASE_STRUCTURE.md + CASE_PAGE_CONTENT_STRUCTURE.md" }
   ],
 
   "gate1_checks": {

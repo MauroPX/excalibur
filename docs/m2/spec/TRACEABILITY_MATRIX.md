@@ -40,7 +40,7 @@
 | EX-v2-ORG-007 | ColorRolesGallery | organisms | 6 | LOCKED | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1.0.0 |
 | EX-v2-ORG-008 | ColorRolesHUD | organisms | 6 | LOCKED | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1.0.0 |
 | EX-v2-TMPL-001 | HomeTemplate | templates | 4 | LOCKED | ✅ | ✅ | ✅ ¹ | ✅ | ✅ | ✅ | 1.0.0 |
-| EX-v2-TMPL-002 | CasePage | templates | 4 | LOCKED | ✅ | ✅ | ✅ ¹ | ✅ | ✅ | ✅ | 1.0.0 |
+| EX-v2-TMPL-002 | CasePage | templates | 6 | LOCKED | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1.1.0 |
 | EX-v2-PAGE-001 | / (HomePage) | pages | 7 | LOCKED | ✅ | — | — | — | — | — | 1.0.0 |
 | EX-v2-PAGE-002 | /casos/[slug] | pages | 7 | LOCKED | ✅ | — | — | — | — | — | 1.0.0 |
 
@@ -258,11 +258,15 @@ EX-v2-TMPL-001 HomeTemplate
   └── EX-v2-ORG-006 ContactSection ❌
         └── EX-v2-ATOM-001 Button ✅
 
-EX-v2-TMPL-002 CasePage
+EX-v2-TMPL-002 CasePage (v1.1.0)
   └── EX-v2-MOL-004 TimelineStep ✅
         └── EX-v2-ATOM-003 Badge ✅
   └── EX-v2-MOL-005 MetricRow ✅
-  └── EX-v2-MOL-002 ProjectCard ✅
+  └── EX-v2-MOL-003 SkillBar ✅
+  └── EX-v2-MOL-009 EvidenceLinks ✅   (v1.1.0)
+        └── EX-v2-ATOM-009 EvidenceLink ✅
+  └── EX-v2-MOL-011 DecisionTable ✅   (v1.1.0)
+  └── EX-v2-MOL-012 AiDisclosure ✅    (v1.1.0)
 ```
 
 ---

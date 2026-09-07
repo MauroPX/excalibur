@@ -209,9 +209,9 @@
       "spec_id": "EX-v2-TMPL-002",
       "component": "CasePage",
       "level": "templates",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "status": "LOCKED",
-      "dependents": ["EX-v2-MOL-002", "EX-v2-MOL-003", "EX-v2-MOL-004", "EX-v2-MOL-005", "EX-v2-ATOM-001", "EX-v2-ATOM-002"],
+      "dependents": ["EX-v2-MOL-002", "EX-v2-MOL-003", "EX-v2-MOL-004", "EX-v2-MOL-005", "EX-v2-MOL-009", "EX-v2-MOL-011", "EX-v2-MOL-012", "EX-v2-ATOM-001", "EX-v2-ATOM-002"],
       "depended_by": []
     },
     {
