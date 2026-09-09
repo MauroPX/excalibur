@@ -1,5 +1,6 @@
 'use client'
 import React, { useState } from 'react'
+import { useTranslations } from 'next-intl'
 import Box from '@mui/material/Box'
 import Tabs from '@mui/material/Tabs'
 import Tab from '@mui/material/Tab'
@@ -14,6 +15,7 @@ export interface NavSystemProps {
 }
 
 const NavSystem: React.FC<NavSystemProps> = ({ symptomCards, roleCards, featuredProjects, defaultTab }) => {
+  const t = useTranslations('nav')
   const [activeTab, setActiveTab] = useState(defaultTab === 'B' ? 1 : defaultTab === 'C' ? 2 : defaultTab === 'D' ? 3 : 0)
 
   return (
@@ -27,7 +29,7 @@ const NavSystem: React.FC<NavSystemProps> = ({ symptomCards, roleCards, featured
       <Box sx={{ maxWidth: '1200px', mx: 'auto', px: { xs: 2, sm: 3, md: 4 } }}>
       {/* TabBar usando MUI Tabs + Tab con value=0,1,2,3 */}
       <Tabs
-        aria-label="Navegación por audiencia"
+        aria-label={t('audienceLabel')}
         value={activeTab}
         onChange={(_e, v) => setActiveTab(v)}
         variant="scrollable"
@@ -36,10 +38,10 @@ const NavSystem: React.FC<NavSystemProps> = ({ symptomCards, roleCards, featured
         className="ex-nav-system__tabs-bar"
         sx={{ borderBottom: '1px solid var(--md-sys-color-outline-variant)', mb: 3 }}
       >
-        <Tab label="Por síntoma" id="tab-0" aria-controls="panel-0" className="ex-nav-system__tab" />
-        <Tab label="Por rol" id="tab-1" aria-controls="panel-1" className="ex-nav-system__tab" />
-        <Tab label="Pregúntale a TITAN" id="tab-2" aria-controls="panel-2" className="ex-nav-system__tab" />
-        <Tab label="Explorar" id="tab-3" aria-controls="panel-3" className="ex-nav-system__tab" />
+        <Tab label={t('tabs.symptoms')} id="tab-0" aria-controls="panel-0" className="ex-nav-system__tab" />
+        <Tab label={t('tabs.roles')} id="tab-1" aria-controls="panel-1" className="ex-nav-system__tab" />
+        <Tab label={t('tabs.titan')} id="tab-2" aria-controls="panel-2" className="ex-nav-system__tab" />
+        <Tab label={t('tabs.explore')} id="tab-3" aria-controls="panel-3" className="ex-nav-system__tab" />
       </Tabs>
 
       {/* Panel 0 — síntomas */}

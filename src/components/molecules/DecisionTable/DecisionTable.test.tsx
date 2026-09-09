@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest'
-import { render, screen, within } from '@testing-library/react'
+import { screen, within } from '@testing-library/react'
+import { renderWithIntl as render } from '@/test-utils/intl'
 import { axe, toHaveNoViolations } from 'jest-axe'
 import { DecisionTable } from './DecisionTable'
 import type { DecisionRow } from '@/components/templates/CasePage/types'

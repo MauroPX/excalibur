@@ -77,16 +77,45 @@
     }
   },
   "casePage": {
+    "skipLink": "Skip to content",
     "breadcrumb": {
+      "label": "Breadcrumb",
       "home": "Home",
       "cases": "Cases"
     },
+    "parcialBadge": "Partial case",
+    "entryRole": "I joined as",
+    "discoveredScope": "The real scope turned out to be: {scope}.",
     "sections": {
+      "valor": "In one sentence",
+      "situacion": "Situation",
+      "objetivo": "Objective",
+      "accion": "Action — decisions",
+      "resultado": "Result",
+      "aprendizaje": "Takeaway",
       "metrics": "Key results",
       "timeline": "Process",
+      "methodology": "Methodology applied",
+      "document": "Document",
+      "evidence": "Access & evidence",
       "stack": "Stack used"
     },
+    "decisionCaption": "Key decisions for the {title} case",
+    "methodRefsLabel": "Methodology references",
+    "momentums": "TITAN momentums applied: {list}",
+    "transformation": {
+      "before": "Before",
+      "approach": "Approach",
+      "capability": "Capability installed"
+    },
+    "decisionTable": {
+      "decision": "Decision",
+      "discarded": "Discarded option(s)",
+      "chosen": "Chosen",
+      "why": "Why"
+    },
     "nav": {
+      "label": "Case navigation",
       "back": "← Back to cases",
       "next": "Next: {title} →"
     }

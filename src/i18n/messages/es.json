@@ -77,16 +77,45 @@
     }
   },
   "casePage": {
+    "skipLink": "Saltar al contenido",
     "breadcrumb": {
+      "label": "Ruta de navegación",
       "home": "Inicio",
       "cases": "Casos"
     },
+    "parcialBadge": "Caso parcial",
+    "entryRole": "Entré como",
+    "discoveredScope": "El alcance real resultó: {scope}.",
     "sections": {
+      "valor": "En una frase",
+      "situacion": "Situación",
+      "objetivo": "Objetivo",
+      "accion": "Acción — decisiones",
+      "resultado": "Resultado",
+      "aprendizaje": "Aprendizaje",
       "metrics": "Resultados clave",
       "timeline": "Proceso",
+      "methodology": "Metodología aplicada",
+      "document": "Documento",
+      "evidence": "Accesos y evidencia",
       "stack": "Stack usado"
     },
+    "decisionCaption": "Decisiones clave del caso {title}",
+    "methodRefsLabel": "Referencias de metodología",
+    "momentums": "Momentums TITAN aplicados: {list}",
+    "transformation": {
+      "before": "Antes",
+      "approach": "Enfoque",
+      "capability": "Capacidad instalada"
+    },
+    "decisionTable": {
+      "decision": "Decisión",
+      "discarded": "Opción(es) descartada(s)",
+      "chosen": "Elegida",
+      "why": "Por qué"
+    },
     "nav": {
+      "label": "Navegación entre casos",
       "back": "← Volver a casos",
       "next": "Siguiente: {title} →"
     }

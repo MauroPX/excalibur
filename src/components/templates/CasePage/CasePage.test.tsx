@@ -1,5 +1,6 @@
 import React from 'react'
-import { render, screen } from '@testing-library/react'
+import { screen } from '@testing-library/react'
+import { renderWithIntl as render } from '@/test-utils/intl'
 import { describe, it, expect, vi } from 'vitest'
 import { axe, toHaveNoViolations } from 'jest-axe'
 import { CasePage } from './CasePage'
@@ -129,7 +130,7 @@ describe('CasePage — v1.0.0 (sin cambios)', () => {
 
   it('CA-008: breadcrumb con aria-label y aria-current', () => {
     renderCase()
-    expect(screen.getByRole('navigation', { name: /Breadcrumb/i })).toBeInTheDocument()
+    expect(screen.getByRole('navigation', { name: /Ruta de navegación/i })).toBeInTheDocument()
     expect(screen.getByText('Migración de Sistema Legacy', { selector: '[aria-current="page"]' })).toBeInTheDocument()
   })
 

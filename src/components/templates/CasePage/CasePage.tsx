@@ -1,5 +1,6 @@
 'use client'
 import React from 'react'
+import { useTranslations } from 'next-intl'
 import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
 import ContrastRounded from '@mui/icons-material/ContrastRounded'
@@ -86,6 +87,7 @@ const CaseSectionBlock: React.FC<{
 )
 
 export const CasePage: React.FC<CasePageProps> = ({ caseData, appendixSection }) => {
+  const t = useTranslations('casePage')
   const {
     title,
     description,
@@ -148,15 +150,15 @@ export const CasePage: React.FC<CasePageProps> = ({ caseData, appendixSection })
         className="ex-case-page__skip-link"
         sx={{ position: 'absolute', top: '-100px', left: '16px', zIndex: 9999, padding: '8px 16px', backgroundColor: 'var(--md-sys-color-primary)', color: 'var(--md-sys-color-on-primary)', borderRadius: '4px', textDecoration: 'none', fontWeight: 600, '&:focus': { top: '16px' } }}
       >
-        Saltar al contenido
+        {t('skipLink')}
       </Box>
 
-      <Box component="nav" aria-label="Breadcrumb" className="ex-case-page__breadcrumb"
+      <Box component="nav" aria-label={t('breadcrumb.label')} className="ex-case-page__breadcrumb"
         sx={{ py: 2, px: { xs: 2, md: 4 } }}>
         <Box component="ol" sx={{ listStyle: 'none', m: 0, p: 0, display: 'flex', gap: 1, flexWrap: 'wrap' }}>
-          <Box component="li"><Box component="a" href="/" sx={{ color: 'var(--md-sys-color-primary)', textDecoration: 'none' }}>Inicio</Box></Box>
+          <Box component="li"><Box component="a" href="/" sx={{ color: 'var(--md-sys-color-primary)', textDecoration: 'none' }}>{t('breadcrumb.home')}</Box></Box>
           <Box component="li" sx={{ color: 'var(--md-sys-color-on-surface)' }} aria-hidden="true">/</Box>
-          <Box component="li"><Box component="a" href="/#casos" sx={{ color: 'var(--md-sys-color-primary)', textDecoration: 'none' }}>Casos</Box></Box>
+          <Box component="li"><Box component="a" href="/#casos" sx={{ color: 'var(--md-sys-color-primary)', textDecoration: 'none' }}>{t('breadcrumb.cases')}</Box></Box>
           <Box component="li" sx={{ color: 'var(--md-sys-color-on-surface)' }} aria-hidden="true">/</Box>
           <Box component="li" aria-current="page" sx={{ color: 'var(--md-sys-color-on-surface)' }}>{title}</Box>
         </Box>
@@ -186,7 +188,7 @@ export const CasePage: React.FC<CasePageProps> = ({ caseData, appendixSection })
                 sx={{ display: 'inline-flex', alignItems: 'center', gap: 0.5, px: 1.5, py: 0.5, borderRadius: '999px', fontSize: '0.8125rem', fontWeight: 700, backgroundColor: 'var(--md-sys-color-tertiary-container)', color: 'var(--md-sys-color-on-tertiary-container)' }}
               >
                 <ContrastRounded aria-hidden="true" sx={{ fontSize: '1rem' }} />
-                Caso parcial
+                {t('parcialBadge')}
               </Box>
             )}
           </Box>
@@ -203,8 +205,8 @@ export const CasePage: React.FC<CasePageProps> = ({ caseData, appendixSection })
             className="ex-case-page__entry-scope"
             sx={{ color: 'var(--md-sys-color-on-surface-variant)', mb: 2, maxWidth: '720px', fontStyle: 'italic' }}
           >
-            {entryRole && <>Entré como <strong>{entryRole}</strong>. </>}
-            {discoveredScope && <>El alcance real resultó: {discoveredScope}.</>}
+            {entryRole && <>{t('entryRole')} <strong>{entryRole}</strong>. </>}
+            {discoveredScope && <>{t('discoveredScope', { scope: discoveredScope })}</>}
           </Typography>
         )}
         {isParcial && estadoNota && (
@@ -235,7 +237,7 @@ export const CasePage: React.FC<CasePageProps> = ({ caseData, appendixSection })
             id="valor-heading"
             sx={{ color: 'var(--md-sys-color-on-surface-variant)', display: 'block', mb: 1 }}
           >
-            En una frase
+            {t('sections.valor')}
           </Typography>
           <Typography variant="h6" component="p" sx={{ color: 'var(--md-sys-color-on-surface)', maxWidth: PROSE_MAX, fontWeight: 500 }}>
             {valor}
@@ -247,28 +249,28 @@ export const CasePage: React.FC<CasePageProps> = ({ caseData, appendixSection })
       {hasStarL && (
         <>
           {situacion && (
-            <CaseSectionBlock id="situacion" label="Situación">
+            <CaseSectionBlock id="situacion" label={t('sections.situacion')}>
               <Prose text={situacion} />
             </CaseSectionBlock>
           )}
           {objetivo && (
-            <CaseSectionBlock id="objetivo" label="Objetivo" tinted>
+            <CaseSectionBlock id="objetivo" label={t('sections.objetivo')} tinted>
               <Prose text={objetivo} />
             </CaseSectionBlock>
           )}
           {accion && accion.length > 0 && (
-            <CaseSectionBlock id="accion" label="Acción — decisiones">
+            <CaseSectionBlock id="accion" label={t('sections.accion')}>
               {/* CA-013 — DecisionTable: decisión / descartada / elegida / por qué */}
-              <DecisionTable rows={accion} caption={`Decisiones clave del caso ${title}`} />
+              <DecisionTable rows={accion} caption={t('decisionCaption', { title })} />
             </CaseSectionBlock>
           )}
           {resultado && (
-            <CaseSectionBlock id="resultado" label="Resultado" tinted>
+            <CaseSectionBlock id="resultado" label={t('sections.resultado')} tinted>
               <Prose text={resultado} />
             </CaseSectionBlock>
           )}
           {aprendizaje && (
-            <CaseSectionBlock id="aprendizaje" label="Aprendizaje">
+            <CaseSectionBlock id="aprendizaje" label={t('sections.aprendizaje')}>
               <Prose text={aprendizaje} />
             </CaseSectionBlock>
           )}
@@ -283,7 +285,7 @@ export const CasePage: React.FC<CasePageProps> = ({ caseData, appendixSection })
       >
         <Typography variant="h5" component="h2" id="metrics-heading"
           sx={{ color: 'var(--md-sys-color-on-surface)', mb: 3 }}>
-          Resultados clave
+          {t('sections.metrics')}
         </Typography>
         <MetricRow metrics={metrics} />
       </Box>
@@ -296,7 +298,7 @@ export const CasePage: React.FC<CasePageProps> = ({ caseData, appendixSection })
       >
         <Typography variant="h5" component="h2" id="timeline-heading"
           sx={{ color: 'var(--md-sys-color-on-surface)', mb: 3 }}>
-          Proceso
+          {t('sections.timeline')}
         </Typography>
         {timeline.map((t, i) => (
           <TimelineStep
@@ -311,11 +313,11 @@ export const CasePage: React.FC<CasePageProps> = ({ caseData, appendixSection })
 
       {/* CA-017 — metodología TITAN como dato estructurado (chips → /metodologia#slug) */}
       {hasMethodology && (
-        <CaseSectionBlock id="methodology" label="Metodología aplicada" tinted>
+        <CaseSectionBlock id="methodology" label={t('sections.methodology')} tinted>
           {methodology && methodology.length > 0 && (
             <Box
               component="ul"
-              aria-label="Referencias de metodología"
+              aria-label={t('methodRefsLabel')}
               className="ex-case-page__method-refs"
               sx={{
                 listStyle: 'none',
@@ -359,15 +361,15 @@ export const CasePage: React.FC<CasePageProps> = ({ caseData, appendixSection })
               className="ex-case-page__momentums"
               sx={{ color: 'var(--md-sys-color-on-surface-variant)', mb: processTransformation ? 3 : 0 }}
             >
-              Momentums TITAN aplicados: {momentumsApplied.join(' · ')}
+              {t('momentums', { list: momentumsApplied.join(' · ') })}
             </Typography>
           )}
           {processTransformation && (
             <Box component="dl" className="ex-case-page__transformation" sx={{ m: 0, display: 'grid', gap: 2 }}>
               {[
-                { term: 'Antes', desc: processTransformation.before },
-                { term: 'Enfoque', desc: processTransformation.approach },
-                { term: 'Capacidad instalada', desc: processTransformation.capabilityInstalled },
+                { term: t('transformation.before'), desc: processTransformation.before },
+                { term: t('transformation.approach'), desc: processTransformation.approach },
+                { term: t('transformation.capability'), desc: processTransformation.capabilityInstalled },
               ].map((row) => (
                 <Box key={row.term}>
                   <Box component="dt" sx={{ fontWeight: 700, color: 'var(--md-sys-color-on-surface)', fontSize: '0.8125rem', mb: 0.5 }}>
@@ -393,7 +395,7 @@ export const CasePage: React.FC<CasePageProps> = ({ caseData, appendixSection })
               sx={{ px: SECTION_PX, py: 4 }}
             >
               <Typography variant="h5" component="h2" id="sections-heading" sx={{ color: 'var(--md-sys-color-on-surface)', mb: 3 }}>
-                Documento
+                {t('sections.document')}
               </Typography>
               {sections.map((s) => (
                 <Box
@@ -460,7 +462,7 @@ export const CasePage: React.FC<CasePageProps> = ({ caseData, appendixSection })
               sx={{ px: SECTION_PX, py: 4 }}
             >
               <Typography variant="h5" component="h2" id="evidence-heading" sx={{ color: 'var(--md-sys-color-on-surface)', mb: 2 }}>
-                Accesos y evidencia
+                {t('sections.evidence')}
               </Typography>
               <EvidenceLinks links={accessLinks} />
             </Box>
@@ -481,7 +483,7 @@ export const CasePage: React.FC<CasePageProps> = ({ caseData, appendixSection })
       >
         <Typography variant="h5" component="h2" id="stack-heading"
           sx={{ color: 'var(--md-sys-color-on-surface)', mb: 3 }}>
-          Stack usado
+          {t('sections.stack')}
         </Typography>
         {techStack.map(s => (
           <SkillBar key={s.skill} skill={s.skill} level={s.level} levelLabel={s.levelLabel} />

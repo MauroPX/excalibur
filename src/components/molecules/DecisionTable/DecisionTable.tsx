@@ -1,6 +1,7 @@
 'use client'
 
 import React from 'react'
+import { useTranslations } from 'next-intl'
 import Box from '@mui/material/Box'
 import type { DecisionRow } from '@/components/templates/CasePage/types'
 
@@ -27,6 +28,7 @@ const cellSx = {
  * <caption> sr-only, <th scope=col/row>, y scroll horizontal propio en móvil.
  */
 export const DecisionTable: React.FC<DecisionTableProps> = ({ rows, caption }) => {
+  const t = useTranslations('casePage.decisionTable')
   if (rows.length === 0) return null
   return (
     <Box
@@ -47,7 +49,7 @@ export const DecisionTable: React.FC<DecisionTableProps> = ({ rows, caption }) =
         )}
         <Box component="thead">
           <Box component="tr">
-            {['Decisión', 'Opción(es) descartada(s)', 'Elegida', 'Por qué'].map((h) => (
+            {[t('decision'), t('discarded'), t('chosen'), t('why')].map((h) => (
               <Box
                 key={h}
                 component="th"

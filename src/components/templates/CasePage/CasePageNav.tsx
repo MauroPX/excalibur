@@ -17,7 +17,7 @@ export const CasePageNav: React.FC<CasePageNavProps> = ({ backHref = '/#casos', 
   return (
     <Box
       component="nav"
-      aria-label="Navegación entre casos"
+      aria-label={t('label')}
       className="ex-case-page__nav"
       sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, gap: 2, justifyContent: 'space-between', alignItems: { xs: 'stretch', sm: 'center' }, pt: 4, pb: 6 }}
     >
