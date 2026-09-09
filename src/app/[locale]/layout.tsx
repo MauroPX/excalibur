@@ -9,6 +9,7 @@ import '../globals.css'
 import ThemeRegistry from '@/theme/ThemeRegistry'
 import { PostHogProvider } from '@/components/infra/PostHogProvider'
 import { ThemeToggle } from '@/components/atoms/ThemeToggle'
+import { ContrastToggle } from '@/components/atoms/ContrastToggle/ContrastToggle'
 import { LanguageToggle } from '@/components/atoms/LanguageToggle'
 import { ColorRolesHUD } from '@/components/organisms/ColorRolesHUD'
 import { routing, type AppLocale } from '@/i18n/routing'
@@ -80,7 +81,7 @@ export default async function LocaleLayout({
     <html lang={locale} suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{
-          __html: `(function(){var t=localStorage.getItem('excalibur-theme');if(!t){t=window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);})()`
+          __html: `(function(){var d=document.documentElement;var t=localStorage.getItem('excalibur-theme');if(t!=='dark'&&t!=='light'){t=window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';}d.setAttribute('data-theme',t);var c=localStorage.getItem('excalibur-contrast');if(c!=='medium'&&c!=='high'){if(window.matchMedia('(prefers-contrast:more)').matches)c='high';else c='base';}if(c==='medium'||c==='high')d.setAttribute('data-contrast',c);})()`
         }} />
       </head>
       <body>
@@ -98,6 +99,7 @@ export default async function LocaleLayout({
             >
               <LanguageToggle currentLocale={locale as AppLocale} />
               <ThemeToggle />
+              <ContrastToggle />
             </Box>
             {children}
             <Analytics />

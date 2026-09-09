@@ -33,7 +33,7 @@ describe('ColorRolesGallery', () => {
 
   it('CA-001: renderiza en modo light sin romper', () => {
     render(<ColorRolesGallery mode="light" />)
-    expect(screen.getByRole('list', { name: /modo light/i })).toBeInTheDocument()
+    expect(screen.getByRole('list', { name: /light, contraste base/i })).toBeInTheDocument()
   })
 
   it('CA-004: root con data-atomic y data-component correctos', () => {

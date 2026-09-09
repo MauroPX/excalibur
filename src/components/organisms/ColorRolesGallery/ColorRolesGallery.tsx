@@ -2,15 +2,28 @@
 import React from 'react'
 import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
-import { darkTokens, lightTokens } from '@/theme/tokens'
+import {
+  darkTokens, lightTokens, darkMcTokens, darkHcTokens, lightMcTokens, lightHcTokens,
+} from '@/theme/tokens'
 import { contrastRatio, contrastLevel } from './contrast'
 
 export interface ColorRolesGalleryProps {
-  /** Esquema a mostrar */
+  /** Esquema base a mostrar */
   mode: 'dark' | 'light'
+  /** Nivel de contraste — cada uno es un set completo de tokens */
+  contrast?: 'base' | 'medium' | 'high'
 }
 
 type TokenSet = typeof darkTokens
+
+const SCHEME: Record<string, TokenSet> = {
+  'dark-base': darkTokens,
+  'dark-medium': darkMcTokens,
+  'dark-high': darkHcTokens,
+  'light-base': lightTokens,
+  'light-medium': lightMcTokens,
+  'light-high': lightHcTokens,
+}
 
 /** Los 24 pares semánticos "on-X sobre X" — mismo set que docs/m3/COLOR_CONTRAST_AUDIT.md. */
 const PAIRS: Array<{ fg: keyof TokenSet; bg: keyof TokenSet; label: string }> = [
@@ -50,8 +63,8 @@ const LEVEL_COLOR: Record<string, string> = {
  * Reutilizado por ColorRolesHUD (FAB dev-only en la app) y por su propia
  * story de Storybook ("Foundations/Color", ver ColorRolesGallery.stories.tsx).
  */
-export const ColorRolesGallery: React.FC<ColorRolesGalleryProps> = ({ mode }) => {
-  const tokens = mode === 'dark' ? darkTokens : lightTokens
+export const ColorRolesGallery: React.FC<ColorRolesGalleryProps> = ({ mode, contrast = 'base' }) => {
+  const tokens = SCHEME[`${mode}-${contrast}`] ?? (mode === 'dark' ? darkTokens : lightTokens)
 
   return (
     <Box
@@ -59,7 +72,7 @@ export const ColorRolesGallery: React.FC<ColorRolesGalleryProps> = ({ mode }) =>
       data-atomic="organism"
       data-component="ColorRolesGallery"
       className="ex-color-roles-gallery"
-      aria-label={`Roles de color M3 — modo ${mode}`}
+      aria-label={`Roles de color M3 — ${mode}, contraste ${contrast}`}
       sx={{ display: 'flex', flexDirection: 'column', gap: 1, listStyle: 'none', m: 0, p: 0 }}
     >
       {PAIRS.map(({ fg, bg, label }) => {

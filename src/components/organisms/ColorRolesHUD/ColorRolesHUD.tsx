@@ -20,7 +20,7 @@ export interface ColorRolesHUDProps {
  */
 export const ColorRolesHUD: React.FC<ColorRolesHUDProps> = ({ enabled = false }) => {
   const [visible, setVisible] = useState(false)
-  const { mode } = useColorMode()
+  const { mode, contrast } = useColorMode()
 
   useEffect(() => {
     if (!enabled) return
@@ -68,9 +68,9 @@ export const ColorRolesHUD: React.FC<ColorRolesHUDProps> = ({ enabled = false })
           }}
         >
           <Typography variant="h6" component="h2" sx={{ color: 'var(--md-sys-color-tertiary)', fontWeight: 700, fontSize: '0.9rem', mb: 1.5 }}>
-            <PaletteRounded aria-hidden="true" sx={{ fontSize: "1rem", verticalAlign: "-2px", mr: 0.5 }} />COLOR ROLES ({mode})
+            <PaletteRounded aria-hidden="true" sx={{ fontSize: "1rem", verticalAlign: "-2px", mr: 0.5 }} />COLOR ROLES ({mode} · {contrast})
           </Typography>
-          <ColorRolesGallery mode={mode} />
+          <ColorRolesGallery mode={mode} contrast={contrast} />
         </Box>
       )}
     </>
