@@ -16,7 +16,7 @@ export const fleetControlCase: CasePageData = validateCaseData({
 
   caseType: 'work-test',
   caseFormat: 'evidencia-viva',
-  badge: { icon: '🔧', label: 'Prueba técnica' },
+  badge: { icon: 'wrench', label: 'Prueba técnica' },
   entryRole: 'Design Engineer (UX/UI)',
 
   valor:

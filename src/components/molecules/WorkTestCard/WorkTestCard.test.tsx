@@ -10,7 +10,7 @@ const base = {
   title: 'FleetControl — Monitor de Flota en Tiempo Real',
   valor: 'No acepté las restricciones de la IA como definitivas — la diferencia entre usar IA y saber cuándo no seguirla.',
   href: '/pruebas-tecnicas/fleetcontrol',
-  badge: { icon: '🔧', label: 'Prueba técnica' },
+  badge: { icon: 'wrench' as const, label: 'Prueba técnica' },
   caseType: 'work-test' as const,
   tags: ['Design Engineer', 'WCAG 2.1 AA'],
 }
@@ -34,7 +34,7 @@ describe('WorkTestCard', () => {
   it('CA-003 / CA-006: modificador de clase según caseType', () => {
     const { container, rerender } = render(<WorkTestCard {...base} />)
     expect(container.querySelector('[data-component="WorkTestCard"]')).toHaveClass('ex-worktest-card--work-test')
-    rerender(<WorkTestCard {...base} caseType="meta" badge={{ icon: '📐', label: 'Caso propio' }} />)
+    rerender(<WorkTestCard {...base} caseType="meta" badge={{ icon: 'compass', label: 'Caso propio' }} />)
     expect(container.querySelector('[data-component="WorkTestCard"]')).toHaveClass('ex-worktest-card--meta')
   })
 

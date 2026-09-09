@@ -2,6 +2,17 @@
 
 import React from 'react'
 import Box from '@mui/material/Box'
+import type { SvgIconProps } from '@mui/material/SvgIcon'
+import LanguageRounded from '@mui/icons-material/LanguageRounded'
+import VisibilityRounded from '@mui/icons-material/VisibilityRounded'
+import CodeRounded from '@mui/icons-material/CodeRounded'
+import MenuBookRounded from '@mui/icons-material/MenuBookRounded'
+import RemoveRedEyeRounded from '@mui/icons-material/RemoveRedEyeRounded'
+import PlayCircleRounded from '@mui/icons-material/PlayCircleRounded'
+import DescriptionRounded from '@mui/icons-material/DescriptionRounded'
+import DesignServicesRounded from '@mui/icons-material/DesignServicesRounded'
+import SportsEsportsRounded from '@mui/icons-material/SportsEsportsRounded'
+import OpenInNewRounded from '@mui/icons-material/OpenInNewRounded'
 import type { AccessLinkKind } from '@/components/templates/CasePage/types'
 
 export interface EvidenceLinkProps {
@@ -13,16 +24,22 @@ export interface EvidenceLinkProps {
   kind: AccessLinkKind
 }
 
-const KIND: Record<AccessLinkKind, { icon: string; name: string }> = {
-  produccion: { icon: '🌐', name: 'Producción' },
-  preview: { icon: '🔎', name: 'Preview' },
-  repo: { icon: '💻', name: 'Repositorio' },
-  storybook: { icon: '📖', name: 'Storybook' },
-  chromatic: { icon: '👁', name: 'Chromatic' },
-  video: { icon: '▶', name: 'Video' },
-  doc: { icon: '📄', name: 'Documento' },
-  figma: { icon: '🎨', name: 'Figma' },
-  demo: { icon: '🕹', name: 'Demo' },
+/**
+ * Iconografía por tipo de evidencia. `@mui/icons-material` → cada icono renderiza
+ * como <svg fill="currentColor">, así que toma el color del enlace (token M3) y
+ * cambia con hover/tema sin quemar ningún color. Antes eran emoji (glifos a todo
+ * color del SO, no adaptables a contraste ni tema).
+ */
+const KIND: Record<AccessLinkKind, { Icon: React.ElementType<SvgIconProps>; name: string }> = {
+  produccion: { Icon: LanguageRounded, name: 'Producción' },
+  preview: { Icon: VisibilityRounded, name: 'Preview' },
+  repo: { Icon: CodeRounded, name: 'Repositorio' },
+  storybook: { Icon: MenuBookRounded, name: 'Storybook' },
+  chromatic: { Icon: RemoveRedEyeRounded, name: 'Chromatic' },
+  video: { Icon: PlayCircleRounded, name: 'Video' },
+  doc: { Icon: DescriptionRounded, name: 'Documento' },
+  figma: { Icon: DesignServicesRounded, name: 'Figma' },
+  demo: { Icon: SportsEsportsRounded, name: 'Demo' },
 }
 
 /**
@@ -31,7 +48,7 @@ const KIND: Record<AccessLinkKind, { icon: string; name: string }> = {
  * Siempre abre en pestaña nueva y lo declara en el nombre accesible (WCAG G201).
  */
 export const EvidenceLink = ({ href, label, kind }: EvidenceLinkProps) => {
-  const { icon, name } = KIND[kind]
+  const { Icon, name } = KIND[kind]
   return (
     <Box
       component="a"
@@ -66,9 +83,9 @@ export const EvidenceLink = ({ href, label, kind }: EvidenceLinkProps) => {
         },
       }}
     >
-      <Box component="span" aria-hidden="true">{icon}</Box>
+      <Icon aria-hidden="true" sx={{ fontSize: '1.125rem' }} />
       <Box component="span" className="ex-evidence-link__label">{label}</Box>
-      <Box component="span" aria-hidden="true" sx={{ opacity: 0.7 }}>↗</Box>
+      <OpenInNewRounded aria-hidden="true" sx={{ fontSize: '0.9375rem', opacity: 0.7 }} />
     </Box>
   )
 }

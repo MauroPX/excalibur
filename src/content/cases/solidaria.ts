@@ -24,7 +24,7 @@ export const solidariaWorkTestCase: CasePageData = validateCaseData({
 
   caseType: 'work-test',
   caseFormat: 'evidencia-viva',
-  badge: { icon: '🔍', label: 'Diagnóstico autodirigido' },
+  badge: { icon: 'search', label: 'Diagnóstico autodirigido' },
 
   valor:
     'Nadie me pidió esto. Antes de una entrevista, audité los 7 canales digitales de una aseguradora real y construí la propuesta de arquitectura que resuelve la fragmentación que encontré — la diferencia entre presentarme a una entrevista y presentarme con la solución ya diseñada.',

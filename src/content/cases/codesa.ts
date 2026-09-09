@@ -17,7 +17,7 @@ export const codesaCase: CasePageData = validateCaseData({
 
   caseType: 'work-test',
   caseFormat: 'documento-estrategico',
-  badge: { icon: '🔧', label: 'Prueba técnica' },
+  badge: { icon: 'wrench', label: 'Prueba técnica' },
   entryRole: 'Diseñador/a UX Nivel 3',
 
   estado: 'parcial',

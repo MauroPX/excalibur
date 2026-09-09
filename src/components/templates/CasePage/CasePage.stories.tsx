@@ -60,7 +60,7 @@ const fleetControl: CasePageData = {
   tags: ['Design Engineer (UX/UI)', 'WCAG 2.1 AA', 'Next.js', 'Zustand'],
   caseType: 'work-test',
   caseFormat: 'evidencia-viva',
-  badge: { icon: '🔧', label: 'Prueba técnica' },
+  badge: { icon: 'wrench', label: 'Prueba técnica' },
   entryRole: 'Design Engineer (UX/UI)',
   valor:
     'No acepté las restricciones de la IA como definitivas: cuando generó código que rompía semántica de accesibilidad o UX de movimiento, lo detecté y corregí con criterio propio, documentando cada corrección — la diferencia entre usar IA y saber cuándo no seguirla.',
@@ -144,7 +144,7 @@ const codesa: CasePageData = {
   tags: ['Diseño UX Nivel 3', 'Research', 'RICE', 'Self-Determination Theory'],
   caseType: 'work-test',
   caseFormat: 'documento-estrategico',
-  badge: { icon: '🔧', label: 'Prueba técnica' },
+  badge: { icon: 'wrench', label: 'Prueba técnica' },
   entryRole: 'Diseño UX Nivel 3',
   estado: 'parcial',
   estadoNota:
@@ -248,7 +248,7 @@ const excalibur: CasePageData = {
   tags: ['Next.js 15', 'i18n bilingüe', 'WCAG 2.2 AA', 'Design System', 'BFL / TITAN'],
   caseType: 'meta',
   caseFormat: 'evidencia-viva',
-  badge: { icon: '📐', label: 'Caso propio' },
+  badge: { icon: 'compass', label: 'Caso propio' },
   valor:
     'La misma metodología que aplico en Correos Chile, BBVA o FDN, aplicada a mi propio producto. Este sitio es el primer caso de estudio: cada componente tiene blueprint, tests, story y certificado de versión.',
   situacion:

@@ -2,7 +2,9 @@
 import React from 'react'
 import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
+import ContrastRounded from '@mui/icons-material/ContrastRounded'
 import { Tag } from '@/components/atoms/Tag'
+import { BadgeIcon } from './CaseBadgeIcon'
 import { MetricRow } from '@/components/molecules/MetricRow'
 import { TimelineStep } from '@/components/molecules/TimelineStep'
 import { SkillBar } from '@/components/molecules/SkillBar'
@@ -173,7 +175,7 @@ export const CasePage: React.FC<CasePageProps> = ({ caseData, appendixSection })
                 className="ex-case-page__badge"
                 sx={{ display: 'inline-flex', alignItems: 'center', gap: 0.5, px: 1.5, py: 0.5, borderRadius: '999px', fontSize: '0.8125rem', fontWeight: 700, backgroundColor: 'var(--md-sys-color-secondary-container)', color: 'var(--md-sys-color-on-secondary-container)' }}
               >
-                <Box component="span" aria-hidden="true">{badge.icon}</Box>
+                <BadgeIcon kind={badge.icon} sx={{ fontSize: '1rem' }} />
                 {badge.label}
               </Box>
             )}
@@ -183,7 +185,7 @@ export const CasePage: React.FC<CasePageProps> = ({ caseData, appendixSection })
                 className="ex-case-page__badge ex-case-page__badge--estado"
                 sx={{ display: 'inline-flex', alignItems: 'center', gap: 0.5, px: 1.5, py: 0.5, borderRadius: '999px', fontSize: '0.8125rem', fontWeight: 700, backgroundColor: 'var(--md-sys-color-tertiary-container)', color: 'var(--md-sys-color-on-tertiary-container)' }}
               >
-                <Box component="span" aria-hidden="true">◐</Box>
+                <ContrastRounded aria-hidden="true" sx={{ fontSize: '1rem' }} />
                 Caso parcial
               </Box>
             )}

@@ -22,7 +22,7 @@ export const PruebaTecnica: Story = {
     valor:
       'No acepté las restricciones de la IA como definitivas: detecté y corregí cada vez que rompía accesibilidad o UX de movimiento — la diferencia entre usar IA y saber cuándo no seguirla.',
     href: '/pruebas-tecnicas/fleetcontrol',
-    badge: { icon: '🔧', label: 'Prueba técnica' },
+    badge: { icon: 'wrench', label: 'Prueba técnica' },
     caseType: 'work-test',
     tags: ['Design Engineer (UX/UI)', 'WCAG 2.1 AA', 'Next.js'],
   },
@@ -36,7 +36,7 @@ export const DiagnosticoAutodirigido: Story = {
     valor:
       'Nadie me pidió esto. Antes de una entrevista, audité los 7 canales digitales de una aseguradora real y construí la propuesta que resuelve la fragmentación que encontré.',
     href: '/pruebas-tecnicas/solidaria',
-    badge: { icon: '🔍', label: 'Diagnóstico autodirigido' },
+    badge: { icon: 'search', label: 'Diagnóstico autodirigido' },
     caseType: 'work-test',
     tags: ['Product Architecture', 'Design System', 'WCAG 2.2 AA'],
   },
@@ -50,7 +50,7 @@ export const MetaCaso: Story = {
     valor:
       'La misma metodología que aplico en Correos Chile, BBVA o FDN, aplicada a mi propio producto. Este sitio es el primer caso de estudio.',
     href: '/excalibur',
-    badge: { icon: '📐', label: 'Caso propio' },
+    badge: { icon: 'compass', label: 'Caso propio' },
     caseType: 'meta',
     tags: ['Next.js 15', 'i18n bilingüe', 'WCAG 2.2 AA', '203 tests'],
   },

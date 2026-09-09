@@ -71,7 +71,7 @@ export default async function PruebasTecnicasIndex({
                 title={c.title}
                 valor={c.valor ?? c.description}
                 href={`/pruebas-tecnicas/${c.slug}`}
-                badge={c.badge ?? { icon: '🔧', label: 'Prueba técnica' }}
+                badge={c.badge ?? { icon: 'wrench' as const, label: 'Prueba técnica' }}
                 caseType="work-test"
                 tags={c.tags}
               />
@@ -83,7 +83,7 @@ export default async function PruebasTecnicasIndex({
               title={META_CASE.title}
               valor={META_CASE.valor ?? META_CASE.description}
               href="/excalibur"
-              badge={META_CASE.badge ?? { icon: '📐', label: 'Caso propio' }}
+              badge={META_CASE.badge ?? { icon: 'compass' as const, label: 'Caso propio' }}
               caseType="meta"
               tags={META_CASE.tags}
             />

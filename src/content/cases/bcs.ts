@@ -15,7 +15,7 @@ export const bcsCase: CasePageData = validateCaseData({
 
   caseType: 'work-test',
   caseFormat: 'evidencia-viva',
-  badge: { icon: '🔧', label: 'Prueba técnica' },
+  badge: { icon: 'wrench', label: 'Prueba técnica' },
   entryRole: 'Diseñador/a de Interfaz de Usuario UI',
   discoveredScope:
     'un problema de sistema (producir cientos de pantallas a escala), no de una sola pantalla',

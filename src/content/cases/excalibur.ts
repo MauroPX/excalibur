@@ -18,7 +18,7 @@ export const excaliburCase: CasePageData = validateCaseData({
 
   caseType: 'meta',
   caseFormat: 'evidencia-viva',
-  badge: { icon: '📐', label: 'Caso propio' },
+  badge: { icon: 'compass', label: 'Caso propio' },
 
   valor:
     'La misma metodología que aplico en un encargo de cliente, aplicada a mi propio producto. Este sitio es el primer caso de estudio: cada componente tiene blueprint, tests, story y certificado de versión antes de entrar a producción.',

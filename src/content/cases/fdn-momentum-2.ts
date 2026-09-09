@@ -8,12 +8,12 @@
  *
  * Fuente verbatim: docs/m2/spec/CASE_PAGE_CONTENT_STRUCTURE.md §"Caso: FDN — Momentum 2".
  */
-import type { CaseSection, DecisionRow } from '@/components/templates/CasePage/types'
+import type { CaseSection, CaseBadgeIcon, DecisionRow } from '@/components/templates/CasePage/types'
 
 export interface Momentum2Section {
   /** id de ancla — distinto e inequívoco frente al Momentum 1 */
   anchorId: string
-  badge: { icon: string; label: string }
+  badge: { icon: CaseBadgeIcon; label: string }
   valor: string
   objetivo: string
   accion: DecisionRow[]
@@ -29,7 +29,7 @@ export interface Momentum2Section {
 
 export const fdnMomentum2: Momentum2Section = {
   anchorId: 'momentum-2-propuesta',
-  badge: { icon: '📐', label: 'Estimación propia — no construido ni aprobado en su totalidad' },
+  badge: { icon: 'compass', label: 'Estimación propia — no construido ni aprobado en su totalidad' },
   valor:
     'Entré a auditar accesibilidad. Al mirar el proceso completo, encontré la causa raíz (un sitio estático en fin de vida) y propuse la arquitectura que la resuelve — la diferencia entre cumplir el mandato y resolver el problema que el mandato no mencionaba.',
   objetivo:

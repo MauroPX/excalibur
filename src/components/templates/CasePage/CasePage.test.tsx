@@ -210,7 +210,7 @@ describe('CasePage — v1.1.0 (bloques condicionales)', () => {
 
   it('CA-016: footer con la frase exacta + badge de header', () => {
     renderCase({
-      badge: { icon: '🔧', label: 'Prueba técnica' },
+      badge: { icon: 'wrench', label: 'Prueba técnica' },
       footerDisclaimer: 'Prueba técnica de selección — no un encargo remunerado.',
     })
     expect(screen.getByText('Prueba técnica')).toBeInTheDocument()
@@ -285,7 +285,7 @@ describe('CasePage — v1.1.0 (bloques condicionales)', () => {
 
   it('axe: 0 violations — variante evidencia-viva completa', async () => {
     const { container } = renderCase({
-      badge: { icon: '🔧', label: 'Prueba técnica' },
+      badge: { icon: 'wrench', label: 'Prueba técnica' },
       valor: 'Frase de valor.',
       situacion: 'Situación.',
       objetivo: 'Objetivo.',
@@ -308,7 +308,7 @@ describe('CasePage — v1.1.0 (bloques condicionales)', () => {
       caseType: 'work-test',
       estado: 'parcial',
       estadoNota: 'Nota.',
-      badge: { icon: '📐', label: 'Estimación propia' },
+      badge: { icon: 'compass', label: 'Estimación propia' },
       valor: 'Frase.',
       objetivo: 'Objetivo.',
       aprendizaje: 'Aprendizaje.',

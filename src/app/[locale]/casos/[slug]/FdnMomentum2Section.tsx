@@ -1,6 +1,7 @@
 import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
 import { DecisionTable } from '@/components/molecules/DecisionTable'
+import { BadgeIcon } from '@/components/templates/CasePage/CaseBadgeIcon'
 import type { Momentum2Section } from '@/content/cases'
 
 const MAX = '820px'
@@ -42,7 +43,7 @@ export function FdnMomentum2Section({ data }: { data: Momentum2Section }) {
           mb: 2,
         }}
       >
-        <Box component="span" aria-hidden="true">{data.badge.icon}</Box>
+        <BadgeIcon kind={data.badge.icon} sx={{ fontSize: '0.9375rem' }} />
         {data.badge.label}
       </Box>
 

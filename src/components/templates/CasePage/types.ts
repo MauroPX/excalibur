@@ -76,9 +76,12 @@ export interface CaseSection {
   table?: { headers: string[]; rows: string[][] }
 }
 
+/** kind de icono del badge — se mapea a un icono `@mui/icons-material` (currentColor,
+ *  sigue el token de color del badge). Antes era un emoji quemado. */
+export type CaseBadgeIcon = 'wrench' | 'search' | 'compass'
+
 export interface CaseBadge {
-  /** emoji — '🔧' | '🔍' | '📐' */
-  icon: string
+  icon: CaseBadgeIcon
   /** 'Prueba técnica' | 'Diagnóstico autodirigido' | 'Estimación propia' | 'Caso propio' */
   label: string
 }

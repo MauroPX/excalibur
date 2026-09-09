@@ -4,6 +4,7 @@ import React, { useId } from 'react'
 import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
 import { Tag } from '@/components/atoms/Tag'
+import { BadgeIcon } from '@/components/templates/CasePage/CaseBadgeIcon'
 import type { CaseBadge, CaseType } from '@/components/templates/CasePage/types'
 
 export interface WorkTestCardProps {
@@ -13,7 +14,7 @@ export interface WorkTestCardProps {
   valor: string
   /** URL de la página de detalle */
   href: string
-  /** Badge exacto del caso — ej. { icon: '🔧', label: 'Prueba técnica' } */
+  /** Badge exacto del caso — ej. { icon: 'wrench', label: 'Prueba técnica' } */
   badge: CaseBadge
   /** 'work-test' | 'meta' — decide el color del badge (NO se usa para casos 'client', esos van con ProjectCard) */
   caseType: Exclude<CaseType, 'client'>
@@ -87,7 +88,7 @@ export const WorkTestCard: React.FC<WorkTestCardProps> = ({
           color: colors.fg,
         }}
       >
-        <span aria-hidden="true">{badge.icon}</span>
+        <BadgeIcon kind={badge.icon} sx={{ fontSize: '0.9375rem' }} />
         {badge.label}
       </Box>
 
