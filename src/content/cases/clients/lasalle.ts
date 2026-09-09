@@ -5,9 +5,11 @@
  * Figma de v1 reusado, no recreado.
  * Reconciliación (C9): AAA se afirma como objetivo de ALCANCE (por encima del
  * mínimo normativo AA), evidenciado por validación automatizada (axe-core +
- * Playwright + auditoría de contraste) — el mismo método transversal de Excalibur
- * y BCS — NO por certificado en papel ni badge (no hay uno público hoy). Se retira
+ * auditoría de contraste) — método transversal a Excalibur y BCS — NO por
+ * certificado en papel ni badge (no hay uno público hoy). Se retira
  * "18 × 4 categorías" y "0 riesgo legal MinTIC" (afirmaciones sin artefacto visible).
+ * NOTA: no hay suite Playwright/e2e en Excalibur — si La Salle usó Playwright,
+ * confirmar y re-añadir solo para este caso (no como "igual que Excalibur").
  */
 import type { CasePageData } from '@/components/templates/CasePage/types'
 import { validateCaseData } from '@/components/templates/CasePage/validateCaseData'
@@ -16,7 +18,7 @@ export const lasalleCase: CasePageData = validateCaseData({
   slug: 'lasalle',
   title: 'Universidad de La Salle — accesibilidad AAA por alcance',
   description:
-    'Sistema de diseño institucional (9 facultades, scheme de color por facultad, atomic design) con objetivo de conformidad AAA — por encima del mínimo normativo AA — validado por testing automatizado (axe-core + Playwright + auditoría de contraste), el mismo método aplicado en Excalibur y BCS.',
+    'Sistema de diseño institucional (9 facultades, scheme de color por facultad, atomic design) con objetivo de conformidad AAA — por encima del mínimo normativo AA — validado por testing automatizado (axe-core + auditoría de contraste), el mismo método aplicado en Excalibur y BCS.',
   tags: ['EdTech', 'WCAG AAA', 'Design System', 'Testing automatizado', 'Atomic Design'],
 
   caseType: 'client',
@@ -32,7 +34,7 @@ export const lasalleCase: CasePageData = validateCaseData({
     {
       decision: 'Nivel de conformidad objetivo y cómo evidenciarlo',
       discarded: 'Quedarse en AA (el mínimo normativo) con auditoría manual puntual',
-      chosen: 'AAA como objetivo de alcance + validación automatizada (axe-core, Playwright, script de contraste) como evidencia de conformidad',
+      chosen: 'AAA como objetivo de alcance + validación automatizada (axe-core + script de contraste) como evidencia de conformidad',
       why: 'El mínimo cumple la ley pero no gobierna la accesibilidad a escala; la validación automatizada sí, y es verificable',
     },
   ],
@@ -49,20 +51,20 @@ export const lasalleCase: CasePageData = validateCaseData({
 
   metrics: [
     { value: 'AAA', label: 'por alcance (vs. AA normativo)' },
-    { value: 'axe-core + Playwright', label: 'validación automatizada de conformidad' },
+    { value: 'axe-core', label: 'validación automatizada de conformidad' },
     { value: '9', label: 'facultades / schemes de color' },
     { value: 'atomic', label: 'design system en Figma + Storybook' },
   ],
   timeline: [
     { company: 'La Salle', role: 'Ecosistema institucional (WebSphere, Angular 8 PWA)', period: '2017-2020' },
     { company: 'La Salle', role: 'Design System atómico en Figma + Storybook', period: '2023' },
-    { company: 'La Salle', role: 'Validación automatizada AAA (axe-core + Playwright) + scheme por facultad', period: '2024', isLast: true },
+    { company: 'La Salle', role: 'Validación automatizada AAA (axe-core + contraste) + scheme por facultad', period: '2024', isLast: true },
   ],
   techStack: [
     { skill: 'WCAG AAA por alcance', level: 95, levelLabel: 'Experto' },
     { skill: 'Angular Material + Design System atómico', level: 88, levelLabel: 'Avanzado' },
     { skill: 'Figma Variables + Storybook', level: 88, levelLabel: 'Avanzado' },
-    { skill: 'axe-core · Playwright · auditoría de contraste', level: 90, levelLabel: 'Experto' },
+    { skill: 'axe-core · auditoría de contraste · lectores de pantalla', level: 90, levelLabel: 'Experto' },
   ],
 
   accessLinks: [
