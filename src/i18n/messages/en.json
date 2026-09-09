@@ -34,6 +34,13 @@
   },
   "titan": {
     "title": "Work framework",
+    "moduleStats": "{modules} modules · {commands} active commands",
+    "cardCommands": "{count} commands",
+    "formLabel": "Query to the professional-experience agent",
+    "inputLabel": "Ask about my experience",
+    "sendLabel": "Send question",
+    "loading": "Querying experience...",
+    "fallbackError": "I'm currently processing your query. You can explore the projects directly or reach me at lemaogo@gmail.com",
     "placeholder": "What is your product challenge?",
     "suggestions": [
       "How do I scale a design team?",
@@ -160,6 +167,10 @@
     "colorRolesOpen": "Review color roles",
     "colorRolesClose": "Close color-role review",
     "opensInNewTab": "opens in a new tab",
+    "viewFullCase": "See the full case →",
+    "projectPhases": "Project phases",
+    "industriesTitle": "Industries",
+    "industriesListLabel": "Industries with experience",
     "evidenceLinkLabel": "{label} — {kind} ({opensInNewTab})",
     "evidenceKind": {
       "produccion": "Production",

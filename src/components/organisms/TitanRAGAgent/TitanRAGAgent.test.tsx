@@ -1,4 +1,5 @@
-import { render, screen, waitFor } from '@testing-library/react'
+import { screen, waitFor } from '@testing-library/react'
+import { renderWithIntl as render } from '@/test-utils/intl'
 import userEvent from '@testing-library/user-event'
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest'
 import { axe, toHaveNoViolations } from 'jest-axe'

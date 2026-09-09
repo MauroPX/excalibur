@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useState, useCallback } from 'react'
+import { useTranslations } from 'next-intl'
 import Box from '@mui/material/Box'
 import TextField from '@mui/material/TextField'
 import CircularProgress from '@mui/material/CircularProgress'
@@ -20,16 +21,6 @@ export interface TitanRAGAgentProps {
   placeholder?: string
 }
 
-const DEFAULT_SUGGESTIONS = [
-  '¿Cuál fue el impacto más grande que generaste?',
-  '¿Qué metodologías usas para priorizar?',
-  '¿Cómo escalas equipos de producto?',
-  '¿Estás disponible para proyectos Q3 2026?',
-]
-
-const FALLBACK_ERROR_MESSAGE =
-  'Actualmente estoy procesando tu consulta. Puedes explorar los proyectos directamente o contactarme en lemaogo@gmail.com'
-
 type ComponentState = 'idle' | 'loading' | 'response' | 'error'
 
 interface ChatResponse {
@@ -38,9 +29,13 @@ interface ChatResponse {
 }
 
 export function TitanRAGAgent({
-  initialSuggestions = DEFAULT_SUGGESTIONS,
-  placeholder = 'Pregunta sobre mi experiencia como Staff PM...',
+  initialSuggestions,
+  placeholder,
 }: TitanRAGAgentProps) {
+  const t = useTranslations('titan')
+  const suggestions = initialSuggestions ?? (t.raw('suggestions') as string[])
+  const inputPlaceholder = placeholder ?? t('placeholder')
+  const fallbackError = t('fallbackError')
   const [inputValue, setInputValue] = useState<string>('')
   const [componentState, setComponentState] = useState<ComponentState>('idle')
   const [responseText, setResponseText] = useState<string>('')
@@ -63,7 +58,7 @@ export function TitanRAGAgent({
         })
 
         if (!res.ok) {
-          setErrorText(FALLBACK_ERROR_MESSAGE)
+          setErrorText(fallbackError)
           setComponentState('error')
           return
         }
@@ -74,15 +69,15 @@ export function TitanRAGAgent({
           setResponseText(data.response)
           setComponentState('response')
         } else {
-          setErrorText(FALLBACK_ERROR_MESSAGE)
+          setErrorText(fallbackError)
           setComponentState('error')
         }
       } catch {
-        setErrorText(FALLBACK_ERROR_MESSAGE)
+        setErrorText(fallbackError)
         setComponentState('error')
       }
     },
-    [componentState]
+    [componentState, fallbackError]
   )
 
   const handleFormSubmit = useCallback(
@@ -141,7 +136,7 @@ export function TitanRAGAgent({
         <Box
           component="form"
           onSubmit={handleFormSubmit}
-          aria-label="Consulta al agente de experiencia profesional"
+          aria-label={t('formLabel')}
           sx={{
             display: 'flex',
             alignItems: 'flex-end',
@@ -156,10 +151,10 @@ export function TitanRAGAgent({
             maxRows={4}
             value={inputValue}
             onChange={handleInputChange}
-            placeholder={placeholder}
+            placeholder={inputPlaceholder}
             disabled={isLoading}
             inputProps={{
-              'aria-label': 'Pregunta sobre mi experiencia',
+              'aria-label': t('inputLabel'),
               maxLength: 500,
             }}
             variant="standard"
@@ -184,7 +179,7 @@ export function TitanRAGAgent({
           <IconButton
             type="submit"
             disabled={isLoading || !inputValue.trim()}
-            aria-label="Enviar pregunta"
+            aria-label={t('sendLabel')}
             sx={{
               color: 'var(--md-sys-color-primary)',
               '&:disabled': {
@@ -209,7 +204,7 @@ export function TitanRAGAgent({
             gap: 1,
           }}
         >
-          {initialSuggestions.map((suggestion) => (
+          {suggestions.map((suggestion) => (
             <Box
               key={suggestion}
               className="ex-titan-rag__suggestion"
@@ -252,7 +247,7 @@ export function TitanRAGAgent({
             variant="body2"
             sx={{ color: 'var(--md-sys-color-on-surface-variant)' }}
           >
-            Consultando experiencia...
+            {t('loading')}
           </Typography>
         </Box>
       )}

@@ -1,4 +1,6 @@
+'use client'
 import React from 'react'
+import { useTranslations } from 'next-intl'
 import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
 
@@ -26,6 +28,7 @@ const MOMENTUM_BG: Record<string, string> = {
 }
 
 export const TitanSection: React.FC<TitanSectionProps> = ({ modules, version = 'v7.0' }) => {
+  const t = useTranslations('titan')
   const totalCommands = modules.reduce((sum, m) => sum + m.commandsCount, 0)
   return (
     <Box
@@ -44,10 +47,10 @@ export const TitanSection: React.FC<TitanSectionProps> = ({ modules, version = '
           TITAN {version}
         </Box>
         <Typography variant="h4" component="h2" sx={{ color: 'var(--md-sys-color-on-surface)', mb: 1 }}>
-          Framework de trabajo
+          {t('title')}
         </Typography>
         <Typography variant="body1" sx={{ color: 'var(--md-sys-color-on-surface)' }}>
-          {modules.length} módulos · {totalCommands} comandos activos
+          {t('moduleStats', { modules: modules.length, commands: totalCommands })}
         </Typography>
       </Box>
 
@@ -77,7 +80,7 @@ export const TitanSection: React.FC<TitanSectionProps> = ({ modules, version = '
             </Typography>
             <Typography variant="caption" className="ex-titan-section__module-stats"
               sx={{ color: 'var(--md-sys-color-on-surface)' }}>
-              {mod.commandsCount} comandos
+              {t('cardCommands', { count: mod.commandsCount })}
             </Typography>
           </Box>
         ))}

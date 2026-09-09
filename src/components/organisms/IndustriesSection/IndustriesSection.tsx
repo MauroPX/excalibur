@@ -1,4 +1,6 @@
+'use client'
 import React from 'react'
+import { useTranslations } from 'next-intl'
 import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
 import type { SvgIconProps } from '@mui/material/SvgIcon'
@@ -34,8 +36,10 @@ export interface IndustriesSectionProps {
  */
 export const IndustriesSection: React.FC<IndustriesSectionProps> = ({
   industries,
-  title = 'Industrias',
-}) => (
+  title,
+}) => {
+  const t = useTranslations('common')
+  return (
   <Box
     component="section"
     data-atomic="organism"
@@ -46,12 +50,12 @@ export const IndustriesSection: React.FC<IndustriesSectionProps> = ({
   >
     <Box sx={{ maxWidth: '1100px', mx: 'auto', px: { xs: 2, sm: 3, md: 4 } }}>
       <Typography id="industries-heading" variant="h4" component="h2" sx={{ color: 'var(--md-sys-color-on-surface)', mb: 4 }}>
-        {title}
+        {title ?? t('industriesTitle')}
       </Typography>
 
       <Box
         component="ul"
-        aria-label="Industrias con experiencia"
+        aria-label={t('industriesListLabel')}
         sx={{
           listStyle: 'none',
           m: 0,
@@ -88,6 +92,7 @@ export const IndustriesSection: React.FC<IndustriesSectionProps> = ({
       </Box>
     </Box>
   </Box>
-)
+  )
+}
 
 export default IndustriesSection

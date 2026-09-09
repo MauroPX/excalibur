@@ -1,4 +1,6 @@
+'use client'
 import React from 'react'
+import { useTranslations } from 'next-intl'
 import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
 import { EvidenceLink } from '@/components/atoms/EvidenceLink'
@@ -13,7 +15,9 @@ export interface FlagshipSectionProps {
  * (`#flagship`) — profundiza el caso Correos Chile que ya vive en
  * src/content/cases/clients/correos-chile.ts. Cero cifras nuevas.
  */
-export const FlagshipSection: React.FC<FlagshipSectionProps> = ({ data }) => (
+export const FlagshipSection: React.FC<FlagshipSectionProps> = ({ data }) => {
+  const t = useTranslations('common')
+  return (
   <Box
     component="section"
     data-atomic="organism"
@@ -67,7 +71,7 @@ export const FlagshipSection: React.FC<FlagshipSectionProps> = ({ data }) => (
       <Box
         component="ol"
         className="ex-flagship-section__phases"
-        aria-label="Fases del proyecto"
+        aria-label={t('projectPhases')}
         sx={{ listStyle: 'none', m: 0, p: 0, display: 'grid', gridTemplateColumns: { xs: '1fr', md: 'repeat(2,1fr)' }, gap: 2, mb: 4 }}
       >
         {data.phases.map((p) => (
@@ -104,11 +108,12 @@ export const FlagshipSection: React.FC<FlagshipSectionProps> = ({ data }) => (
             '&:focus-visible': { outline: '2px solid var(--md-sys-color-primary)', outlineOffset: '2px' },
           }}
         >
-          Ver el caso completo →
+          {t('viewFullCase')}
         </Box>
       </Box>
     </Box>
   </Box>
-)
+  )
+}
 
 export default FlagshipSection

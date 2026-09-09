@@ -34,6 +34,13 @@
   },
   "titan": {
     "title": "Framework de trabajo",
+    "moduleStats": "{modules} módulos · {commands} comandos activos",
+    "cardCommands": "{count} comandos",
+    "formLabel": "Consulta al agente de experiencia profesional",
+    "inputLabel": "Pregunta sobre mi experiencia",
+    "sendLabel": "Enviar pregunta",
+    "loading": "Consultando experiencia...",
+    "fallbackError": "Actualmente estoy procesando tu consulta. Puedes explorar los proyectos directamente o contactarme en lemaogo@gmail.com",
     "placeholder": "¿Cuál es tu desafío de producto?",
     "suggestions": [
       "¿Cómo escalo un equipo de diseño?",
@@ -160,6 +167,10 @@
     "colorRolesOpen": "Revisar roles de color",
     "colorRolesClose": "Cerrar revisión de roles de color",
     "opensInNewTab": "abre en pestaña nueva",
+    "viewFullCase": "Ver el caso completo →",
+    "projectPhases": "Fases del proyecto",
+    "industriesTitle": "Industrias",
+    "industriesListLabel": "Industrias con experiencia",
     "evidenceLinkLabel": "{label} — {kind} ({opensInNewTab})",
     "evidenceKind": {
       "produccion": "Producción",
