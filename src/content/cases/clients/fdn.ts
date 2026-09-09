@@ -67,5 +67,5 @@ export const fdnCase: CasePageData = validateCaseData({
     { skill: 'Gap analysis + runbook', level: 85, levelLabel: 'Avanzado' },
   ],
 
-  nextCase: { slug: 'lasalle', title: 'Universidad de La Salle — WCAG 2.2 AAA' },
+  nextCase: { slug: 'lasalle', title: 'Universidad de La Salle — accesibilidad AAA por alcance' },
 })

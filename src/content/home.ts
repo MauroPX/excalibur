@@ -23,7 +23,7 @@ export const FAQ_ITEMS: FaqItem[] = [
   },
   {
     q: '¿Qué nivel de accesibilidad WCAG ha implementado?',
-    a: 'WCAG 2.2 AAA (el nivel más alto) en Universidad de La Salle; WCAG 2.2 AA en BBVA Colombia y FID Seguros; y una auditoría de 654 incidentes bajo mandato MinTIC en FDN.',
+    a: 'Conformidad AAA por alcance (por encima del mínimo normativo AA) en Universidad de La Salle, evidenciada por validación automatizada; AA en BBVA Colombia y FID Seguros; y una auditoría de 654 incidentes bajo mandato MinTIC en FDN, con certificación oficial WCAG 2.1 AA (dic 2023, revalidada sep 2024).',
   },
   {
     q: '¿Está disponible para proyectos remotos ahora mismo?',
@@ -35,15 +35,15 @@ export const FAQ_ITEMS: FaqItem[] = [
   },
   {
     q: '¿Cuánto tiempo toma un Design System construido desde cero con este proceso?',
-    a: 'En el caso de Correos Chile, un Design System de 400+ componentes en MUI React tomó parte del ciclo de 6 meses que reemplazó un plan original de 12 — el tiempo exacto depende del alcance y del backend existente.',
+    a: 'Depende del alcance y del backend existente. En Correos Chile, el Design System Merkén (del orden de 400+ componentes sobre M3) se construyó transversal a 3 productos — Portal Empresa, Sucursal Virtual y App — y aceleró el handoff a desarrollo al eliminar la ambigüedad de spec.',
   },
   {
     q: '¿Trabaja con equipos que usan Angular además de React?',
-    a: 'Sí. En Universidad de La Salle implementó el sistema de accesibilidad AAA sobre Angular Material; en la mayoría de casos fintech (BBVA, Correos Chile, FID Seguros) trabajó sobre React con MUI.',
+    a: 'Sí. En Universidad de La Salle el sistema de accesibilidad (objetivo AAA por alcance) se construyó sobre Angular Material; en la mayoría de casos fintech (BBVA, Correos Chile, FID Seguros) trabajó sobre React con MUI.',
   },
   {
     q: '¿Cómo mide el impacto real de un Design System, más allá del número de componentes?',
-    a: 'Con métricas de negocio, no solo de entrega: en BBVA, 5/5 de calificación de Product Owners y 100% de entregas a tiempo; en Correos Chile, más del 95% de fidelidad entre diseño y desarrollo; en FID Seguros, un Framework de Integración D↔D de 1.002 filas y 46+ entregables que dejó al equipo de desarrollo autónomo desde el sprint 1.',
+    a: 'Con métricas de negocio y de gobierno, no solo de entrega: en BBVA, 5/5 de calidad de comunicación (unánime, 3 Product Owners) y 100% de cumplimiento de tiempos; en Correos Chile, un Design System transversal a 3 productos; en FID Seguros, un modelo de handoff D↔D (~1.000 filas de gobierno) sobre lineamientos Carbon + Material.',
   },
 ]
 
@@ -134,32 +134,33 @@ export const STACK_CATEGORIES: StackCategory[] = [
 ]
 
 // ── Flagship — Correos Chile ─────────────────────────────────────────────────
-// Mismo caso que src/content/cases/clients/correos-chile.ts — cero cifras nuevas.
+// Mismo caso que src/content/cases/clients/correos-chile.ts — reconciliado C9
+// (250 envíos no 297, sin "12→6"/"10 devs"/">95%", DS transversal a 3 productos).
 export const FLAGSHIP = {
   badge: '★ Correos Chile · B2B · Logística',
   title: 'Portal Empresas B2B — Ecosistema completo',
   summary:
-    'Antes de abrir Figma: 297 envíos reales estudiados y el manual de marca absorbido. El resultado no fue una pantalla — fue el sistema que redujo el ciclo de entrega a la mitad.',
+    'Antes de abrir Figma: 250 envíos reales estudiados y el manual de marca absorbido. El resultado no fue una pantalla — fue el Design System Merkén, transversal a 3 productos.',
   metrics: [
-    { value: '12 → 6', label: 'meses de ciclo (plan original: 12)' },
-    { value: '+400', label: 'componentes React/MUI (DS Merkén)' },
-    { value: '10', label: 'desarrolladores autónomos desde el sprint 1' },
-    { value: '>95%', label: 'fidelidad UI–Desarrollo' },
+    { value: '3', label: 'productos con un solo DS (Portal Empresa · Sucursal Virtual · App)' },
+    { value: '400+', label: 'componentes sobre M3 (DS Merkén)' },
+    { value: '11', label: 'campos del modelo de datos · 5 escenarios/flujo' },
+    { value: 'MD3', label: 'tokens del Design System, fuente única' },
   ],
   phases: [
-    { num: '01', title: 'Modelo de datos real', body: '297 envíos, 11 campos, 13 regiones — analizados antes de diseñar nada.' },
+    { num: '01', title: 'Modelo de datos real', body: '250 envíos, 11 campos — analizados antes de diseñar nada.' },
     { num: '02', title: '5 escenarios por flujo', body: 'Happy path, alternativos, errores y edge cases mapeados antes de abrir Figma.' },
-    { num: '03', title: 'Design System Merkén', body: '+400 componentes React/MUI con tokens MD3, verificados y documentados.' },
-    { num: '04', title: '3 productos entregados', body: 'Portal B2B, Sucursal Virtual y App Móvil — más 2 ciclos extra de mejora en el mismo presupuesto.' },
+    { num: '03', title: 'Design System Merkén', body: 'Del orden de 400+ componentes React/MUI sobre M3, con tokens y guidelines documentados.' },
+    { num: '04', title: '3 productos, un solo DS', body: 'Portal Empresa, Sucursal Virtual y App móvil — el Design System Merkén sirvió transversal a los 3.' },
   ],
   figma: [
     {
-      label: 'Estructura UI',
-      href: 'https://www.figma.com/design/5HUHHeTR2Lqs0CBjdcCehj/%E2%9C%85_%5BM%5D_%5BStructura%5D-%5BFuncionalidades%5D_ID%5BPE%5D?node-id=8072-405168',
+      label: 'Portal Empresas — funcionalidades',
+      href: 'https://www.figma.com/design/5HUHHeTR2Lqs0CBjdcCehj/%E2%9C%85_-CorreosChile-Merken-_-Structura---Funcionalidades-_ID-PE-?node-id=2466-141829&t=6XCg7ewFo7wDu1Ir-1',
     },
     {
-      label: 'Validación de Workflows',
-      href: 'https://www.figma.com/proto/5HUHHeTR2Lqs0CBjdcCehj/%E2%9C%85_%5BM%5D_%5BStructura%5D-%5BFuncionalidades%5D_ID%5BPE%5D?page-id=8072%3A405168&node-id=9410-536709',
+      label: 'Sistema de Diseño Merkén — guidelines',
+      href: 'https://www.figma.com/design/9GR3CAgD6kshwsDcilqYum/CorreosChile-Merken_DS_Guidelines?node-id=49823-12141&t=NdP0PvBWbEDqLnmW-1',
     },
   ],
   caseHref: '/casos/correos-chile',

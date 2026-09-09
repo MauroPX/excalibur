@@ -17,9 +17,9 @@ describe('FlagshipSection (EX-v2-ORG-010)', () => {
 
   it('CA-002: 4 métricas destacadas', () => {
     render(<FlagshipSection data={FLAGSHIP} />)
-    expect(screen.getByText('12 → 6')).toBeInTheDocument()
-    expect(screen.getByText('+400')).toBeInTheDocument()
-    expect(screen.getByText('>95%')).toBeInTheDocument()
+    expect(screen.getByText('400+')).toBeInTheDocument()
+    expect(screen.getByText('11')).toBeInTheDocument()
+    expect(screen.getByText('MD3')).toBeInTheDocument()
   })
 
   it('CA-003: 4 fases como <li> con <h3>', () => {

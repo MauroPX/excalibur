@@ -3,6 +3,11 @@
  * Experiencia profesional pagada. Fuente: docs/m1/CONTENT_COPY_STRATEGY.md §4 / §7.5
  * + docs/Career_Dossier/CONSOLIDACION_MAESTRA §7 / CAREER OS SSOT CAPA 2.8.
  * Figma de v1 reusado, no recreado.
+ * Reconciliación (C9, verificada contra las hojas de carga masiva del backend):
+ * - NO "297 envíos" (las hojas dicen "hasta 250"), NO "13 regiones" (el dropdown
+ *   lista 16 → se usa "red postal nacional"), NO "12→6 meses" / "10 devs" / ">95%"
+ *   (sin artefacto). SÍ: 250 envíos / 11 campos, DS Merkén (Figma), 400+ sobre M3
+ *   por derivación de la spec, transversal a Portal Empresa / Sucursal Virtual / App.
  */
 import type { CasePageData } from '@/components/templates/CasePage/types'
 import { validateCaseData } from '@/components/templates/CasePage/validateCaseData'
@@ -11,28 +16,28 @@ export const correosChileCase: CasePageData = validateCaseData({
   slug: 'correos-chile',
   title: 'Correos Chile — Portal Empresas B2B',
   description:
-    'Portal B2B para la red logística postal nacional de Chile (13 regiones). Design System Merkén de +400 componentes React/MUI con tokens MD3; ciclo de entrega comprimido de 12 a 6 meses, con 10 desarrolladores autónomos desde el sprint 1.',
+    'Portal Empresas B2B para la red logística postal nacional de Chile. Design System Merkén — del orden de 400+ componentes React/MUI sobre Material Design 3 — construido transversal a 3 productos: Portal Empresa, Sucursal Virtual y App móvil.',
   tags: ['Logística', 'Design System', 'React / MUI', 'B2B', 'MD3'],
 
   caseType: 'client',
   caseFormat: 'evidencia-viva',
 
   valor:
-    'Antes de abrir Figma, estudié 297 envíos reales y absorbí el manual de marca completo — el resultado no fue una pantalla bonita, fue un sistema que redujo el tiempo de entrega a la mitad.',
+    'Antes de abrir Figma, estudié 250 envíos reales y absorbí el manual de marca completo — el resultado no fue una pantalla bonita, fue un Design System que sirvió transversal a los 3 productos del ecosistema y aceleró el handoff a desarrollo.',
   situacion:
-    'Áreas desconectadas, datos duplicados y cero trazabilidad en la red logística postal nacional de Chile, con operación en 13 regiones.',
+    'Áreas desconectadas, datos duplicados y cero trazabilidad en la red logística postal nacional de Chile.',
   objetivo:
-    'Conectar operaciones en tiempo real en 13 regiones sin reconstruir la infraestructura.',
+    'Conectar operaciones en tiempo real en toda la red postal nacional sin reconstruir la infraestructura.',
   accion: [
     {
       decision: 'Punto de partida del diseño',
       discarded: 'Diseñar sobre supuestos, solo el happy path',
-      chosen: 'Estudiar el modelo de datos real (297 envíos, 11 campos) y mapear 5 escenarios por flujo (happy path, alternativos, errores, edge cases) antes de abrir Figma',
+      chosen: 'Estudiar el modelo de datos real (250 envíos, 11 campos) y mapear 5 escenarios por flujo (happy path, alternativos, errores, edge cases) antes de abrir Figma',
       why: 'Cero ambigüedad en desarrollo, cero retrabajo',
     },
   ],
   resultado:
-    'De 12 meses estimados a 6 entregados. +400 componentes React/MUI (Design System Merkén con tokens MD3), 10 desarrolladores autónomos desde el sprint 1, >95% de fidelidad UI–Desarrollo, 3 productos entregados (Portal B2B, Sucursal Virtual, App Móvil) y 2 ciclos extra de mejora dentro del mismo presupuesto.',
+    'Design System Merkén — del orden de 400+ componentes React/MUI sobre Material Design 3, con tokens y guidelines documentados — construido transversal a los 3 productos del ecosistema: Portal Empresa, Sucursal Virtual y App móvil. El sistema aceleró el handoff a desarrollo al eliminar la ambigüedad de spec.',
   aprendizaje:
     'Diagnosticar el dato real antes de diseñar evita el retrabajo — el mismo principio que se repite después en los diagnósticos E2E de otros casos.',
 
@@ -43,15 +48,15 @@ export const correosChileCase: CasePageData = validateCaseData({
   ],
 
   metrics: [
-    { value: '12 → 6', label: 'meses de ciclo de entrega' },
-    { value: '+400', label: 'componentes React/MUI (DS Merkén)' },
-    { value: '>95%', label: 'fidelidad UI–Desarrollo' },
-    { value: '13', label: 'regiones conectadas' },
+    { value: '3', label: 'productos servidos por un DS (Portal Empresa · Sucursal Virtual · App)' },
+    { value: '400+', label: 'componentes sobre M3 (DS Merkén)' },
+    { value: '11', label: 'campos del modelo de datos · 5 escenarios/flujo' },
+    { value: 'MD3', label: 'tokens del Design System, fuente única' },
   ],
   timeline: [
-    { company: 'CorreosChile', role: 'Modelo de datos (297 envíos, 11 campos) + manual de marca', period: '2022' },
+    { company: 'CorreosChile', role: 'Modelo de datos (250 envíos, 11 campos) + manual de marca', period: '2022' },
     { company: 'CorreosChile', role: '5 escenarios por flujo + Design System Merkén', period: '2022-2023' },
-    { company: 'CorreosChile', role: '3 productos: Portal B2B, Sucursal Virtual, App Móvil', period: '2023', isLast: true },
+    { company: 'CorreosChile', role: 'DS Merkén transversal: Portal Empresa, Sucursal Virtual, App móvil', period: '2023', isLast: true },
   ],
   techStack: [
     { skill: 'React / MUI', level: 92, levelLabel: 'Experto' },

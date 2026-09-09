@@ -84,5 +84,5 @@ export const excaliburCase: CasePageData = validateCaseData({
 
   footerDisclaimer:
     'Caso propio (meta) — este sitio es a la vez el portafolio y su primer caso de estudio; no es un encargo de cliente.',
-  nextCase: { slug: 'fdn', title: 'FDN — LCP -90% y WCAG AAA' },
+  nextCase: { slug: 'fdn', title: 'FDN — LCP -90% y WCAG 2.1 AA' },
 })
