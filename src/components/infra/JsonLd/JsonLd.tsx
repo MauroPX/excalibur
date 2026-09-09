@@ -13,7 +13,7 @@ export function PersonJsonLd() {
     jobTitle: 'Staff Product Architect',
     url: SITE_URL,
     sameAs: [
-      'https://linkedin.com/in/leomaurogomez',
+      'https://www.linkedin.com/in/maurogooc/',
       'https://github.com/MauroPX',
     ],
     knowsAbout: ['Product Management', 'Design Systems', 'WCAG', 'AI/RAG', 'Next.js'],

@@ -18,7 +18,7 @@ export interface ContactSectionProps {
 
 export const ContactSection: React.FC<ContactSectionProps> = ({
   channels = ['linkedin', 'email', 'github'],
-  linkedinUrl = 'https://linkedin.com/in/lmaogo',
+  linkedinUrl = 'https://www.linkedin.com/in/maurogooc/',
   githubUrl = 'https://github.com/MauroPX',
   emailAddress = 'lemaogo@gmail.com',
   onSubmit,
