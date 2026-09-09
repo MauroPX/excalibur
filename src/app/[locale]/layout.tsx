@@ -103,7 +103,10 @@ export default async function LocaleLayout({
             <Analytics />
             <SpeedInsights />
             <PostHogProvider />
-            <ColorRolesHUD enabled={process.env.NODE_ENV === 'development'} />
+            {/* FAB abajo-izquierda: panel con los roles de color M3 del esquema
+                activo. Ligado a useColorMode() → al cambiar light/dark en el
+                botón de tema, el panel refleja ese esquema. */}
+            <ColorRolesHUD enabled />
           </ThemeRegistry>
         </NextIntlClientProvider>
       </body>
