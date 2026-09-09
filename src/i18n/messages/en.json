@@ -43,12 +43,20 @@
   },
   "stack": {
     "title": "Tech stack",
+    "sectionTitle": "Stack & methods",
+    "radarHint": "The radar does not measure «level of mastery» — it charts how many real cases in this portfolio each area was applied in.",
+    "radarSeries": "Cases",
+    "applyTableLabel": "Stack application by category",
+    "applyTableCaption": "Number of cases where each stack category was applied",
+    "appliedIn": "Applied in {count, plural, one {# case} other {# cases}}",
     "tableLabel": "Tech stack data",
     "tableCaption": "Technical skill levels",
     "columns": {
       "skill": "Skill",
       "category": "Category",
-      "level": "Level"
+      "level": "Level",
+      "tools": "Tools / methods",
+      "appliedCases": "Applied cases"
     }
   },
   "contact": {
@@ -144,6 +152,26 @@
   "privacy": {
     "metaTitle": "Privacy Policy — MauricioGO",
     "metaDescription": "Privacy policy and processing of personal data for the portfolio of Leonel Mauricio Gómez Ocampo."
+  },
+  "common": {
+    "heroSectionLabel": "Introduction",
+    "metricsLabel": "Key metrics",
+    "colorRolesPanelLabel": "Color-role review panel",
+    "colorRolesOpen": "Review color roles",
+    "colorRolesClose": "Close color-role review",
+    "opensInNewTab": "opens in a new tab",
+    "evidenceLinkLabel": "{label} — {kind} ({opensInNewTab})",
+    "evidenceKind": {
+      "produccion": "Production",
+      "preview": "Preview",
+      "repo": "Repository",
+      "storybook": "Storybook",
+      "chromatic": "Chromatic",
+      "video": "Video",
+      "doc": "Document",
+      "figma": "Figma",
+      "demo": "Demo"
+    }
   },
   "inquisitor": {
     "title": "INQUISITOR HUD",

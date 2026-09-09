@@ -1,6 +1,7 @@
 'use client'
 
 import React from 'react'
+import { useTranslations } from 'next-intl'
 import Box from '@mui/material/Box'
 import { styled } from '@mui/material/styles'
 import { Metric } from '@/components/atoms/Metric'
@@ -21,13 +22,14 @@ const StyledMetricRow = styled(Box)({
 })
 
 export const MetricRow = ({ metrics }: MetricRowProps) => {
+  const t = useTranslations('common')
   return (
     <StyledMetricRow
       data-atomic="molecule"
       data-component="MetricRow"
       className="ex-metric-row"
       role="list"
-      aria-label="Métricas clave"
+      aria-label={t('metricsLabel')}
     >
       {metrics.map((metric, i) => (
         <div key={i} className="ex-metric-row__item" role="listitem">

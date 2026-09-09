@@ -43,12 +43,20 @@
   },
   "stack": {
     "title": "Stack técnico",
+    "sectionTitle": "Stack y métodos",
+    "radarHint": "El radar no mide «nivel de dominio» — grafica en cuántos casos reales de este portafolio se aplicó cada área.",
+    "radarSeries": "Casos",
+    "applyTableLabel": "Aplicación del stack por categoría",
+    "applyTableCaption": "Cantidad de casos en los que se aplicó cada categoría del stack",
+    "appliedIn": "Aplicado en {count, plural, one {# caso} other {# casos}}",
     "tableLabel": "Datos del stack técnico",
     "tableCaption": "Niveles de habilidades técnicas",
     "columns": {
       "skill": "Habilidad",
       "category": "Categoría",
-      "level": "Nivel"
+      "level": "Nivel",
+      "tools": "Herramientas / métodos",
+      "appliedCases": "Casos aplicados"
     }
   },
   "contact": {
@@ -144,6 +152,26 @@
   "privacy": {
     "metaTitle": "Política de Privacidad — MauricioGO",
     "metaDescription": "Política de privacidad y tratamiento de datos personales del portafolio de Leonel Mauricio Gómez Ocampo."
+  },
+  "common": {
+    "heroSectionLabel": "Introducción",
+    "metricsLabel": "Métricas clave",
+    "colorRolesPanelLabel": "Panel de revisión de roles de color",
+    "colorRolesOpen": "Revisar roles de color",
+    "colorRolesClose": "Cerrar revisión de roles de color",
+    "opensInNewTab": "abre en pestaña nueva",
+    "evidenceLinkLabel": "{label} — {kind} ({opensInNewTab})",
+    "evidenceKind": {
+      "produccion": "Producción",
+      "preview": "Preview",
+      "repo": "Repositorio",
+      "storybook": "Storybook",
+      "chromatic": "Chromatic",
+      "video": "Video",
+      "doc": "Documento",
+      "figma": "Figma",
+      "demo": "Demo"
+    }
   },
   "inquisitor": {
     "title": "INQUISITOR HUD",

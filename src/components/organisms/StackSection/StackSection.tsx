@@ -1,4 +1,6 @@
+'use client'
 import React from 'react'
+import { useTranslations } from 'next-intl'
 import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
 import type { SvgIconProps } from '@mui/material/SvgIcon'
@@ -40,7 +42,9 @@ export interface StackSectionProps {
  * reales SIN nivel, y el radar grafica un entero verificable: en cuántos casos de
  * `src/content/cases/**` se aplicó esa categoría (`appliedIn.length`).
  */
-export const StackSection: React.FC<StackSectionProps> = ({ categories, title = 'Stack y métodos' }) => {
+export const StackSection: React.FC<StackSectionProps> = ({ categories, title }) => {
+  const t = useTranslations('stack')
+  const heading = title ?? t('sectionTitle')
   const radarData = categories.map((c) => ({
     category: c.label,
     count: c.appliedIn.length,
@@ -58,11 +62,10 @@ export const StackSection: React.FC<StackSectionProps> = ({ categories, title = 
     >
       <Box sx={{ maxWidth: '1200px', mx: 'auto', px: { xs: 2, sm: 3, md: 4 } }}>
         <Typography id="stack-heading" variant="h4" component="h2" sx={{ color: 'var(--md-sys-color-on-surface)', mb: 1 }}>
-          {title}
+          {heading}
         </Typography>
         <Typography variant="body2" sx={{ color: 'var(--md-sys-color-on-surface-variant)', mb: 4, maxWidth: '640px' }}>
-          El radar no mide «nivel de dominio» — grafica en cuántos casos reales de este portafolio
-          se aplicó cada área.
+          {t('radarHint')}
         </Typography>
 
         {/* RadarChart: aria-hidden — el mismo dato está en la tabla sr-only y en los bloques de abajo */}
@@ -77,7 +80,7 @@ export const StackSection: React.FC<StackSectionProps> = ({ categories, title = 
               />
               <PolarRadiusAxis domain={[0, maxCount]} tick={false} axisLine={false} />
               <Radar
-                name="Casos"
+                name={t('radarSeries')}
                 dataKey="count"
                 stroke="var(--md-sys-color-primary)"
                 fill="var(--md-sys-color-primary)"
@@ -96,10 +99,10 @@ export const StackSection: React.FC<StackSectionProps> = ({ categories, title = 
             (no display:table) para que su overflow:hidden + width:1px contengan la
             tabla — una <table> con .sr-only directo se expande por table-layout. */}
         <Box className="sr-only">
-          <Box component="table" aria-label="Aplicación del stack por categoría">
-            <caption>Cantidad de casos en los que se aplicó cada categoría del stack</caption>
+          <Box component="table" aria-label={t('applyTableLabel')}>
+            <caption>{t('applyTableCaption')}</caption>
             <thead>
-              <tr><th scope="col">Categoría</th><th scope="col">Herramientas / métodos</th><th scope="col">Casos aplicados</th></tr>
+              <tr><th scope="col">{t('columns.category')}</th><th scope="col">{t('columns.tools')}</th><th scope="col">{t('columns.appliedCases')}</th></tr>
             </thead>
             <tbody>
               {categories.map((c) => (
@@ -125,7 +128,7 @@ export const StackSection: React.FC<StackSectionProps> = ({ categories, title = 
                 {c.label}
               </Typography>
               <Typography variant="caption" sx={{ color: 'var(--md-sys-color-on-surface-variant)', display: 'block', mb: 1.5 }}>
-                Aplicado en {c.appliedIn.length} {c.appliedIn.length === 1 ? 'caso' : 'casos'}
+                {t('appliedIn', { count: c.appliedIn.length })}
               </Typography>
               <Box component="ul" aria-label={c.label}
                 sx={{ listStyle: 'none', m: 0, p: 0, display: 'flex', flexWrap: 'wrap', gap: 0.75 }}>

@@ -1,6 +1,7 @@
 'use client'
 
 import React from 'react'
+import { useTranslations } from 'next-intl'
 import Container from '@mui/material/Container'
 import Typography from '@mui/material/Typography'
 import { styled } from '@mui/material/styles'
@@ -56,8 +57,9 @@ export const Hero = ({
   secondaryCtaHref,
   metrics,
 }: HeroProps) => {
+  const t = useTranslations('common')
   return (
-    <StyledHero data-atomic="organism" data-component="Hero" className="ex-hero" aria-label="Introducción">
+    <StyledHero data-atomic="organism" data-component="Hero" className="ex-hero" aria-label={t('heroSectionLabel')}>
       <Container maxWidth="lg">
         <Typography
           variant="h1"

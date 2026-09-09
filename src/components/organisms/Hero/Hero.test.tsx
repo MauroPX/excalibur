@@ -1,4 +1,5 @@
-import { render, screen } from '@testing-library/react'
+import { screen } from '@testing-library/react'
+import { renderWithIntl as render } from '@/test-utils/intl'
 import { describe, it, expect } from 'vitest'
 import { axe, toHaveNoViolations } from 'jest-axe'
 import { Hero } from './index'

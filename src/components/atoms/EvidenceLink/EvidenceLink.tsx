@@ -1,6 +1,7 @@
 'use client'
 
 import React from 'react'
+import { useTranslations } from 'next-intl'
 import Box from '@mui/material/Box'
 import type { SvgIconProps } from '@mui/material/SvgIcon'
 import LanguageRounded from '@mui/icons-material/LanguageRounded'
@@ -30,16 +31,16 @@ export interface EvidenceLinkProps {
  * cambia con hover/tema sin quemar ningún color. Antes eran emoji (glifos a todo
  * color del SO, no adaptables a contraste ni tema).
  */
-const KIND: Record<AccessLinkKind, { Icon: React.ElementType<SvgIconProps>; name: string }> = {
-  produccion: { Icon: LanguageRounded, name: 'Producción' },
-  preview: { Icon: VisibilityRounded, name: 'Preview' },
-  repo: { Icon: CodeRounded, name: 'Repositorio' },
-  storybook: { Icon: MenuBookRounded, name: 'Storybook' },
-  chromatic: { Icon: RemoveRedEyeRounded, name: 'Chromatic' },
-  video: { Icon: PlayCircleRounded, name: 'Video' },
-  doc: { Icon: DescriptionRounded, name: 'Documento' },
-  figma: { Icon: DesignServicesRounded, name: 'Figma' },
-  demo: { Icon: SportsEsportsRounded, name: 'Demo' },
+const KIND: Record<AccessLinkKind, React.ElementType<SvgIconProps>> = {
+  produccion: LanguageRounded,
+  preview: VisibilityRounded,
+  repo: CodeRounded,
+  storybook: MenuBookRounded,
+  chromatic: RemoveRedEyeRounded,
+  video: PlayCircleRounded,
+  doc: DescriptionRounded,
+  figma: DesignServicesRounded,
+  demo: SportsEsportsRounded,
 }
 
 /**
@@ -48,7 +49,8 @@ const KIND: Record<AccessLinkKind, { Icon: React.ElementType<SvgIconProps>; name
  * Siempre abre en pestaña nueva y lo declara en el nombre accesible (WCAG G201).
  */
 export const EvidenceLink = ({ href, label, kind }: EvidenceLinkProps) => {
-  const { Icon, name } = KIND[kind]
+  const t = useTranslations('common')
+  const Icon = KIND[kind]
   return (
     <Box
       component="a"
@@ -58,7 +60,11 @@ export const EvidenceLink = ({ href, label, kind }: EvidenceLinkProps) => {
       data-atomic="atom"
       data-component="EvidenceLink"
       className={`ex-evidence-link ex-evidence-link--${kind}`}
-      aria-label={`${label} — ${name} (abre en pestaña nueva)`}
+      aria-label={t('evidenceLinkLabel', {
+        label,
+        kind: t(`evidenceKind.${kind}`),
+        opensInNewTab: t('opensInNewTab'),
+      })}
       sx={{
         display: 'inline-flex',
         alignItems: 'center',

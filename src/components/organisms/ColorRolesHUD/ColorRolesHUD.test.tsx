@@ -1,5 +1,6 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest'
-import { render, screen, fireEvent } from '@testing-library/react'
+import { screen, fireEvent } from '@testing-library/react'
+import { renderWithIntl as render } from '@/test-utils/intl'
 import { axe, toHaveNoViolations } from 'jest-axe'
 import { ColorRolesHUD } from './ColorRolesHUD'
 

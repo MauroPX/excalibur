@@ -1,5 +1,6 @@
 'use client'
 import React, { useState, useEffect } from 'react'
+import { useTranslations } from 'next-intl'
 import Box from '@mui/material/Box'
 import Fab from '@mui/material/Fab'
 import Typography from '@mui/material/Typography'
@@ -21,6 +22,7 @@ export interface ColorRolesHUDProps {
 export const ColorRolesHUD: React.FC<ColorRolesHUDProps> = ({ enabled = false }) => {
   const [visible, setVisible] = useState(false)
   const { mode, contrast } = useColorMode()
+  const t = useTranslations('common')
 
   useEffect(() => {
     if (!enabled) return
@@ -39,7 +41,7 @@ export const ColorRolesHUD: React.FC<ColorRolesHUDProps> = ({ enabled = false })
       <Fab
         size="small"
         onClick={() => setVisible((prev) => !prev)}
-        aria-label={visible ? 'Cerrar revisión de roles de color' : 'Revisar roles de color'}
+        aria-label={visible ? t('colorRolesClose') : t('colorRolesOpen')}
         aria-expanded={visible}
         data-atomic="organism"
         data-component="ColorRolesHUD"
@@ -57,7 +59,7 @@ export const ColorRolesHUD: React.FC<ColorRolesHUDProps> = ({ enabled = false })
       {visible && (
         <Box
           role="complementary"
-          aria-label="Panel de revisión de roles de color"
+          aria-label={t('colorRolesPanelLabel')}
           className="ex-color-roles-hud__panel"
           sx={{
             position: 'fixed', bottom: 76, left: 16, zIndex: 9999,
