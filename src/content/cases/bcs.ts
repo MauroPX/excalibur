@@ -71,6 +71,11 @@ export const bcsCase: CasePageData = validateCaseData({
   accessLinks: [
     { kind: 'demo', label: 'App', href: 'https://bcs-frontend-web-app.vercel.app' },
     {
+      kind: 'figma',
+      label: 'UI + Design System (base)',
+      href: 'https://www.figma.com/design/TpmLPg0hWma3vitJAKBOPd/BSC--DS---structure-base-?node-id=11-1833&t=i16vy9tghTzF0Nom-1',
+    },
+    {
       kind: 'storybook',
       label: 'Storybook',
       href: 'https://bcs-frontend-web-app.vercel.app/storybook/?path=/docs/bienvenida-introducci%C3%B3n--docs',

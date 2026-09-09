@@ -63,13 +63,13 @@ export const correosChileCase: CasePageData = validateCaseData({
   accessLinks: [
     {
       kind: 'figma',
-      label: 'Estructura UI',
-      href: 'https://www.figma.com/design/5HUHHeTR2Lqs0CBjdcCehj/%E2%9C%85_%5BM%5D_%5BStructura%5D-%5BFuncionalidades%5D_ID%5BPE%5D?node-id=8072-405168',
+      label: 'Portal Empresas — funcionalidades',
+      href: 'https://www.figma.com/design/5HUHHeTR2Lqs0CBjdcCehj/%E2%9C%85_-CorreosChile-Merken-_-Structura---Funcionalidades-_ID-PE-?node-id=2466-141829&t=6XCg7ewFo7wDu1Ir-1',
     },
     {
       kind: 'figma',
-      label: 'Validación de Workflows',
-      href: 'https://www.figma.com/proto/5HUHHeTR2Lqs0CBjdcCehj/%E2%9C%85_%5BM%5D_%5BStructura%5D-%5BFuncionalidades%5D_ID%5BPE%5D?page-id=8072%3A405168&node-id=9410-536709',
+      label: 'Sistema de Diseño Merkén — guidelines',
+      href: 'https://www.figma.com/design/9GR3CAgD6kshwsDcilqYum/CorreosChile-Merken_DS_Guidelines?node-id=49823-12141&t=NdP0PvBWbEDqLnmW-1',
     },
   ],
 

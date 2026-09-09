@@ -67,8 +67,8 @@ export const fidSegurosCase: CasePageData = validateCaseData({
   accessLinks: [
     {
       kind: 'figma',
-      label: 'Proceso DS & DDD',
-      href: 'https://www.figma.com/design/QdPkYTZ2XaHrnWgaconjg5/FID--DS--Seguros-Chile?node-id=0-1&t=nzUxQqCWrJTn8vxV-1',
+      label: 'Proceso DDD + Dual Track + Sistema de Diseño',
+      href: 'https://www.figma.com/design/QdPkYTZ2XaHrnWgaconjg5/FID--DS--Seguros-Chile?node-id=1-507&t=t3CXy8D5ETFEwYfz-1',
     },
   ],
 

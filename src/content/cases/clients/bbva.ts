@@ -66,8 +66,13 @@ export const bbvaCase: CasePageData = validateCaseData({
   accessLinks: [
     {
       kind: 'figma',
-      label: 'Demo Tutorial GEMAS (Sucursal Panamá)',
-      href: 'https://www.figma.com/proto/suLl2aXPjYCisSST5i8kta/%F0%9F%8C%9F--BBVA_Sucursal_Panama---Admin_Usuarios--Configuracion?node-id=130-159104&p=f&t=y2dHMbaBS96telVJ-1&scaling=contain&content-scaling=fixed&starting-point-node-id=130%3A159104&show-proto-sidebar=1&page-id=0%3A1',
+      label: 'Sucursal Panamá — activación de usuarios (prototipo)',
+      href: 'https://www.figma.com/proto/suLl2aXPjYCisSST5i8kta/%F0%9F%8C%9F--BBVA_Sucursal_Panama---Admin_Usuarios--Configuracion?node-id=130-159104&page-id=0%3A1&starting-point-node-id=130%3A159104&t=S3Lk0CjLrQrAkqpD-1',
+    },
+    {
+      kind: 'demo',
+      label: 'Brickell — base del tour guiado (Figma Make)',
+      href: 'https://www.figma.com/make/isAZ3lsdcaKcKBUfe0hgsR/-Brickell---Admin_usuario--Tutorial_Guiado?fullscreen=1&t=XtZ8wEu190OXDwBs-1&code-node-id=0-9',
     },
   ],
 

@@ -61,11 +61,20 @@ export const lasalleCase: CasePageData = validateCaseData({
   ],
 
   accessLinks: [
-    { kind: 'figma', label: 'Sistema de Diseño', href: 'https://www.figma.com/design/Co18wJethz2oFoiJCPIJ3M' },
     {
       kind: 'figma',
-      label: 'Templates UI',
-      href: 'https://www.figma.com/design/CPbaPfUr2Lb4XXSBez9xW5/%E2%8E%84--LaSalle-_-Second---Templates--%E2%9C%8F%EF%B8%8F--Copy-?node-id=174-33588&t=P6pSyJ4ujRrkYXAn-1',
+      label: 'Design System base — scheme de color por facultad',
+      href: 'https://www.figma.com/design/b8yTDaFRuFpYS6LoK9x9Bt/-LaSALLE-_-DS-?node-id=55140-26811&t=qyMAJwpofM17RYLR-1',
+    },
+    {
+      kind: 'figma',
+      label: 'Templates (parte 1) — atomic design',
+      href: 'https://www.figma.com/design/hIw6NTrmYxHVLBdUK89XeD/%E2%8E%84--LaSalle-_-Firts---Templates--%E2%9C%8F%EF%B8%8F--Copy-?node-id=171-33445&t=KGQgaC0eVcveRU1H-1',
+    },
+    {
+      kind: 'figma',
+      label: 'Templates (parte 2) — atomic design',
+      href: 'https://www.figma.com/design/CPbaPfUr2Lb4XXSBez9xW5/%E2%8E%84--LaSalle-_-Second---Templates--%E2%9C%8F%EF%B8%8F-Copy?node-id=171-33445&t=qwB0EM2HuKgUejj2-1',
     },
   ],
 
