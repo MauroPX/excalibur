@@ -55,3 +55,6 @@ docs/m3/prompts/
 
 # Instrucciones de sesión de Claude Code — proceso interno, no público
 CLAUDE.md
+
+# Career OS SSOT — privado, no versionado (PII de clientes/terceros)
+docs/Career_Dossier/
