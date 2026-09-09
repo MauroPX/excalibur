@@ -1,5 +1,7 @@
+'use client'
 import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
+import { useTranslations } from 'next-intl'
 import { DecisionTable } from '@/components/molecules/DecisionTable'
 import { BadgeIcon } from '@/components/templates/CasePage/CaseBadgeIcon'
 import type { Momentum2Section } from '@/content/cases'
@@ -13,6 +15,7 @@ const MAX = '820px'
  * de la narrativa del caso auditado. Se compone vía `appendixSection` de CasePage.
  */
 export function FdnMomentum2Section({ data }: { data: Momentum2Section }) {
+  const t = useTranslations('casePage')
   return (
     <Box
       component="section"
@@ -48,7 +51,7 @@ export function FdnMomentum2Section({ data }: { data: Momentum2Section }) {
       </Box>
 
       <Typography id="fdn-m2-heading" variant="h4" component="h2" sx={{ color: 'var(--md-sys-color-on-surface)', mb: 1 }}>
-        Momentum 2 — Propuesta de arquitectura
+        {t('momentum2.title')}
       </Typography>
 
       <Box
@@ -73,35 +76,35 @@ export function FdnMomentum2Section({ data }: { data: Momentum2Section }) {
       </Typography>
 
       <Typography variant="overline" component="h3" sx={{ color: 'var(--md-sys-color-on-surface-variant)', display: 'block', mb: 1 }}>
-        En una frase
+        {t('sections.valor')}
       </Typography>
       <Typography variant="h6" component="p" sx={{ color: 'var(--md-sys-color-on-surface)', maxWidth: MAX, fontWeight: 500, mb: 3 }}>
         {data.valor}
       </Typography>
 
       <Typography variant="h6" component="h3" sx={{ color: 'var(--md-sys-color-on-surface)', mb: 1 }}>
-        Objetivo
+        {t('sections.objetivo')}
       </Typography>
       <Typography variant="body1" component="p" sx={{ color: 'var(--md-sys-color-on-surface)', mb: 3, maxWidth: MAX }}>
         {data.objetivo}
       </Typography>
 
       <Typography variant="h6" component="h3" sx={{ color: 'var(--md-sys-color-on-surface)', mb: 1.5 }}>
-        Acción — decisión
+        {t('momentum2.actionDecision')}
       </Typography>
       <Box sx={{ mb: 3 }}>
-        <DecisionTable rows={data.accion} caption="Decisión de alcance del Momentum 2 de FDN" />
+        <DecisionTable rows={data.accion} caption={t('momentum2.caption')} />
       </Box>
 
       <Typography variant="h6" component="h3" sx={{ color: 'var(--md-sys-color-on-surface)', mb: 1 }}>
-        Aprendizaje
+        {t('sections.aprendizaje')}
       </Typography>
       <Typography variant="body1" component="p" sx={{ color: 'var(--md-sys-color-on-surface)', mb: 3, maxWidth: MAX }}>
         {data.aprendizaje}
       </Typography>
 
       <Typography variant="h6" component="h3" sx={{ color: 'var(--md-sys-color-on-surface)', mb: 2 }}>
-        Propuesta
+        {t('sections.proposal')}
       </Typography>
       {data.sections.map((s) => (
         <Box key={s.num} component="section" aria-labelledby={`fdn-m2-${s.num}`} sx={{ mb: 2.5 }}>

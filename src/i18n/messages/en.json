@@ -108,6 +108,7 @@
       "accion": "Action — decisions",
       "resultado": "Result",
       "aprendizaje": "Takeaway",
+      "proposal": "Proposal",
       "metrics": "Key results",
       "timeline": "Process",
       "methodology": "Methodology applied",
@@ -116,6 +117,11 @@
       "stack": "Stack used"
     },
     "decisionCaption": "Key decisions for the {title} case",
+    "momentum2": {
+      "title": "Momentum 2 — Architecture proposal",
+      "caption": "Scope decision for FDN's Momentum 2",
+      "actionDecision": "Action — decision"
+    },
     "methodRefsLabel": "Methodology references",
     "momentums": "TITAN momentums applied: {list}",
     "transformation": {

@@ -1,5 +1,6 @@
 'use client'
 import React from 'react'
+import { useTranslations } from 'next-intl'
 import Box from '@mui/material/Box'
 import { Hero } from '@/components/organisms/Hero'
 import { NavSystem, type NavSystemProps } from '@/components/organisms/NavSystem'
@@ -32,7 +33,9 @@ export interface HomeTemplateProps {
 export const HomeTemplate: React.FC<HomeTemplateProps> = ({
   heroData, symptomCards, roleCards, featuredProjects, flagship,
   caseProjects, titanModules, titanVersion, stackCategories, industries, faqItems, contactProps,
-}) => (
+}) => {
+  const t = useTranslations('nav')
+  return (
   <main
     id="main-content"
     data-atomic="template"
@@ -57,7 +60,7 @@ export const HomeTemplate: React.FC<HomeTemplateProps> = ({
         '&:focus': { top: '16px' },
       }}
     >
-      Saltar al contenido
+      {t('skipLink')}
     </Box>
 
     <section id="hero" className="ex-home-template__section">
@@ -102,6 +105,7 @@ export const HomeTemplate: React.FC<HomeTemplateProps> = ({
 
     <InquisitorHUD enabled={process.env.NODE_ENV === 'development'} />
   </main>
-)
+  )
+}
 
 export default HomeTemplate
