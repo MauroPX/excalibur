@@ -58,3 +58,9 @@ CLAUDE.md
 
 # Career OS SSOT — privado, no versionado (PII de clientes/terceros)
 docs/Career_Dossier/
+
+# Playwright
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/

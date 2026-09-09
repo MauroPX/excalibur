@@ -12,6 +12,8 @@ export default defineConfig({
     environment: 'jsdom',
     setupFiles: ['./vitest.setup.ts'],
     globals: true,
+    // e2e/ es Playwright (pnpm test:e2e), no vitest
+    exclude: ['**/node_modules/**', '**/dist/**', '**/.next/**', 'e2e/**'],
     server: {
       deps: {
         inline: [/@mui\/material/, /@mui\/icons-material/],
