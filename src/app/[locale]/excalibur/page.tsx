@@ -4,6 +4,7 @@ import { CasePage } from '@/components/templates/CasePage'
 import { CreativeWorkJsonLd } from '@/components/infra/JsonLd'
 import { getMetaCase } from '@/content/cases'
 import type { AppLocale } from '@/i18n/routing'
+import { ColorRolesShowcase } from './ColorRolesShowcase'
 
 export async function generateMetadata({
   params,
@@ -35,7 +36,7 @@ export default async function ExcaliburMetaCase({
   return (
     <>
       <CreativeWorkJsonLd name={meta.title} description={meta.description} url="/excalibur" />
-      <CasePage caseData={meta} />
+      <CasePage caseData={meta} appendixSection={<ColorRolesShowcase />} />
     </>
   )
 }

@@ -27,7 +27,13 @@ const ROUTES = [
 const WCAG_AA = ['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa']
 
 async function analyze(page: Page) {
-  return new AxeBuilder({ page }).withTags(WCAG_AA).analyze()
+  return new AxeBuilder({ page })
+    .withTags(WCAG_AA)
+    // La galería de roles de color (/excalibur) es una AUDITORÍA de contraste:
+    // muestra a propósito pares M3 que quedan por debajo de AA, con su ratio real
+    // a la vista. axe los marcaría como violación — es su función, no un defecto.
+    .exclude('.ex-color-roles-gallery')
+    .analyze()
 }
 
 for (const route of ROUTES) {
