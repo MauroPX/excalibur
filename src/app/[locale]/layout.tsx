@@ -12,6 +12,7 @@ import { ThemeToggle } from '@/components/atoms/ThemeToggle'
 import { ContrastToggle } from '@/components/atoms/ContrastToggle/ContrastToggle'
 import { LanguageToggle } from '@/components/atoms/LanguageToggle'
 import { ColorRolesHUD } from '@/components/organisms/ColorRolesHUD'
+import { SiteJsonLd } from '@/components/infra/JsonLd'
 import { routing, type AppLocale } from '@/i18n/routing'
 
 export function generateStaticParams() {
@@ -83,6 +84,7 @@ export default async function LocaleLayout({
         <script dangerouslySetInnerHTML={{
           __html: `(function(){var d=document.documentElement;var t=localStorage.getItem('excalibur-theme');if(t!=='dark'&&t!=='light'){t=window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';}d.setAttribute('data-theme',t);var c=localStorage.getItem('excalibur-contrast');if(c!=='medium'&&c!=='high'){if(window.matchMedia('(prefers-contrast:more)').matches)c='high';else c='base';}if(c==='medium'||c==='high')d.setAttribute('data-contrast',c);})()`
         }} />
+        <SiteJsonLd locale={locale} />
       </head>
       <body>
         <NextIntlClientProvider messages={messages}>

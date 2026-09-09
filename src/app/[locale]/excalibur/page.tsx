@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
-import { setRequestLocale } from 'next-intl/server'
+import { setRequestLocale, getTranslations } from 'next-intl/server'
 import { CasePage } from '@/components/templates/CasePage'
-import { CreativeWorkJsonLd } from '@/components/infra/JsonLd'
+import { CreativeWorkJsonLd, BreadcrumbJsonLd } from '@/components/infra/JsonLd'
 import { getMetaCase } from '@/content/cases'
 import type { AppLocale } from '@/i18n/routing'
 
@@ -32,9 +32,23 @@ export default async function ExcaliburMetaCase({
   const { locale } = await params
   setRequestLocale(locale)
   const meta = getMetaCase(locale as AppLocale)
+  const tb = await getTranslations({ locale, namespace: 'casePage.breadcrumb' })
+  const prefix = locale === 'es' ? '' : `/${locale}`
+  const lang = locale === 'en' ? 'en' : 'es'
   return (
     <>
-      <CreativeWorkJsonLd name={meta.title} description={meta.description} url="/excalibur" />
+      <CreativeWorkJsonLd
+        name={meta.title}
+        description={meta.description}
+        url={`${prefix}/excalibur`}
+        inLanguage={lang}
+      />
+      <BreadcrumbJsonLd
+        items={[
+          { name: tb('home'), path: `${prefix}/` },
+          { name: meta.title, path: `${prefix}/excalibur` },
+        ]}
+      />
       <CasePage caseData={meta} />
     </>
   )

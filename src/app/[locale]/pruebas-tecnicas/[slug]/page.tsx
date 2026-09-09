@@ -1,8 +1,8 @@
 import { notFound } from 'next/navigation'
-import { setRequestLocale } from 'next-intl/server'
+import { setRequestLocale, getTranslations } from 'next-intl/server'
 import type { Metadata } from 'next'
 import { CasePage } from '@/components/templates/CasePage'
-import { CreativeWorkJsonLd } from '@/components/infra/JsonLd'
+import { CreativeWorkJsonLd, BreadcrumbJsonLd } from '@/components/infra/JsonLd'
 import { getWorkTestCases, WORK_TEST_SLUGS } from '@/content/cases'
 import type { AppLocale } from '@/i18n/routing'
 
@@ -43,12 +43,24 @@ export default async function WorkTestPageRoute({
   setRequestLocale(locale)
   const caseData = getWorkTestCases(locale as AppLocale)[slug]
   if (!caseData) notFound()
+  const tb = await getTranslations({ locale, namespace: 'casePage.breadcrumb' })
+  const tt = await getTranslations({ locale, namespace: 'techTests' })
+  const prefix = locale === 'es' ? '' : `/${locale}`
+  const lang = locale === 'en' ? 'en' : 'es'
   return (
     <>
       <CreativeWorkJsonLd
         name={caseData.title}
         description={caseData.description}
-        url={`/pruebas-tecnicas/${slug}`}
+        url={`${prefix}/pruebas-tecnicas/${slug}`}
+        inLanguage={lang}
+      />
+      <BreadcrumbJsonLd
+        items={[
+          { name: tb('home'), path: `${prefix}/` },
+          { name: tt('title'), path: `${prefix}/pruebas-tecnicas` },
+          { name: caseData.title, path: `${prefix}/pruebas-tecnicas/${slug}` },
+        ]}
       />
       <CasePage caseData={caseData} />
     </>

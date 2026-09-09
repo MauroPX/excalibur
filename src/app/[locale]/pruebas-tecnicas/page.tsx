@@ -4,6 +4,7 @@ import Box from '@mui/material/Box'
 import Container from '@mui/material/Container'
 import Typography from '@mui/material/Typography'
 import { WorkTestCard } from '@/components/molecules/WorkTestCard'
+import { CollectionPageJsonLd, BreadcrumbJsonLd } from '@/components/infra/JsonLd'
 import { getWorkTestCases, getMetaCase } from '@/content/cases'
 import type { AppLocale } from '@/i18n/routing'
 
@@ -33,9 +34,17 @@ export default async function PruebasTecnicasIndex({
   const { locale } = await params
   setRequestLocale(locale)
   const t = await getTranslations({ locale, namespace: 'techTests' })
+  const tb = await getTranslations({ locale, namespace: 'casePage.breadcrumb' })
 
   const workTests = Object.values(getWorkTestCases(locale as AppLocale))
   const META_CASE = getMetaCase(locale as AppLocale)
+
+  const prefix = locale === 'es' ? '' : `/${locale}`
+  const lang = locale === 'en' ? 'en' : 'es'
+  const listItems = [
+    ...workTests.map((c) => ({ name: c.title, path: `${prefix}/pruebas-tecnicas/${c.slug}` })),
+    { name: META_CASE.title, path: `${prefix}/excalibur` },
+  ]
 
   return (
     <Box
@@ -45,6 +54,19 @@ export default async function PruebasTecnicasIndex({
       data-component="PruebasTecnicasIndex"
       sx={{ py: { xs: 6, md: 10 }, backgroundColor: 'var(--md-sys-color-surface)', minHeight: '100vh' }}
     >
+      <CollectionPageJsonLd
+        name={t('title')}
+        description={t('metaDescription')}
+        url={`${prefix}/pruebas-tecnicas`}
+        inLanguage={lang}
+        items={listItems}
+      />
+      <BreadcrumbJsonLd
+        items={[
+          { name: tb('home'), path: `${prefix}/` },
+          { name: t('title'), path: `${prefix}/pruebas-tecnicas` },
+        ]}
+      />
       <Container maxWidth="lg">
         <Typography variant="h1" component="h1" sx={{ fontSize: { xs: '2rem', md: '2.5rem' }, mb: 2, color: 'var(--md-sys-color-on-surface)' }}>
           {t('title')}

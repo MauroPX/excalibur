@@ -1,7 +1,6 @@
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 import type { Metadata } from 'next'
 import { HomeTemplate } from '@/components/templates/HomeTemplate'
-import { PersonJsonLd } from '@/components/infra/JsonLd'
 import type { CasesSectionProject } from '@/components/organisms/CasesSection'
 import { getClientCases } from '@/content/cases'
 import { getHome } from '@/content/home'
@@ -63,7 +62,6 @@ export default async function HomePage({
 
   return (
     <>
-      <PersonJsonLd />
       <HomeTemplate
       heroData={{
         headline: t('title'),

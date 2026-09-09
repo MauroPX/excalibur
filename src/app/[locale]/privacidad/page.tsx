@@ -4,6 +4,7 @@ import Container from '@mui/material/Container'
 import Typography from '@mui/material/Typography'
 import { setRequestLocale, getTranslations } from 'next-intl/server'
 import { getPrivacy, type InlinePart } from '@/content/legal/privacy'
+import { BreadcrumbJsonLd } from '@/components/infra/JsonLd'
 import type { AppLocale } from '@/i18n/routing'
 
 export async function generateMetadata({
@@ -46,6 +47,8 @@ export default async function PrivacidadPage({
   const { locale } = await params
   setRequestLocale(locale)
   const { title, updated, sections } = getPrivacy(locale as AppLocale)
+  const tb = await getTranslations({ locale, namespace: 'casePage.breadcrumb' })
+  const prefix = locale === 'es' ? '' : `/${locale}`
 
   return (
     <Box
@@ -54,6 +57,12 @@ export default async function PrivacidadPage({
       data-component="PrivacidadPage"
       sx={{ py: { xs: 6, md: 10 }, backgroundColor: 'var(--md-sys-color-surface)', minHeight: '100vh' }}
     >
+      <BreadcrumbJsonLd
+        items={[
+          { name: tb('home'), path: `${prefix}/` },
+          { name: title, path: `${prefix}/privacidad` },
+        ]}
+      />
       <Container maxWidth="md">
         <Typography variant="h1" component="h1" sx={{ fontSize: { xs: '2rem', md: '2.5rem' }, mb: 2, color: 'var(--md-sys-color-on-surface)' }}>
           {title}

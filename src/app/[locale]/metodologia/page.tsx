@@ -4,6 +4,7 @@ import Box from '@mui/material/Box'
 import Container from '@mui/material/Container'
 import Typography from '@mui/material/Typography'
 import { getMethodology, type MethodologyEntry } from '@/content/methodology'
+import { CollectionPageJsonLd, BreadcrumbJsonLd } from '@/components/infra/JsonLd'
 import type { AppLocale } from '@/i18n/routing'
 
 export async function generateMetadata({
@@ -43,7 +44,11 @@ export default async function MetodologiaPage({
   const { locale } = await params
   setRequestLocale(locale)
   const t = await getTranslations({ locale, namespace: 'methodology' })
+  const tb = await getTranslations({ locale, namespace: 'casePage.breadcrumb' })
   const { METHODOLOGY_ENTRIES, GUIDEWIRE_INSUMO } = getMethodology(locale as AppLocale)
+
+  const prefix = locale === 'es' ? '' : `/${locale}`
+  const lang = locale === 'en' ? 'en' : 'es'
 
   return (
     <Box
@@ -53,6 +58,22 @@ export default async function MetodologiaPage({
       data-component="MetodologiaPage"
       sx={{ py: { xs: 6, md: 10 }, backgroundColor: 'var(--md-sys-color-surface)', minHeight: '100vh' }}
     >
+      <CollectionPageJsonLd
+        name={t('title')}
+        description={t('metaDescription')}
+        url={`${prefix}/metodologia`}
+        inLanguage={lang}
+        items={METHODOLOGY_ENTRIES.map((e) => ({
+          name: e.label,
+          path: `${prefix}/metodologia#${e.slug}`,
+        }))}
+      />
+      <BreadcrumbJsonLd
+        items={[
+          { name: tb('home'), path: `${prefix}/` },
+          { name: t('title'), path: `${prefix}/metodologia` },
+        ]}
+      />
       <Container maxWidth="md">
         <Typography variant="h1" component="h1" sx={{ fontSize: { xs: '2rem', md: '2.5rem' }, mb: 2, color: 'var(--md-sys-color-on-surface)' }}>
           {t('title')}
