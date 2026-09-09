@@ -69,7 +69,7 @@ export const StackSection: React.FC<StackSectionProps> = ({ categories, title = 
         <Box aria-hidden="true" className="ex-stack-section__radar"
           sx={{ width: '100%', maxWidth: 420, mx: 'auto', height: 320, mb: 4, '& *': { userSelect: 'none' } }}>
           <ResponsiveContainer width="100%" height="100%">
-            <RadarChart data={radarData}>
+            <RadarChart data={radarData} tabIndex={-1}>
               <PolarGrid stroke="var(--md-sys-color-outline-variant)" />
               <PolarAngleAxis
                 dataKey="category"
@@ -92,21 +92,25 @@ export const StackSection: React.FC<StackSectionProps> = ({ categories, title = 
           </ResponsiveContainer>
         </Box>
 
-        <Box component="table" className="sr-only" aria-label="Aplicación del stack por categoría"
-          sx={{ position: 'absolute', width: 1, height: 1, overflow: 'hidden', clip: 'rect(0 0 0 0)' }}>
-          <caption>Cantidad de casos en los que se aplicó cada categoría del stack</caption>
-          <thead>
-            <tr><th scope="col">Categoría</th><th scope="col">Herramientas / métodos</th><th scope="col">Casos aplicados</th></tr>
-          </thead>
-          <tbody>
-            {categories.map((c) => (
-              <tr key={c.id}>
-                <td>{c.label}</td>
-                <td>{c.items.join(', ')}</td>
-                <td>{c.appliedIn.length}</td>
-              </tr>
-            ))}
-          </tbody>
+        {/* Tabla de datos para lectores de pantalla. El wrapper .sr-only es un <div>
+            (no display:table) para que su overflow:hidden + width:1px contengan la
+            tabla — una <table> con .sr-only directo se expande por table-layout. */}
+        <Box className="sr-only">
+          <Box component="table" aria-label="Aplicación del stack por categoría">
+            <caption>Cantidad de casos en los que se aplicó cada categoría del stack</caption>
+            <thead>
+              <tr><th scope="col">Categoría</th><th scope="col">Herramientas / métodos</th><th scope="col">Casos aplicados</th></tr>
+            </thead>
+            <tbody>
+              {categories.map((c) => (
+                <tr key={c.id}>
+                  <td>{c.label}</td>
+                  <td>{c.items.join(', ')}</td>
+                  <td>{c.appliedIn.length}</td>
+                </tr>
+              ))}
+            </tbody>
+          </Box>
         </Box>
 
         <Box className="ex-stack-section__grid"

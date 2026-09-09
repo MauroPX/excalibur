@@ -52,7 +52,7 @@ export const InquisitorHUD: React.FC<InquisitorHUDProps> = ({ enabled = false })
       className="ex-inquisitor-hud"
       sx={{
         position: 'fixed', bottom: 16, right: 16, zIndex: 9999,
-        width: 380, maxHeight: '80vh', overflowY: 'auto',
+        width: { xs: 'calc(100vw - 32px)', sm: 380 }, maxHeight: '80vh', overflowY: 'auto',
         backgroundColor: 'var(--md-sys-color-surface-container-high)',
         border: '2px solid var(--md-sys-color-primary)',
         borderRadius: 2, p: 2, boxShadow: 4,

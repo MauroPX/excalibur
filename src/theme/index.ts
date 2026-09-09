@@ -53,12 +53,14 @@ function buildTheme(mode: 'dark' | 'light') {
     },
     typography: {
       fontFamily: [roboto.style.fontFamily, 'Helvetica', 'Arial', 'sans-serif'].join(','),
-      h1: { fontWeight: 700, fontSize: '2.5rem', lineHeight: '3rem' },
-      h2: { fontWeight: 700, fontSize: '2rem', lineHeight: '2.4rem' },
-      h3: { fontWeight: 600, fontSize: '1.75rem', lineHeight: '2.25rem' },
-      h4: { fontWeight: 600, fontSize: '1.5rem', lineHeight: '2rem' },
-      h5: { fontWeight: 600, fontSize: '1.25rem', lineHeight: '1.75rem' },
-      h6: { fontWeight: 600, fontSize: '1rem', lineHeight: '1.5rem' },
+      // lineHeight unitless: escala con el fontSize fluido de responsiveFontSizes
+      // (con valores en rem el interlineado quedaba fijo al envolver en móvil).
+      h1: { fontWeight: 700, fontSize: '2.5rem', lineHeight: 1.2 },
+      h2: { fontWeight: 700, fontSize: '2rem', lineHeight: 1.2 },
+      h3: { fontWeight: 600, fontSize: '1.75rem', lineHeight: 1.29 },
+      h4: { fontWeight: 600, fontSize: '1.5rem', lineHeight: 1.33 },
+      h5: { fontWeight: 600, fontSize: '1.25rem', lineHeight: 1.4 },
+      h6: { fontWeight: 600, fontSize: '1rem', lineHeight: 1.5 },
     },
     shape: {
       borderRadius: 12,
@@ -96,9 +98,8 @@ function buildTheme(mode: 'dark' | 'light') {
 
   // Escala fluida de tipografía en breakpoints (h1–h6 + body): MUI reduce
   // los tamaños en xs/sm para que los titulares no desborden en móvil.
-  // disableAlign: el tema usa line-heights en rem (no unitless) — la
-  // alineación a grid de 4px de MUI exige unitless y lanzaría el error #6.
-  return responsiveFontSizes(base, { factor: 2.2, disableAlign: true })
+  // Con line-heights unitless, la alineación a grid de 4px de MUI funciona.
+  return responsiveFontSizes(base, { factor: 2.2 })
 }
 
 export const darkTheme = buildTheme('dark')

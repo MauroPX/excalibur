@@ -19,7 +19,7 @@ export const CasePageNav: React.FC<CasePageNavProps> = ({ backHref = '/#casos', 
       component="nav"
       aria-label="Navegación entre casos"
       className="ex-case-page__nav"
-      sx={{ display: 'flex', gap: 2, justifyContent: 'space-between', pt: 4, pb: 6 }}
+      sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, gap: 2, justifyContent: 'space-between', alignItems: { xs: 'stretch', sm: 'center' }, pt: 4, pb: 6 }}
     >
       <Button variant="text" label={t('back')} onClick={() => router.push(backHref)} />
       {nextCase && (

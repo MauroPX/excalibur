@@ -80,7 +80,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
       </Box>
 
       {/* Info canal */}
-      <Box className="ex-contact-section__channel-info" sx={{ mb: 3, p: 2, borderRadius: 1, backgroundColor: 'var(--md-sys-color-surface-container)' }}>
+      <Box className="ex-contact-section__channel-info" sx={{ mb: 3, p: 2, borderRadius: 1, backgroundColor: 'var(--md-sys-color-surface-container)', '& > *': { overflowWrap: 'anywhere' } }}>
         {channel === 'linkedin' && <Typography variant="body2" sx={{ color: 'var(--md-sys-color-on-surface)' }}>LinkedIn: {linkedinUrl}</Typography>}
         {channel === 'email' && <Typography variant="body2" sx={{ color: 'var(--md-sys-color-on-surface)' }}>Email: {emailAddress}</Typography>}
         {channel === 'github' && <Typography variant="body2" sx={{ color: 'var(--md-sys-color-on-surface)' }}>GitHub: {githubUrl}</Typography>}

@@ -55,7 +55,7 @@ describe('StackSection v2.0.0', () => {
   it('CA-007: radar aria-hidden + tabla sr-only con el mismo dato', () => {
     const { container } = renderStack()
     expect(container.querySelector('.ex-stack-section__radar')).toHaveAttribute('aria-hidden', 'true')
-    const table = container.querySelector('table.sr-only')
+    const table = container.querySelector('.sr-only table')
     expect(table).toBeInTheDocument()
     expect(table!.querySelectorAll('tbody tr')).toHaveLength(6)
   })

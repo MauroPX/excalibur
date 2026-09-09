@@ -61,7 +61,7 @@ export const ColorRolesHUD: React.FC<ColorRolesHUDProps> = ({ enabled = false })
           className="ex-color-roles-hud__panel"
           sx={{
             position: 'fixed', bottom: 76, left: 16, zIndex: 9999,
-            width: 420, maxHeight: '75vh', overflowY: 'auto',
+            width: { xs: 'calc(100vw - 32px)', sm: 420 }, maxHeight: '75vh', overflowY: 'auto',
             backgroundColor: 'var(--md-sys-color-surface-container-high)',
             border: '2px solid var(--md-sys-color-tertiary)',
             borderRadius: 2, p: 2, boxShadow: 4,

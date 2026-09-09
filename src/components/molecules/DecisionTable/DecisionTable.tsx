@@ -41,7 +41,7 @@ export const DecisionTable: React.FC<DecisionTableProps> = ({ rows, caption }) =
         sx={{ borderCollapse: 'collapse', width: '100%', minWidth: '640px' }}
       >
         {caption && (
-          <Box component="caption" className="sr-only" sx={{ position: 'absolute', width: 1, height: 1, overflow: 'hidden', clip: 'rect(0 0 0 0)' }}>
+          <Box component="caption" className="sr-only">
             {caption}
           </Box>
         )}
