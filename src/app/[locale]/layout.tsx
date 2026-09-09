@@ -103,7 +103,9 @@ export default async function LocaleLayout({
             <Analytics />
             <SpeedInsights />
             <PostHogProvider />
-            <ColorRolesHUD enabled={process.env.NODE_ENV === 'development'} />
+            {/* Panel de roles de color M3 — visible en producción: parte de la
+                propuesta del portafolio (design-system con contraste verificado). */}
+            <ColorRolesHUD enabled />
           </ThemeRegistry>
         </NextIntlClientProvider>
       </body>
