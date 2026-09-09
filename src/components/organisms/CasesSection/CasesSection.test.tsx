@@ -47,6 +47,12 @@ describe('CasesSection', () => {
     expect(screen.getAllByTestId('project-card')).toHaveLength(3)
   })
 
+  it('CA-002: cada card enlaza a /casos/[slug] con aria-label', () => {
+    renderCases()
+    const link = screen.getByRole('link', { name: 'Ver el caso Sistema Legacy' })
+    expect(link).toHaveAttribute('href', '/casos/p1')
+  })
+
   it('CA-003: filtro síntoma filtra proyectos', () => {
     renderCases()
     fireEvent.click(screen.getByText('legacy'))

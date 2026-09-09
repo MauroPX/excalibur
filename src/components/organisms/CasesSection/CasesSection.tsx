@@ -4,6 +4,7 @@ import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
 import MuiChip from '@mui/material/Chip'
 import { useTranslations } from 'next-intl'
+import { Link } from '@/i18n/navigation'
 import { ProjectCard } from '@/components/molecules/ProjectCard'
 
 export interface CasesSectionProject {
@@ -89,15 +90,37 @@ const CasesSection: React.FC<CasesSectionProps> = ({ projects }) => {
         aria-live="polite"
         aria-label={t('title')}
         className="ex-cases-section__grid"
-        sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', sm: 'repeat(2,1fr)', md: 'repeat(3,1fr)' }, gap: 2 }}
+        sx={{
+          display: 'grid',
+          gridTemplateColumns: { xs: '1fr', sm: 'repeat(2,1fr)', md: 'repeat(3,1fr)' },
+          gap: 2,
+          '& .ex-cases-section__card-link': {
+            display: 'block',
+            height: '100%',
+            textDecoration: 'none',
+            color: 'inherit',
+            borderRadius: '16px',
+          },
+          '& .ex-cases-section__card-link:focus-visible': {
+            outline: '2px solid var(--md-sys-color-primary)',
+            outlineOffset: '2px',
+          },
+        }}
       >
         {filteredProjects.length === 0 ? (
           <Typography className="ex-cases-section__empty-state" sx={{ gridColumn: '1/-1', color: 'var(--md-sys-color-on-surface)', textAlign: 'center', py: 4 }}>
             {t('empty')}
           </Typography>
         ) : (
-          filteredProjects.slice(0, 20).map((p, i) => (
-            <ProjectCard key={i} title={p.title} description={p.description} tags={p.tags} metric={p.metric} />
+          filteredProjects.slice(0, 20).map((p) => (
+            <Link
+              key={p.slug}
+              href={`/casos/${p.slug}`}
+              aria-label={`Ver el caso ${p.title}`}
+              className="ex-cases-section__card-link"
+            >
+              <ProjectCard title={p.title} description={p.description} tags={p.tags} metric={p.metric} />
+            </Link>
           ))
         )}
       </Box>
