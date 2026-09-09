@@ -3,7 +3,8 @@ import { setRequestLocale } from 'next-intl/server'
 import Box from '@mui/material/Box'
 import Container from '@mui/material/Container'
 import Typography from '@mui/material/Typography'
-import { METHODOLOGY_ENTRIES, GUIDEWIRE_INSUMO, type MethodologyEntry } from '@/content/methodology'
+import { getMethodology, type MethodologyEntry } from '@/content/methodology'
+import type { AppLocale } from '@/i18n/routing'
 
 export async function generateMetadata({
   params,
@@ -39,6 +40,7 @@ export default async function MetodologiaPage({
 }) {
   const { locale } = await params
   setRequestLocale(locale)
+  const { METHODOLOGY_ENTRIES, GUIDEWIRE_INSUMO } = getMethodology(locale as AppLocale)
 
   return (
     <Box

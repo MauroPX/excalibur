@@ -4,7 +4,8 @@ import Box from '@mui/material/Box'
 import Container from '@mui/material/Container'
 import Typography from '@mui/material/Typography'
 import { WorkTestCard } from '@/components/molecules/WorkTestCard'
-import { WORK_TEST_CASES, META_CASE } from '@/content/cases'
+import { getWorkTestCases, getMetaCase } from '@/content/cases'
+import type { AppLocale } from '@/i18n/routing'
 
 export async function generateMetadata({
   params,
@@ -32,7 +33,8 @@ export default async function PruebasTecnicasIndex({
   const { locale } = await params
   setRequestLocale(locale)
 
-  const workTests = Object.values(WORK_TEST_CASES)
+  const workTests = Object.values(getWorkTestCases(locale as AppLocale))
+  const META_CASE = getMetaCase(locale as AppLocale)
 
   return (
     <Box

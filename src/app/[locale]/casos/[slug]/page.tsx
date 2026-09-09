@@ -3,7 +3,8 @@ import { setRequestLocale } from 'next-intl/server'
 import type { Metadata } from 'next'
 import { CasePage } from '@/components/templates/CasePage'
 import { CreativeWorkJsonLd } from '@/components/infra/JsonLd'
-import { CLIENT_CASES, CLIENT_CASE_SLUGS, fdnMomentum2 } from '@/content/cases'
+import { getClientCases, CLIENT_CASE_SLUGS, getFdnMomentum2 } from '@/content/cases'
+import type { AppLocale } from '@/i18n/routing'
 import { FdnMomentum2Section } from './FdnMomentum2Section'
 
 export function generateStaticParams() {
@@ -16,7 +17,7 @@ export async function generateMetadata({
   params: Promise<{ locale: string; slug: string }>
 }): Promise<Metadata> {
   const { locale, slug } = await params
-  const caseData = CLIENT_CASES[slug]
+  const caseData = getClientCases(locale as AppLocale)[slug]
   if (!caseData) return {}
   const path = `/casos/${slug}`
   return {
@@ -41,14 +42,14 @@ export default async function CasePageRoute({
 }) {
   const { locale, slug } = await params
   setRequestLocale(locale)
-  const caseData = CLIENT_CASES[slug]
+  const caseData = getClientCases(locale as AppLocale)[slug]
   if (!caseData) notFound()
   return (
     <>
       <CreativeWorkJsonLd name={caseData.title} description={caseData.description} url={`/casos/${slug}`} />
       <CasePage
         caseData={caseData}
-        appendixSection={slug === 'fdn' ? <FdnMomentum2Section data={fdnMomentum2} /> : undefined}
+        appendixSection={slug === 'fdn' ? <FdnMomentum2Section data={getFdnMomentum2(locale as AppLocale)} /> : undefined}
       />
     </>
   )

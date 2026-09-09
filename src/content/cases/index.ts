@@ -1,48 +1,47 @@
 /**
- * Barrel de contenido de casos — work-tests + meta-caso + sección FDN-Momentum-2.
+ * Barrel de contenido de casos — bilingüe (Fase G, Opción 2).
  *
- * El contenido de cada caso vive aquí como dato tipado (CasePageData), NO en i18n:
- * la traducción EN es una tarea de copywriting aparte (Fase G). i18n cubre solo el
- * "chrome" compartido (labels de sección, navegación, disclaimers genéricos).
+ * El contenido tipado (CasePageData) vive en:
+ *   src/content/cases/es/**   — español (fuente, completo)
+ *   src/content/cases/en/**   — inglés (traducción; lo que falte cae a `es`)
  *
- * Cada módulo llama validateCaseData() al cargarse → si un caso work-test|meta no
- * declara objetivo/aprendizaje/footerDisclaimer, el build de Next.js revienta (R-2).
+ * Los slugs (URLs) son independientes del idioma. Los getters `get*Cases(locale)`
+ * resuelven EN→ES por caso: un caso sin traducir todavía sirve su versión ES.
+ *
+ * Cada módulo llama validateCaseData() al cargarse → si un work-test|meta no
+ * declara objetivo/aprendizaje/footerDisclaimer, el build revienta (R-2).
  */
 import type { CasePageData } from '@/components/templates/CasePage/types'
-import { fleetControlCase } from './fleetcontrol'
-import { bcsCase } from './bcs'
-import { codesaCase } from './codesa'
-import { solidariaWorkTestCase } from './solidaria'
-import { excaliburCase } from './excalibur'
-import { correosChileCase } from './clients/correos-chile'
-import { bbvaCase } from './clients/bbva'
-import { fdnCase } from './clients/fdn'
-import { lasalleCase } from './clients/lasalle'
-import { fidSegurosCase } from './clients/fid-seguros'
-import { suredCase } from './clients/sured'
-import { parkingRuedazCase } from './clients/parking-ruedaz'
-import { sicloIdpayCase } from './clients/siclo-idpay'
+import type { AppLocale } from '@/i18n/routing'
 
-/** Los 4 work-tests, en orden de navegación (ruta /pruebas-tecnicas/[slug]). */
-export const WORK_TEST_CASES: Record<string, CasePageData> = {
+// ── ES (fuente) ──────────────────────────────────────────────────────────────
+import { fleetControlCase } from './es/fleetcontrol'
+import { bcsCase } from './es/bcs'
+import { codesaCase } from './es/codesa'
+import { solidariaWorkTestCase } from './es/solidaria'
+import { excaliburCase } from './es/excalibur'
+import { correosChileCase } from './es/clients/correos-chile'
+import { bbvaCase } from './es/clients/bbva'
+import { fdnCase } from './es/clients/fdn'
+import { lasalleCase } from './es/clients/lasalle'
+import { fidSegurosCase } from './es/clients/fid-seguros'
+import { suredCase } from './es/clients/sured'
+import { parkingRuedazCase } from './es/clients/parking-ruedaz'
+import { sicloIdpayCase } from './es/clients/siclo-idpay'
+import { fdnMomentum2 as fdnMomentum2Es } from './es/fdn-momentum-2'
+import type { Momentum2Section } from './es/fdn-momentum-2'
+
+// ── EN (traducción parcial — se rellena caso por caso) ───────────────────────
+import { EN_CLIENT_CASES, EN_WORK_TEST_CASES, EN_META_CASE, enFdnMomentum2 } from './en'
+
+// ── ES como objetos indexados ───────────────────────────────────────────────
+const ES_WORK_TEST_CASES: Record<string, CasePageData> = {
   fleetcontrol: fleetControlCase,
   bcs: bcsCase,
   codesa: codesaCase,
   solidaria: solidariaWorkTestCase,
 }
-
-/** Slugs de work-test — para generateStaticParams y sitemap (Fase E). */
-export const WORK_TEST_SLUGS = Object.keys(WORK_TEST_CASES)
-
-/** Meta-caso — ruta propia /excalibur, no /pruebas-tecnicas. */
-export const META_CASE = excaliburCase
-
-/**
- * Casos de cliente (experiencia profesional pagada) — ruta /casos/[slug].
- * Orden = orden de navegación (nextCase encadena en ciclo). Taxonomía separada
- * de los work-tests: sin cruces de contenido ni URLs. Ver [[case-taxonomy]].
- */
-export const CLIENT_CASES: Record<string, CasePageData> = {
+const ES_CLIENT_CASES: Record<string, CasePageData> = {
   'correos-chile': correosChileCase,
   bbva: bbvaCase,
   fdn: fdnCase,
@@ -53,19 +52,41 @@ export const CLIENT_CASES: Record<string, CasePageData> = {
   'siclo-idpay': sicloIdpayCase,
 }
 
-/** Slugs de casos de cliente — para generateStaticParams y sitemap. */
-export const CLIENT_CASE_SLUGS = Object.keys(CLIENT_CASES)
+const mergeByLocale = (
+  es: Record<string, CasePageData>,
+  en: Record<string, CasePageData>,
+  locale: AppLocale,
+): Record<string, CasePageData> =>
+  locale === 'en' ? { ...es, ...en } : es
 
-export { fleetControlCase, bcsCase, codesaCase, solidariaWorkTestCase, excaliburCase }
+/** Casos de cliente (/casos/[slug]) para el locale dado; EN cae a ES por caso. */
+export const getClientCases = (locale: AppLocale) =>
+  mergeByLocale(ES_CLIENT_CASES, EN_CLIENT_CASES, locale)
+
+/** Work-tests (/pruebas-tecnicas/[slug]) para el locale dado; EN cae a ES. */
+export const getWorkTestCases = (locale: AppLocale) =>
+  mergeByLocale(ES_WORK_TEST_CASES, EN_WORK_TEST_CASES, locale)
+
+/** Meta-caso (/excalibur) para el locale dado. */
+export const getMetaCase = (locale: AppLocale): CasePageData =>
+  locale === 'en' ? EN_META_CASE ?? excaliburCase : excaliburCase
+
+/** Sección FDN Momentum 2 (dentro de /casos/fdn) para el locale dado. */
+export const getFdnMomentum2 = (locale: AppLocale): Momentum2Section =>
+  locale === 'en' ? enFdnMomentum2 ?? fdnMomentum2Es : fdnMomentum2Es
+
+// ── Slugs (independientes del idioma) ───────────────────────────────────────
+export const WORK_TEST_SLUGS = Object.keys(ES_WORK_TEST_CASES)
+export const CLIENT_CASE_SLUGS = Object.keys(ES_CLIENT_CASES)
+
+// ── Compat: exports ES directos (stories, tests, componentes sin locale) ─────
+export const WORK_TEST_CASES = ES_WORK_TEST_CASES
+export const CLIENT_CASES = ES_CLIENT_CASES
+export const META_CASE = excaliburCase
+export const fdnMomentum2 = fdnMomentum2Es
 export {
-  correosChileCase,
-  bbvaCase,
-  fdnCase,
-  lasalleCase,
-  fidSegurosCase,
-  suredCase,
-  parkingRuedazCase,
-  sicloIdpayCase,
+  fleetControlCase, bcsCase, codesaCase, solidariaWorkTestCase, excaliburCase,
+  correosChileCase, bbvaCase, fdnCase, lasalleCase, fidSegurosCase,
+  suredCase, parkingRuedazCase, sicloIdpayCase,
 }
-export { fdnMomentum2 } from './fdn-momentum-2'
-export type { Momentum2Section } from './fdn-momentum-2'
+export type { Momentum2Section }

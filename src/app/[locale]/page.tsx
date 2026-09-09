@@ -5,8 +5,9 @@ import { PersonJsonLd } from '@/components/infra/JsonLd'
 import type { NavSystemProps } from '@/components/organisms/NavSystem'
 import type { CasesSectionProject } from '@/components/organisms/CasesSection'
 import type { TitanModule } from '@/components/organisms/TitanSection'
-import { CLIENT_CASES } from '@/content/cases'
-import { STACK_CATEGORIES, INDUSTRIES, FAQ_ITEMS, FLAGSHIP } from '@/content/home'
+import { getClientCases } from '@/content/cases'
+import { getHome } from '@/content/home'
+import type { AppLocale } from '@/i18n/routing'
 
 const symptomCards: NavSystemProps['symptomCards'] = [
   { title: 'Mi sistema es inaccesible', description: 'Auditoría WCAG 2.2 y eliminación de fallas de accesibilidad con evidencia técnica verificable.', tag: 'cliente', targetSlug: 'fdn' },
@@ -39,20 +40,23 @@ const CASE_META: Record<
   'siclo-idpay': { symptomTags: ['conversion'], roleTags: ['product-manager', 'ux-designer'], metric: { value: '10', label: 'tablas ER + OpenAPI' } },
 }
 
-const caseProjects: CasesSectionProject[] = Object.keys(CASE_META).map((slug) => {
-  const c = CLIENT_CASES[slug]
-  const m = CASE_META[slug]
-  return {
-    slug,
-    title: c.title,
-    description: c.description,
-    tags: c.tags,
-    symptomTags: m.symptomTags,
-    roleTags: m.roleTags,
-    audienceTags: ['cliente'],
-    metric: m.metric,
-  }
-})
+const buildCaseProjects = (locale: AppLocale): CasesSectionProject[] => {
+  const cases = getClientCases(locale)
+  return Object.keys(CASE_META).map((slug) => {
+    const c = cases[slug]
+    const m = CASE_META[slug]
+    return {
+      slug,
+      title: c.title,
+      description: c.description,
+      tags: c.tags,
+      symptomTags: m.symptomTags,
+      roleTags: m.roleTags,
+      audienceTags: ['cliente'],
+      metric: m.metric,
+    }
+  })
+}
 
 const titanModules: TitanModule[] = [
   { hubName: 'Foundation', hubTitle: 'M0 — Visión y estructura', description: 'Diagnóstico, ADRs y gobernanza del proyecto. Sin M0 no hay base sólida.', momentum: 'M0', commandsCount: 12 },
@@ -78,6 +82,8 @@ export default async function HomePage({
   const { locale } = await params
   setRequestLocale(locale)
   const t = await getTranslations('hero')
+  const home = getHome(locale as AppLocale)
+  const caseProjects = buildCaseProjects(locale as AppLocale)
 
   return (
     <>
@@ -100,13 +106,13 @@ export default async function HomePage({
       symptomCards={symptomCards}
       roleCards={roleCards}
       featuredProjects={caseProjects.map(p => ({ slug: p.slug, title: p.title, summary: p.description, tags: p.tags }))}
-      flagship={FLAGSHIP}
+      flagship={home.FLAGSHIP}
       caseProjects={caseProjects}
       titanModules={titanModules}
       titanVersion="v7.0"
-      stackCategories={STACK_CATEGORIES}
-      industries={INDUSTRIES}
-      faqItems={FAQ_ITEMS}
+      stackCategories={home.STACK_CATEGORIES}
+      industries={home.INDUSTRIES}
+      faqItems={home.FAQ_ITEMS}
       />
     </>
   )

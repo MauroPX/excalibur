@@ -3,7 +3,8 @@ import { setRequestLocale } from 'next-intl/server'
 import type { Metadata } from 'next'
 import { CasePage } from '@/components/templates/CasePage'
 import { CreativeWorkJsonLd } from '@/components/infra/JsonLd'
-import { WORK_TEST_CASES, WORK_TEST_SLUGS } from '@/content/cases'
+import { getWorkTestCases, WORK_TEST_SLUGS } from '@/content/cases'
+import type { AppLocale } from '@/i18n/routing'
 
 export function generateStaticParams() {
   return WORK_TEST_SLUGS.map((slug) => ({ slug }))
@@ -15,7 +16,7 @@ export async function generateMetadata({
   params: Promise<{ locale: string; slug: string }>
 }): Promise<Metadata> {
   const { locale, slug } = await params
-  const caseData = WORK_TEST_CASES[slug]
+  const caseData = getWorkTestCases(locale as AppLocale)[slug]
   if (!caseData) return {}
   const path = `/pruebas-tecnicas/${slug}`
   return {
@@ -40,7 +41,7 @@ export default async function WorkTestPageRoute({
 }) {
   const { locale, slug } = await params
   setRequestLocale(locale)
-  const caseData = WORK_TEST_CASES[slug]
+  const caseData = getWorkTestCases(locale as AppLocale)[slug]
   if (!caseData) notFound()
   return (
     <>
