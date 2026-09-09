@@ -165,3 +165,49 @@ export const INDUSTRIES: IndustryEntry[] = [
   { icon: 'gaming', label: 'Regulated gambling', clients: ['SuRed / Matrix Giros'] },
   { icon: 'parking', label: 'Mobility / Parking', clients: ['Parking International / Ruedaz'] },
 ]
+
+// ── Home content moved from page.tsx (was hardcoded ES) ─────────────────────
+import type { NavSystemProps } from '@/components/organisms/NavSystem'
+import type { TitanModule } from '@/components/organisms/TitanSection'
+import type { HeroMetric } from './es'
+
+export const HERO_METRICS: HeroMetric[] = [
+  { value: '+10', label: 'years of experience' },
+  { value: '4', label: 'countries' },
+  { value: '20+', label: 'products in production' },
+  { value: '654', label: 'WCAG failures fixed' },
+]
+
+export const SYMPTOM_CARDS: NavSystemProps['symptomCards'] = [
+  { title: 'My system is inaccessible', description: 'WCAG 2.2 audit and removal of accessibility failures with verifiable technical evidence.', tag: 'cliente', targetSlug: 'fdn' },
+  { title: 'Time-to-market is too long', description: 'Diagnose the real data and scenarios before designing: Correos Chile’s Merkén Design System accelerated the handoff to engineering.', tag: 'cliente', targetSlug: 'correos-chile' },
+  { title: 'We have no Design System', description: 'Design Systems from scratch with governance, single-source tokens and automated verification.', tag: 'cliente', targetSlug: 'fid-seguros' },
+  { title: 'Our platform is legacy', description: 'Migration without explicit governance fragments. FID Seguros: a D↔D framework before moving the first screen.', tag: 'cliente', targetSlug: 'fid-seguros' },
+]
+
+export const ROLE_CARDS: NavSystemProps['roleCards'] = [
+  { title: 'I’m a CTO / Founder', description: 'End-to-end technical scalability. Correos Chile: one Design System spanning 3 products (Business Portal, Virtual Branch, App).', tag: 'cliente', targetSlug: 'correos-chile' },
+  { title: 'I’m a recruiter', description: '10 years, 4 countries, verifiable evidence per case: metrics, decisions and declared AI use.', tag: 'reclutador', targetSlug: 'bbva' },
+  { title: 'I’m a PM / PO', description: 'TITAN v7.0: an M0-to-M5 methodology with no context loss between stages.', tag: 'comunidad', targetSlug: 'bbva' },
+  { title: 'I’m an engineering lead', description: 'Audit of 654 incidents + Core Web Vitals at FDN. LCP from 25.2s to a <2.5s target.', tag: 'cliente', targetSlug: 'fdn' },
+]
+
+export const TITAN_MODULES: TitanModule[] = [
+  { hubName: 'Foundation', hubTitle: 'M0 — Vision and structure', description: 'Diagnosis, ADRs and project governance. No solid base without M0.', momentum: 'M0', commandsCount: 12 },
+  { hubName: 'Strategy', hubTitle: 'M1 — Backlog and roadmap', description: 'Customer journeys, prioritized backlog and risk map.', momentum: 'M1', commandsCount: 10 },
+  { hubName: 'Architecture', hubTitle: 'M2 — Spec and contracts', description: 'SPEC_DOCUMENT, DESIGN_TOKENS and API contracts. No Forge without M2.', momentum: 'M2', commandsCount: 11 },
+  { hubName: 'Execution', hubTitle: 'M3 — BFL + CI/CD', description: 'BFL sprints with Blueprint→Forge→Lock: every component passes lint, typecheck, tests, axe, build and a certificate before LOCK.', momentum: 'M3', commandsCount: 26 },
+  { hubName: 'Intelligence', hubTitle: 'M4 — RAG and backend', description: 'Strapi v5 + pgvector + Claude API. The AI knows every project in the portfolio.', momentum: 'M4', commandsCount: 8 },
+  { hubName: 'Operations', hubTitle: 'M5 — Monitoring and improvement', description: 'Observability, alerts and continuous improvement cycles.', momentum: 'M5', commandsCount: 6 },
+]
+
+export const CASE_METRICS: Record<string, HeroMetric> = {
+  'correos-chile': { value: '400+', label: 'components on M3 (Merkén DS)' },
+  bbva: { value: '5/5', label: 'from 3 Product Owners' },
+  fdn: { value: '-90%', label: 'LCP target' },
+  lasalle: { value: 'AAA', label: 'by scope (vs. the AA minimum)' },
+  'fid-seguros': { value: '~1,000', label: 'D↔D governance rows' },
+  sured: { value: '2×/day', label: 'auditable reconciliation' },
+  'parking-ruedaz': { value: '+90%', label: 'recurring use' },
+  'siclo-idpay': { value: '10', label: 'ER tables + OpenAPI' },
+}
