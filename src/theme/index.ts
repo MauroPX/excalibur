@@ -1,5 +1,5 @@
 'use client'
-import { createTheme } from '@mui/material/styles'
+import { createTheme, responsiveFontSizes } from '@mui/material/styles'
 import { Roboto } from 'next/font/google'
 import { darkTokens, lightTokens } from './tokens'
 
@@ -23,7 +23,7 @@ export const roboto = Roboto({
 function buildTheme(mode: 'dark' | 'light') {
   const tokens = mode === 'dark' ? darkTokens : lightTokens
 
-  return createTheme({
+  const base = createTheme({
     palette: {
       mode,
       primary: {
@@ -93,6 +93,12 @@ function buildTheme(mode: 'dark' | 'light') {
       },
     },
   })
+
+  // Escala fluida de tipografía en breakpoints (h1–h6 + body): MUI reduce
+  // los tamaños en xs/sm para que los titulares no desborden en móvil.
+  // disableAlign: el tema usa line-heights en rem (no unitless) — la
+  // alineación a grid de 4px de MUI exige unitless y lanzaría el error #6.
+  return responsiveFontSizes(base, { factor: 2.2, disableAlign: true })
 }
 
 export const darkTheme = buildTheme('dark')

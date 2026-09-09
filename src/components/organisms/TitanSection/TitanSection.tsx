@@ -35,6 +35,7 @@ export const TitanSection: React.FC<TitanSectionProps> = ({ modules, version = '
       className="ex-titan-section"
       sx={{ py: 6, backgroundColor: 'var(--md-sys-color-surface)' }}
     >
+      <Box sx={{ maxWidth: '1200px', mx: 'auto', px: { xs: 2, sm: 3, md: 4 } }}>
       <Box className="ex-titan-section__header" sx={{ mb: 4 }}>
         <Box component="span" className="ex-titan-section__version-badge"
           sx={{ display: 'inline-block', px: 2, py: 0.5, borderRadius: 2,
@@ -80,6 +81,7 @@ export const TitanSection: React.FC<TitanSectionProps> = ({ modules, version = '
             </Typography>
           </Box>
         ))}
+      </Box>
       </Box>
     </Box>
   )

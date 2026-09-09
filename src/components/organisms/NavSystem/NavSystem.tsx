@@ -24,11 +24,15 @@ const NavSystem: React.FC<NavSystemProps> = ({ symptomCards, roleCards, featured
       className="ex-nav-system"
       sx={{ backgroundColor: 'var(--md-sys-color-surface)', py: 6 }}
     >
+      <Box sx={{ maxWidth: '1200px', mx: 'auto', px: { xs: 2, sm: 3, md: 4 } }}>
       {/* TabBar usando MUI Tabs + Tab con value=0,1,2,3 */}
       <Tabs
         aria-label="Navegación por audiencia"
         value={activeTab}
         onChange={(_e, v) => setActiveTab(v)}
+        variant="scrollable"
+        scrollButtons="auto"
+        allowScrollButtonsMobile
         className="ex-nav-system__tabs-bar"
         sx={{ borderBottom: '1px solid var(--md-sys-color-outline-variant)', mb: 3 }}
       >
@@ -71,6 +75,7 @@ const NavSystem: React.FC<NavSystemProps> = ({ symptomCards, roleCards, featured
             <p style={{ color: 'var(--md-sys-color-on-surface)', margin: '4px 0 0' }}>{p.summary}</p>
           </Box>
         ))}
+      </Box>
       </Box>
     </Box>
   )
