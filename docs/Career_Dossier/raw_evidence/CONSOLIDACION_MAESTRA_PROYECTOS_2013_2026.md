@@ -60,9 +60,9 @@ Esta consolidación integra la totalidad de los datos analizados a través de lo
 * **Etapas del Ciclo de Vida:**  
   1. *Identificación de la Necesidad y Propuesta de Solución:* Backlog priorizado, lienzo de definición de necesidad y Challenge inicial ante líderes técnicos (PT/PM) en SDA Suite.  
   2. *Radicación ante Solution Development (SolDev):* Registro formal como iniciativa de fábrica (con presupuesto anual asignado y Business Case único anual por fábrica).  
-  3. *Comité de Nuevas Regulaciones Colombia (CNRC):* Concepto previo de Systems (Adriana Arango) y radicación quincenal ante secretaría del comité para validar si el proyecto es de índole normativo, de auditoría, mandatorio o de riesgo operacional.  
+  3. *Comité de Nuevas Regulaciones Colombia (CNRC):* Concepto previo del área de Systems y radicación quincenal ante secretaría del comité para validar si el proyecto es de índole normativo, de auditoría, mandatorio o de riesgo operacional.  
   4. *Proceso de Discovery (Ideación y Formulación):* Creación de TASK L1 en Jira, Pre-Discovery facilitado por el Centro de Excelencia Ágil (CEA), sesiones de Discovery con participación obligatoria del Sponsor/Delegado, identificación del Process ID y consolidación del User Story Mapping (USM) Funcional.  
-  5. *Valoración Financiera y Business Case:* Sustentación ante el Business Case Working Group (`bc.colombia.group@bbva.com`) y actualización de entregables (EMCs) y recursos en SDA Suite.  
+  5. *Valoración Financiera y Business Case:* Sustentación ante el Business Case Working Group corporativo y actualización de entregables (EMCs) y recursos en SDA Suite.  
   6. *Refinamiento y Ejecución (Delivery):* Desglose de USM en Features, Historias de Usuario (HU) y criterios de aceptación en Jira; valoración técnica de ingeniería (ENG) con Agile Lead / Agile Coach.
 
 ### B. Bre-B (Transferencias Inmediatas Interbancarias)
@@ -93,7 +93,7 @@ Esta consolidación integra la totalidad de los datos analizados a través de lo
 ### D. BBVA Contigo Pymes (Banca Remota)
 
 * **1\. Alta de Capital de Trabajo (Guía Operativa Versión 001 \- Octubre 2025):**  
-  * *Responsables:* Melissa Galval \- Juan Carlos Sandoval.  
+  * *Responsables:* el equipo de diseño de producto.  
   * *Flujo Operativo:* Validación de oferta comercial en AUG (Ficha Cliente) → Verificación de estados financieros actualizados e informe de visita reciente → Validación en motor de riesgo CAP → Creación de oportunidad en AUG → Configuración del producto en BBVA Contigo Pymes (monto, plazo, amortización, tasa) → Confirmación de datos → Carga de documentos contractuales → Firma electrónica del Representante Legal en su app móvil → Formalización y desembolso automático.  
   * *Estados del Flujo:* Pendiente de firma, Firma caducada, Firma exitosa, Pendiente de operativa, Finalizado, Cancelado.  
 * **2\. Seguro Voluntario "Mi Pyme Asegurada" (Manual Funcional \- Octubre 2025):**  
@@ -135,7 +135,7 @@ Esta consolidación integra la totalidad de los datos analizados a través de lo
 
 ### B. Certificaciones Oficiales Emitidas
 
-* **Certificado de Accesibilidad Web DIC-2023 (22 de Diciembre de 2023):** Dictamen que certifica el cumplimiento del Nivel AA de WCAG 2.1, firmado por Katherine Rojas Alba (Directora de Aplicaciones y Proyectos) y Juliana Restrepo (Asesora de Comunicaciones).  
+* **Certificado de Accesibilidad Web DIC-2023 (22 de Diciembre de 2023):** Dictamen que certifica el cumplimiento del Nivel AA de WCAG 2.1, firmado por la Dirección de Aplicaciones y Proyectos y la Asesoría de Comunicaciones de la FDN.  
 * **Certificado de Accesibilidad Web SEP-2024 (16 de Septiembre de 2024):** Revalidación periódica de cumplimiento normativo institucional.
 
 ### C. Auditoría Integral 2025 y Plan de Remediación

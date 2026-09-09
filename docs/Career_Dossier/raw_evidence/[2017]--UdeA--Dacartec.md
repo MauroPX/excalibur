@@ -166,7 +166,7 @@ El proyecto abarca el ciclo de vida de diseño y validación para dos ecosistema
 * **Sprint Design / Mobile First:** Se evidencia un enfoque prioritario en dispositivos móviles antes que en escritorio para garantizar la adaptabilidad.  
 * **ATDD (Acceptance Test-Driven Development):** Uso de criterios de aceptación claros antes de la implementación final para validar el comportamiento esperado.  
 * **Atomic Design / Design Systems:** Uso de librerías de componentes (Símbolos en Sketch) y especificaciones de Material.io para mantener consistencia visual.  
-* **Metodologías Ágiles:** Gestión de versiones y trazabilidad de cambios por autor y fecha (e.g., versiones de casos de uso por Camilo Serrano).
+* **Metodologías Ágiles:** Gestión de versiones y trazabilidad de cambios por autor y fecha (versionado de casos de uso por el equipo).
 
 ### **3\. Proceso del Sprint Design y Resultados**
 
