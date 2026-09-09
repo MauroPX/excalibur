@@ -43,7 +43,7 @@ Según `SKILL_SEO_AEO_GEO §3.1`, un portafolio de consultoría requiere schema 
     "Design Systems", "WCAG 2.2 AAA", "AI Orchestration",
     "DesignOps", "Atomic Design", "Material Design 3"
   ],
-  "sameAs": ["https://linkedin.com/in/mauropx"]
+  "sameAs": ["https://linkedin.com/in/maurogooc"]
 }
 ```
 

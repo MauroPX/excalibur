@@ -317,7 +317,7 @@ Toda la evidencia consolidada en este documento se rige por una estricta separac
 LEONEL MAURICIO GÓMEZ OCAMPO
 Bogotá, Colombia | Modalidad: Remoto / Híbrido
 Staff Product Architect · E2E Platform Engineer · DesignOps & A11y Lead
-LinkedIn: linkedin.com/in/maurogo | Portfolio: excalibur-portal.vercel.app
+LinkedIn: linkedin.com/in/maurogooc | Portfolio: excalibur-six-chi.vercel.app
 
 ================================================================================
 PERFIL PROFESIONAL

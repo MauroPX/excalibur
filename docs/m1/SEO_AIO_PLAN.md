@@ -95,7 +95,7 @@ Sitemap: https://maurogomez.design/sitemap.xml
   "jobTitle": "Staff Product Architect",
   "url": "https://maurogomez.design",
   "sameAs": [
-    "https://linkedin.com/in/leomaurogomez",
+    "https://linkedin.com/in/maurogooc",
     "https://github.com/MauroPX"
   ],
   "knowsAbout": ["Product Management", "Design Systems", "WCAG", "AI/RAG"]
