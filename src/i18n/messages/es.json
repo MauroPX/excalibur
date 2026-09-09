@@ -120,6 +120,31 @@
       "next": "Siguiente: {title} →"
     }
   },
+  "methodology": {
+    "title": "Metodología",
+    "intro": "Los marcos de trabajo que sostienen cada caso. Los chips de «Metodología aplicada» de cada proyecto enlazan aquí, a su definición.",
+    "metaDescription": "Los marcos de trabajo que sostienen cada caso: narrativa y decisión, sistemas de diseño, investigación y comportamiento, arquitectura y datos, accesibilidad, y crecimiento. Incluye la investigación de dominio sobre Guidewire InsuranceSuite.",
+    "groups": {
+      "narrativa": "Narrativa y decisión",
+      "sistemas": "Sistemas de diseño",
+      "investigacion": "Investigación y comportamiento",
+      "arquitectura": "Arquitectura y datos",
+      "accesibilidad": "Accesibilidad",
+      "producto": "Producto y crecimiento"
+    }
+  },
+  "techTests": {
+    "title": "Pruebas técnicas y diagnósticos",
+    "metaDescription": "Ejercicios de selección y diagnósticos autodirigidos — no encargos remunerados. FleetControl, Solidaria, BCS y Codesa, con las decisiones documentadas y el uso de IA declarado.",
+    "intro": "Ejercicios de procesos de selección y diagnósticos hechos por iniciativa propia — <strong>no encargos remunerados</strong>. Se muestran aparte de la experiencia profesional pagada. Cada uno documenta las decisiones tomadas y declara el uso de IA.",
+    "listLabel": "Pruebas técnicas",
+    "badgePrueba": "Prueba técnica",
+    "badgePropio": "Caso propio"
+  },
+  "privacy": {
+    "metaTitle": "Política de Privacidad — MauricioGO",
+    "metaDescription": "Política de privacidad y tratamiento de datos personales del portafolio de Leonel Mauricio Gómez Ocampo."
+  },
   "inquisitor": {
     "title": "INQUISITOR HUD",
     "close": "Cerrar panel de accesibilidad",

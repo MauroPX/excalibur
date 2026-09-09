@@ -120,6 +120,31 @@
       "next": "Next: {title} →"
     }
   },
+  "methodology": {
+    "title": "Methodology",
+    "intro": "The frameworks behind every case. The «Methodology applied» chips on each project link here, to their definition.",
+    "metaDescription": "The frameworks behind every case: narrative & decision, design systems, research & behavior, architecture & data, accessibility, and growth. Includes the domain research on Guidewire InsuranceSuite.",
+    "groups": {
+      "narrativa": "Narrative & decision",
+      "sistemas": "Design systems",
+      "investigacion": "Research & behavior",
+      "arquitectura": "Architecture & data",
+      "accesibilidad": "Accessibility",
+      "producto": "Product & growth"
+    }
+  },
+  "techTests": {
+    "title": "Technical tests & diagnostics",
+    "metaDescription": "Self-directed selection exercises and diagnostics — not paid engagements. FleetControl, Solidaria, BCS and Codesa, with the decisions documented and AI use disclosed.",
+    "intro": "Selection-process exercises and diagnostics done on my own initiative — <strong>not paid engagements</strong>. They are shown apart from paid professional experience. Each one documents the decisions made and discloses AI use.",
+    "listLabel": "Technical tests",
+    "badgePrueba": "Technical test",
+    "badgePropio": "Own case"
+  },
+  "privacy": {
+    "metaTitle": "Privacy Policy — MauricioGO",
+    "metaDescription": "Privacy policy and processing of personal data for the portfolio of Leonel Mauricio Gómez Ocampo."
+  },
   "inquisitor": {
     "title": "INQUISITOR HUD",
     "close": "Close accessibility panel",

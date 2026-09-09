@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { setRequestLocale } from 'next-intl/server'
+import { setRequestLocale, getTranslations } from 'next-intl/server'
 import Box from '@mui/material/Box'
 import Container from '@mui/material/Container'
 import Typography from '@mui/material/Typography'
@@ -12,11 +12,11 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>
 }): Promise<Metadata> {
   const { locale } = await params
+  const t = await getTranslations({ locale, namespace: 'methodology' })
   const path = '/metodologia'
   return {
-    title: 'Metodología',
-    description:
-      'Los marcos de trabajo que sostienen cada caso: narrativa y decisión, sistemas de diseño, investigación y comportamiento, arquitectura y datos, accesibilidad, y crecimiento. Incluye la investigación de dominio sobre Guidewire InsuranceSuite.',
+    title: t('title'),
+    description: t('metaDescription'),
     alternates: {
       canonical: locale === 'es' ? path : `/en${path}`,
       languages: { es: path, en: `/en${path}` },
@@ -24,13 +24,15 @@ export async function generateMetadata({
   }
 }
 
-const GROUP_ORDER: MethodologyEntry['group'][] = [
-  'Narrativa y decisión',
-  'Sistemas de diseño',
-  'Investigación y comportamiento',
-  'Arquitectura y datos',
-  'Accesibilidad',
-  'Producto y crecimiento',
+/** Orden de grupos + clave i18n. El `group` del contenido sigue en español (es la
+ *  clave de agrupación, estable entre locales); la etiqueta visible se traduce. */
+const GROUP_ORDER: Array<{ group: MethodologyEntry['group']; key: string }> = [
+  { group: 'Narrativa y decisión', key: 'narrativa' },
+  { group: 'Sistemas de diseño', key: 'sistemas' },
+  { group: 'Investigación y comportamiento', key: 'investigacion' },
+  { group: 'Arquitectura y datos', key: 'arquitectura' },
+  { group: 'Accesibilidad', key: 'accesibilidad' },
+  { group: 'Producto y crecimiento', key: 'producto' },
 ]
 
 export default async function MetodologiaPage({
@@ -40,6 +42,7 @@ export default async function MetodologiaPage({
 }) {
   const { locale } = await params
   setRequestLocale(locale)
+  const t = await getTranslations({ locale, namespace: 'methodology' })
   const { METHODOLOGY_ENTRIES, GUIDEWIRE_INSUMO } = getMethodology(locale as AppLocale)
 
   return (
@@ -52,11 +55,10 @@ export default async function MetodologiaPage({
     >
       <Container maxWidth="md">
         <Typography variant="h1" component="h1" sx={{ fontSize: { xs: '2rem', md: '2.5rem' }, mb: 2, color: 'var(--md-sys-color-on-surface)' }}>
-          Metodología
+          {t('title')}
         </Typography>
         <Typography variant="body1" sx={{ color: 'var(--md-sys-color-on-surface-variant)', mb: 6, maxWidth: '720px' }}>
-          Los marcos de trabajo que sostienen cada caso. Los chips de «Metodología aplicada» de cada
-          proyecto enlazan aquí, a su definición.
+          {t('intro')}
         </Typography>
 
         {/* Insumo base — Guidewire */}
@@ -88,13 +90,14 @@ export default async function MetodologiaPage({
           </Box>
         </Box>
 
-        {GROUP_ORDER.map((group) => {
+        {GROUP_ORDER.map(({ group, key }) => {
           const entries = METHODOLOGY_ENTRIES.filter((e) => e.group === group)
           if (entries.length === 0) return null
+          const groupLabel = t(`groups.${key}`)
           return (
-            <Box component="section" key={group} aria-label={group} sx={{ mb: 6 }}>
+            <Box component="section" key={key} aria-label={groupLabel} sx={{ mb: 6 }}>
               <Typography variant="h2" component="h2" sx={{ fontSize: '1.375rem', mb: 2.5, color: 'var(--md-sys-color-on-surface)' }}>
-                {group}
+                {groupLabel}
               </Typography>
               <Box component="dl" sx={{ m: 0 }}>
                 {entries.map((e) => (
