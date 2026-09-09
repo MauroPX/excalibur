@@ -1,13 +1,30 @@
 import React from 'react'
 import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
+import type { SvgIconProps } from '@mui/material/SvgIcon'
+import PaletteRounded from '@mui/icons-material/PaletteRounded'
+import AccessibilityNewRounded from '@mui/icons-material/AccessibilityNewRounded'
+import SmartToyRounded from '@mui/icons-material/SmartToyRounded'
+import InsightsRounded from '@mui/icons-material/InsightsRounded'
+import SettingsSuggestRounded from '@mui/icons-material/SettingsSuggestRounded'
+import BarChartRounded from '@mui/icons-material/BarChartRounded'
 import {
   RadarChart, Radar, PolarGrid, PolarAngleAxis,
   PolarRadiusAxis, ResponsiveContainer, Tooltip,
 } from 'recharts'
-import type { StackCategory } from '@/content/home'
+import type { StackCategory, StackIconKind } from '@/content/home'
 
 export type { StackCategory } from '@/content/home'
+
+/** kind → icono `@mui/icons-material` (currentColor, sigue el token del título). */
+const ICON: Record<StackIconKind, React.ElementType<SvgIconProps>> = {
+  design: PaletteRounded,
+  a11y: AccessibilityNewRounded,
+  ai: SmartToyRounded,
+  strategy: InsightsRounded,
+  devops: SettingsSuggestRounded,
+  analytics: BarChartRounded,
+}
 
 export interface StackSectionProps {
   /** Las 6 categorías reales del stack (v1). El radar grafica cuántos casos aplican cada una. */
@@ -94,11 +111,13 @@ export const StackSection: React.FC<StackSectionProps> = ({ categories, title = 
 
         <Box className="ex-stack-section__grid"
           sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', sm: 'repeat(2,1fr)', md: 'repeat(3,1fr)' }, gap: 3 }}>
-          {categories.map((c) => (
+          {categories.map((c) => {
+            const CategoryIcon = ICON[c.icon]
+            return (
             <Box key={c.id} className={`ex-stack-section__category ex-stack-section--${c.id}`}>
               <Typography variant="overline" component="h3"
-                sx={{ color: 'var(--md-sys-color-primary)', display: 'block', mb: 0.5, fontWeight: 700 }}>
-                <Box component="span" aria-hidden="true" sx={{ mr: 0.75 }}>{c.icon}</Box>
+                sx={{ color: 'var(--md-sys-color-primary)', display: 'flex', alignItems: 'center', gap: 0.75, mb: 0.5, fontWeight: 700 }}>
+                <CategoryIcon aria-hidden="true" sx={{ fontSize: '1.125rem' }} />
                 {c.label}
               </Typography>
               <Typography variant="caption" sx={{ color: 'var(--md-sys-color-on-surface-variant)', display: 'block', mb: 1.5 }}>
@@ -122,7 +141,8 @@ export const StackSection: React.FC<StackSectionProps> = ({ categories, title = 
                 ))}
               </Box>
             </Box>
-          ))}
+            )
+          })}
         </Box>
       </Box>
     </Box>

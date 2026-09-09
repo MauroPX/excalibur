@@ -52,9 +52,11 @@ export const FAQ_ITEMS: FaqItem[] = [
 // método real — NO se le asigna un "nivel de dominio" (eso era dato fabricado en v2).
 // El radar grafica `appliedIn.length`: en cuántos casos reales (src/content/cases/**)
 // se aplicó esa categoría — un entero verificable, no un porcentaje inventado.
+export type StackIconKind = 'design' | 'a11y' | 'ai' | 'strategy' | 'devops' | 'analytics'
+
 export interface StackCategory {
   id: string
-  icon: string
+  icon: StackIconKind
   label: string
   items: string[]
   /** slugs de casos (client | work-test | meta) donde se evidencia esta categoría */
@@ -64,7 +66,7 @@ export interface StackCategory {
 export const STACK_CATEGORIES: StackCategory[] = [
   {
     id: 'design-systems',
-    icon: '🎨',
+    icon: 'design',
     label: 'Design & Systems',
     items: [
       'Figma (Variables / Tokens)', 'Storybook', 'Material Design 3', 'React / MUI',
@@ -75,7 +77,7 @@ export const STACK_CATEGORIES: StackCategory[] = [
   },
   {
     id: 'accessibility',
-    icon: '♿',
+    icon: 'a11y',
     label: 'Accessibility',
     items: [
       'WCAG 2.2 AA/AAA', 'WCAG 2.1', 'Section 508', 'IAAP', 'ARIA', 'axe DevTools',
@@ -86,7 +88,7 @@ export const STACK_CATEGORIES: StackCategory[] = [
   },
   {
     id: 'ai-automation',
-    icon: '🤖',
+    icon: 'ai',
     label: 'AI & Automation',
     items: [
       'TITAN v7.0 (autor)', 'Prompt Engineering', 'Claude API', 'Gemini Gems', 'n8n',
@@ -96,7 +98,7 @@ export const STACK_CATEGORIES: StackCategory[] = [
   },
   {
     id: 'ux-cx',
-    icon: '🧠',
+    icon: 'strategy',
     label: 'UX/CX Methods',
     items: [
       'Service Blueprint', 'Customer Journey', 'User Research', 'Usability Testing',
@@ -110,7 +112,7 @@ export const STACK_CATEGORIES: StackCategory[] = [
   },
   {
     id: 'designops',
-    icon: '⚙️',
+    icon: 'devops',
     label: 'DesignOps & Process',
     items: [
       'DesignOps', 'BPM', 'DDD', 'SAFe', 'Agile / Scrum', 'Developer Handoff',
@@ -123,7 +125,7 @@ export const STACK_CATEGORIES: StackCategory[] = [
   },
   {
     id: 'analytics-tools',
-    icon: '📊',
+    icon: 'analytics',
     label: 'Analytics & Tools',
     items: [
       'Amplitude', 'PostHog', 'GA4', 'Hotjar', 'SQL', 'Jira', 'Confluence', 'Notion',
@@ -169,18 +171,21 @@ export const FLAGSHIP = {
 // ── Industrias ───────────────────────────────────────────────────────────────
 // Fuente: CONTENT_COPY_STRATEGY.md §7 pregunta 5 (ya reconciliada). NO se agregan
 // los nombres no verificados del grid de v1 (Fingo, Powwi, Skandia, Mentu, …).
+export type IndustryIconKind =
+  | 'fintech' | 'govtech' | 'logistics' | 'edtech' | 'health' | 'gaming' | 'parking'
+
 export interface IndustryEntry {
-  icon: string
+  icon: IndustryIconKind
   label: string
   clients: string[]
 }
 
 export const INDUSTRIES: IndustryEntry[] = [
-  { icon: '🏦', label: 'Fintech', clients: ['BBVA', 'Redeban', 'IDPay', 'Siclo', 'FID Seguros'] },
-  { icon: '🏛️', label: 'GovTech', clients: ['FDN', 'Aportes en Línea', 'DNP-SINERGIA'] },
-  { icon: '📦', label: 'Logística', clients: ['Correos de Chile'] },
-  { icon: '🎓', label: 'EdTech', clients: ['Universidad de La Salle'] },
-  { icon: '🏥', label: 'Salud', clients: ['Colsanitas'] },
-  { icon: '🎰', label: 'Juegos regulados', clients: ['SuRed / Matrix Giros'] },
-  { icon: '🅿️', label: 'Movilidad / Parking', clients: ['Parking International / Ruedaz'] },
+  { icon: 'fintech', label: 'Fintech', clients: ['BBVA', 'Redeban', 'IDPay', 'Siclo', 'FID Seguros'] },
+  { icon: 'govtech', label: 'GovTech', clients: ['FDN', 'Aportes en Línea', 'DNP-SINERGIA'] },
+  { icon: 'logistics', label: 'Logística', clients: ['Correos de Chile'] },
+  { icon: 'edtech', label: 'EdTech', clients: ['Universidad de La Salle'] },
+  { icon: 'health', label: 'Salud', clients: ['Colsanitas'] },
+  { icon: 'gaming', label: 'Juegos regulados', clients: ['SuRed / Matrix Giros'] },
+  { icon: 'parking', label: 'Movilidad / Parking', clients: ['Parking International / Ruedaz'] },
 ]

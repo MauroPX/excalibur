@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react'
 import Box from '@mui/material/Box'
 import Fab from '@mui/material/Fab'
 import Typography from '@mui/material/Typography'
+import PaletteRounded from '@mui/icons-material/PaletteRounded'
 import { useColorMode } from '@/theme/ThemeRegistry'
 import { ColorRolesGallery } from '@/components/organisms/ColorRolesGallery'
 
@@ -50,7 +51,7 @@ export const ColorRolesHUD: React.FC<ColorRolesHUDProps> = ({ enabled = false })
           '&:hover': { backgroundColor: 'var(--md-sys-color-tertiary-container)', opacity: 0.9 },
         }}
       >
-        🎨
+        <PaletteRounded />
       </Fab>
 
       {visible && (
@@ -67,7 +68,7 @@ export const ColorRolesHUD: React.FC<ColorRolesHUDProps> = ({ enabled = false })
           }}
         >
           <Typography variant="h6" component="h2" sx={{ color: 'var(--md-sys-color-tertiary)', fontWeight: 700, fontSize: '0.9rem', mb: 1.5 }}>
-            🎨 COLOR ROLES ({mode})
+            <PaletteRounded aria-hidden="true" sx={{ fontSize: "1rem", verticalAlign: "-2px", mr: 0.5 }} />COLOR ROLES ({mode})
           </Typography>
           <ColorRolesGallery mode={mode} />
         </Box>

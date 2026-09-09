@@ -230,7 +230,7 @@ export const METHODOLOGY_ENTRIES: MethodologyEntry[] = [
 /** Insumo base — no es un caso. Investigación de dominio sobre Guidewire InsuranceSuite. */
 export const GUIDEWIRE_INSUMO = {
   title: 'Insumo base — Investigación de dominio: Guidewire InsuranceSuite',
-  tag: '📚 Investigación autodirigida (construcción de conocimiento de sector)',
+  tag: 'Investigación autodirigida (construcción de conocimiento de sector)',
   disclaimer:
     'No es una prueba encargada, ni un cliente, ni una implementación entregada. Es la base de conocimiento de dominio construida antes de entrar a entrevistas y diagnósticos reales del sector asegurador (Solidaria, FID Seguros).',
   points: [

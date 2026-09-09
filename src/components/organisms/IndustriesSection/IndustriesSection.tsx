@@ -1,7 +1,26 @@
 import React from 'react'
 import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
-import type { IndustryEntry } from '@/content/home'
+import type { SvgIconProps } from '@mui/material/SvgIcon'
+import AccountBalanceWalletRounded from '@mui/icons-material/AccountBalanceWalletRounded'
+import AccountBalanceRounded from '@mui/icons-material/AccountBalanceRounded'
+import LocalShippingRounded from '@mui/icons-material/LocalShippingRounded'
+import SchoolRounded from '@mui/icons-material/SchoolRounded'
+import LocalHospitalRounded from '@mui/icons-material/LocalHospitalRounded'
+import CasinoRounded from '@mui/icons-material/CasinoRounded'
+import LocalParkingRounded from '@mui/icons-material/LocalParkingRounded'
+import type { IndustryEntry, IndustryIconKind } from '@/content/home'
+
+/** kind → icono `@mui/icons-material` (currentColor, sigue el token del título). */
+const ICON: Record<IndustryIconKind, React.ElementType<SvgIconProps>> = {
+  fintech: AccountBalanceWalletRounded,
+  govtech: AccountBalanceRounded,
+  logistics: LocalShippingRounded,
+  edtech: SchoolRounded,
+  health: LocalHospitalRounded,
+  gaming: CasinoRounded,
+  parking: LocalParkingRounded,
+}
 
 export interface IndustriesSectionProps {
   industries: IndustryEntry[]
@@ -42,7 +61,9 @@ export const IndustriesSection: React.FC<IndustriesSectionProps> = ({
           gap: 2,
         }}
       >
-        {industries.map((ind) => (
+        {industries.map((ind) => {
+          const IndustryIcon = ICON[ind.icon]
+          return (
           <Box
             key={ind.label}
             component="li"
@@ -54,15 +75,16 @@ export const IndustriesSection: React.FC<IndustriesSectionProps> = ({
               backgroundColor: 'var(--md-sys-color-surface-container-low)',
             }}
           >
-            <Typography variant="subtitle1" component="h3" sx={{ color: 'var(--md-sys-color-on-surface)', mb: 0.75 }}>
-              <Box component="span" aria-hidden="true" sx={{ mr: 0.75 }}>{ind.icon}</Box>
+            <Typography variant="subtitle1" component="h3" sx={{ color: 'var(--md-sys-color-on-surface)', display: 'flex', alignItems: 'center', gap: 0.75, mb: 0.75 }}>
+              <IndustryIcon aria-hidden="true" sx={{ fontSize: '1.25rem', color: 'var(--md-sys-color-primary)' }} />
               {ind.label}
             </Typography>
             <Typography variant="body2" sx={{ color: 'var(--md-sys-color-on-surface-variant)', lineHeight: 1.6 }}>
               {ind.clients.join(' · ')}
             </Typography>
           </Box>
-        ))}
+          )
+        })}
       </Box>
     </Box>
   </Box>
