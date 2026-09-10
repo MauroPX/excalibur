@@ -18,7 +18,7 @@
 | ThemeToggle aria-label ES quemado | ✅ | → `themeToggle.*` i18n. |
 | +4 categorías Stack & métodos | ✅ | DevOps, Domain-Driven Design, Data-Driven Design, QA & ASQ — con `appliedIn` trazable + enlace "Ver en metodología →". |
 | +3 entradas /metodologia | ✅ | `devops-entrega-continua`, `data-driven-design`, `qa-asq` (DDD ya tenía 2). Notan el origen de TITAN. |
-| Industrias — proyectos faltantes | ✅ (corregido) | Reconstruido desde `docs/EXPERIENCIA_PORTAFOLIO_BASE.md` (SOLO experiencia real, no pruebas técnicas). 10 industrias; nuevas: **Seguros** (FID Seguros), **Energía** (Ecopetrol), **Media/Editorial** (El Tiempo). Se sacaron FleetControl/BCS/Codesa/Solidaria (son `/pruebas-tecnicas`). Commit `c940199`. |
+| Industrias — trayectoria completa | ✅ (2 iteraciones) | `c940199` fue plano (solo `EXPERIENCIA_PORTAFOLIO_BASE.md`, ~15). `559946c` = reconstruido desde el **dossier**: `~/Documents/Career_Dossier_Excalibur/raw_evidence/CONSOLIDACION_MAESTRA_PROYECTOS_2013_2026.md §I.1` + `CAREER OS SSOT.md §2.12–2.15` (era Dacartec, Vulcan Studios). **11 verticales, ~45 clientes reales 2013–2026** (UdeA, PROCOLOMBIA, Ecopetrol, Redeban, OLD Mutual, FSFB/TVS+, Servientrega, Easyfly, Pinbus, Vulcan Studios…). Nuevo `IndustryIconKind` `corporate`. Los work-tests (FleetControl/BCS/Codesa) siguen fuera del grid. |
 
 Verificación: `typecheck 0 · lint 0 · vitest 285/285 · e2e Playwright 36/36 · build 42 páginas`.
 
