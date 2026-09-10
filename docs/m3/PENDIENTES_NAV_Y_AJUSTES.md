@@ -19,8 +19,9 @@
 | +4 categorías Stack & métodos | ✅ | DevOps, Domain-Driven Design, Data-Driven Design, QA & ASQ — con `appliedIn` trazable + enlace "Ver en metodología →". |
 | +3 entradas /metodologia | ✅ | `devops-entrega-continua`, `data-driven-design`, `qa-asq` (DDD ya tenía 2). Notan el origen de TITAN. |
 | Industrias — trayectoria completa | ✅ (2 iteraciones) | `c940199` fue plano (solo `EXPERIENCIA_PORTAFOLIO_BASE.md`, ~15). `559946c` = reconstruido desde el **dossier**: `~/Documents/Career_Dossier_Excalibur/raw_evidence/CONSOLIDACION_MAESTRA_PROYECTOS_2013_2026.md §I.1` + `CAREER OS SSOT.md §2.12–2.15` (era Dacartec, Vulcan Studios). **11 verticales, ~45 clientes reales 2013–2026** (UdeA, PROCOLOMBIA, Ecopetrol, Redeban, OLD Mutual, FSFB/TVS+, Servientrega, Easyfly, Pinbus, Vulcan Studios…). Nuevo `IndustryIconKind` `corporate`. Los work-tests (FleetControl/BCS/Codesa) siguen fuera del grid. |
+| Marca "MauroGO" transversal | ✅ desplegado | `daf772d` — el nombre legal completo salía en footer, `/privacidad`, schema.org, `<title>`, meta y prompts del RAG → todo `MauroGO`. 0 ocurrencias de "Leonel Mauricio…" / "Mauricio Gómez" / "MauricioGO" en `src/`, en `.next/server/` y en producción. Contacto legal sigue siendo `lemaogo@gmail.com`. |
 
-Verificación: `typecheck 0 · lint 0 · vitest 285/285 · e2e Playwright 36/36 · build 42 páginas`.
+Verificación: `typecheck 0 · lint 0 · vitest 285/285 · e2e Playwright 36/36 · build 42 páginas` · **deploy verificado en producción**.
 
 **Sigue pendiente de nav:** §2.4 (tab "Explorar" sin enlaces — `featuredProjects`
 no se pasa desde `HomeTemplate`), §2.5 (validar anclas en prod), y todo el §3.
