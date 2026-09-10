@@ -1,5 +1,6 @@
 'use client'
 import React from 'react'
+import { useTranslations } from 'next-intl'
 import IconButton from '@mui/material/IconButton'
 import { useColorMode } from '@/theme/ThemeRegistry'
 
@@ -25,7 +26,8 @@ const MoonIcon = () => (
 
 export function ThemeToggle() {
   const { mode, toggle } = useColorMode()
-  const label = mode === 'dark' ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro'
+  const t = useTranslations('themeToggle')
+  const label = mode === 'dark' ? t('toLight') : t('toDark')
 
   return (
     <IconButton

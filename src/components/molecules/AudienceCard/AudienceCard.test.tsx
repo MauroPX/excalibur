@@ -1,5 +1,6 @@
 import React from 'react'
-import { render, screen, fireEvent } from '@testing-library/react'
+import { screen, fireEvent } from '@testing-library/react'
+import { renderWithIntl as render } from '@/test-utils/intl'
 import { describe, it, expect, vi } from 'vitest'
 import { axe, toHaveNoViolations } from 'jest-axe'
 import { AudienceCard } from './AudienceCard'

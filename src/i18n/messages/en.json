@@ -16,7 +16,30 @@
       "titan": "Ask TITAN",
       "explore": "Explore"
     },
-    "audienceLabel": "Audience navigation"
+    "audienceLabel": "Audience navigation",
+    "links": {
+      "cases": "Cases",
+      "techTests": "Technical tests",
+      "methodology": "Methodology",
+      "excalibur": "EXCALIBUR"
+    },
+    "brandLabel": "MauricioGO — home",
+    "primaryLabel": "Main navigation"
+  },
+  "footer": {
+    "tagline": "Staff Product Architect — product, design systems and accessibility, with evidence.",
+    "privacy": "Privacy policy",
+    "rights": "All rights reserved.",
+    "social": {
+      "linkedin": "LinkedIn",
+      "github": "GitHub",
+      "email": "Email"
+    },
+    "navLabel": "Footer links"
+  },
+  "themeToggle": {
+    "toLight": "Switch to light mode",
+    "toDark": "Switch to dark mode"
   },
   "hero": {
     "title": "Staff Product Architect",
@@ -174,6 +197,7 @@
     "colorRolesClose": "Close color-role review",
     "opensInNewTab": "opens in a new tab",
     "viewFullCase": "See the full case →",
+    "viewCase": "See case →",
     "projectPhases": "Project phases",
     "industriesTitle": "Industries",
     "industriesListLabel": "Industries with experience",

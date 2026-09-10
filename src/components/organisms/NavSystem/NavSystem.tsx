@@ -49,7 +49,14 @@ const NavSystem: React.FC<NavSystemProps> = ({ symptomCards, roleCards, featured
            className="ex-nav-system__tab-panel ex-nav-system--tab-a"
            sx={{ display: activeTab === 0 ? 'grid' : 'none', gridTemplateColumns: 'repeat(auto-fill, minmax(260px,1fr))', gap: 2 }}>
         {symptomCards.map((card, i) => (
-          <AudienceCard key={i} type="symptom" title={card.title} description={card.description} tag={card.tag} />
+          <AudienceCard
+            key={i}
+            type="symptom"
+            title={card.title}
+            description={card.description}
+            tag={card.tag}
+            href={card.targetSlug ? `/casos/${card.targetSlug}` : undefined}
+          />
         ))}
       </Box>
 
@@ -58,7 +65,14 @@ const NavSystem: React.FC<NavSystemProps> = ({ symptomCards, roleCards, featured
            className="ex-nav-system__tab-panel ex-nav-system--tab-b"
            sx={{ display: activeTab === 1 ? 'grid' : 'none', gridTemplateColumns: 'repeat(auto-fill, minmax(260px,1fr))', gap: 2 }}>
         {roleCards.map((card, i) => (
-          <AudienceCard key={i} type="role" title={card.title} description={card.description} tag={card.tag} />
+          <AudienceCard
+            key={i}
+            type="role"
+            title={card.title}
+            description={card.description}
+            tag={card.tag}
+            href={card.targetSlug ? `/casos/${card.targetSlug}` : undefined}
+          />
         ))}
       </Box>
 

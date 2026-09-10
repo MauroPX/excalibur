@@ -8,9 +8,8 @@ import Box from '@mui/material/Box'
 import '../globals.css'
 import ThemeRegistry from '@/theme/ThemeRegistry'
 import { PostHogProvider } from '@/components/infra/PostHogProvider'
-import { ThemeToggle } from '@/components/atoms/ThemeToggle'
-import { ContrastToggle } from '@/components/atoms/ContrastToggle/ContrastToggle'
-import { LanguageToggle } from '@/components/atoms/LanguageToggle'
+import { SiteHeader } from '@/components/organisms/SiteHeader'
+import { SiteFooter } from '@/components/organisms/SiteFooter'
 import { ColorRolesHUD } from '@/components/organisms/ColorRolesHUD'
 import { SiteJsonLd } from '@/components/infra/JsonLd'
 import { routing, type AppLocale } from '@/i18n/routing'
@@ -89,21 +88,11 @@ export default async function LocaleLayout({
       <body>
         <NextIntlClientProvider messages={messages}>
           <ThemeRegistry>
-            <Box
-              component="div"
-              className="ex-controls-bar"
-              sx={{
-                position: 'fixed', top: 8, right: 8, zIndex: 9998,
-                display: 'flex', gap: 0.5,
-                backgroundColor: 'var(--md-sys-color-surface-container-high)',
-                borderRadius: 3, p: 0.5, boxShadow: 2,
-              }}
-            >
-              <LanguageToggle currentLocale={locale as AppLocale} />
-              <ThemeToggle />
-              <ContrastToggle />
+            <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100dvh' }}>
+              <SiteHeader currentLocale={locale as AppLocale} />
+              {children}
+              <SiteFooter />
             </Box>
-            {children}
             <Analytics />
             <SpeedInsights />
             <PostHogProvider />
