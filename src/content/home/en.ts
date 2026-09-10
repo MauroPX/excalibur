@@ -205,16 +205,61 @@ export const FLAGSHIP = {
 // Fuente: CONTENT_COPY_STRATEGY.md §7 pregunta 5 (ya reconciliada). NO se agregan
 // los nombres no verificados del grid de v1 (Fingo, Powwi, Skandia, Mentu, …).
 export const INDUSTRIES: IndustryEntry[] = [
-  { icon: 'fintech', label: 'Fintech / Banking', clients: ['BBVA', 'Siclo / IDPay', 'Redeban'] },
-  { icon: 'insurance', label: 'Insurance', clients: ['FID Seguros (Chile)'] },
-  { icon: 'govtech', label: 'GovTech / Government', clients: ['FDN — ActivaMC', 'Colegio Médico Colombiano', 'Aportes en Línea', 'DNP-SINERGIA'] },
-  { icon: 'logistics', label: 'Logistics', clients: ['Correos de Chile'] },
-  { icon: 'edtech', label: 'EdTech / Education', clients: ['Universidad de La Salle', 'ADL Digital Labs'] },
-  { icon: 'health', label: 'Health', clients: ['Colsanitas', 'PQEB — ActivaMC'] },
-  { icon: 'energy', label: 'Energy', clients: ['Ecopetrol'] },
-  { icon: 'media', label: 'Media / Publishing', clients: ['El Tiempo Casa Editorial'] },
-  { icon: 'gaming', label: 'Regulated gambling', clients: ['SuRed / Matrix Giros'] },
-  { icon: 'parking', label: 'Mobility / Parking', clients: ['Parking International / Ruedaz'] },
+  {
+    icon: 'fintech',
+    label: 'Fintech / Banking',
+    clients: ['BBVA (Colombia · Panama)', 'Redeban Multicolor', 'SI-CLO / Finauro', 'IdPay', 'Acción Fiduciaria', 'Aportes en Línea', 'SOI Data'],
+  },
+  {
+    icon: 'insurance',
+    label: 'Insurance',
+    clients: ['FID Seguros (Chile)', 'OLD Mutual', 'Aseguradora Solidaria'],
+  },
+  {
+    icon: 'gaming',
+    label: 'Regulated gambling',
+    clients: ['SuRed — ONJ (Baloto / Miloto)'],
+  },
+  {
+    icon: 'govtech',
+    label: 'GovTech / Public sector',
+    clients: ['FDN', 'DNP — SINERGIA', 'PROCOLOMBIA', 'EAAB (Bogotá Water Utility)', 'MinTIC (Appsco)', 'Consejo Privado de Competitividad'],
+  },
+  {
+    icon: 'health',
+    label: 'Health / HealthTech',
+    clients: ['Colsanitas / Medisanitas (Keralty)', 'Fundación Santa Fe de Bogotá (TVS+)', 'Colegio Médico Colombiano', 'PQEB (Fund. Santo Domingo / Profamilia)'],
+  },
+  {
+    icon: 'logistics',
+    label: 'Logistics & Transport',
+    clients: ['Correos de Chile', 'Servientrega', 'Latampost', 'Easyfly', 'Pinbus'],
+  },
+  {
+    icon: 'parking',
+    label: 'Mobility / Parking',
+    clients: ['Parking International', 'Ruedaz', 'Parking Inside', 'Parking Attendant'],
+  },
+  {
+    icon: 'edtech',
+    label: 'EdTech / Higher Education',
+    clients: ['Universidad de La Salle', 'Universidad de Antioquia (UdeA)', 'Pontificia Universidad Javeriana', 'ADL Digital Labs (Mentu)'],
+  },
+  {
+    icon: 'media',
+    label: 'Media / Publishing',
+    clients: ['Casa Editorial El Tiempo (ElTiempo.com · Revista Aló · ADN · Canal ET)'],
+  },
+  {
+    icon: 'energy',
+    label: 'Energy / Enterprise',
+    clients: ['Ecopetrol'],
+  },
+  {
+    icon: 'corporate',
+    label: 'Corporate Services / Legal',
+    clients: ['López & Asociados', 'Vulcan Studios', 'Daater', 'Barsmarts', 'Conadic', 'El Libertador', 'Fundación Social'],
+  },
 ]
 
 // ── Home content moved from page.tsx (was hardcoded ES) ─────────────────────

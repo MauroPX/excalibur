@@ -226,8 +226,8 @@ export const FLAGSHIP = {
 // Fuente: CONTENT_COPY_STRATEGY.md §7 pregunta 5 (ya reconciliada). NO se agregan
 // los nombres no verificados del grid de v1 (Fingo, Powwi, Skandia, Mentu, …).
 export type IndustryIconKind =
-  | 'fintech' | 'insurance' | 'govtech' | 'logistics' | 'edtech'
-  | 'health' | 'energy' | 'media' | 'gaming' | 'parking'
+  | 'fintech' | 'insurance' | 'gaming' | 'govtech' | 'health' | 'logistics'
+  | 'parking' | 'edtech' | 'media' | 'energy' | 'corporate'
 
 export interface IndustryEntry {
   icon: IndustryIconKind
@@ -235,21 +235,68 @@ export interface IndustryEntry {
   clients: string[]
 }
 
-// SOLO experiencia profesional real (encargos pagados). Fuente:
-// docs/EXPERIENCIA_PORTAFOLIO_BASE.md (campo `sector:` por proyecto) + la bio.
-// NO se incluyen pruebas técnicas / diagnósticos autodirigidos (FleetControl,
-// BCS, Codesa, Solidaria) — esos viven aparte en /pruebas-tecnicas.
+// Trayectoria completa 2013–2026 (40+ proyectos). Fuente:
+// ~/Documents/Career_Dossier_Excalibur/raw_evidence/CONSOLIDACION_MAESTRA_PROYECTOS_2013_2026.md §I.1
+// + CAREER OS SSOT.md §2.12–2.15 (era Dacartec 2017–2020 y Vulcan Studios 2015–2016).
+// SOLO experiencia profesional real (encargos pagados) — las pruebas técnicas
+// (FleetControl, BCS, Codesa, el diagnóstico autodirigido de Solidaria 2025)
+// viven aparte en /pruebas-tecnicas.
 export const INDUSTRIES: IndustryEntry[] = [
-  { icon: 'fintech', label: 'Fintech / Banca', clients: ['BBVA', 'Siclo / IDPay', 'Redeban'] },
-  { icon: 'insurance', label: 'Seguros', clients: ['FID Seguros (Chile)'] },
-  { icon: 'govtech', label: 'GovTech / Gobierno', clients: ['FDN — ActivaMC', 'Colegio Médico Colombiano', 'Aportes en Línea', 'DNP-SINERGIA'] },
-  { icon: 'logistics', label: 'Logística', clients: ['Correos de Chile'] },
-  { icon: 'edtech', label: 'EdTech / Educación', clients: ['Universidad de La Salle', 'ADL Digital Labs'] },
-  { icon: 'health', label: 'Salud', clients: ['Colsanitas', 'PQEB — ActivaMC'] },
-  { icon: 'energy', label: 'Energía', clients: ['Ecopetrol'] },
-  { icon: 'media', label: 'Media / Editorial', clients: ['El Tiempo Casa Editorial'] },
-  { icon: 'gaming', label: 'Juegos regulados', clients: ['SuRed / Matrix Giros'] },
-  { icon: 'parking', label: 'Movilidad / Parking', clients: ['Parking International / Ruedaz'] },
+  {
+    icon: 'fintech',
+    label: 'Fintech / Banca',
+    clients: ['BBVA (Colombia · Panamá)', 'Redeban Multicolor', 'SI-CLO / Finauro', 'IdPay', 'Acción Fiduciaria', 'Aportes en Línea', 'SOI Data'],
+  },
+  {
+    icon: 'insurance',
+    label: 'Seguros',
+    clients: ['FID Seguros (Chile)', 'OLD Mutual', 'Aseguradora Solidaria'],
+  },
+  {
+    icon: 'gaming',
+    label: 'Juegos regulados',
+    clients: ['SuRed — ONJ (Baloto / Miloto)'],
+  },
+  {
+    icon: 'govtech',
+    label: 'GovTech / Sector público',
+    clients: ['FDN', 'DNP — SINERGIA', 'PROCOLOMBIA', 'EAAB (Acueducto de Bogotá)', 'MinTIC (Appsco)', 'Consejo Privado de Competitividad'],
+  },
+  {
+    icon: 'health',
+    label: 'Salud / HealthTech',
+    clients: ['Colsanitas / Medisanitas (Keralty)', 'Fundación Santa Fe de Bogotá (TVS+)', 'Colegio Médico Colombiano', 'PQEB (Fund. Santo Domingo / Profamilia)'],
+  },
+  {
+    icon: 'logistics',
+    label: 'Logística y Transporte',
+    clients: ['Correos de Chile', 'Servientrega', 'Latampost', 'Easyfly', 'Pinbus'],
+  },
+  {
+    icon: 'parking',
+    label: 'Movilidad / Parking',
+    clients: ['Parking International', 'Ruedaz', 'Parking Inside', 'Parking Attendant'],
+  },
+  {
+    icon: 'edtech',
+    label: 'EdTech / Educación Superior',
+    clients: ['Universidad de La Salle', 'Universidad de Antioquia (UdeA)', 'Pontificia Universidad Javeriana', 'ADL Digital Labs (Mentu)'],
+  },
+  {
+    icon: 'media',
+    label: 'Media / Editorial',
+    clients: ['Casa Editorial El Tiempo (ElTiempo.com · Revista Aló · ADN · Canal ET)'],
+  },
+  {
+    icon: 'energy',
+    label: 'Energía / Enterprise',
+    clients: ['Ecopetrol'],
+  },
+  {
+    icon: 'corporate',
+    label: 'Servicios Corporativos / Legal',
+    clients: ['López & Asociados', 'Vulcan Studios', 'Daater', 'Barsmarts', 'Conadic', 'El Libertador', 'Fundación Social'],
+  },
 ]
 
 // ── Portada: contenido movido de page.tsx (antes quemado en ES) ──────────────

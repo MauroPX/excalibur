@@ -22,17 +22,19 @@ describe('IndustriesSection (EX-v2-ORG-011)', () => {
     expect(screen.getByRole('heading', { level: 3, name: /GovTech/ })).toBeInTheDocument()
   })
 
-  it('CA-003: solo experiencia profesional real (EXPERIENCIA_PORTAFOLIO_BASE.md) — NO pruebas técnicas ni nombres no verificados de v1', () => {
+  it('CA-003: trayectoria real (CONSOLIDACION_MAESTRA §I.1) — NO pruebas técnicas ni nombres no verificados de v1', () => {
     render(<IndustriesSection industries={INDUSTRIES} />)
     const text = document.body.textContent ?? ''
-    expect(text).toMatch(/BBVA/)
-    expect(text).toMatch(/Correos de Chile/)
+    // proyectos reales de la trayectoria, incl. la era Dacartec/Vulcan
+    for (const real of ['BBVA', 'Correos de Chile', 'Universidad de Antioquia', 'Ecopetrol', 'PROCOLOMBIA']) {
+      expect(text).toMatch(new RegExp(real))
+    }
     // nombres no verificados del grid de v1
-    for (const noVerificado of ['Fingo', 'Powwi', 'Skandia', 'Mentu']) {
+    for (const noVerificado of ['Fingo', 'Powwi', 'Skandia']) {
       expect(text).not.toMatch(new RegExp(noVerificado))
     }
-    // pruebas técnicas / diagnósticos autodirigidos — viven en /pruebas-tecnicas, NO aquí
-    for (const prueba of ['FleetControl', 'Banco Caja Social', 'Codesa', 'Solidaria']) {
+    // work-tests — viven en /pruebas-tecnicas, NO en el grid de experiencia
+    for (const prueba of ['FleetControl', 'Banco Caja Social', 'Codesa']) {
       expect(text).not.toMatch(new RegExp(prueba))
     }
   })
