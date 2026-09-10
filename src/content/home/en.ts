@@ -205,13 +205,15 @@ export const FLAGSHIP = {
 // Fuente: CONTENT_COPY_STRATEGY.md §7 pregunta 5 (ya reconciliada). NO se agregan
 // los nombres no verificados del grid de v1 (Fingo, Powwi, Skandia, Mentu, …).
 export const INDUSTRIES: IndustryEntry[] = [
-  { icon: 'fintech', label: 'Fintech', clients: ['BBVA', 'Banco Caja Social (BCS)', 'Redeban', 'IDPay', 'Siclo', 'Codesa'] },
-  { icon: 'insurance', label: 'Insurance', clients: ['FID Seguros', 'Aseguradora Solidaria'] },
-  { icon: 'govtech', label: 'GovTech', clients: ['FDN', 'Aportes en Línea', 'DNP-SINERGIA'] },
-  { icon: 'logistics', label: 'Logistics', clients: ['Correos de Chile', 'FleetControl'] },
-  { icon: 'edtech', label: 'EdTech', clients: ['Universidad de La Salle'] },
-  { icon: 'health', label: 'Health', clients: ['Colsanitas'] },
-  { icon: 'gaming', label: 'Regulated gambling', clients: ['SuRed / Matrix Giros (Baloto / Miloto)'] },
+  { icon: 'fintech', label: 'Fintech / Banking', clients: ['BBVA', 'Siclo / IDPay', 'Redeban'] },
+  { icon: 'insurance', label: 'Insurance', clients: ['FID Seguros (Chile)'] },
+  { icon: 'govtech', label: 'GovTech / Government', clients: ['FDN — ActivaMC', 'Colegio Médico Colombiano', 'Aportes en Línea', 'DNP-SINERGIA'] },
+  { icon: 'logistics', label: 'Logistics', clients: ['Correos de Chile'] },
+  { icon: 'edtech', label: 'EdTech / Education', clients: ['Universidad de La Salle', 'ADL Digital Labs'] },
+  { icon: 'health', label: 'Health', clients: ['Colsanitas', 'PQEB — ActivaMC'] },
+  { icon: 'energy', label: 'Energy', clients: ['Ecopetrol'] },
+  { icon: 'media', label: 'Media / Publishing', clients: ['El Tiempo Casa Editorial'] },
+  { icon: 'gaming', label: 'Regulated gambling', clients: ['SuRed / Matrix Giros'] },
   { icon: 'parking', label: 'Mobility / Parking', clients: ['Parking International / Ruedaz'] },
 ]
 

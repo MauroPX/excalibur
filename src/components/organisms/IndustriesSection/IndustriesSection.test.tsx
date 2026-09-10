@@ -22,13 +22,18 @@ describe('IndustriesSection (EX-v2-ORG-011)', () => {
     expect(screen.getByRole('heading', { level: 3, name: /GovTech/ })).toBeInTheDocument()
   })
 
-  it('CA-003: solo clientes verificados (§7 Q5) — NO nombres no verificados de v1', () => {
+  it('CA-003: solo experiencia profesional real (EXPERIENCIA_PORTAFOLIO_BASE.md) — NO pruebas técnicas ni nombres no verificados de v1', () => {
     render(<IndustriesSection industries={INDUSTRIES} />)
     const text = document.body.textContent ?? ''
     expect(text).toMatch(/BBVA/)
     expect(text).toMatch(/Correos de Chile/)
-    for (const noVerificado of ['Fingo', 'Powwi', 'Skandia', 'Mentu', 'ADL Digital']) {
+    // nombres no verificados del grid de v1
+    for (const noVerificado of ['Fingo', 'Powwi', 'Skandia', 'Mentu']) {
       expect(text).not.toMatch(new RegExp(noVerificado))
+    }
+    // pruebas técnicas / diagnósticos autodirigidos — viven en /pruebas-tecnicas, NO aquí
+    for (const prueba of ['FleetControl', 'Banco Caja Social', 'Codesa', 'Solidaria']) {
+      expect(text).not.toMatch(new RegExp(prueba))
     }
   })
 
