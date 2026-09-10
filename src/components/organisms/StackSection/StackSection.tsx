@@ -51,11 +51,26 @@ export interface StackSectionProps {
  * reales SIN nivel, y el radar grafica un entero verificable: en cuántos casos de
  * `src/content/cases/**` se aplicó esa categoría (`appliedIn.length`).
  */
+/** Etiqueta corta por `id` para el eje del radar — con 10 categorías las
+ *  etiquetas largas se recortan dentro del SVG. */
+const RADAR_LABEL: Record<string, string> = {
+  'design-systems': 'Design Sys.',
+  accessibility: 'A11y',
+  'ai-automation': 'AI',
+  'ux-cx': 'UX/CX',
+  designops: 'DesignOps',
+  'analytics-tools': 'Analytics',
+  devops: 'DevOps',
+  ddd: 'DDD',
+  'data-driven': 'Data-Driven',
+  'qa-asq': 'QA & ASQ',
+}
+
 export const StackSection: React.FC<StackSectionProps> = ({ categories, title }) => {
   const t = useTranslations('stack')
   const heading = title ?? t('sectionTitle')
   const radarData = categories.map((c) => ({
-    category: c.label,
+    category: c.radarLabel ?? RADAR_LABEL[c.id] ?? c.label,
     count: c.appliedIn.length,
   }))
   const maxCount = Math.max(1, ...radarData.map((d) => d.count))
@@ -79,13 +94,13 @@ export const StackSection: React.FC<StackSectionProps> = ({ categories, title })
 
         {/* RadarChart: aria-hidden — el mismo dato está en la tabla sr-only y en los bloques de abajo */}
         <Box aria-hidden="true" className="ex-stack-section__radar"
-          sx={{ width: '100%', maxWidth: 420, mx: 'auto', height: 320, mb: 4, '& *': { userSelect: 'none' } }}>
+          sx={{ width: '100%', maxWidth: 460, mx: 'auto', height: 340, mb: 4, '& *': { userSelect: 'none' } }}>
           <ResponsiveContainer width="100%" height="100%">
-            <RadarChart data={radarData} tabIndex={-1}>
+            <RadarChart data={radarData} tabIndex={-1} margin={{ top: 8, right: 48, bottom: 8, left: 48 }}>
               <PolarGrid stroke="var(--md-sys-color-outline-variant)" />
               <PolarAngleAxis
                 dataKey="category"
-                tick={{ fill: 'var(--md-sys-color-on-surface-variant)', fontSize: 11 }}
+                tick={{ fill: 'var(--md-sys-color-on-surface-variant)', fontSize: 10 }}
               />
               <PolarRadiusAxis domain={[0, maxCount]} tick={false} axisLine={false} />
               <Radar

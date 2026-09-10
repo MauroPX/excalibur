@@ -60,6 +60,8 @@ export interface StackCategory {
   id: string
   icon: StackIconKind
   label: string
+  /** etiqueta corta para el eje del radar (evita el clipping con 10 categorías) */
+  radarLabel?: string
   items: string[]
   /** slugs de casos (client | work-test | meta) donde se evidencia esta categoría */
   appliedIn: string[]
