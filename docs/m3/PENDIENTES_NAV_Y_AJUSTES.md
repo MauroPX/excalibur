@@ -1,11 +1,33 @@
 # Pendientes — Navegación + ajustes
 
 > Generado 2026-09-09 al cierre de la sesión de i18n/theme/schema.org.
-> Rama `v2` @ `210252f`. Producción: **https://excalibur-six-chi.vercel.app**
->
-> La sesión 09-09 (2ª mitad) hizo **ajustes** (i18n real, theme de 6 esquemas,
-> schema.org). **La navegación quedó para la siguiente tarea** — este documento
-> es su checklist.
+> **Actualizado 2026-09-10:** la navegación (§2.1, §2.2, §2.3) ya está EJECUTADA
+> + se agregaron 4 categorías de stack / entradas de metodología y se completó
+> Industrias. Rama `v2` @ `0ac0e9d`.
+> Producción: **https://excalibur-six-chi.vercel.app**
+
+---
+
+## 0. Hecho el 2026-09-10 (commits `e4ef708`, `0ac0e9d`)
+
+| Ítem | Estado | Nota |
+|---|---|---|
+| §2.1 Header/nav global | ✅ | `organisms/SiteHeader` — sticky, marca + Casos/Pruebas/Metodología/EXCALIBUR + toggles idioma/tema/contraste. Sustituye la `.ex-controls-bar`. |
+| §2.2 Footer global | ✅ | `organisms/SiteFooter` — tagline, LinkedIn/GitHub/email, **enlace a `/privacidad`**, © año. Sticky-bottom. |
+| §2.3 AudienceCard "Ver caso" muerto | ✅ | prop `href` → tarjeta = `<a>` locale-aware a `/casos/[slug]` (desde `card.targetSlug`). CTA por i18n. |
+| ThemeToggle aria-label ES quemado | ✅ | → `themeToggle.*` i18n. |
+| +4 categorías Stack & métodos | ✅ | DevOps, Domain-Driven Design, Data-Driven Design, QA & ASQ — con `appliedIn` trazable + enlace "Ver en metodología →". |
+| +3 entradas /metodologia | ✅ | `devops-entrega-continua`, `data-driven-design`, `qa-asq` (DDD ya tenía 2). Notan el origen de TITAN. |
+| Industrias — proyectos faltantes | ✅ | Nueva industria **Seguros** (FID Seguros, Aseguradora Solidaria). Fintech += BCS, Codesa. Logística += FleetControl. Todo trazable a casos del repo. |
+
+Verificación: `typecheck 0 · lint 0 · vitest 285/285 · e2e Playwright 36/36 · build 42 páginas`.
+
+**Sigue pendiente de nav:** §2.4 (tab "Explorar" sin enlaces — `featuredProjects`
+no se pasa desde `HomeTemplate`), §2.5 (validar anclas en prod), y todo el §3.
+
+---
+
+> _Lo que sigue es el checklist original del 09-09; los ítems tachados arriba ya no aplican._
 
 ---
 
