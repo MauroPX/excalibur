@@ -123,6 +123,12 @@ export const METHODOLOGY_ENTRIES: MethodologyEntry[] = [
     group: 'Investigación y comportamiento',
     body: 'Modelar lo que la persona intenta lograr, no la solución que pide — usado para diferenciar Customer Journeys por segmento (Ruedaz: B2C recurrente vs. B2B corporativo).',
   },
+  {
+    slug: 'data-driven-design',
+    label: 'Diseño guiado por datos (Data-Driven Design)',
+    group: 'Investigación y comportamiento',
+    body: 'Toda decisión de diseño parte de una hipótesis medible y se cierra con el dato: instrumentación de eventos, análisis de embudo, cohortes y KPIs (North Star), no opinión. Priorización con RICE extendido (Confianza/Inclusión) y Opportunity Solution Tree; el modelo de datos ER es parte del entregable de UX. Aplicado en Codesa (estrategia de investigación), Ruedaz (+90% de uso recurrente, ROI en UX), BBVA (madurez por métricas) y Siclo/IDPay (motor de reglas sobre datos). Formalizar este ciclo — dato → hipótesis → diseño → medición — de forma transversal es una de las raíces de TITAN.',
+  },
 
   // ── Arquitectura y datos ─────────────────────────────────────────────────
   {
@@ -185,6 +191,12 @@ export const METHODOLOGY_ENTRIES: MethodologyEntry[] = [
     group: 'Arquitectura y datos',
     body: 'Proceso automático diario que cruza los consolidados transaccionales de ambas partes y tipifica las discrepancias (códigos 10/20/30) sin intervención manual (SuRed).',
   },
+  {
+    slug: 'devops-entrega-continua',
+    label: 'DevOps y entrega continua',
+    group: 'Arquitectura y datos',
+    body: 'El diseño y el sistema se tratan como software que se entrega: CI/CD (GitHub Actions), contenedores (Docker), deploys de preview por rama, Storybook en CI y regresión visual (Chromatic), con gates bloqueantes — nada llega a producción sin lint, typecheck, tests y build en verde. Arquitectura desacoplada (core → API → frontend) para que conectar el backend real sea un cambio de variable de entorno (Solidaria), y observabilidad del flujo como parte del entregable (FleetControl, SuRed). Este mismo portafolio corre sobre ese pipeline. El ciclo Blueprint → Forge → Lock de TITAN nace de aplicar estas prácticas de entrega al diseño de sistemas.',
+  },
 
   // ── Accesibilidad ────────────────────────────────────────────────────────
   {
@@ -210,6 +222,12 @@ export const METHODOLOGY_ENTRIES: MethodologyEntry[] = [
     label: 'Core Web Vitals como criterio de accesibilidad',
     group: 'Accesibilidad',
     body: 'LCP, CLS e INP se tratan como parte de la experiencia accesible, no solo como métricas de rendimiento (FDN: LCP de 25.2s a un objetivo <2.5s).',
+  },
+  {
+    slug: 'qa-asq',
+    label: 'QA & ASQ — aseguramiento de calidad de software',
+    group: 'Accesibilidad',
+    body: 'La calidad se verifica, no se declara: pruebas E2E con Playwright, accesibilidad automatizada con @axe-core/playwright y jest-axe en cada componente, regresión visual (Chromatic) y QA manual con lectores de pantalla (NVDA/JAWS). Cada componente entrega sus criterios de aceptación y el CI los bloquea si fallan. En La Salle la conformidad "AAA por alcance" se sostiene precisamente en esta validación automatizada; en FDN, la auditoría de 654 incidentes se prioriza con el mismo instrumental. ASQ = Automated Software Quality: convertir el juicio manual en un chequeo repetible antes de cada merge.',
   },
 
   // ── Producto y crecimiento ───────────────────────────────────────────────

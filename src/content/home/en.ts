@@ -118,6 +118,54 @@ export const STACK_CATEGORIES: StackCategory[] = [
     ],
     appliedIn: ['codesa', 'solidaria', 'excalibur', 'bcs', 'fleetcontrol', 'sured', 'fid-seguros', 'parking-ruedaz'],
   },
+  {
+    id: 'devops',
+    icon: 'delivery',
+    label: 'DevOps & Continuous Delivery',
+    items: [
+      'CI/CD (GitHub Actions)', 'Docker', 'Vercel', 'Railway', 'Trunk-based / PRs',
+      'Preview Deploys', 'Storybook CI', 'Chromatic', 'Environment config',
+      'Observability', 'SDLC',
+    ],
+    appliedIn: ['excalibur', 'solidaria', 'fleetcontrol', 'sured', 'fid-seguros', 'siclo-idpay', 'bcs'],
+    methodologySlug: 'devops-entrega-continua',
+  },
+  {
+    id: 'ddd',
+    icon: 'ddd',
+    label: 'Domain-Driven Design',
+    items: [
+      'Bounded Contexts', 'Ubiquitous language', 'Context Mapping', 'Event Storming',
+      'BPMN 2.0', 'OpenAPI contracts', 'ER data model', 'Aggregates / Entities',
+      'Upstream / Downstream', 'Anti-Corruption Layer',
+    ],
+    appliedIn: ['fid-seguros', 'solidaria', 'siclo-idpay', 'sured', 'correos-chile', 'bbva', 'excalibur'],
+    methodologySlug: 'ddd',
+  },
+  {
+    id: 'data-driven',
+    icon: 'data',
+    label: 'Data-Driven Design',
+    items: [
+      'Measurable hypotheses', 'A/B Testing', 'Funnel analysis', 'North Star / KPIs',
+      'RICE + Trust/Inclusion', 'Opportunity Solution Tree', 'Event instrumentation',
+      'Cohorts', 'ER data model', 'Amplitude / PostHog',
+    ],
+    appliedIn: ['codesa', 'bbva', 'parking-ruedaz', 'solidaria', 'siclo-idpay', 'fleetcontrol', 'excalibur'],
+    methodologySlug: 'data-driven-design',
+  },
+  {
+    id: 'qa-asq',
+    icon: 'qa',
+    label: 'QA & ASQ',
+    items: [
+      'Playwright E2E', '@axe-core/playwright', 'jest-axe', 'Testing Library',
+      'Visual regression (Chromatic)', 'Manual a11y QA (NVDA/JAWS)',
+      'Acceptance criteria', 'Blocking CI gates', 'Lighthouse CI', 'Cross-browser',
+    ],
+    appliedIn: ['excalibur', 'fdn', 'lasalle', 'bcs', 'fleetcontrol', 'solidaria'],
+    methodologySlug: 'qa-asq',
+  },
 ]
 
 // ── Flagship — Correos Chile ─────────────────────────────────────────────────
@@ -157,12 +205,13 @@ export const FLAGSHIP = {
 // Fuente: CONTENT_COPY_STRATEGY.md §7 pregunta 5 (ya reconciliada). NO se agregan
 // los nombres no verificados del grid de v1 (Fingo, Powwi, Skandia, Mentu, …).
 export const INDUSTRIES: IndustryEntry[] = [
-  { icon: 'fintech', label: 'Fintech', clients: ['BBVA', 'Redeban', 'IDPay', 'Siclo', 'FID Seguros'] },
+  { icon: 'fintech', label: 'Fintech', clients: ['BBVA', 'Banco Caja Social (BCS)', 'Redeban', 'IDPay', 'Siclo', 'Codesa'] },
+  { icon: 'insurance', label: 'Insurance', clients: ['FID Seguros', 'Aseguradora Solidaria'] },
   { icon: 'govtech', label: 'GovTech', clients: ['FDN', 'Aportes en Línea', 'DNP-SINERGIA'] },
-  { icon: 'logistics', label: 'Logistics', clients: ['Correos de Chile'] },
+  { icon: 'logistics', label: 'Logistics', clients: ['Correos de Chile', 'FleetControl'] },
   { icon: 'edtech', label: 'EdTech', clients: ['Universidad de La Salle'] },
   { icon: 'health', label: 'Health', clients: ['Colsanitas'] },
-  { icon: 'gaming', label: 'Regulated gambling', clients: ['SuRed / Matrix Giros'] },
+  { icon: 'gaming', label: 'Regulated gambling', clients: ['SuRed / Matrix Giros (Baloto / Miloto)'] },
   { icon: 'parking', label: 'Mobility / Parking', clients: ['Parking International / Ruedaz'] },
 ]
 

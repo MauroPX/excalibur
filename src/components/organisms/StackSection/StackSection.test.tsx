@@ -24,7 +24,7 @@ describe('StackSection v2.0.0', () => {
     expect(screen.getByRole('heading', { name: /Mi stack/i })).toBeInTheDocument()
   })
 
-  it('CA-003: las 6 categorías reales se renderizan con su ícono y label', () => {
+  it('CA-003: todas las categorías reales se renderizan con su ícono y label', () => {
     const { container } = renderStack()
     for (const c of STACK_CATEGORIES) {
       expect(container.querySelector(`.ex-stack-section--${c.id}`)).toBeInTheDocument()
@@ -58,7 +58,7 @@ describe('StackSection v2.0.0', () => {
     expect(container.querySelector('.ex-stack-section__radar')).toHaveAttribute('aria-hidden', 'true')
     const table = container.querySelector('.sr-only table')
     expect(table).toBeInTheDocument()
-    expect(table!.querySelectorAll('tbody tr')).toHaveLength(6)
+    expect(table!.querySelectorAll('tbody tr')).toHaveLength(STACK_CATEGORIES.length)
   })
 
   it('axe: 0 violations', async () => {

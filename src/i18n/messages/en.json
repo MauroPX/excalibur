@@ -79,6 +79,7 @@
     "applyTableLabel": "Stack application by category",
     "applyTableCaption": "Number of cases where each stack category was applied",
     "appliedIn": "Applied in {count, plural, one {# case} other {# cases}}",
+    "seeInMethodology": "See in methodology →",
     "tableLabel": "Tech stack data",
     "tableCaption": "Technical skill levels",
     "columns": {

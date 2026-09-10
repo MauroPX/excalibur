@@ -79,6 +79,7 @@
     "applyTableLabel": "Aplicación del stack por categoría",
     "applyTableCaption": "Cantidad de casos en los que se aplicó cada categoría del stack",
     "appliedIn": "Aplicado en {count, plural, one {# caso} other {# casos}}",
+    "seeInMethodology": "Ver en metodología →",
     "tableLabel": "Datos del stack técnico",
     "tableCaption": "Niveles de habilidades técnicas",
     "columns": {

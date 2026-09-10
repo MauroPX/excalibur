@@ -3,6 +3,7 @@ import React from 'react'
 import { useTranslations } from 'next-intl'
 import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
+import { Link } from '@/i18n/navigation'
 import type { SvgIconProps } from '@mui/material/SvgIcon'
 import PaletteRounded from '@mui/icons-material/PaletteRounded'
 import AccessibilityNewRounded from '@mui/icons-material/AccessibilityNewRounded'
@@ -10,6 +11,10 @@ import SmartToyRounded from '@mui/icons-material/SmartToyRounded'
 import InsightsRounded from '@mui/icons-material/InsightsRounded'
 import SettingsSuggestRounded from '@mui/icons-material/SettingsSuggestRounded'
 import BarChartRounded from '@mui/icons-material/BarChartRounded'
+import RocketLaunchRounded from '@mui/icons-material/RocketLaunchRounded'
+import AccountTreeRounded from '@mui/icons-material/AccountTreeRounded'
+import QueryStatsRounded from '@mui/icons-material/QueryStatsRounded'
+import FactCheckRounded from '@mui/icons-material/FactCheckRounded'
 import {
   RadarChart, Radar, PolarGrid, PolarAngleAxis,
   PolarRadiusAxis, ResponsiveContainer, Tooltip,
@@ -26,6 +31,10 @@ const ICON: Record<StackIconKind, React.ElementType<SvgIconProps>> = {
   strategy: InsightsRounded,
   devops: SettingsSuggestRounded,
   analytics: BarChartRounded,
+  delivery: RocketLaunchRounded,
+  ddd: AccountTreeRounded,
+  data: QueryStatsRounded,
+  qa: FactCheckRounded,
 }
 
 export interface StackSectionProps {
@@ -147,6 +156,25 @@ export const StackSection: React.FC<StackSectionProps> = ({ categories, title })
                   </Box>
                 ))}
               </Box>
+              {c.methodologySlug && (
+                <Box
+                  component={Link}
+                  href={`/metodologia#${c.methodologySlug}`}
+                  className="ex-stack-section__method-link"
+                  sx={{
+                    display: 'inline-block',
+                    mt: 1,
+                    fontSize: '0.75rem',
+                    fontWeight: 600,
+                    color: 'var(--md-sys-color-primary)',
+                    textDecoration: 'none',
+                    '&:hover': { textDecoration: 'underline' },
+                    '&:focus-visible': { outline: '2px solid var(--md-sys-color-primary)', outlineOffset: '2px' },
+                  }}
+                >
+                  {t('seeInMethodology')}
+                </Box>
+              )}
             </Box>
             )
           })}

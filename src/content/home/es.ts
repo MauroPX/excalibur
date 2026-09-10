@@ -52,7 +52,9 @@ export const FAQ_ITEMS: FaqItem[] = [
 // método real — NO se le asigna un "nivel de dominio" (eso era dato fabricado en v2).
 // El radar grafica `appliedIn.length`: en cuántos casos reales (src/content/cases/**)
 // se aplicó esa categoría — un entero verificable, no un porcentaje inventado.
-export type StackIconKind = 'design' | 'a11y' | 'ai' | 'strategy' | 'devops' | 'analytics'
+export type StackIconKind =
+  | 'design' | 'a11y' | 'ai' | 'strategy' | 'devops' | 'analytics'
+  | 'delivery' | 'ddd' | 'data' | 'qa'
 
 export interface StackCategory {
   id: string
@@ -61,6 +63,8 @@ export interface StackCategory {
   items: string[]
   /** slugs de casos (client | work-test | meta) donde se evidencia esta categoría */
   appliedIn: string[]
+  /** ancla en /metodologia que define esta categoría (opcional) */
+  methodologySlug?: string
 }
 
 export const STACK_CATEGORIES: StackCategory[] = [
@@ -133,6 +137,54 @@ export const STACK_CATEGORIES: StackCategory[] = [
     ],
     appliedIn: ['codesa', 'solidaria', 'excalibur', 'bcs', 'fleetcontrol', 'sured', 'fid-seguros', 'parking-ruedaz'],
   },
+  {
+    id: 'devops',
+    icon: 'delivery',
+    label: 'DevOps & Entrega continua',
+    items: [
+      'CI/CD (GitHub Actions)', 'Docker', 'Vercel', 'Railway', 'Trunk-based / PRs',
+      'Preview Deploys', 'Storybook CI', 'Chromatic', 'Gestión de entornos',
+      'Observabilidad', 'SDLC',
+    ],
+    appliedIn: ['excalibur', 'solidaria', 'fleetcontrol', 'sured', 'fid-seguros', 'siclo-idpay', 'bcs'],
+    methodologySlug: 'devops-entrega-continua',
+  },
+  {
+    id: 'ddd',
+    icon: 'ddd',
+    label: 'Domain-Driven Design',
+    items: [
+      'Bounded Contexts', 'Lenguaje ubicuo', 'Context Mapping', 'Event Storming',
+      'BPMN 2.0', 'Contratos OpenAPI', 'Modelo de datos ER', 'Aggregates / Entities',
+      'Upstream / Downstream', 'Anti-Corruption Layer',
+    ],
+    appliedIn: ['fid-seguros', 'solidaria', 'siclo-idpay', 'sured', 'correos-chile', 'bbva', 'excalibur'],
+    methodologySlug: 'ddd',
+  },
+  {
+    id: 'data-driven',
+    icon: 'data',
+    label: 'Data-Driven Design',
+    items: [
+      'Hipótesis medibles', 'A/B Testing', 'Análisis de embudo', 'North Star / KPIs',
+      'RICE + Confianza/Inclusión', 'Opportunity Solution Tree', 'Instrumentación de eventos',
+      'Cohortes', 'Modelo de datos ER', 'Amplitude / PostHog',
+    ],
+    appliedIn: ['codesa', 'bbva', 'parking-ruedaz', 'solidaria', 'siclo-idpay', 'fleetcontrol', 'excalibur'],
+    methodologySlug: 'data-driven-design',
+  },
+  {
+    id: 'qa-asq',
+    icon: 'qa',
+    label: 'QA & ASQ',
+    items: [
+      'Playwright E2E', '@axe-core/playwright', 'jest-axe', 'Testing Library',
+      'Regresión visual (Chromatic)', 'QA de accesibilidad manual (NVDA/JAWS)',
+      'Criterios de aceptación', 'Gates de CI bloqueantes', 'Lighthouse CI', 'Cross-browser',
+    ],
+    appliedIn: ['excalibur', 'fdn', 'lasalle', 'bcs', 'fleetcontrol', 'solidaria'],
+    methodologySlug: 'qa-asq',
+  },
 ]
 
 // ── Flagship — Correos Chile ─────────────────────────────────────────────────
@@ -172,7 +224,7 @@ export const FLAGSHIP = {
 // Fuente: CONTENT_COPY_STRATEGY.md §7 pregunta 5 (ya reconciliada). NO se agregan
 // los nombres no verificados del grid de v1 (Fingo, Powwi, Skandia, Mentu, …).
 export type IndustryIconKind =
-  | 'fintech' | 'govtech' | 'logistics' | 'edtech' | 'health' | 'gaming' | 'parking'
+  | 'fintech' | 'insurance' | 'govtech' | 'logistics' | 'edtech' | 'health' | 'gaming' | 'parking'
 
 export interface IndustryEntry {
   icon: IndustryIconKind
@@ -180,13 +232,16 @@ export interface IndustryEntry {
   clients: string[]
 }
 
+// Cada `client` traza a un caso/prueba del repo o a la experiencia ya reconciliada
+// (CONTENT_COPY_STRATEGY.md §7). NO se agregan nombres no verificados del grid de v1.
 export const INDUSTRIES: IndustryEntry[] = [
-  { icon: 'fintech', label: 'Fintech', clients: ['BBVA', 'Redeban', 'IDPay', 'Siclo', 'FID Seguros'] },
+  { icon: 'fintech', label: 'Fintech', clients: ['BBVA', 'Banco Caja Social (BCS)', 'Redeban', 'IDPay', 'Siclo', 'Codesa'] },
+  { icon: 'insurance', label: 'Seguros', clients: ['FID Seguros', 'Aseguradora Solidaria'] },
   { icon: 'govtech', label: 'GovTech', clients: ['FDN', 'Aportes en Línea', 'DNP-SINERGIA'] },
-  { icon: 'logistics', label: 'Logística', clients: ['Correos de Chile'] },
+  { icon: 'logistics', label: 'Logística', clients: ['Correos de Chile', 'FleetControl'] },
   { icon: 'edtech', label: 'EdTech', clients: ['Universidad de La Salle'] },
   { icon: 'health', label: 'Salud', clients: ['Colsanitas'] },
-  { icon: 'gaming', label: 'Juegos regulados', clients: ['SuRed / Matrix Giros'] },
+  { icon: 'gaming', label: 'Juegos regulados', clients: ['SuRed / Matrix Giros (Baloto / Miloto)'] },
   { icon: 'parking', label: 'Movilidad / Parking', clients: ['Parking International / Ruedaz'] },
 ]
 

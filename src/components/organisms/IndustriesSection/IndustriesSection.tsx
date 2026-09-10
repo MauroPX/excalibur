@@ -11,11 +11,13 @@ import SchoolRounded from '@mui/icons-material/SchoolRounded'
 import LocalHospitalRounded from '@mui/icons-material/LocalHospitalRounded'
 import CasinoRounded from '@mui/icons-material/CasinoRounded'
 import LocalParkingRounded from '@mui/icons-material/LocalParkingRounded'
+import PolicyRounded from '@mui/icons-material/PolicyRounded'
 import type { IndustryEntry, IndustryIconKind } from '@/content/home'
 
 /** kind → icono `@mui/icons-material` (currentColor, sigue el token del título). */
 const ICON: Record<IndustryIconKind, React.ElementType<SvgIconProps>> = {
   fintech: AccountBalanceWalletRounded,
+  insurance: PolicyRounded,
   govtech: AccountBalanceRounded,
   logistics: LocalShippingRounded,
   edtech: SchoolRounded,
