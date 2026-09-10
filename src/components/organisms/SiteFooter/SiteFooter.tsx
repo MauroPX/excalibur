@@ -53,7 +53,7 @@ export const SiteFooter: React.FC = () => {
       >
         <Box sx={{ maxWidth: '420px' }}>
           <Typography sx={{ fontWeight: 800, fontSize: '0.95rem', color: 'var(--md-sys-color-on-surface)', mb: 0.5 }}>
-            MauricioGO
+            MauroGO
           </Typography>
           <Typography variant="body2" sx={{ color: 'var(--md-sys-color-on-surface-variant)', lineHeight: 1.6 }}>
             {t('tagline')}
@@ -116,7 +116,7 @@ export const SiteFooter: React.FC = () => {
         }}
       >
         <Typography variant="caption" sx={{ color: 'var(--md-sys-color-on-surface-variant)' }}>
-          © {year} Leonel Mauricio Gómez Ocampo. {t('rights')}
+          © {year} MauroGO. {t('rights')}
         </Typography>
       </Box>
     </Box>

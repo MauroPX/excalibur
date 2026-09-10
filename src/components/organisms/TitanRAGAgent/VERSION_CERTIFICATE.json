@@ -30,6 +30,6 @@
     "stories": "Claude Sonnet 4.6 (subagente FORGE)"
   },
   "dependents": [],
-  "firmado": "Leonel Mauricio Gomez Ocampo",
+  "firmado": "MauroGO",
   "notas": "TitanRAGAgent v2: interfaz conversacional con Claude Sonnet 4.6 API + fallback estatico. api_connected: false hasta conectar ANTHROPIC_API_KEY en produccion. SendIcon reemplazado por SVG inline para compatibilidad jsdom."
 }

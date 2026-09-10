@@ -76,7 +76,7 @@ export const SiteHeader: React.FC<SiteHeaderProps> = ({ currentLocale }) => {
             '&:focus-visible': { outline: '2px solid var(--md-sys-color-primary)', outlineOffset: '2px' },
           }}
         >
-          MauricioGO
+          MauroGO
         </Box>
 
         <Box

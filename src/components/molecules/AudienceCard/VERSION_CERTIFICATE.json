@@ -23,6 +23,6 @@
   "forge_seal_pass": 12,
   "dependents": ["EX-v2-ATOM-001", "EX-v2-ATOM-002", "EX-v2-ATOM-004"],
   "depended_by": ["EX-v2-ORG-002"],
-  "firmado": "Leonel Mauricio Gomez Ocampo",
+  "firmado": "MauroGO",
   "notas": "Usa Icon con prop icon:ElementType (no string). Blueprint backfill data-atomic aplicado."
 }

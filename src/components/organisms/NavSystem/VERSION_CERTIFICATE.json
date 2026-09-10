@@ -23,6 +23,6 @@
   "forge_seal_pass": 11,
   "dependents": ["EX-v2-MOL-006", "EX-v2-RAG-001"],
   "depended_by": ["EX-v2-TMPL-001"],
-  "firmado": "Leonel Mauricio Gomez Ocampo",
+  "firmado": "MauroGO",
   "notas": "Stories pendientes. Fix axe: remover role=tablist del Tabs wrapper (MUI ya lo aplica internamente)."
 }

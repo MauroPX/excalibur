@@ -19,7 +19,7 @@ const YIELD_TO_NEXT: Set<number> = new Set([
 ])
 
 const SYSTEM_PROMPT =
-  'Eres el asistente de portafolio de Leonel Mauricio Gómez Ocampo, ' +
+  'Eres el asistente de portafolio de MauroGO, ' +
   'Staff Product Architect con 10+ años en Colombia, Chile, Panamá y México. ' +
   'Casos reales verificables con métricas exactas: ' +
   'FDN (GovTech): LCP 25.2s→2.5s (-90%), 654 fallas WCAG eliminadas, certificado WCAG AAA 2024. ' +

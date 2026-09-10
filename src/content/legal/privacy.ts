@@ -32,7 +32,7 @@ const es: PrivacyContent = {
       heading: '1. Responsable del tratamiento',
       paragraphs: [
         [
-          'Leonel Mauricio Gómez Ocampo (en adelante, «el titular»), con correo de contacto ',
+          'MauroGO (en adelante, «el titular»), con correo de contacto ',
           { email: CONTACT },
           ', es el responsable del tratamiento de los datos personales recopilados a través de este sitio web (excalibur-six-chi.vercel.app).',
         ],
@@ -111,7 +111,7 @@ const en: PrivacyContent = {
       heading: '1. Data controller',
       paragraphs: [
         [
-          'Leonel Mauricio Gómez Ocampo (hereinafter, “the owner”), reachable at ',
+          'MauroGO (hereinafter, “the owner”), reachable at ',
           { email: CONTACT },
           ', is the controller of the personal data collected through this website (excalibur-six-chi.vercel.app).',
         ],

@@ -23,6 +23,6 @@
   "forge_seal_pass": 11,
   "dependents": ["EX-v2-MOL-002", "EX-v2-MOL-007"],
   "depended_by": ["EX-v2-TMPL-001"],
-  "firmado": "Leonel Mauricio Gomez Ocampo",
+  "firmado": "MauroGO",
   "notas": "Stories pendientes. Filtros multi-dimensional por síntoma y rol con aria-live=polite."
 }

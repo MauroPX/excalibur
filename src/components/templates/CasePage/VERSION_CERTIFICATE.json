@@ -35,6 +35,6 @@
     "EX-v2-MOL-002 ProjectCard (LOCKED) — el badge/caseType usa WorkTestCard/EvidenceLinks, nunca extiende ProjectCard",
     "El render v1.0.0 no se reescribió — se extendió con bloques condicionales; los 3 casos v1.0.0 renderizan idéntico (CA-018 verificado por test)"
   ],
-  "firmado": "Leonel Mauricio Gomez Ocampo",
+  "firmado": "MauroGO",
   "notas": "Contrato en types.ts. Client Component ('use client' — usa CasePageNav). CasePageNav v1.1.0 acepta nextCase.href (los work-tests navegan a /pruebas-tecnicas/). validateCaseData() revienta el build si un caso work-test|meta no declara objetivo/aprendizaje/footerDisclaimer (R-2). Fase D (contenido src/content/cases/*.ts) y Fase E (páginas) pendientes."
 }

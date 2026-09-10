@@ -24,6 +24,6 @@
   "forge_seal_pass": 12,
   "law_of_ux": ["Ley de Posicion Serial", "Ley de Hick (1 CTA)"],
   "dependents": [],
-  "firmado": "Leonel Mauricio Gomez Ocampo",
+  "firmado": "MauroGO",
   "notas": "Organismo Hero: H1 resultado + 1 CTA + MetricRow. Above the fold 320/768/1440. Sin strings hardcodeados (props-driven)."
 }

@@ -29,6 +29,6 @@
   "forge_seal_pass": 12,
   "dependents": [],
   "depended_by": ["EX-v2-TMPL-001"],
-  "firmado": "Leonel Mauricio Gomez Ocampo",
+  "firmado": "MauroGO",
   "notas": "RadarChart aria-hidden + Box(table).sr-only para a11y. 0 % de nivel: los ítems son chips sin métrica de dominio. El único número es el conteo real de casos por categoría."
 }

@@ -14,7 +14,7 @@ const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://excalibur-six-chi.
 const PERSON = {
   '@type': 'Person',
   '@id': `${SITE_URL}/#person`,
-  name: 'Leonel Mauricio Gómez Ocampo',
+  name: 'MauroGO',
   jobTitle: 'Staff Product Architect',
   url: SITE_URL,
   sameAs: [
@@ -51,7 +51,7 @@ export function SiteJsonLd({ locale = 'es' }: { locale?: string }) {
         '@type': 'WebSite',
         '@id': `${SITE_URL}/#website`,
         url: SITE_URL,
-        name: 'Mauricio Gómez · Staff Product Architect',
+        name: 'MauroGO · Staff Product Architect',
         inLanguage: locale === 'en' ? 'en' : 'es',
         publisher: { '@id': `${SITE_URL}/#person` },
       },

@@ -11,11 +11,11 @@ import type { FaqItem, StackCategory, IndustryEntry } from './es'
 export const FAQ_ITEMS: FaqItem[] = [
   {
     q: 'What does a Staff Product Architect do and how is it different from a senior designer?',
-    a: 'A Staff Product Architect designs the architecture of a whole product — Design System, accessibility governance and handoff to development — not just individual screens. Mauricio Gómez has operated in that role at BBVA, Correos Chile and FID Seguros, leading ecosystems of 400+ components.',
+    a: 'A Staff Product Architect designs the architecture of a whole product — Design System, accessibility governance and handoff to development — not just individual screens. MauroGO has operated in that role at BBVA, Correos Chile and FID Seguros, leading ecosystems of 400+ components.',
   },
   {
     q: 'What is TITAN v7.0?',
-    a: 'TITAN v7.0 is a multi-AI product orchestration framework, created by Mauricio Gómez, that automates design governance, WCAG compliance and handoff documentation across 6 product phases (M0–M5). It is compatible with Claude, ChatGPT, Gemini, Cursor, Windsurf and local models.',
+    a: 'TITAN v7.0 is a multi-AI product orchestration framework, created by MauroGO, that automates design governance, WCAG compliance and handoff documentation across 6 product phases (M0–M5). It is compatible with Claude, ChatGPT, Gemini, Cursor, Windsurf and local models.',
   },
   {
     q: 'What level of WCAG accessibility has he implemented?',
@@ -27,7 +27,7 @@ export const FAQ_ITEMS: FaqItem[] = [
   },
   {
     q: 'Which industries does he have experience in?',
-    a: 'Fintech (BBVA, Redeban, IDPay, Siclo, FID Seguros), GovTech (FDN, Aportes en Línea, DNP-SINERGIA), Logistics (Correos de Chile), EdTech (Universidad de La Salle), Health (Colsanitas), regulated gambling (SuRed/Matrix Giros) and Mobility/Parking (Parking International/Ruedaz).',
+    a: '11 verticals across 2013–2026: Fintech/Banking (BBVA, Redeban, SI-CLO/Finauro, IdPay, Acción Fiduciaria), Insurance (FID Seguros, OLD Mutual, Aseguradora Solidaria), regulated gambling (SuRed — Baloto/Miloto), GovTech (FDN, DNP–SINERGIA, PROCOLOMBIA, EAAB, MinTIC), Health (Colsanitas/Keralty, Fundación Santa Fe de Bogotá, Colegio Médico Colombiano), Logistics & Transport (Correos de Chile, Servientrega, Easyfly, Pinbus), Mobility/Parking (Parking International, Ruedaz), EdTech (Universidad de La Salle, Universidad de Antioquia, Javeriana, ADL Digital Labs), Media/Publishing (Casa Editorial El Tiempo), Energy (Ecopetrol) and Corporate Services/Legal (López & Asociados, Vulcan Studios).',
   },
   {
     q: 'How long does a Design System built from scratch with this process take?',

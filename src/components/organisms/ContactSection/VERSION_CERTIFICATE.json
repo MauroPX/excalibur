@@ -21,6 +21,6 @@
   "gate2_pass": true,
   "dependents": ["EX-v2-ATOM-001"],
   "depended_by": ["EX-v2-TMPL-001"],
-  "firmado": "Leonel Mauricio Gomez Ocampo",
+  "firmado": "MauroGO",
   "notas": "Stories pendientes. Fix TS: Button variant='filled' (no 'contained'). Formulario con validación inline y estado success."
 }
