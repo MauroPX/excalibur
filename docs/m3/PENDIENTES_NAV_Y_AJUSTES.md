@@ -18,7 +18,7 @@
 | ThemeToggle aria-label ES quemado | ✅ | → `themeToggle.*` i18n. |
 | +4 categorías Stack & métodos | ✅ | DevOps, Domain-Driven Design, Data-Driven Design, QA & ASQ — con `appliedIn` trazable + enlace "Ver en metodología →". |
 | +3 entradas /metodologia | ✅ | `devops-entrega-continua`, `data-driven-design`, `qa-asq` (DDD ya tenía 2). Notan el origen de TITAN. |
-| Industrias — proyectos faltantes | ✅ | Nueva industria **Seguros** (FID Seguros, Aseguradora Solidaria). Fintech += BCS, Codesa. Logística += FleetControl. Todo trazable a casos del repo. |
+| Industrias — proyectos faltantes | ✅ (corregido) | Reconstruido desde `docs/EXPERIENCIA_PORTAFOLIO_BASE.md` (SOLO experiencia real, no pruebas técnicas). 10 industrias; nuevas: **Seguros** (FID Seguros), **Energía** (Ecopetrol), **Media/Editorial** (El Tiempo). Se sacaron FleetControl/BCS/Codesa/Solidaria (son `/pruebas-tecnicas`). Commit `c940199`. |
 
 Verificación: `typecheck 0 · lint 0 · vitest 285/285 · e2e Playwright 36/36 · build 42 páginas`.
 
