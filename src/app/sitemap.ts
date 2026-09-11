@@ -1,8 +1,8 @@
 import type { MetadataRoute } from 'next'
 import { routing } from '@/i18n/routing'
 import { CLIENT_CASE_SLUGS, WORK_TEST_SLUGS } from '@/content/cases'
+import { SITE_URL } from '@/lib/site-url'
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://excalibur-six-chi.vercel.app'
 
 function localizedPaths(path: string) {
   return routing.locales.map((locale) => ({

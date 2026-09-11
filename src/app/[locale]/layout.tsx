@@ -12,13 +12,12 @@ import { SiteHeader } from '@/components/organisms/SiteHeader'
 import { SiteFooter } from '@/components/organisms/SiteFooter'
 import { ColorRolesHUD } from '@/components/organisms/ColorRolesHUD'
 import { SiteJsonLd } from '@/components/infra/JsonLd'
+import { SITE_URL } from '@/lib/site-url'
 import { routing, type AppLocale } from '@/i18n/routing'
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }))
 }
-
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://excalibur-six-chi.vercel.app'
 
 export async function generateMetadata({
   params,

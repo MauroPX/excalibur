@@ -9,7 +9,7 @@
  *  - <CollectionPageJsonLd> índices (/metodologia, /pruebas-tecnicas) — CollectionPage + ItemList
  *  - <CreativeWorkJsonLd>  cada caso / prueba técnica / meta-caso — CreativeWork
  */
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://excalibur-six-chi.vercel.app'
+import { SITE_URL } from '@/lib/site-url'
 
 const PERSON = {
   '@type': 'Person',
